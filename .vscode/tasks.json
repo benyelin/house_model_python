@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Import House Model Seed",
+      "type": "shell",
+      "command": "python3 import_house_model_seed.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Recalculate House Fundamentals",
+      "type": "shell",
+      "command": "python3 recalculate_house_fundamentals.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Show House National Environment Audit",
+      "type": "shell",
+      "command": "cat inputs/house_national_environment_audit.csv",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      }
+    },
+    {
+      "label": "Check Competitive House Districts",
+      "type": "shell",
+      "command": "python3 - <<'PY'\nimport pandas as pd\n\ndf = pd.read_csv('inputs/house_race_inputs.csv')\ndf['distance_to_50'] = (df['dem_win_probability'] - 0.5).abs()\ncols = [\n    'district_id',\n    'dem_candidate',\n    'gop_candidate',\n    'district_partisan_baseline_dem',\n    'district_environment_adjustment_dem',\n    'incumbency_adjustment_dem',\n    'fundamentals_margin_dem',\n    'dem_win_probability',\n]\nprint(df.sort_values('distance_to_50')[cols].head(30).to_string(index=False))\nPY",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      }
+    },
+    {
+      "label": "Commit and Push",
+      "type": "shell",
+      "command": "git status && git add . && git commit -m \"${input:commitMessage}\" && git push",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "commitMessage",
+      "type": "promptString",
+      "description": "Git commit message",
+      "default": "Update House model inputs and fundamentals"
+    }
+  ]
+}
