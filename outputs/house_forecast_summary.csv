@@ -1,0 +1,2 @@
+n_sims,days_out,expected_dem_seats,median_dem_seats,dem_majority_probability,majority_threshold,total_error_sd,national_error_sd,district_error_sd_floor,national_error_share,national_environment_margin,average_polling_weight,districts_with_polling
+20000,158,237.45635,236.0,0.78445,218,7.875,5.11875,5.9844818854684485,0.65,7.618333333333332,0.0,0

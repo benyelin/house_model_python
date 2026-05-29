@@ -10,6 +10,10 @@ OUTPUTS = Path("outputs")
 HOUSE_INPUTS = INPUTS / "house_race_inputs.csv"
 NATIONAL_ENV_AUDIT = INPUTS / "house_national_environment_audit.csv"
 
+HOUSE_RACE_STATS = OUTPUTS / "house_race_stats.csv"
+HOUSE_SEAT_DISTRIBUTION = OUTPUTS / "house_seat_distribution.csv"
+HOUSE_FORECAST_SUMMARY = OUTPUTS / "house_forecast_summary.csv"
+
 st.set_page_config(
     page_title="2026 House Forecast Dashboard",
     layout="wide",
@@ -102,6 +106,14 @@ def compact_district_label(row):
 df = read_csv_safe(HOUSE_INPUTS)
 env = read_csv_safe(NATIONAL_ENV_AUDIT)
 
+race_stats_output = read_csv_safe(HOUSE_RACE_STATS)
+seat_distribution_output = read_csv_safe(HOUSE_SEAT_DISTRIBUTION)
+forecast_summary_output = read_csv_safe(HOUSE_FORECAST_SUMMARY)
+
+# Prefer simulated race stats when available.
+if not race_stats_output.empty:
+    df = race_stats_output.copy()
+
 st.title("2026 House Forecast Dashboard")
 st.caption("First-pass House fundamentals model using district presidential margins, shared national environment, and incumbency flags.")
 
@@ -148,10 +160,16 @@ else:
 df["rating"] = df["dem_win_probability"].apply(race_rating_from_prob)
 df["distance_to_50"] = (df["dem_win_probability"] - 0.5).abs()
 
-# For now, this is a district-level probability sum, not a full correlated simulation.
-expected_dem_seats = df["dem_win_probability"].sum()
-median_like_dem_seats = int((df["dem_win_probability"] >= 0.5).sum())
-dem_control_odds_placeholder = np.nan
+# Prefer full simulation summary when available.
+if not forecast_summary_output.empty:
+    summary_row = forecast_summary_output.iloc[-1]
+    expected_dem_seats = as_float(summary_row.get("expected_dem_seats"))
+    median_like_dem_seats = as_float(summary_row.get("median_dem_seats"))
+    dem_majority_probability = as_float(summary_row.get("dem_majority_probability"))
+else:
+    expected_dem_seats = df["dem_win_probability"].sum()
+    median_like_dem_seats = int((df["dem_win_probability"] >= 0.5).sum())
+    dem_majority_probability = np.nan
 
 # -----------------------------
 # Tabs
@@ -175,8 +193,8 @@ with tab_overview:
     c1, c2, c3, c4, c5 = st.columns(5)
 
     c1.metric("Expected Dem Seats", fmt_num(expected_dem_seats, 2))
-    c2.metric("Districts D > 50%", fmt_num(median_like_dem_seats, 0))
-    c3.metric("Majority Threshold", "218")
+    c2.metric("Median Dem Seats", fmt_num(median_like_dem_seats, 0))
+    c3.metric("Dem Majority Odds", fmt_pct(dem_majority_probability))
     c4.metric(
         "National Environment",
         fmt_margin(df["national_environment_margin_dem"].dropna().iloc[0])
@@ -186,9 +204,25 @@ with tab_overview:
     c5.metric("Districts", fmt_num(len(df), 0))
 
     st.caption(
-        "Note: expected seats are currently the sum of district win probabilities. "
-        "This is not yet a correlated House simulation."
+        "Seat totals now come from the House simulation engine when outputs are available."
     )
+
+    st.divider()
+
+    if not seat_distribution_output.empty:
+        st.subheader("Simulated Seat Distribution")
+        fig_seats = px.bar(
+            seat_distribution_output,
+            x="dem_seats",
+            y="probability",
+            labels={
+                "dem_seats": "Democratic seats",
+                "probability": "Probability",
+            },
+            title="House Democratic Seat Distribution",
+        )
+        fig_seats.update_layout(yaxis_tickformat=".0%")
+        st.plotly_chart(fig_seats, use_container_width=True)
 
     st.divider()
 

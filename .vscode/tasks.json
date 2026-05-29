@@ -55,6 +55,28 @@
         "panel": "shared",
         "clear": false
       }
+    },
+    {
+      "label": "Run House Full Pipeline",
+      "type": "shell",
+      "command": "python3 run_house_full_pipeline.py --sims ${input:houseSimulationCount}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Run House Full Pipeline with Seed Import",
+      "type": "shell",
+      "command": "python3 run_house_full_pipeline.py --import-seed --sims ${input:houseSimulationCount}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     }
   ],
   "inputs": [
@@ -63,6 +85,12 @@
       "type": "promptString",
       "description": "Git commit message",
       "default": "Update House model inputs and fundamentals"
+    },
+    {
+      "id": "houseSimulationCount",
+      "type": "promptString",
+      "description": "Number of House simulations",
+      "default": "20000"
     }
   ]
 }
