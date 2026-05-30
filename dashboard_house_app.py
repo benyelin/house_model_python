@@ -95,9 +95,54 @@ def normalize_bool_series(s):
 
 
 def compact_district_label(row):
-    state = str(row.get("state", "")).strip()
+    state = str(row.get("state", "")).strip().upper()
     district = str(row.get("district", "")).strip()
+    return normalize_district_id(state, district)
+
+
+AT_LARGE_STATES = {
+    "AK", "DE", "ND", "SD", "VT", "WY"
+}
+
+
+def normalize_district_value(state, district):
+    state = str(state).strip().upper()
+    district = str(district).strip().upper()
+
+    if district in ["", "NAN", "NONE"]:
+        return ""
+
+    if state in AT_LARGE_STATES and district in ["1", "01", "AL", "AT-LARGE", "AT LARGE", "AT_LARGE"]:
+        return "AL"
+
+    # Normalize numbered districts like 01 -> 1.
+    try:
+        if district.isdigit():
+            return str(int(district))
+    except Exception:
+        pass
+
+    return district
+
+
+def normalize_district_id(state, district):
+    state = str(state).strip().upper()
+    district = normalize_district_value(state, district)
+
+    if state == "" or district == "":
+        return ""
+
     return f"{state}-{district}"
+
+
+def normalize_existing_district_id(raw_district_id):
+    raw = str(raw_district_id).strip().upper()
+
+    if "-" not in raw:
+        return raw
+
+    state, district = raw.split("-", 1)
+    return normalize_district_id(state, district)
 
 
 # -----------------------------
@@ -128,6 +173,11 @@ if "state" in df.columns:
 
 if "district_id" not in df.columns:
     df["district_id"] = df.apply(compact_district_label, axis=1)
+else:
+    df["district_id"] = df.apply(
+        lambda row: normalize_district_id(row.get("state", ""), row.get("district", "")),
+        axis=1
+    )
 
 for col in [
     "pres_2024_margin_dem",
@@ -174,11 +224,12 @@ else:
 # -----------------------------
 # Tabs
 # -----------------------------
-tab_overview, tab_ratings, tab_drivers, tab_diagnostics = st.tabs(
+tab_overview, tab_ratings, tab_drivers, tab_manual_polls, tab_diagnostics = st.tabs(
     [
         "Overview",
         "District Ratings",
         "Model Drivers",
+        "Manual Poll Entry",
         "Diagnostics",
     ]
 )
@@ -656,3 +707,322 @@ with tab_diagnostics:
 
     with st.expander("Raw House race inputs", expanded=False):
         st.dataframe(df, use_container_width=True, hide_index=True)
+
+# -----------------------------
+# Manual Poll Entry
+# -----------------------------
+with tab_manual_polls:
+    st.subheader("Manual House Poll Entry")
+
+    st.caption(
+        "Add, edit, or delete manually entered House district polls. "
+        "Polls are saved to inputs/house_manual_polls.csv. "
+        "Later these will feed the House Bayesian polling blend."
+    )
+
+    manual_poll_path = INPUTS / "house_manual_polls.csv"
+
+    house_poll_columns = [
+        "race",
+        "state",
+        "district",
+        "district_id",
+        "pollster",
+        "pollster_grade",
+        "house_effect_dem",
+        "start_date",
+        "end_date",
+        "sample_size",
+        "sample_type",
+        "dem_candidate",
+        "gop_candidate",
+        "ind_candidate",
+        "other_candidate",
+        "dem_pct",
+        "gop_pct",
+        "ind_pct",
+        "other_pct",
+        "undecided_pct",
+        "notes",
+    ]
+
+    numeric_poll_columns = [
+        "house_effect_dem",
+        "sample_size",
+        "dem_pct",
+        "gop_pct",
+        "ind_pct",
+        "other_pct",
+        "undecided_pct",
+    ]
+
+    existing_house_polls = read_csv_safe(manual_poll_path)
+
+    if existing_house_polls.empty:
+        existing_house_polls = pd.DataFrame(columns=house_poll_columns)
+
+    for col in house_poll_columns:
+        if col not in existing_house_polls.columns:
+            existing_house_polls[col] = ""
+
+    existing_house_polls = existing_house_polls[house_poll_columns].copy()
+
+    for col in numeric_poll_columns:
+        if col in existing_house_polls.columns:
+            existing_house_polls[col] = pd.to_numeric(
+                existing_house_polls[col],
+                errors="coerce"
+            )
+
+    st.markdown("### Edit or Delete Existing Polls")
+
+    st.caption(
+        "Edit cells directly in the table. To delete a poll, check the Delete box. "
+        "Then click Save Edits / Delete Marked Polls."
+    )
+
+    editable = existing_house_polls.copy()
+    editable.insert(0, "delete", False)
+    editable.insert(1, "row_id", range(1, len(editable) + 1))
+
+    edited = st.data_editor(
+        editable,
+        use_container_width=True,
+        hide_index=True,
+        num_rows="fixed",
+        key="house_manual_poll_editor",
+        column_config={
+            "delete": st.column_config.CheckboxColumn(
+                "Delete",
+                help="Check this box and click Save Edits / Delete Marked Polls to delete the row.",
+                default=False,
+            ),
+            "row_id": st.column_config.NumberColumn(
+                "Row",
+                disabled=True,
+            ),
+            "pollster_grade": st.column_config.SelectboxColumn(
+                "Pollster grade",
+                options=["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "Unknown"],
+            ),
+            "sample_type": st.column_config.SelectboxColumn(
+                "Sample type",
+                options=["LV", "RV", "A", "Other"],
+            ),
+            "house_effect_dem": st.column_config.NumberColumn(
+                "House effect Dem",
+                step=0.5,
+                format="%.1f",
+            ),
+            "sample_size": st.column_config.NumberColumn(
+                "Sample size",
+                step=1,
+                min_value=1,
+            ),
+            "dem_pct": st.column_config.NumberColumn("Dem %", step=0.1, format="%.1f"),
+            "gop_pct": st.column_config.NumberColumn("GOP %", step=0.1, format="%.1f"),
+            "ind_pct": st.column_config.NumberColumn("Independent %", step=0.1, format="%.1f"),
+            "other_pct": st.column_config.NumberColumn("Other %", step=0.1, format="%.1f"),
+            "undecided_pct": st.column_config.NumberColumn("Undecided %", step=0.1, format="%.1f"),
+        },
+    )
+
+    save_edits = st.button(
+        "Save Edits / Delete Marked Polls",
+        type="primary",
+        key="save_house_manual_poll_edits",
+    )
+
+    if save_edits:
+        updated = edited.copy()
+
+        if "delete" in updated.columns:
+            updated = updated[updated["delete"] != True]
+
+        for col in ["delete", "row_id"]:
+            if col in updated.columns:
+                updated = updated.drop(columns=[col])
+
+        for col in house_poll_columns:
+            if col not in updated.columns:
+                updated[col] = ""
+
+        updated = updated[house_poll_columns].copy()
+
+        updated["state"] = updated["state"].fillna("").astype(str).str.strip().str.upper()
+        updated["district"] = updated.apply(
+            lambda row: normalize_district_value(row.get("state", ""), row.get("district", "")),
+            axis=1
+        )
+        updated["district_id"] = updated.apply(
+            lambda row: normalize_district_id(row.get("state", ""), row.get("district", "")),
+            axis=1
+        )
+
+        for col in numeric_poll_columns:
+            updated[col] = pd.to_numeric(
+                updated[col],
+                errors="coerce"
+            ).fillna(0.0)
+
+        # Remove fully blank rows.
+        nonblank_mask = updated[["race", "state", "district", "pollster", "dem_candidate", "gop_candidate"]].fillna("").astype(str).agg(
+            lambda row: any(x.strip() for x in row),
+            axis=1,
+        )
+        updated = updated[nonblank_mask].copy()
+
+        manual_poll_path.parent.mkdir(parents=True, exist_ok=True)
+
+        if manual_poll_path.exists():
+            backup_path = manual_poll_path.with_suffix(".csv.bak")
+            existing_house_polls.to_csv(backup_path, index=False)
+
+        updated.to_csv(manual_poll_path, index=False)
+
+        st.success(
+            f"Saved {len(updated)} House manual polls to {manual_poll_path}. "
+            "Run the House pipeline after poll ingestion is connected."
+        )
+
+        st.dataframe(updated, use_container_width=True, hide_index=True)
+
+    st.divider()
+
+    st.markdown("### Add New District Poll")
+
+    available_districts = []
+    district_candidate_lookup = {}
+
+    if "district_id" in df.columns:
+        available_districts = sorted(df["district_id"].dropna().astype(str).unique().tolist())
+
+        for _, row in df.iterrows():
+            did = str(row.get("district_id", "")).strip()
+            if did:
+                district_candidate_lookup[did] = {
+                    "state": str(row.get("state", "")).strip().upper(),
+                    "district": str(row.get("district", "")).strip(),
+                    "dem_candidate": str(row.get("dem_candidate", "") if pd.notna(row.get("dem_candidate", "")) else "").strip(),
+                    "gop_candidate": str(row.get("gop_candidate", "") if pd.notna(row.get("gop_candidate", "")) else "").strip(),
+                }
+
+    with st.form("house_manual_poll_entry_form"):
+        c1, c2, c3 = st.columns(3)
+
+        with c1:
+            if available_districts:
+                selected_district = st.selectbox(
+                    "District",
+                    available_districts,
+                    index=0,
+                    help="District ID from house_race_inputs.csv."
+                )
+                selected_info = district_candidate_lookup.get(selected_district, {})
+                default_state = selected_info.get("state", "")
+                default_district_number = selected_info.get("district", "")
+                default_dem_candidate = selected_info.get("dem_candidate", "")
+                default_gop_candidate = selected_info.get("gop_candidate", "")
+            else:
+                selected_district = ""
+                default_state = ""
+                default_district_number = ""
+                default_dem_candidate = ""
+                default_gop_candidate = ""
+
+            state = st.text_input("State abbreviation", value=default_state)
+            district_number = st.text_input("District number", value=default_district_number)
+            district_id = st.text_input(
+                "District ID",
+                value=selected_district or (state.strip().upper() + "-" + district_number.strip()),
+            )
+            race = st.text_input(
+                "Race",
+                value=(district_id + " House").strip() if district_id else "",
+            )
+            pollster = st.text_input("Pollster", value="")
+            pollster_grade = st.selectbox(
+                "Pollster grade",
+                ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "Unknown"],
+                index=4,
+            )
+            house_effect_dem = st.number_input(
+                "House effect Dem",
+                value=0.0,
+                step=0.5,
+                help="Positive means pollster is Dem-leaning; this amount is subtracted from the poll margin.",
+            )
+
+        with c2:
+            start_date = st.date_input("Start date", key="house_poll_start_date")
+            end_date = st.date_input("End date", key="house_poll_end_date")
+            sample_size = st.number_input("Sample size", min_value=1, value=500, step=1)
+            sample_type = st.selectbox("Sample type", ["LV", "RV", "A", "Other"], index=0)
+            dem_candidate = st.text_input("Dem candidate", value=default_dem_candidate)
+            gop_candidate = st.text_input("GOP candidate", value=default_gop_candidate)
+
+        with c3:
+            ind_candidate = st.text_input("Independent candidate", value="")
+            other_candidate = st.text_input("Other candidate", value="")
+            dem_pct = st.number_input("Dem %", value=0.0, step=0.1)
+            gop_pct = st.number_input("GOP %", value=0.0, step=0.1)
+            ind_pct = st.number_input("Independent %", value=0.0, step=0.1)
+            other_pct = st.number_input("Other %", value=0.0, step=0.1)
+            undecided_pct = st.number_input("Undecided %", value=0.0, step=0.1)
+
+        notes = st.text_area("Notes", value="")
+
+        submitted = st.form_submit_button("Save New House Poll")
+
+        if submitted:
+            clean_state = state.strip().upper()
+            clean_district = normalize_district_value(clean_state, district_number)
+            clean_district_id = normalize_district_id(clean_state, clean_district)
+
+            new_row = {
+                "race": race,
+                "state": clean_state,
+                "district": clean_district,
+                "district_id": clean_district_id,
+                "pollster": pollster,
+                "pollster_grade": pollster_grade,
+                "house_effect_dem": house_effect_dem,
+                "start_date": start_date.isoformat(),
+                "end_date": end_date.isoformat(),
+                "sample_size": sample_size,
+                "sample_type": sample_type,
+                "dem_candidate": dem_candidate,
+                "gop_candidate": gop_candidate,
+                "ind_candidate": ind_candidate,
+                "other_candidate": other_candidate,
+                "dem_pct": dem_pct,
+                "gop_pct": gop_pct,
+                "ind_pct": ind_pct,
+                "other_pct": other_pct,
+                "undecided_pct": undecided_pct,
+                "notes": notes,
+            }
+
+            updated = pd.concat(
+                [
+                    existing_house_polls,
+                    pd.DataFrame([new_row])
+                ],
+                ignore_index=True
+            )
+
+            manual_poll_path.parent.mkdir(parents=True, exist_ok=True)
+            updated.to_csv(manual_poll_path, index=False)
+
+            st.success(f"Saved new House poll to {manual_poll_path}.")
+            st.dataframe(updated.tail(10), use_container_width=True, hide_index=True)
+
+    st.divider()
+
+    st.markdown("### Next Step")
+
+    st.code("python3 run_house_full_pipeline.py", language="bash")
+
+    st.caption(
+        "Poll ingestion is the next infrastructure step. For now, this tab creates and manages the poll CSV."
+    )
