@@ -467,6 +467,9 @@ with tab_drivers:
                 "District type": row.get("district_type", ""),
                 "District baseline": fmt_margin(row.get("district_partisan_baseline_dem")),
                 "Elasticity": fmt_num(row.get("district_elasticity"), 2),
+                "Type base elastic.": fmt_num(row.get("district_type_elasticity_base"), 2),
+                "Baseline elastic adj.": fmt_num(row.get("partisan_baseline_elasticity_adjustment"), 2),
+                "Region elastic adj.": fmt_num(row.get("region_elasticity_adjustment"), 2),
                 "Nat'l env. effect": fmt_margin(row.get("district_environment_adjustment_dem")),
                 "State env.": fmt_margin(row.get("state_environment_adjustment_dem")),
                 "Incumbency": fmt_margin(row.get("incumbency_adjustment_dem")),
@@ -549,6 +552,33 @@ with tab_diagnostics:
     for label, counts in group_rows:
         with st.expander(f"{label} group counts", expanded=False):
             st.dataframe(counts, use_container_width=True, hide_index=True)
+
+    st.divider()
+
+    st.subheader("Elasticity Diagnostics")
+
+    if "district_elasticity" in df.columns:
+        e_left, e_right = st.columns(2)
+
+        with e_left:
+            elastic_by_type = (
+                df.groupby("district_type")["district_elasticity"]
+                .agg(["count", "mean", "min", "max"])
+                .round(3)
+                .reset_index()
+            )
+            st.markdown("**By District Type**")
+            st.dataframe(elastic_by_type, use_container_width=True, hide_index=True)
+
+        with e_right:
+            elastic_by_region = (
+                df.groupby("region")["district_elasticity"]
+                .agg(["count", "mean", "min", "max"])
+                .round(3)
+                .reset_index()
+            )
+            st.markdown("**By Region**")
+            st.dataframe(elastic_by_region, use_container_width=True, hide_index=True)
 
     st.divider()
 

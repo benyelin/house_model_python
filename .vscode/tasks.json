@@ -77,6 +77,17 @@
         "panel": "shared",
         "clear": true
       }
+    },
+    {
+      "label": "Update House Elasticity",
+      "type": "shell",
+      "command": "python3 update_house_elasticity.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     }
   ],
   "inputs": [

@@ -22,6 +22,7 @@ def main():
     if args.import_seed:
         run([py, "import_house_model_seed.py"])
 
+    run([py, "update_house_elasticity.py"])
     run([py, "recalculate_house_fundamentals.py"])
     run([py, "run_house_model.py", "--sims", str(args.sims)])
 
