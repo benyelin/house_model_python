@@ -21,7 +21,13 @@ class HouseModelConfig:
     # Error structure. House races are more numerous and more correlated
     # through national environment than individual candidate effects.
     total_error_sd: float = 7.5
-    national_error_share: float = 0.65
+    national_error_share: float = 0.55
+
+    # Grouped correlated error terms.
+    # These are additive margin errors shared by districts in the same group.
+    state_error_sd: float = 1.75
+    region_error_sd: float = 1.25
+    district_type_error_sd: float = 1.00
 
     # Logistic probability scale for pre-simulation district probability.
     probability_scale: float = 6.0
@@ -115,6 +121,7 @@ def prepare_house_table(df, days_out, config):
         "polling_active",
         "district_partisan_baseline_dem",
         "district_environment_adjustment_dem",
+        "state_environment_adjustment_dem",
         "incumbency_adjustment_dem",
         "candidate_quality_adjustment_dem",
         "special_adjustment_dem",
@@ -187,11 +194,41 @@ def prepare_house_table(df, days_out, config):
         * (1.0 - 0.25 * out["bayesian_polling_weight"])
     )
 
+    for col, default in [
+        ("state_error_group", None),
+        ("region_error_group", "Unknown Region"),
+        ("district_type_error_group", "Mixed"),
+        ("region", "Unknown Region"),
+        ("district_type", "Mixed"),
+    ]:
+        if col not in out.columns:
+            out[col] = default
+
+    out["state_error_group"] = out["state_error_group"].fillna(out["state"]).astype(str).str.strip().str.upper()
+    out["region_error_group"] = out["region_error_group"].fillna(out["region"]).astype(str).str.strip()
+    out["district_type_error_group"] = out["district_type_error_group"].fillna(out["district_type"]).astype(str).str.strip()
+
     out["pre_sim_dem_win_probability"] = 1 / (
         1 + np.exp(-out["model_margin_dem"] / config.probability_scale)
     )
 
     return out
+
+
+def draw_group_errors(rng, groups, n_sims, sd):
+    """
+    Returns one error draw per district based on district group labels.
+    """
+    labels = pd.Series(groups).fillna("Unknown").astype(str)
+    unique_groups = sorted(labels.unique().tolist())
+
+    group_draws = {
+        group: rng.normal(0.0, sd, size=n_sims)
+        for group in unique_groups
+    }
+
+    arr = np.column_stack([group_draws[group] for group in labels])
+    return arr
 
 
 def run_simulation(race_table, days_out, config):
@@ -210,12 +247,6 @@ def run_simulation(race_table, days_out, config):
         total_sd *= 0.80
 
     national_sd = total_sd * config.national_error_share
-    district_sd_floor = total_sd * np.sqrt(1 - config.national_error_share ** 2)
-
-    district_sd = np.maximum(
-        race_table["district_posterior_sd"].to_numpy(dtype=float),
-        district_sd_floor,
-    )
 
     base_margins = race_table["model_margin_dem"].to_numpy(dtype=float).reshape(1, n_districts)
 
@@ -225,13 +256,55 @@ def run_simulation(race_table, days_out, config):
         size=(config.n_sims, 1),
     )
 
+    state_error = draw_group_errors(
+        rng,
+        race_table["state_error_group"],
+        config.n_sims,
+        config.state_error_sd,
+    )
+
+    region_error = draw_group_errors(
+        rng,
+        race_table["region_error_group"],
+        config.n_sims,
+        config.region_error_sd,
+    )
+
+    district_type_error = draw_group_errors(
+        rng,
+        race_table["district_type_error_group"],
+        config.n_sims,
+        config.district_type_error_sd,
+    )
+
+    # Keep enough district-specific error so the grouped terms do not make
+    # all districts in a group move unrealistically in lockstep.
+    grouped_variance = (
+        national_sd ** 2
+        + config.state_error_sd ** 2
+        + config.region_error_sd ** 2
+        + config.district_type_error_sd ** 2
+    )
+
+    remaining_sd = np.sqrt(max(total_sd ** 2 - grouped_variance, 2.5 ** 2))
+
+    district_posterior_sd = race_table["district_posterior_sd"].to_numpy(dtype=float)
+    district_specific_sd = np.maximum(district_posterior_sd, remaining_sd)
+
     district_error = rng.normal(
         0.0,
-        district_sd.reshape(1, n_districts),
+        district_specific_sd.reshape(1, n_districts),
         size=(config.n_sims, n_districts),
     )
 
-    simulated_margins = base_margins + national_error + district_error
+    simulated_margins = (
+        base_margins
+        + national_error
+        + state_error
+        + region_error
+        + district_type_error
+        + district_error
+    )
 
     dem_wins = simulated_margins > 0
     dem_seats = dem_wins.sum(axis=1)
@@ -262,7 +335,10 @@ def run_simulation(race_table, days_out, config):
         "majority_threshold": config.majority_threshold,
         "total_error_sd": total_sd,
         "national_error_sd": national_sd,
-        "district_error_sd_floor": district_sd_floor,
+        "state_error_sd": config.state_error_sd,
+        "region_error_sd": config.region_error_sd,
+        "district_type_error_sd": config.district_type_error_sd,
+        "district_specific_error_sd_floor": remaining_sd,
         "national_error_share": config.national_error_share,
         "national_environment_margin": (
             float(race_table["national_environment_margin_dem"].dropna().iloc[0])
@@ -272,6 +348,9 @@ def run_simulation(race_table, days_out, config):
         ),
         "average_polling_weight": float(race_table["bayesian_polling_weight"].mean()),
         "districts_with_polling": int((race_table["bayesian_polling_weight"] > 0).sum()),
+        "state_error_groups": int(race_table["state_error_group"].nunique()),
+        "region_error_groups": int(race_table["region_error_group"].nunique()),
+        "district_type_error_groups": int(race_table["district_type_error_group"].nunique()),
     }
 
     simulation_draws = pd.DataFrame({

@@ -21,6 +21,12 @@ EXPECTED_COLUMNS = [
     "GOP Candidate",
 ]
 
+OPTIONAL_COLUMNS = [
+    "Region",
+    "District Type",
+    "State Environment Adjustment",
+]
+
 
 def find_workbook_path():
     for path in POSSIBLE_PATHS:
@@ -103,6 +109,55 @@ def normalize_incumbent_party(value):
     return s
 
 
+def normalize_region(value):
+    s = clean_text(value)
+
+    if s == "":
+        return "Unknown Region"
+
+    aliases = {
+        "northeast": "Northeast",
+        "mid-atlantic": "Mid-Atlantic",
+        "mid atlantic": "Mid-Atlantic",
+        "deep south": "Deep South",
+        "middle south": "Middle South",
+        "urban south": "Urban South",
+        "appalachia": "Appalachia",
+        "midwest": "Midwest",
+        "great plains": "Great Plains",
+        "mountain west": "Mountain West",
+        "pacific": "Pacific",
+        "northwest": "Northwest",
+    }
+
+    key = s.strip().lower()
+    return aliases.get(key, s.strip())
+
+
+def normalize_district_type(value):
+    s = clean_text(value)
+
+    if s == "":
+        return "Mixed"
+
+    aliases = {
+        "urban": "Urban",
+        "suburban": "Suburban",
+        "exurban": "Exurban",
+        "rural": "Rural",
+        "mixed": "Mixed",
+    }
+
+    key = s.strip().lower()
+    return aliases.get(key, s.strip())
+
+
+def optional_cell(ws, row, col_index, column_name):
+    if column_name not in col_index:
+        return None
+    return ws.cell(row, col_index[column_name]).value
+
+
 def cell_is_italic(cell):
     try:
         return bool(cell.font and cell.font.italic)
@@ -132,6 +187,13 @@ def main():
         )
 
     col_index = {name: headers.index(name) + 1 for name in headers}
+
+    optional_found = [c for c in OPTIONAL_COLUMNS if c in headers]
+    optional_missing = [c for c in OPTIONAL_COLUMNS if c not in headers]
+
+    print("Optional columns found:", ", ".join(optional_found) if optional_found else "None")
+    if optional_missing:
+        print("Optional columns missing:", ", ".join(optional_missing))
 
     rows = []
 
@@ -177,11 +239,26 @@ def main():
             ws.cell(r, col_index["GenBallot Adjusted Margin"]).value
         )
 
+        region = normalize_region(optional_cell(ws, r, col_index, "Region"))
+        district_type = normalize_district_type(optional_cell(ws, r, col_index, "District Type"))
+        state_environment_adjustment_dem = parse_margin(
+            optional_cell(ws, r, col_index, "State Environment Adjustment")
+        )
+        if state_environment_adjustment_dem is None:
+            state_environment_adjustment_dem = 0.0
+
         rows.append(
             {
                 "state": state,
                 "district": district,
                 "district_id": district_id,
+
+                "region": region,
+                "district_type": district_type,
+                "state_error_group": state,
+                "region_error_group": region,
+                "district_type_error_group": district_type,
+                "state_environment_adjustment_dem": state_environment_adjustment_dem,
 
                 "incumbent_raw": incumbent_raw,
                 "incumbent_party": incumbent_party,
@@ -246,6 +323,9 @@ def main():
             "district_id",
             "incumbent_raw",
             "incumbent_party",
+            "region",
+            "district_type",
+            "state_environment_adjustment_dem",
             "dem_candidate",
             "gop_candidate",
             "dem_candidate_italic",

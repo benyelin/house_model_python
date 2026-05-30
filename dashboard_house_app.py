@@ -420,8 +420,11 @@ with tab_ratings:
                 "GOP incumbent": bool(row.get("gop_candidate_is_incumbent_bool", False)),
                 "Dem odds": fmt_pct(row.get("dem_win_probability")),
                 "Model margin": fmt_margin(row.get("model_margin_dem")),
+                "Region": row.get("region", ""),
+                "District type": row.get("district_type", ""),
                 "Baseline": fmt_margin(row.get("district_partisan_baseline_dem")),
                 "National effect": fmt_margin(row.get("district_environment_adjustment_dem")),
+                "State env.": fmt_margin(row.get("state_environment_adjustment_dem")),
                 "Incumbency": fmt_margin(row.get("incumbency_adjustment_dem")),
             }
         )
@@ -460,9 +463,12 @@ with tab_drivers:
                 "GOP candidate": row.get("gop_candidate", ""),
                 "2024 pres. margin": fmt_margin(row.get("pres_2024_margin_dem")),
                 "2020 pres. margin": fmt_margin(row.get("pres_2020_margin_dem")),
+                "Region": row.get("region", ""),
+                "District type": row.get("district_type", ""),
                 "District baseline": fmt_margin(row.get("district_partisan_baseline_dem")),
                 "Elasticity": fmt_num(row.get("district_elasticity"), 2),
                 "Nat'l env. effect": fmt_margin(row.get("district_environment_adjustment_dem")),
+                "State env.": fmt_margin(row.get("state_environment_adjustment_dem")),
                 "Incumbency": fmt_margin(row.get("incumbency_adjustment_dem")),
                 "Candidate quality": fmt_margin(row.get("candidate_quality_adjustment_dem")),
                 "Special adj.": fmt_margin(row.get("special_adjustment_dem")),
@@ -482,7 +488,7 @@ with tab_drivers:
 
             `district_partisan_baseline_dem = 0.70 × 2024 presidential margin + 0.30 × 2020 presidential margin`
 
-            `fundamentals_margin_dem = district baseline + national environment × district elasticity + incumbency + candidate quality + special adjustment`
+            `fundamentals_margin_dem = district baseline + national environment × district elasticity + state environment adjustment + incumbency + candidate quality + special adjustment`
 
             The current win probability is a simple logistic conversion of model margin. A full correlated House simulation has not been added yet.
             """
@@ -504,6 +510,45 @@ with tab_diagnostics:
     c2.metric("Missing baselines", fmt_num(df["district_partisan_baseline_dem"].isna().sum(), 0))
     c3.metric("Dem incumbents detected", fmt_num(df["dem_candidate_is_incumbent_bool"].sum(), 0))
     c4.metric("GOP incumbents detected", fmt_num(df["gop_candidate_is_incumbent_bool"].sum(), 0))
+
+    st.divider()
+
+    st.subheader("Simulation Error Structure")
+
+    if not forecast_summary_output.empty:
+        srow = forecast_summary_output.iloc[-1]
+        e1, e2, e3, e4, e5 = st.columns(5)
+        e1.metric("National Error SD", fmt_num(srow.get("national_error_sd"), 2))
+        e2.metric("State Error SD", fmt_num(srow.get("state_error_sd"), 2))
+        e3.metric("Region Error SD", fmt_num(srow.get("region_error_sd"), 2))
+        e4.metric("Type Error SD", fmt_num(srow.get("district_type_error_sd"), 2))
+        e5.metric("District Floor SD", fmt_num(srow.get("district_specific_error_sd_floor"), 2))
+
+        g1, g2, g3 = st.columns(3)
+        g1.metric("State Groups", fmt_num(srow.get("state_error_groups"), 0))
+        g2.metric("Region Groups", fmt_num(srow.get("region_error_groups"), 0))
+        g3.metric("District Type Groups", fmt_num(srow.get("district_type_error_groups"), 0))
+    else:
+        st.info("No House forecast summary found. Run the House pipeline.")
+
+    st.divider()
+
+    st.subheader("Group Counts")
+
+    group_rows = []
+    for col, label in [
+        ("region_error_group", "Region"),
+        ("district_type_error_group", "District Type"),
+        ("state_error_group", "State"),
+    ]:
+        if col in df.columns:
+            counts = df[col].fillna("Unknown").astype(str).value_counts().reset_index()
+            counts.columns = [label, "Districts"]
+            group_rows.append((label, counts))
+
+    for label, counts in group_rows:
+        with st.expander(f"{label} group counts", expanded=False):
+            st.dataframe(counts, use_container_width=True, hide_index=True)
 
     st.divider()
 

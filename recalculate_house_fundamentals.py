@@ -149,6 +149,7 @@ def main():
         "district_elasticity",
         "national_environment_margin_dem",
         "district_environment_adjustment_dem",
+        "state_environment_adjustment_dem",
         "incumbency_adjustment_dem",
         "candidate_quality_adjustment_dem",
         "special_adjustment_dem",
@@ -160,6 +161,7 @@ def main():
         df = ensure_numeric(df, col)
 
     for col in [
+        "state_environment_adjustment_dem",
         "candidate_quality_adjustment_dem",
         "special_adjustment_dem",
     ]:
@@ -193,6 +195,23 @@ def main():
             + (" ..." if missing_baseline.sum() > 20 else "")
         )
 
+    for col, default in [
+        ("region", "Unknown Region"),
+        ("district_type", "Mixed"),
+        ("state_error_group", None),
+        ("region_error_group", None),
+        ("district_type_error_group", None),
+    ]:
+        if col not in df.columns:
+            df[col] = default
+
+    df["region"] = df["region"].fillna("Unknown Region").astype(str).str.strip()
+    df["district_type"] = df["district_type"].fillna("Mixed").astype(str).str.strip()
+
+    df["state_error_group"] = df["state_error_group"].fillna(df["state"]).astype(str).str.strip().str.upper()
+    df["region_error_group"] = df["region_error_group"].fillna(df["region"]).astype(str).str.strip()
+    df["district_type_error_group"] = df["district_type_error_group"].fillna(df["district_type"]).astype(str).str.strip()
+
     df["national_environment_margin_dem"] = national_environment
 
     df["district_environment_adjustment_dem"] = (
@@ -209,6 +228,7 @@ def main():
     df["fundamentals_margin_dem"] = (
         df["district_partisan_baseline_dem"]
         + df["district_environment_adjustment_dem"]
+        + df["state_environment_adjustment_dem"]
         + df["incumbency_adjustment_dem"]
         + df["candidate_quality_adjustment_dem"]
         + df["special_adjustment_dem"]
@@ -228,7 +248,7 @@ def main():
         "House fundamentals calculated as "
         f"{WEIGHT_2024:.0%}*2024 presidential margin + "
         f"{WEIGHT_2020:.0%}*2020 presidential margin + "
-        "national environment * district elasticity + incumbency + candidate quality + special adjustment."
+        "national environment * district elasticity + state environment adjustment + incumbency + candidate quality + special adjustment."
     )
 
     df["national_environment_source_path"] = env_metadata["national_environment_source_path"]
@@ -264,6 +284,7 @@ def main():
         "gop_candidate",
         "district_partisan_baseline_dem",
         "district_environment_adjustment_dem",
+        "state_environment_adjustment_dem",
         "incumbency_adjustment_dem",
         "fundamentals_margin_dem",
         "dem_win_probability",
