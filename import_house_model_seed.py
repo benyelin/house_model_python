@@ -31,6 +31,10 @@ OPTIONAL_COLUMNS = [
     "Black Share Tier",
     "Hispanic Share Tier",
     "Median Income Tier",
+    "Election System",
+    "General Election Party Structure",
+    "Party Control Override",
+    "Election System Notes",
 ]
 
 AT_LARGE_STATES = {"AK", "DE", "ND", "SD", "VT", "WY"}
@@ -195,6 +199,75 @@ def normalize_district_id(state, district):
     return f"{state}-{district}"
 
 
+def normalize_election_system(value, state=""):
+    s = clean_text(value).lower()
+    state = clean_text(state).upper()
+
+    if s == "":
+        if state in ["CA", "WA"]:
+            return "top_two"
+        if state == "AK":
+            return "top_four_rcv"
+        return "standard"
+
+    aliases = {
+        "standard": "standard",
+        "normal": "standard",
+        "top two": "top_two",
+        "top_two": "top_two",
+        "top-2": "top_two",
+        "top 2": "top_two",
+        "top four": "top_four_rcv",
+        "top_four": "top_four_rcv",
+        "top_four_rcv": "top_four_rcv",
+        "top-4": "top_four_rcv",
+        "top 4": "top_four_rcv",
+        "rcv": "top_four_rcv",
+    }
+
+    return aliases.get(s, s)
+
+
+def normalize_party_structure(value):
+    s = clean_text(value)
+
+    if s == "":
+        return "unresolved"
+
+    key = s.strip().lower().replace("-", "_").replace(" ", "_")
+
+    aliases = {
+        "unresolved": "unresolved",
+        "d_vs_r": "D_vs_R",
+        "d_v_r": "D_vs_R",
+        "d_r": "D_vs_R",
+        "d_vs_d": "D_vs_D",
+        "d_v_d": "D_vs_D",
+        "r_vs_r": "R_vs_R",
+        "r_v_r": "R_vs_R",
+        "d_vs_r_vs_other": "D_vs_R_vs_Other",
+        "d_r_other": "D_vs_R_vs_Other",
+        "other": "Other",
+    }
+
+    return aliases.get(key, s.strip())
+
+
+def normalize_party_control_override(value):
+    s = clean_text(value).upper()
+
+    if s in ["", "NAN", "NONE", "BLANK"]:
+        return ""
+
+    if s in ["D", "DEM", "DEMOCRAT", "DEMOCRATIC"]:
+        return "D"
+
+    if s in ["R", "REP", "REPUBLICAN", "GOP"]:
+        return "R"
+
+    return s
+
+
 def optional_cell(ws, row, col_index, column_name):
     if column_name not in col_index:
         return None
@@ -335,6 +408,23 @@ def main():
             f"{median_income_tier} Income"
         )
 
+        election_system = normalize_election_system(
+            optional_cell(ws, r, col_index, "Election System"),
+            state=state,
+        )
+
+        general_election_party_structure = normalize_party_structure(
+            optional_cell(ws, r, col_index, "General Election Party Structure")
+        )
+
+        party_control_override = normalize_party_control_override(
+            optional_cell(ws, r, col_index, "Party Control Override")
+        )
+
+        election_system_notes = clean_text(
+            optional_cell(ws, r, col_index, "Election System Notes")
+        )
+
         rows.append(
             {
                 "state": state,
@@ -350,6 +440,11 @@ def main():
                 "median_income_tier": median_income_tier,
                 "education_race_error_group": education_race_error_group,
                 "demographic_error_group": demographic_error_group,
+
+                "election_system": election_system,
+                "general_election_party_structure": general_election_party_structure,
+                "party_control_override": party_control_override,
+                "election_system_notes": election_system_notes,
 
                 "state_error_group": state,
                 "region_error_group": region,
@@ -447,6 +542,9 @@ def main():
         "hispanic_share_tier",
         "median_income_tier",
         "education_race_error_group",
+        "election_system",
+        "general_election_party_structure",
+        "party_control_override",
         "dem_candidate",
         "gop_candidate",
         "dem_candidate_is_incumbent",

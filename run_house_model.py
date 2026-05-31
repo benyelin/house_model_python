@@ -180,6 +180,10 @@ def prepare_house_table(df, days_out, config):
         ("district_type_error_group", "Mixed"),
         ("education_race_error_group", "Unknown Education/Race"),
         ("demographic_error_group", "Unknown Demographic"),
+        ("election_system", "standard"),
+        ("general_election_party_structure", "unresolved"),
+        ("party_control_override", ""),
+        ("election_system_notes", ""),
         ("college_share_tier", "Unknown"),
         ("white_share_tier", "Unknown"),
         ("black_share_tier", "Unknown"),
@@ -223,9 +227,36 @@ def prepare_house_table(df, days_out, config):
         .str.strip()
     )
 
+    out["election_system"] = out["election_system"].fillna("standard").astype(str).str.strip()
+    out["general_election_party_structure"] = (
+        out["general_election_party_structure"]
+        .fillna("unresolved")
+        .astype(str)
+        .str.strip()
+    )
+    out["party_control_override"] = (
+        out["party_control_override"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        .str.upper()
+    )
+    out["election_system_notes"] = out["election_system_notes"].fillna("").astype(str).str.strip()
+
+    out["party_control_fixed"] = ""
+    out.loc[out["general_election_party_structure"] == "D_vs_D", "party_control_fixed"] = "D"
+    out.loc[out["general_election_party_structure"] == "R_vs_R", "party_control_fixed"] = "R"
+    out.loc[out["party_control_override"].isin(["D", "R"]), "party_control_fixed"] = out.loc[
+        out["party_control_override"].isin(["D", "R"]),
+        "party_control_override",
+    ]
+
     out["pre_sim_dem_win_probability"] = 1 / (
         1 + np.exp(-out["model_margin_dem"] / config.probability_scale)
     )
+
+    out.loc[out["party_control_fixed"] == "D", "pre_sim_dem_win_probability"] = 1.0
+    out.loc[out["party_control_fixed"] == "R", "pre_sim_dem_win_probability"] = 0.0
 
     return out
 
@@ -320,6 +351,21 @@ def run_simulation(race_table, days_out, config):
     )
 
     dem_wins = simulated_margins > 0
+
+    # Apply fixed party-control outcomes for same-party general elections
+    # or explicit party-control overrides.
+    fixed = race_table.get("party_control_fixed", pd.Series([""] * n_districts))
+    fixed = fixed.fillna("").astype(str).str.upper().to_numpy()
+
+    fixed_dem = fixed == "D"
+    fixed_gop = fixed == "R"
+
+    if fixed_dem.any():
+        dem_wins[:, fixed_dem] = True
+
+    if fixed_gop.any():
+        dem_wins[:, fixed_gop] = False
+
     dem_seats = dem_wins.sum(axis=1)
 
     district_win_probs = dem_wins.mean(axis=0)
@@ -367,6 +413,10 @@ def run_simulation(race_table, days_out, config):
         "district_type_error_groups": int(race_table["district_type_error_group"].nunique()),
         "education_race_error_groups": int(race_table["education_race_error_group"].nunique()),
         "demographic_error_groups": int(race_table["demographic_error_group"].nunique()),
+        "fixed_dem_control_districts": int((race_table["party_control_fixed"] == "D").sum()),
+        "fixed_gop_control_districts": int((race_table["party_control_fixed"] == "R").sum()),
+        "top_two_districts": int((race_table["election_system"] == "top_two").sum()),
+        "top_four_rcv_districts": int((race_table["election_system"] == "top_four_rcv").sum()),
     }
 
     simulation_draws = pd.DataFrame({

@@ -467,6 +467,10 @@ with tab_ratings:
                 "Dem candidate": row.get("dem_candidate", ""),
                 "GOP candidate": row.get("gop_candidate", ""),
                 "Incumbent party": row.get("inferred_incumbent_party", ""),
+                "Election System": row.get("election_system", ""),
+                "Party Structure": row.get("general_election_party_structure", ""),
+                "Party Override": row.get("party_control_override", ""),
+                "Fixed Control": row.get("party_control_fixed", ""),
                 "Dem incumbent": bool(row.get("dem_candidate_is_incumbent_bool", False)),
                 "GOP incumbent": bool(row.get("gop_candidate_is_incumbent_bool", False)),
                 "Dem odds": fmt_pct(row.get("dem_win_probability")),
@@ -517,6 +521,11 @@ with tab_drivers:
                 "District": row.get("district_id", ""),
                 "Dem candidate": row.get("dem_candidate", ""),
                 "GOP candidate": row.get("gop_candidate", ""),
+                "Election System": row.get("election_system", ""),
+                "Party Structure": row.get("general_election_party_structure", ""),
+                "Party Override": row.get("party_control_override", ""),
+                "Fixed Control": row.get("party_control_fixed", ""),
+                "Election Notes": row.get("election_system_notes", ""),
                 "2024 pres. margin": fmt_margin(row.get("pres_2024_margin_dem")),
                 "2020 pres. margin": fmt_margin(row.get("pres_2020_margin_dem")),
                 "Region": row.get("region", ""),
@@ -714,6 +723,21 @@ with tab_diagnostics:
                 "Examples": ", ".join(both_incumbent["district_id"].head(10).tolist()),
             }
         )
+
+    if "general_election_party_structure" in df.columns and "party_control_override" in df.columns:
+        same_party_missing_override = df[
+            df["general_election_party_structure"].isin(["D_vs_D", "R_vs_R"])
+            & df["party_control_override"].fillna("").astype(str).str.strip().eq("")
+        ]
+
+        if not same_party_missing_override.empty:
+            issues.append(
+                {
+                    "Issue": "Same-party general election missing party-control override",
+                    "Count": len(same_party_missing_override),
+                    "Examples": ", ".join(same_party_missing_override["district_id"].head(10).tolist()),
+                }
+            )
 
     if issues:
         st.dataframe(pd.DataFrame(issues), use_container_width=True, hide_index=True)
