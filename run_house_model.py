@@ -18,26 +18,16 @@ class HouseModelConfig:
     n_sims: int = 20000
     seed: int = 20260529
 
-    # Error structure. House races are more numerous and more correlated
-    # through national environment than individual candidate effects.
     total_error_sd: float = 7.5
     national_error_share: float = 0.55
 
-    # Grouped correlated error terms.
-    # These are additive margin errors shared by districts in the same group.
     state_error_sd: float = 1.75
     region_error_sd: float = 1.25
     district_type_error_sd: float = 1.00
+    education_race_error_sd: float = 0.75
 
-    # Logistic probability scale for pre-simulation district probability.
     probability_scale: float = 6.0
-
-    # House majority threshold.
     majority_threshold: int = 218
-
-    # Current Democratic seats after 2024, if needed for reference only.
-    # The simulation itself counts all 435 races from district probabilities.
-    baseline_dem_seats: int = 0
 
 
 def compute_days_out(today=None):
@@ -47,10 +37,6 @@ def compute_days_out(today=None):
 
 
 def cycle_polling_cap(days_out):
-    """
-    Same general idea as Senate:
-    early polling receives a lower maximum weight.
-    """
     if days_out > 180:
         return 0.12
     if days_out > 120:
@@ -63,9 +49,6 @@ def cycle_polling_cap(days_out):
 
 
 def poll_count_multiplier(poll_count):
-    """
-    More polls = more trust.
-    """
     try:
         poll_count = float(poll_count)
     except Exception:
@@ -97,6 +80,13 @@ def safe_numeric(df, col, default=np.nan):
     return df
 
 
+def ensure_text(df, col, default):
+    if col not in df.columns:
+        df[col] = default
+    df[col] = df[col].fillna(default).astype(str).str.strip()
+    return df
+
+
 def prepare_house_table(df, days_out, config):
     out = df.copy()
 
@@ -118,7 +108,6 @@ def prepare_house_table(df, days_out, config):
         "fundamentals_margin_dem",
         "polling_margin_dem",
         "poll_count",
-        "polling_active",
         "district_partisan_baseline_dem",
         "district_environment_adjustment_dem",
         "state_environment_adjustment_dem",
@@ -137,14 +126,10 @@ def prepare_house_table(df, days_out, config):
 
     out["polling_active_bool"] = out["polling_active"].apply(normalize_bool)
 
-    # A race is poll-active only if polling_active is true and polling_margin_dem is present.
     has_polling = (
         out["polling_active_bool"]
         & out["polling_margin_dem"].notna()
     )
-
-    if "poll_count" not in out.columns:
-        out["poll_count"] = 0.0
 
     out["poll_count"] = out["poll_count"].fillna(0.0)
 
@@ -170,10 +155,8 @@ def prepare_house_table(df, days_out, config):
         + out["polling_margin_dem"].fillna(0.0) * out["bayesian_polling_weight"]
     )
 
-    # First version: model margin equals Bayesian model margin.
     out["model_margin_dem"] = out["bayesian_model_margin_dem"]
 
-    # District uncertainty. Wider early, narrower later.
     if days_out > 180:
         base_sd = 8.5
     elif days_out > 120:
@@ -185,10 +168,7 @@ def prepare_house_table(df, days_out, config):
     else:
         base_sd = 4.75
 
-    # Incumbents/open seats can have different district-specific uncertainty later.
     out["district_posterior_sd"] = base_sd
-
-    # Polling lowers uncertainty modestly, but not too much.
     out["district_posterior_sd"] = (
         out["district_posterior_sd"]
         * (1.0 - 0.25 * out["bayesian_polling_weight"])
@@ -198,6 +178,13 @@ def prepare_house_table(df, days_out, config):
         ("state_error_group", None),
         ("region_error_group", "Unknown Region"),
         ("district_type_error_group", "Mixed"),
+        ("education_race_error_group", "Unknown Education/Race"),
+        ("demographic_error_group", "Unknown Demographic"),
+        ("college_share_tier", "Unknown"),
+        ("white_share_tier", "Unknown"),
+        ("black_share_tier", "Unknown"),
+        ("hispanic_share_tier", "Unknown"),
+        ("median_income_tier", "Unknown"),
         ("region", "Unknown Region"),
         ("district_type", "Mixed"),
     ]:
@@ -205,8 +192,36 @@ def prepare_house_table(df, days_out, config):
             out[col] = default
 
     out["state_error_group"] = out["state_error_group"].fillna(out["state"]).astype(str).str.strip().str.upper()
+    out["region"] = out["region"].fillna("Unknown Region").astype(str).str.strip()
+    out["district_type"] = out["district_type"].fillna("Mixed").astype(str).str.strip()
     out["region_error_group"] = out["region_error_group"].fillna(out["region"]).astype(str).str.strip()
     out["district_type_error_group"] = out["district_type_error_group"].fillna(out["district_type"]).astype(str).str.strip()
+
+    out["college_share_tier"] = out["college_share_tier"].fillna("Unknown").astype(str).str.strip()
+    out["white_share_tier"] = out["white_share_tier"].fillna("Unknown").astype(str).str.strip()
+    out["black_share_tier"] = out["black_share_tier"].fillna("Unknown").astype(str).str.strip()
+    out["hispanic_share_tier"] = out["hispanic_share_tier"].fillna("Unknown").astype(str).str.strip()
+    out["median_income_tier"] = out["median_income_tier"].fillna("Unknown").astype(str).str.strip()
+
+    out["education_race_error_group"] = (
+        out["education_race_error_group"]
+        .fillna(out["college_share_tier"] + " College / " + out["white_share_tier"] + " White")
+        .astype(str)
+        .str.strip()
+    )
+
+    out["demographic_error_group"] = (
+        out["demographic_error_group"]
+        .fillna(
+            out["college_share_tier"] + " College / "
+            + out["white_share_tier"] + " White / "
+            + out["black_share_tier"] + " Black / "
+            + out["hispanic_share_tier"] + " Hispanic / "
+            + out["median_income_tier"] + " Income"
+        )
+        .astype(str)
+        .str.strip()
+    )
 
     out["pre_sim_dem_win_probability"] = 1 / (
         1 + np.exp(-out["model_margin_dem"] / config.probability_scale)
@@ -216,9 +231,6 @@ def prepare_house_table(df, days_out, config):
 
 
 def draw_group_errors(rng, groups, n_sims, sd):
-    """
-    Returns one error draw per district based on district group labels.
-    """
     labels = pd.Series(groups).fillna("Unknown").astype(str)
     unique_groups = sorted(labels.unique().tolist())
 
@@ -227,8 +239,7 @@ def draw_group_errors(rng, groups, n_sims, sd):
         for group in unique_groups
     }
 
-    arr = np.column_stack([group_draws[group] for group in labels])
-    return arr
+    return np.column_stack([group_draws[group] for group in labels])
 
 
 def run_simulation(race_table, days_out, config):
@@ -238,7 +249,6 @@ def run_simulation(race_table, days_out, config):
 
     total_sd = config.total_error_sd
 
-    # Allow total error to narrow slightly closer to Election Day.
     if days_out > 180:
         total_sd *= 1.15
     elif days_out > 120:
@@ -250,11 +260,7 @@ def run_simulation(race_table, days_out, config):
 
     base_margins = race_table["model_margin_dem"].to_numpy(dtype=float).reshape(1, n_districts)
 
-    national_error = rng.normal(
-        0.0,
-        national_sd,
-        size=(config.n_sims, 1),
-    )
+    national_error = rng.normal(0.0, national_sd, size=(config.n_sims, 1))
 
     state_error = draw_group_errors(
         rng,
@@ -277,13 +283,19 @@ def run_simulation(race_table, days_out, config):
         config.district_type_error_sd,
     )
 
-    # Keep enough district-specific error so the grouped terms do not make
-    # all districts in a group move unrealistically in lockstep.
+    education_race_error = draw_group_errors(
+        rng,
+        race_table["education_race_error_group"],
+        config.n_sims,
+        config.education_race_error_sd,
+    )
+
     grouped_variance = (
         national_sd ** 2
         + config.state_error_sd ** 2
         + config.region_error_sd ** 2
         + config.district_type_error_sd ** 2
+        + config.education_race_error_sd ** 2
     )
 
     remaining_sd = np.sqrt(max(total_sd ** 2 - grouped_variance, 2.5 ** 2))
@@ -303,6 +315,7 @@ def run_simulation(race_table, days_out, config):
         + state_error
         + region_error
         + district_type_error
+        + education_race_error
         + district_error
     )
 
@@ -338,6 +351,7 @@ def run_simulation(race_table, days_out, config):
         "state_error_sd": config.state_error_sd,
         "region_error_sd": config.region_error_sd,
         "district_type_error_sd": config.district_type_error_sd,
+        "education_race_error_sd": config.education_race_error_sd,
         "district_specific_error_sd_floor": remaining_sd,
         "national_error_share": config.national_error_share,
         "national_environment_margin": (
@@ -351,6 +365,8 @@ def run_simulation(race_table, days_out, config):
         "state_error_groups": int(race_table["state_error_group"].nunique()),
         "region_error_groups": int(race_table["region_error_group"].nunique()),
         "district_type_error_groups": int(race_table["district_type_error_group"].nunique()),
+        "education_race_error_groups": int(race_table["education_race_error_group"].nunique()),
+        "demographic_error_groups": int(race_table["demographic_error_group"].nunique()),
     }
 
     simulation_draws = pd.DataFrame({
@@ -387,8 +403,8 @@ def run_forecast(input_path, output_dir, config, today=None):
     simulation_draws.to_csv(output_dir / "house_simulation_draws.csv", index=False)
     pd.DataFrame([summary]).to_csv(output_dir / "house_forecast_summary.csv", index=False)
 
-    # Also write model margin/probability back into house_race_inputs.csv for dashboard convenience.
     updated = df.copy()
+
     writeback_cols = [
         "bayesian_polling_weight",
         "bayesian_fundamentals_weight",
@@ -446,6 +462,7 @@ def main():
     print(f"Days out:               {summary['days_out']}")
     print(f"National environment:   {summary['national_environment_margin']:+.2f}")
     print(f"Districts with polling: {summary['districts_with_polling']}")
+    print(f"Education/race groups:  {summary['education_race_error_groups']}")
     print()
     print(f"Outputs saved to: {Path(args.output_dir).resolve()}")
 

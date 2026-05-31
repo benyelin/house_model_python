@@ -473,6 +473,11 @@ with tab_ratings:
                 "Model margin": fmt_margin(row.get("model_margin_dem")),
                 "Region": row.get("region", ""),
                 "District type": row.get("district_type", ""),
+                "College Share Tier": row.get("college_share_tier", ""),
+                "White Share Tier": row.get("white_share_tier", ""),
+                "Black Share Tier": row.get("black_share_tier", ""),
+                "Hispanic Share Tier": row.get("hispanic_share_tier", ""),
+                "Median Income Tier": row.get("median_income_tier", ""),
                 "Baseline": fmt_margin(row.get("district_partisan_baseline_dem")),
                 "National effect": fmt_margin(row.get("district_environment_adjustment_dem")),
                 "State env.": fmt_margin(row.get("state_environment_adjustment_dem")),
@@ -516,6 +521,13 @@ with tab_drivers:
                 "2020 pres. margin": fmt_margin(row.get("pres_2020_margin_dem")),
                 "Region": row.get("region", ""),
                 "District type": row.get("district_type", ""),
+                "College Share Tier": row.get("college_share_tier", ""),
+                "White Share Tier": row.get("white_share_tier", ""),
+                "Black Share Tier": row.get("black_share_tier", ""),
+                "Hispanic Share Tier": row.get("hispanic_share_tier", ""),
+                "Median Income Tier": row.get("median_income_tier", ""),
+                "Education/Race Group": row.get("education_race_error_group", ""),
+                "Demographic Group": row.get("demographic_error_group", ""),
                 "District baseline": fmt_margin(row.get("district_partisan_baseline_dem")),
                 "Elasticity": fmt_num(row.get("district_elasticity"), 2),
                 "Type base elastic.": fmt_num(row.get("district_type_elasticity_base"), 2),
@@ -571,17 +583,20 @@ with tab_diagnostics:
 
     if not forecast_summary_output.empty:
         srow = forecast_summary_output.iloc[-1]
-        e1, e2, e3, e4, e5 = st.columns(5)
+        e1, e2, e3, e4, e5, e6 = st.columns(6)
         e1.metric("National Error SD", fmt_num(srow.get("national_error_sd"), 2))
         e2.metric("State Error SD", fmt_num(srow.get("state_error_sd"), 2))
         e3.metric("Region Error SD", fmt_num(srow.get("region_error_sd"), 2))
-        e4.metric("Type Error SD", fmt_num(srow.get("district_type_error_sd"), 2))
-        e5.metric("District Floor SD", fmt_num(srow.get("district_specific_error_sd_floor"), 2))
+        e4.metric("District Type Error SD", fmt_num(srow.get("district_type_error_sd"), 2))
+        e5.metric("Education/Race Error SD", fmt_num(srow.get("education_race_error_sd"), 2))
+        e6.metric("District Floor SD", fmt_num(srow.get("district_specific_error_sd_floor"), 2))
 
-        g1, g2, g3 = st.columns(3)
+        g1, g2, g3, g4, g5 = st.columns(5)
         g1.metric("State Groups", fmt_num(srow.get("state_error_groups"), 0))
         g2.metric("Region Groups", fmt_num(srow.get("region_error_groups"), 0))
         g3.metric("District Type Groups", fmt_num(srow.get("district_type_error_groups"), 0))
+        g4.metric("Education/Race Groups", fmt_num(srow.get("education_race_error_groups"), 0))
+        g5.metric("Demographic Groups", fmt_num(srow.get("demographic_error_groups"), 0))
     else:
         st.info("No House forecast summary found. Run the House pipeline.")
 
@@ -593,6 +608,8 @@ with tab_diagnostics:
     for col, label in [
         ("region_error_group", "Region"),
         ("district_type_error_group", "District Type"),
+        ("education_race_error_group", "Education/Race"),
+        ("demographic_error_group", "Full Demographic"),
         ("state_error_group", "State"),
     ]:
         if col in df.columns:
