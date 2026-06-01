@@ -110,6 +110,17 @@
         "panel": "shared",
         "clear": true
       }
+    },
+    {
+      "label": "Ingest House Polls",
+      "type": "shell",
+      "command": "python3 ingest_house_polls.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     }
   ],
   "inputs": [
