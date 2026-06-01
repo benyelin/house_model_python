@@ -99,6 +99,17 @@
         "panel": "shared",
         "clear": false
       }
+    },
+    {
+      "label": "Run House Health Check",
+      "type": "shell",
+      "command": "python3 house_model_health_check.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     }
   ],
   "inputs": [
