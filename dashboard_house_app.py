@@ -4,6 +4,11 @@ import numpy as np
 import streamlit as st
 import plotly.express as px
 
+DEM_COLOR = "#1f77b4"
+GOP_COLOR = "#d62728"
+HOUSE_CONTROL_THRESHOLD = 218
+
+
 INPUTS = Path("inputs")
 OUTPUTS = Path("outputs")
 
@@ -23,6 +28,41 @@ st.set_page_config(
 # -----------------------------
 # Helpers
 # -----------------------------
+
+def rating_party_bucket(rating):
+    s = str(rating).strip().lower()
+
+    if "safe d" in s or "likely d" in s or "lean d" in s or "tilt d" in s:
+        return "Democratic"
+
+    if "safe r" in s or "likely r" in s or "lean r" in s or "tilt r" in s:
+        return "Republican"
+
+    if "toss" in s:
+        return "Toss-Up"
+
+    return "Other"
+
+def add_party_bar_color_columns(df):
+    """
+    Adds display columns used by Plotly/Altair race bars.
+    Red means Republican is favored; blue means Democrat is favored.
+    """
+    out = df.copy()
+
+    if "dem_win_probability" in out.columns:
+        out["favored_party"] = out["dem_win_probability"].apply(
+            lambda p: "Democrat" if float(p) >= 0.5 else "Republican"
+        )
+    elif "simulated_dem_win_probability" in out.columns:
+        out["favored_party"] = out["simulated_dem_win_probability"].apply(
+            lambda p: "Democrat" if float(p) >= 0.5 else "Republican"
+        )
+    else:
+        out["favored_party"] = "Unknown"
+
+    return out
+
 def read_csv_safe(path):
     try:
         if Path(path).exists():
@@ -262,10 +302,20 @@ with tab_overview:
 
     if not seat_distribution_output.empty:
         st.subheader("Simulated Seat Distribution")
+        seat_distribution_output = seat_distribution_output.copy()
+        seat_distribution_output["Control"] = seat_distribution_output["dem_seats"].apply(
+            lambda x: "Democratic House" if float(x) >= HOUSE_CONTROL_THRESHOLD else "Republican House"
+        )
+
         fig_seats = px.bar(
             seat_distribution_output,
             x="dem_seats",
             y="probability",
+            color="Control",
+            color_discrete_map={
+                "Democratic House": DEM_COLOR,
+                "Republican House": GOP_COLOR,
+            },
             labels={
                 "dem_seats": "Democratic seats",
                 "probability": "Probability",
@@ -305,12 +355,22 @@ with tab_overview:
         )
         rating_counts.columns = ["Rating", "Districts"]
 
+        rating_counts["Rating Party"] = rating_counts["Rating"].apply(rating_party_bucket)
+
         fig = px.bar(
             rating_counts,
             x="Rating",
             y="Districts",
+            color="Rating Party",
+            color_discrete_map={
+                "Democratic": DEM_COLOR,
+                "Republican": GOP_COLOR,
+                "Toss-Up": "#808080",
+                "Other": "#808080",
+            },
             title="Districts by Rating",
         )
+        fig.update_layout(showlegend=True)
         st.plotly_chart(fig, use_container_width=True)
 
         st.dataframe(rating_counts, use_container_width=True, hide_index=True)
@@ -435,13 +495,21 @@ with tab_ratings:
         step=25,
     )
 
-    chart_df = chart_view.head(chart_limit)
+    chart_df = chart_view.head(chart_limit).copy()
+    chart_df["Favored Party"] = chart_df["Dem win probability"].apply(
+        lambda p: "Democrat" if float(p) >= 0.5 else "Republican"
+    )
 
     fig = px.bar(
         chart_df,
         x="Dem win probability",
         y="District",
         orientation="h",
+        color="Favored Party",
+        color_discrete_map={
+            "Democrat": DEM_COLOR,
+            "Republican": GOP_COLOR,
+        },
         hover_data=[
             "rating",
             "dem_candidate",
