@@ -5,15 +5,15 @@ Rows: 435
 1. Rating distribution
 ----------------------
   Rating  Districts
-  Safe D        162
-Likely D         37
-  Lean D         16
-  Tilt D          6
- Toss-Up          7
-  Tilt R          8
+  Safe D        160
+Likely D         39
+  Lean D         17
+  Tilt D          5
+ Toss-Up          6
+  Tilt R          9
   Lean R         42
-Likely R         58
-  Safe R         99
+Likely R         60
+  Safe R         97
 
 2. Audit flags
 --------------
@@ -34,91 +34,91 @@ district_id baseline_label fundamentals_margin_label model_margin_label  dem_win
        NV-4          D+4.4                    D+11.0             D+11.0             0.861700 Likely D Mountain West         Mixed          NaN
        KS-3          D+4.2                    D+11.4             D+11.4             0.869917 Likely D  Great Plains      Suburban          NaN
        VA-7          D+4.0                    D+11.5             D+11.5             0.872391 Likely D  Mid-Atlantic      Suburban          NaN
-       IN-1          D+2.7                    D+12.5             D+12.5             0.889859 Likely D       Midwest      Suburban          NaN
-      OH-13          D+4.0                    D+12.9             D+12.9             0.895343 Likely D       Midwest         Mixed          NaN
-       NJ-5          D+5.0                    D+13.5             D+13.5             0.905180 Likely D  Mid-Atlantic         Mixed          NaN
-       NJ-9          D+4.9                    D+14.4             D+14.4             0.917127 Likely D  Mid-Atlantic      Suburban          NaN
+       IN-1          D+2.7                    D+12.0             D+12.0             0.881423 Likely D       Midwest      Suburban          NaN
+      OH-13          D+4.0                    D+12.4             D+12.4             0.887274 Likely D       Midwest         Mixed          NaN
+       NJ-5          D+5.0                    D+13.0             D+13.0             0.897782 Likely D  Mid-Atlantic         Mixed          NaN
+       NJ-9          D+4.9                    D+13.9             D+13.9             0.910569 Likely D  Mid-Atlantic      Suburban          NaN
 
 5. Environment and elasticity by district type
 ----------------------------------------------
 district_type  districts  avg_elasticity  avg_env_adj  avg_baseline  avg_model_margin  avg_dem_prob
-      Exurban         14           0.943        0.000        -5.845             0.043         0.499
-        Mixed        116           0.889        0.000         1.353             7.130         0.591
-        Rural        153           0.665        0.000       -25.006           -21.689         0.116
-     Suburban         73           1.042        0.000        13.431            20.266         0.837
-        Urban         79           0.561        0.000        41.839            46.257         0.991
+      Exurban         14           0.943        0.000        -5.845             0.043         0.500
+        Mixed        116           0.889        0.000         1.353             7.074         0.591
+        Rural        153           0.665        0.000       -25.006           -21.480         0.117
+     Suburban         73           1.042        0.000        13.431            20.183         0.838
+        Urban         79           0.561        0.000        41.839            46.029         0.991
 
 6. Environment and elasticity by region
 ---------------------------------------
        region  districts  avg_elasticity  avg_env_adj  avg_baseline  avg_model_margin  avg_dem_prob
-   Appalachia         19           0.589        0.000       -29.614           -26.670         0.175
-   Deep South         19           0.582        0.000       -23.794           -20.688         0.215
- Great Plains         16           0.681        0.000       -26.719           -22.715         0.145
- Mid-Atlantic         68           0.808        0.000        16.554            21.629         0.717
- Middle South         22           0.725        0.000       -27.021           -23.766         0.043
-      Midwest         82           0.816        0.000        -1.764             3.184         0.484
-Mountain West         19           0.805        0.000        -3.958             0.754         0.498
-    Northeast         34           0.815        0.000        12.949            17.919         0.810
+   Appalachia         19           0.589        0.000       -29.614           -26.486         0.175
+   Deep South         19           0.582        0.000       -23.794           -20.557         0.215
+ Great Plains         16           0.681        0.000       -26.719           -22.653         0.146
+ Mid-Atlantic         68           0.808        0.000        16.554            21.622         0.718
+ Middle South         22           0.725        0.000       -27.021           -23.448         0.045
+      Midwest         82           0.816        0.000        -1.764             3.221         0.485
+Mountain West         19           0.805        0.000        -3.958             0.833         0.498
+    Northeast         34           0.815        0.000        12.949            17.948         0.811
     Northwest         11           0.909        0.000        15.101            20.778         0.738
-      Pacific         60           0.765        0.000        22.219            28.197         0.899
-    Southeast         47           0.778        0.000        -6.413            -1.642         0.339
-    Southwest         17           0.879        0.000         0.230             5.957         0.589
-  Urban South         21           0.817        0.000         1.141             6.146         0.405
+      Pacific         60           0.765        0.000        22.219            27.897         0.899
+    Southeast         47           0.778        0.000        -6.413            -1.621         0.340
+    Southwest         17           0.879        0.000         0.230             5.898         0.587
+  Urban South         21           0.817        0.000         1.141             6.170         0.406
 
 7. Incumbency adjustments
 -------------------------
 Nonzero incumbency adjustment rows: 185
 district_id incumbent_party inferred_incumbent_party      dem_candidate      gop_candidate  incumbency_adjustment_dem model_margin_label  dem_win_probability   rating
-       AL-4               R                        R    Pusczek, Amanda   Aderholt, Robert                       -2.0             R+64.1             0.000023   Safe R
-      CA-39               D                        D       Takano, Mark       Manos, Steve                        2.0             D+23.0             0.978845   Safe D
-       OR-6               D                        D    Salinas, Andrea        Russ, David                        2.0             D+19.5             0.962434   Safe D
-       OR-4               D                        D         Hoyle, Val   DeSpain, Monique                        2.0             D+19.8             0.964601   Safe D
-      NJ-11               D                        D    Mejia, Analilia      Hathaway, Joe                        2.0             D+20.0             0.965550   Safe D
-      CA-27               D                        D Whitesides, George       Gibbs, Jason                        2.0             D+20.3             0.967128   Safe D
-      CA-47               D                        D         Min, David     Le Roux, Jenny                        2.0             D+20.4             0.967636   Safe D
-      CA-42               D                        D     Garcia, Robert                NaN                        2.0             D+20.5             0.968296   Safe D
-       PA-6               D                        D  Houlahan, Chrissy       Young, Marty                        2.0             D+21.3             0.972028   Safe D
-      CA-49               D                        D        Levin, Mike     Kurdian, Armen                        2.0             D+21.6             0.973346   Safe D
-      IL-11               D                        D       Foster, Bill       Walter, Jeff                        2.0             D+21.8             0.974048   Safe D
-      CA-41               D                        D     Sanchez, Linda    Clemmons, Mitch                        2.0             D+23.0             0.978974   Safe D
-      TX-28               D                        D     Cuellar, Henry     Tijerina, Tano                        2.0              D+3.3             0.633757   Tilt D
-       CA-9               D                        D       Harder, Josh      McBride, John                        2.0             D+23.1             0.979326   Safe D
-      CA-33               D                        D      Aguilar, Pete                NaN                        2.0             D+23.2             0.979457   Safe D
-       CA-4               D                        D     Thompson, Mike                NaN                        2.0             D+23.5             0.980404   Safe D
-      CA-31               D                        D      Cisneros, Gil        Ching, Eric                        2.0             D+24.0             0.982021   Safe D
-      PA-12               D                        D        Lee, Summer       Hayes, James                        2.0             D+24.8             0.984338   Safe D
-       PA-4               D                        D     Dean, Madeline    Stutski, Aurora                        2.0             D+25.0             0.984669   Safe D
-      CA-46               D                        D        Correa, Lou         Pan, David                        2.0             D+25.2             0.985140   Safe D
-       KY-3               D                        D   McGarvey, Morgan   Rodriguez, Maria                        2.0             D+25.4             0.985596   Safe D
-      CA-50               D                        D      Peters, Scott       Cohen, Steve                        2.0             D+26.1             0.987186   Safe D
-       NJ-6               D                        D     Pallone, Frank    Herzig, Hillary                        2.0             D+19.3             0.961203   Safe D
-      IL-13               D                        D   Budzinski, Nikki       Wilson, Jeff                        2.0             D+19.1             0.960168   Safe D
-       CA-3               D                        D          Bera, Ami       Tucker, Robb                        2.0             D+18.9             0.958844   Safe D
-      CA-35               D                        D      Torres, Norma      Cargile, Mark                        2.0             D+18.5             0.956193   Safe D
-       NJ-7               R                        R   Bennett, Rebecca          Kean, Tom                       -2.0              D+5.7             0.722240   Lean D
-       PA-1               R                        R        Harvie, Bob Fitzpatrick, Brian                       -2.0              D+7.1             0.765056   Lean D
-      CA-22               R                        R                NaN     Valadao, David                       -2.0              D+7.1             0.766978   Lean D
-       OH-1               D                        D     Landsman, Greg       Conroy, Eric                        2.0              D+8.1             0.794561   Lean D
-      CA-45               D                        D        Tran, Derek                NaN                        2.0             D+11.8             0.877594 Likely D
-       IN-1               D                        D       Mrvan, Frank      Regnitz, Barb                        2.0             D+12.5             0.889859 Likely D
-      OH-13               D                        D      Sykes, Emilia     Coleman, Carey                        2.0             D+12.9             0.895343 Likely D
-      CA-13               D                        D         Gray, Adam     Lincoln, Kevin                        2.0             D+13.2             0.900402 Likely D
-      PA-17               D                        D     DeLuzio, Chris          Guy, Tony                        2.0             D+13.2             0.900402 Likely D
-       NJ-5               D                        D   Gottheimer, Josh      Kirrane, Sean                        2.0             D+13.5             0.905180 Likely D
-       IL-6               D                        D       Casten, Sean     Conforti, Niki                        2.0             D+13.8             0.908925 Likely D
-      IL-17               D                        D     Sorensen, Eric     Vancil, Dillan                        2.0             D+13.9             0.910854 Likely D
-       NJ-9               D                        D        Pou, Nellie                NaN                        2.0             D+14.4             0.917127 Likely D
-       GA-2               D                        D    Bishop, Sanford          Day, Matt                        2.0             D+15.3             0.927973 Likely D
-      IL-14               D                        D  Underwood, Lauren      Marter, James                        2.0             D+15.6             0.931043 Likely D
-       OR-5               D                        D     Bynum, Janelle       Adair, Patti                        2.0             D+16.3             0.937811 Likely D
-      CA-25               D                        D         Ruiz, Raul                NaN                        2.0             D+16.6             0.941127 Likely D
-       NJ-3               D                        D      Conaway, Herb   McGuire, Michael                        2.0             D+18.0             0.952893   Safe D
-      CA-21               D                        D         Costa, Jim     Kirkland, Kyle                        2.0             D+18.2             0.953692   Safe D
-      CA-51               D                        D       Jacobs, Sara   Cabrera, Ricardo                        2.0             D+26.6             0.988276   Safe D
-       NJ-1               D                        D   Norcross, Donald       Galdo, Damon                        2.0             D+27.7             0.990240   Safe D
-      TX-16               D                        D  Escobar, Veronica       Bauman, Adam                        2.0             D+27.8             0.990430   Safe D
-      CA-44               D                        D  Barragan, Nanette   Angel, Genevieve                        2.0             D+45.9             0.999527   Safe D
-       OH-3               D                        D      Beatty, Joyce  Dulaney, Cleophus                        2.0             D+46.7             0.999582   Safe D
+       AL-4               R                        R    Pusczek, Amanda   Aderholt, Robert                       -1.5             R+63.6             0.000025   Safe R
+      CA-39               D                        D       Takano, Mark       Manos, Steve                        1.5             D+22.5             0.977048   Safe D
+       OR-6               D                        D    Salinas, Andrea        Russ, David                        1.5             D+19.0             0.959302   Safe D
+       OR-4               D                        D         Hoyle, Val   DeSpain, Monique                        1.5             D+19.3             0.961643   Safe D
+      NJ-11               D                        D    Mejia, Analilia      Hathaway, Joe                        1.5             D+19.5             0.962668   Safe D
+      CA-27               D                        D Whitesides, George       Gibbs, Jason                        1.5             D+19.8             0.964373   Safe D
+      CA-47               D                        D         Min, David     Le Roux, Jenny                        1.5             D+19.9             0.964922   Safe D
+      CA-42               D                        D     Garcia, Robert                NaN                        1.5             D+20.0             0.965635   Safe D
+       PA-6               D                        D  Houlahan, Chrissy       Young, Marty                        1.5             D+20.8             0.969671   Safe D
+      CA-49               D                        D        Levin, Mike     Kurdian, Armen                        1.5             D+21.1             0.971097   Safe D
+      IL-11               D                        D       Foster, Bill       Walter, Jeff                        1.5             D+21.3             0.971857   Safe D
+      CA-41               D                        D     Sanchez, Linda    Clemmons, Mitch                        1.5             D+22.5             0.977189   Safe D
+      TX-28               D                        D     Cuellar, Henry     Tijerina, Tano                        1.5              D+2.8             0.614208   Tilt D
+       CA-9               D                        D       Harder, Josh      McBride, John                        1.5             D+22.6             0.977570   Safe D
+      CA-33               D                        D      Aguilar, Pete                NaN                        1.5             D+22.7             0.977712   Safe D
+       CA-4               D                        D     Thompson, Mike                NaN                        1.5             D+23.0             0.978737   Safe D
+      CA-31               D                        D      Cisneros, Gil        Ching, Eric                        1.5             D+23.5             0.980489   Safe D
+      PA-12               D                        D        Lee, Summer       Hayes, James                        1.5             D+24.3             0.983001   Safe D
+       PA-4               D                        D     Dean, Madeline    Stutski, Aurora                        1.5             D+24.5             0.983359   Safe D
+      CA-46               D                        D        Correa, Lou         Pan, David                        1.5             D+24.7             0.983869   Safe D
+       KY-3               D                        D   McGarvey, Morgan   Rodriguez, Maria                        1.5             D+24.9             0.984364   Safe D
+      CA-50               D                        D      Peters, Scott       Cohen, Steve                        1.5             D+25.6             0.986087   Safe D
+       NJ-6               D                        D     Pallone, Frank    Herzig, Hillary                        1.5             D+18.8             0.957974   Safe D
+      IL-13               D                        D   Budzinski, Nikki       Wilson, Jeff                        1.5             D+18.6             0.956856   Safe D
+       CA-3               D                        D          Bera, Ami       Tucker, Robb                        1.5             D+18.4             0.955427   Safe D
+      CA-35               D                        D      Torres, Norma      Cargile, Mark                        1.5             D+18.0             0.952567   Safe D
+       NJ-7               R                        R   Bennett, Rebecca          Kean, Tom                       -1.5              D+6.2             0.738644   Lean D
+       PA-1               R                        R        Harvie, Bob Fitzpatrick, Brian                       -1.5              D+7.6             0.779702   Lean D
+       OH-1               D                        D     Landsman, Greg       Conroy, Eric                        1.5              D+7.6             0.780624   Lean D
+      CA-22               R                        R                NaN     Valadao, David                       -1.5              D+7.6             0.781540   Lean D
+      CA-45               D                        D        Tran, Derek                NaN                        1.5             D+11.3             0.868357 Likely D
+       IN-1               D                        D       Mrvan, Frank      Regnitz, Barb                        1.5             D+12.0             0.881423 Likely D
+      OH-13               D                        D      Sykes, Emilia     Coleman, Carey                        1.5             D+12.4             0.887274 Likely D
+      CA-13               D                        D         Gray, Adam     Lincoln, Kevin                        1.5             D+12.7             0.892676 Likely D
+      PA-17               D                        D     DeLuzio, Chris          Guy, Tony                        1.5             D+12.7             0.892676 Likely D
+       NJ-5               D                        D   Gottheimer, Josh      Kirrane, Sean                        1.5             D+13.0             0.897782 Likely D
+       IL-6               D                        D       Casten, Sean     Conforti, Niki                        1.5             D+13.3             0.901788 Likely D
+      IL-17               D                        D     Sorensen, Eric     Vancil, Dillan                        1.5             D+13.4             0.903852 Likely D
+       NJ-9               D                        D        Pou, Nellie                NaN                        1.5             D+13.9             0.910569 Likely D
+       GA-2               D                        D    Bishop, Sanford          Day, Matt                        1.5             D+14.8             0.922200 Likely D
+      IL-14               D                        D  Underwood, Lauren      Marter, James                        1.5             D+15.1             0.925496 Likely D
+       OR-5               D                        D     Bynum, Janelle       Adair, Patti                        1.5             D+15.8             0.932770 Likely D
+      CA-25               D                        D         Ruiz, Raul                NaN                        1.5             D+16.1             0.936337 Likely D
+       NJ-3               D                        D      Conaway, Herb   McGuire, Michael                        1.5             D+17.5             0.949008 Likely D
+      CA-21               D                        D         Costa, Jim     Kirkland, Kyle                        1.5             D+17.7             0.949870 Likely D
+      CA-51               D                        D       Jacobs, Sara   Cabrera, Ricardo                        1.5             D+26.1             0.987270   Safe D
+       NJ-1               D                        D   Norcross, Donald       Galdo, Damon                        1.5             D+27.2             0.989401   Safe D
+      TX-16               D                        D  Escobar, Veronica       Bauman, Adam                        1.5             D+27.3             0.989607   Safe D
+      CA-44               D                        D  Barragan, Nanette   Angel, Genevieve                        1.5             D+45.4             0.999486   Safe D
+       OH-3               D                        D      Beatty, Joyce  Dulaney, Cleophus                        1.5             D+46.2             0.999546   Safe D
 
 8. Candidate quality adjustments
 --------------------------------
@@ -127,47 +127,47 @@ None
 
 9. Largest movement from fundamentals to final model margin
 -----------------------------------------------------------
-district_id fundamentals_margin_label  polling_margin_label  poll_count  bayesian_polling_weight model_margin_label  audit_final_vs_fundamentals_gap rating
-       AL-4                    R+64.1                   NaN           0                      0.0             R+64.1                              0.0 Safe R
-      NJ-11                    D+20.0                   NaN           0                      0.0             D+20.0                              0.0 Safe D
-       CO-7                    D+21.6                   NaN           0                      0.0             D+21.6                              0.0 Safe D
-      CA-49                    D+21.6                   NaN           0                      0.0             D+21.6                              0.0 Safe D
-      FL-23                    D+21.4                   NaN           0                      0.0             D+21.4                              0.0 Safe D
-       PA-6                    D+21.3                   NaN           0                      0.0             D+21.3                              0.0 Safe D
-       MA-1                    D+21.1                   NaN           0                      0.0             D+21.1                              0.0 Safe D
-      DE-AL                    D+20.6                   NaN           0                      0.0             D+20.6                              0.0 Safe D
-      CA-42                    D+20.5                   NaN           0                      0.0             D+20.5                              0.0 Safe D
-       CA-7                    D+20.5                   NaN           0                      0.0             D+20.5                              0.0 Safe D
-      CA-38                    D+20.4                   NaN           0                      0.0             D+20.4                              0.0 Safe D
-      CA-47                    D+20.4                   NaN           0                      0.0             D+20.4                              0.0 Safe D
-      CA-27                    D+20.3                   NaN           0                      0.0             D+20.3                              0.0 Safe D
-       OR-4                    D+19.8                   NaN           0                      0.0             D+19.8                              0.0 Safe D
-      TX-16                    D+27.8                   NaN           0                      0.0             D+27.8                              0.0 Safe D
-       CA-1                    D+19.5                   NaN           0                      0.0             D+19.5                              0.0 Safe D
-       MA-9                    D+19.5                   NaN           0                      0.0             D+19.5                              0.0 Safe D
-       OR-6                    D+19.5                   NaN           0                      0.0             D+19.5                              0.0 Safe D
-       NM-1                    D+19.3                   NaN           0                      0.0             D+19.3                              0.0 Safe D
-       NJ-6                    D+19.3                   NaN           0                      0.0             D+19.3                              0.0 Safe D
-      NY-20                    D+19.1                   NaN           0                      0.0             D+19.1                              0.0 Safe D
-      IL-13                    D+19.1                   NaN           0                      0.0             D+19.1                              0.0 Safe D
-       CA-3                    D+18.9                   NaN           0                      0.0             D+18.9                              0.0 Safe D
-      CA-35                    D+18.5                   NaN           0                      0.0             D+18.5                              0.0 Safe D
-      CA-21                    D+18.2                   NaN           0                      0.0             D+18.2                              0.0 Safe D
-      VA-10                    D+18.1                   NaN           0                      0.0             D+18.1                              0.0 Safe D
-       CT-3                    D+21.7                   NaN           0                      0.0             D+21.7                              0.0 Safe D
-      IL-11                    D+21.8                   NaN           0                      0.0             D+21.8                              0.0 Safe D
-      MI-11                    D+22.9                   NaN           0                      0.0             D+22.9                              0.0 Safe D
-      CA-39                    D+23.0                   NaN           0                      0.0             D+23.0                              0.0 Safe D
-       NJ-1                    D+27.7                   NaN           0                      0.0             D+27.7                              0.0 Safe D
-       UT-1                    D+27.6                   NaN           0                      0.0             D+27.6                              0.0 Safe D
-       CO-6                    D+27.2                   NaN           0                      0.0             D+27.2                              0.0 Safe D
-       MA-4                    D+27.2                   NaN           0                      0.0             D+27.2                              0.0 Safe D
-      CA-51                    D+26.6                   NaN           0                      0.0             D+26.6                              0.0 Safe D
-       MA-3                    D+26.3                   NaN           0                      0.0             D+26.3                              0.0 Safe D
-      CA-50                    D+26.1                   NaN           0                      0.0             D+26.1                              0.0 Safe D
-       ME-1                    D+25.5                   NaN           0                      0.0             D+25.5                              0.0 Safe D
-       KY-3                    D+25.4                   NaN           0                      0.0             D+25.4                              0.0 Safe D
-      CA-46                    D+25.2                   NaN           0                      0.0             D+25.2                              0.0 Safe D
+district_id fundamentals_margin_label  polling_margin_label  poll_count  bayesian_polling_weight model_margin_label  audit_final_vs_fundamentals_gap   rating
+       AL-4                    R+63.6                   NaN           0                      0.0             R+63.6                              0.0   Safe R
+       CA-1                    D+19.5                   NaN           0                      0.0             D+19.5                              0.0   Safe D
+      FL-23                    D+21.4                   NaN           0                      0.0             D+21.4                              0.0   Safe D
+      IL-11                    D+21.3                   NaN           0                      0.0             D+21.3                              0.0   Safe D
+       MA-1                    D+21.1                   NaN           0                      0.0             D+21.1                              0.0   Safe D
+      CA-49                    D+21.1                   NaN           0                      0.0             D+21.1                              0.0   Safe D
+       PA-6                    D+20.8                   NaN           0                      0.0             D+20.8                              0.0   Safe D
+      DE-AL                    D+20.6                   NaN           0                      0.0             D+20.6                              0.0   Safe D
+       CA-7                    D+20.5                   NaN           0                      0.0             D+20.5                              0.0   Safe D
+      CA-38                    D+20.4                   NaN           0                      0.0             D+20.4                              0.0   Safe D
+      CA-42                    D+20.0                   NaN           0                      0.0             D+20.0                              0.0   Safe D
+      CA-47                    D+19.9                   NaN           0                      0.0             D+19.9                              0.0   Safe D
+      CA-27                    D+19.8                   NaN           0                      0.0             D+19.8                              0.0   Safe D
+      NJ-11                    D+19.5                   NaN           0                      0.0             D+19.5                              0.0   Safe D
+       MS-2                    D+27.7                   NaN           0                      0.0             D+27.7                              0.0   Safe D
+       MA-9                    D+19.5                   NaN           0                      0.0             D+19.5                              0.0   Safe D
+       OR-4                    D+19.3                   NaN           0                      0.0             D+19.3                              0.0   Safe D
+       NM-1                    D+19.3                   NaN           0                      0.0             D+19.3                              0.0   Safe D
+      NY-20                    D+19.1                   NaN           0                      0.0             D+19.1                              0.0   Safe D
+       OR-6                    D+19.0                   NaN           0                      0.0             D+19.0                              0.0   Safe D
+       NJ-6                    D+18.8                   NaN           0                      0.0             D+18.8                              0.0   Safe D
+      IL-13                    D+18.6                   NaN           0                      0.0             D+18.6                              0.0   Safe D
+       CA-3                    D+18.4                   NaN           0                      0.0             D+18.4                              0.0   Safe D
+      VA-10                    D+18.1                   NaN           0                      0.0             D+18.1                              0.0   Safe D
+      CA-35                    D+18.0                   NaN           0                      0.0             D+18.0                              0.0   Safe D
+      CA-21                    D+17.7                   NaN           0                      0.0             D+17.7                              0.0 Likely D
+       CO-7                    D+21.6                   NaN           0                      0.0             D+21.6                              0.0   Safe D
+       CT-3                    D+21.7                   NaN           0                      0.0             D+21.7                              0.0   Safe D
+      CA-39                    D+22.5                   NaN           0                      0.0             D+22.5                              0.0   Safe D
+      CA-41                    D+22.5                   NaN           0                      0.0             D+22.5                              0.0   Safe D
+      TX-16                    D+27.3                   NaN           0                      0.0             D+27.3                              0.0   Safe D
+       CO-6                    D+27.2                   NaN           0                      0.0             D+27.2                              0.0   Safe D
+       NJ-1                    D+27.2                   NaN           0                      0.0             D+27.2                              0.0   Safe D
+       MA-4                    D+27.2                   NaN           0                      0.0             D+27.2                              0.0   Safe D
+       MA-3                    D+26.3                   NaN           0                      0.0             D+26.3                              0.0   Safe D
+      CA-51                    D+26.1                   NaN           0                      0.0             D+26.1                              0.0   Safe D
+      CA-50                    D+25.6                   NaN           0                      0.0             D+25.6                              0.0   Safe D
+       ME-1                    D+25.5                   NaN           0                      0.0             D+25.5                              0.0   Safe D
+       KY-3                    D+24.9                   NaN           0                      0.0             D+24.9                              0.0   Safe D
+       WA-6                    D+24.8                   NaN           0                      0.0             D+24.8                              0.0   Safe D
 
 10. Election structure / fixed control checks
 ---------------------------------------------
@@ -188,36 +188,36 @@ district_id   dem_candidate gop_candidate other_candidate general_election_party
 
 college_share_tier:
 college_share_tier  districts  avg_baseline  avg_model_margin  avg_dem_prob
-              High         98        11.554            17.246         0.734
-               Low         95       -12.237            -8.130         0.377
-            Medium        176        -3.492             1.095         0.425
-           Unknown         13       -24.505           -21.340         0.227
-         Very High         53        28.274            34.148         0.892
+              High         98        11.554            17.149         0.734
+               Low         95       -12.237            -8.061         0.376
+            Medium        176        -3.492             1.154         0.426
+           Unknown         13       -24.505           -21.225         0.227
+         Very High         53        28.274            34.006         0.892
 
 white_share_tier:
 white_share_tier  districts  avg_baseline  avg_model_margin  avg_dem_prob
-            High        125        -2.278             2.813         0.507
-             Low         95        29.408            34.644         0.895
-          Medium         87         4.702             9.818         0.563
-         Unknown         13       -24.505           -21.340         0.227
-       Very High        115       -17.952           -13.710         0.281
+            High        125        -2.278             2.833         0.508
+             Low         95        29.408            34.423         0.895
+          Medium         87         4.702             9.824         0.564
+         Unknown         13       -24.505           -21.225         0.227
+       Very High        115       -17.952           -13.553         0.282
 
 black_share_tier:
 black_share_tier  districts  avg_baseline  avg_model_margin  avg_dem_prob
-            High         33        16.381            20.552         0.597
-             Low        234        -3.076             1.848         0.508
-          Medium        133         0.874             6.008         0.528
-         Unknown         14       -25.993           -22.808         0.211
-       Very High         21        45.804            50.119         0.995
+            High         33        16.381            20.521         0.597
+             Low        234        -3.076             1.867         0.509
+          Medium        133         0.874             6.011         0.528
+         Unknown         14       -25.993           -22.701         0.211
+       Very High         21        45.804            49.929         0.995
 
 hispanic_share_tier:
 hispanic_share_tier  districts  avg_baseline  avg_model_margin  avg_dem_prob
-               High         31         8.140            13.473         0.674
-                Low        251        -4.762            -0.235         0.442
-             Medium        101        10.694            16.126         0.662
-            Unknown         14       -23.624           -20.261         0.230
-          Very High         38        19.175            24.715         0.812
+               High         31         8.140            13.376         0.674
+                Low        251        -4.762            -0.162         0.443
+             Medium        101        10.694            16.062         0.662
+            Unknown         14       -23.624           -20.154         0.230
+          Very High         38        19.175            24.478         0.811
 
 median_income_tier:
 median_income_tier  districts  avg_baseline  avg_model_margin  avg_dem_prob
-           Unknown        435         1.230             6.076         0.535
+           Unknown        435         1.230             6.079         0.535

@@ -132,15 +132,18 @@ def ensure_column(df, col, default):
     return df
 
 
-def calculate_incumbency_adjustment(row):
+def calculate_incumbency_adjustment(row, incumbency_points=None):
+    if incumbency_points is None:
+        incumbency_points = abs(DEM_INCUMBENCY_ADJUSTMENT)
+
     dem_inc = parse_bool(row.get("dem_candidate_is_incumbent", False))
     gop_inc = parse_bool(row.get("gop_candidate_is_incumbent", False))
 
     if dem_inc and not gop_inc:
-        return DEM_INCUMBENCY_ADJUSTMENT
+        return incumbency_points
 
     if gop_inc and not dem_inc:
-        return GOP_INCUMBENCY_ADJUSTMENT
+        return -incumbency_points
 
     return OPEN_SEAT_INCUMBENCY_ADJUSTMENT
 
@@ -267,8 +270,20 @@ def main():
     )
 
     # Incumbency from italic detection/importer flags.
+    # Generic House incumbency is configurable because House incumbency
+    # is weaker than it used to be and should be calibrated.
+    generic_house_incumbency_points = read_house_calibration_setting(
+        "generic_house_incumbency_points",
+        abs(DEM_INCUMBENCY_ADJUSTMENT),
+    )
+
+    df["generic_house_incumbency_points"] = generic_house_incumbency_points
+
     df["incumbency_adjustment_dem"] = df.apply(
-        calculate_incumbency_adjustment,
+        lambda row: calculate_incumbency_adjustment(
+            row,
+            generic_house_incumbency_points,
+        ),
         axis=1,
     )
 

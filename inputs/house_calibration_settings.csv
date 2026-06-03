@@ -1,3 +1,3 @@
 setting,value,notes
 house_environment_multiplier,0.85,Multiplier applied to imported Senate/shared national environment before House district elasticity.
-generic_house_incumbency_points,2.0,Current generic House incumbency value; may later be reduced after review.
+generic_house_incumbency_points,1.5,Generic House incumbency adjustment in points; positive for Dem incumbents and negative for GOP incumbents. Set to 1.50 after calibration comparison because modern House incumbency appears weaker than older defaults.

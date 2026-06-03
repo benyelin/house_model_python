@@ -1,0 +1,4 @@
+generic_house_incumbency_points,dem_favored_seats,gop_favored_seats,tossup_probability_band_45_55,competitive_probability_band_35_65,likely_or_safer_dem,likely_or_safer_gop,mean_model_margin_dem,rating_safe_d,rating_likely_d,rating_lean_d,rating_tilt_d,rating_tossup,rating_tilt_r,rating_lean_r,rating_likely_r,rating_safe_r
+1.25,225,210,7,19,199,157,6.080767049808429,160,39,17,5,7,7,43,60,97
+1.5,225,210,6,20,199,157,6.079042911877394,160,39,17,5,6,9,42,60,97
+2.0,224,211,7,21,199,157,6.0755946360153255,162,37,16,6,7,8,42,58,99
