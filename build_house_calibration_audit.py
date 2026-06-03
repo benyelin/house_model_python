@@ -147,10 +147,21 @@ def main():
     else:
         df["audit_elasticity"] = np.nan
 
-    # Component sum check.
+    # Infer the actual environment adjustment used in fundamentals.
+    # Some versions of the House model store the environment effect directly
+    # in fundamentals rather than in state_environment_adjustment_dem.
+    df["environment_adjustment_used_dem"] = (
+        df["fundamentals_margin_dem"]
+        - df["district_partisan_baseline_dem"].fillna(0)
+        - df["incumbency_adjustment_dem"].fillna(0)
+        - df["candidate_quality_adjustment_dem"].fillna(0)
+        - df["special_adjustment_dem"].fillna(0)
+    )
+
+    # Component sum check using the inferred environment effect.
     df["audit_component_sum_dem"] = (
         df["district_partisan_baseline_dem"].fillna(0)
-        + df["state_environment_adjustment_dem"].fillna(0)
+        + df["environment_adjustment_used_dem"].fillna(0)
         + df["incumbency_adjustment_dem"].fillna(0)
         + df["candidate_quality_adjustment_dem"].fillna(0)
         + df["special_adjustment_dem"].fillna(0)
@@ -244,6 +255,7 @@ def main():
         "baseline_label",
         "audit_elasticity",
         "state_environment_adjustment_dem",
+        "environment_adjustment_used_dem",
         "incumbency_adjustment_dem",
         "candidate_quality_adjustment_dem",
         "special_adjustment_dem",
