@@ -1,0 +1,3 @@
+setting,value,notes
+house_environment_multiplier,0.85,Multiplier applied to imported Senate/shared national environment before House district elasticity.
+generic_house_incumbency_points,2.0,Current generic House incumbency value; may later be reduced after review.

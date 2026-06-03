@@ -25,6 +25,39 @@ GOP_INCUMBENCY_ADJUSTMENT = -2.0
 OPEN_SEAT_INCUMBENCY_ADJUSTMENT = 0.0
 
 
+
+def read_house_calibration_setting(setting_name, default):
+    """
+    Read House calibration settings from inputs/house_calibration_settings.csv.
+    Returns default if the file or setting is missing.
+    """
+    from pathlib import Path
+    import pandas as pd
+
+    settings_path = Path("inputs/house_calibration_settings.csv")
+
+    if not settings_path.exists():
+        return default
+
+    try:
+        settings = pd.read_csv(settings_path)
+    except Exception:
+        return default
+
+    if settings.empty or "setting" not in settings.columns or "value" not in settings.columns:
+        return default
+
+    rows = settings[settings["setting"].astype(str).str.strip() == setting_name]
+
+    if rows.empty:
+        return default
+
+    try:
+        return float(rows.iloc[0]["value"])
+    except Exception:
+        return default
+
+
 def find_national_environment_path():
     for path in NATIONAL_ENVIRONMENT_CANDIDATES:
         if path.exists():
@@ -212,10 +245,24 @@ def main():
     df["region_error_group"] = df["region_error_group"].fillna(df["region"]).astype(str).str.strip()
     df["district_type_error_group"] = df["district_type_error_group"].fillna(df["district_type"]).astype(str).str.strip()
 
-    df["national_environment_margin_dem"] = national_environment
+    # Imported environment comes from the Senate/shared national environment.
+    # For House races, apply a transparent multiplier before district elasticity.
+    house_environment_multiplier = read_house_calibration_setting(
+        "house_environment_multiplier",
+        0.85,
+    )
+
+    df["imported_national_environment_margin_dem"] = national_environment
+    df["house_environment_multiplier"] = house_environment_multiplier
+    df["house_national_environment_used_dem"] = (
+        df["imported_national_environment_margin_dem"]
+        * df["house_environment_multiplier"]
+    )
+
+    df["national_environment_margin_dem"] = df["house_national_environment_used_dem"]
 
     df["district_environment_adjustment_dem"] = (
-        df["national_environment_margin_dem"]
+        df["house_national_environment_used_dem"]
         * df["district_elasticity"]
     )
 
