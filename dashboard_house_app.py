@@ -521,6 +521,7 @@ with tab_drivers:
                 "District": row.get("district_id", ""),
                 "Dem candidate": row.get("dem_candidate", ""),
                 "GOP candidate": row.get("gop_candidate", ""),
+                "Other": row.get("other_candidate", ""),
                 "Election System": row.get("election_system", ""),
                 "Party Structure": row.get("general_election_party_structure", ""),
                 "Party Override": row.get("party_control_override", ""),

@@ -23,6 +23,8 @@ VALID_PARTY_STRUCTURES = {
     "D_vs_D",
     "R_vs_R",
     "D_vs_R_vs_Other",
+    "D_unopposed",
+    "R_unopposed",
     "Other",
 }
 VALID_INCUMBENT_PARTIES = {"D", "R", "Vacant", "I", ""}
@@ -357,19 +359,21 @@ def check_house_inputs(df, errors, warnings, info):
         structure = normalize_blank_series(df["general_election_party_structure"])
         override = normalize_blank_series(df["party_control_override"]).str.upper()
 
-        d_vs_d_missing = df[(structure == "D_vs_D") & (override != "D")]
-        r_vs_r_missing = df[(structure == "R_vs_R") & (override != "R")]
+        # Party Control Override is optional. Same-party and unopposed races
+        # are now automatically fixed by General Election Party Structure.
+        d_fixed = df[structure.isin(["D_vs_D", "D_unopposed"])]
+        r_fixed = df[structure.isin(["R_vs_R", "R_unopposed"])]
 
-        if not d_vs_d_missing.empty:
-            warnings.append(
-                "D_vs_D races missing D party-control override: "
-                + ", ".join(d_vs_d_missing["district_id"].head(20).tolist())
+        if not d_fixed.empty:
+            info.append(
+                "Automatic fixed Democratic-control races: "
+                + ", ".join(d_fixed["district_id"].head(20).tolist())
             )
 
-        if not r_vs_r_missing.empty:
-            warnings.append(
-                "R_vs_R races missing R party-control override: "
-                + ", ".join(r_vs_r_missing["district_id"].head(20).tolist())
+        if not r_fixed.empty:
+            info.append(
+                "Automatic fixed Republican-control races: "
+                + ", ".join(r_fixed["district_id"].head(20).tolist())
             )
 
     # Margin/probability sanity

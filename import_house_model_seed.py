@@ -247,6 +247,20 @@ def normalize_party_structure(value):
         "r_v_r": "R_vs_R",
         "d_vs_r_vs_other": "D_vs_R_vs_Other",
         "d_r_other": "D_vs_R_vs_Other",
+        "d_vs_other": "D_vs_R_vs_Other",
+        "r_vs_other": "D_vs_R_vs_Other",
+        "d_unopposed": "D_unopposed",
+        "dem_unopposed": "D_unopposed",
+        "democrat_unopposed": "D_unopposed",
+        "r_unopposed": "R_unopposed",
+        "gop_unopposed": "R_unopposed",
+        "republican_unopposed": "R_unopposed",
+        "uncontested_d": "D_unopposed",
+        "uncontested_dem": "D_unopposed",
+        "uncontested_democrat": "D_unopposed",
+        "uncontested_r": "R_unopposed",
+        "uncontested_gop": "R_unopposed",
+        "uncontested_republican": "R_unopposed",
         "other": "Other",
     }
 
@@ -333,6 +347,10 @@ def main():
 
         dem_candidate = clean_text(dem_cell.value)
         gop_candidate = clean_text(gop_cell.value)
+
+        other_candidate = clean_text(
+            optional_cell(ws, r, col_index, "Other")
+        )
 
         dem_candidate_italic = cell_is_italic(dem_cell)
         gop_candidate_italic = cell_is_italic(gop_cell)
@@ -460,6 +478,7 @@ def main():
 
                 "dem_candidate": dem_candidate,
                 "gop_candidate": gop_candidate,
+                "other_candidate": other_candidate,
 
                 "dem_candidate_italic": dem_candidate_italic,
                 "gop_candidate_italic": gop_candidate_italic,
@@ -547,6 +566,7 @@ def main():
         "party_control_override",
         "dem_candidate",
         "gop_candidate",
+        "other_candidate",
         "dem_candidate_is_incumbent",
         "gop_candidate_is_incumbent",
         "pres_2024_margin_dem",

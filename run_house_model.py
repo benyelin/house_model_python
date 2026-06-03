@@ -184,6 +184,7 @@ def prepare_house_table(df, days_out, config):
         ("general_election_party_structure", "unresolved"),
         ("party_control_override", ""),
         ("election_system_notes", ""),
+        ("other_candidate", ""),
         ("college_share_tier", "Unknown"),
         ("white_share_tier", "Unknown"),
         ("black_share_tier", "Unknown"),
@@ -244,8 +245,21 @@ def prepare_house_table(df, days_out, config):
     out["election_system_notes"] = out["election_system_notes"].fillna("").astype(str).str.strip()
 
     out["party_control_fixed"] = ""
-    out.loc[out["general_election_party_structure"] == "D_vs_D", "party_control_fixed"] = "D"
-    out.loc[out["general_election_party_structure"] == "R_vs_R", "party_control_fixed"] = "R"
+
+    # Automatic fixed party-control logic.
+    # Party Control Override remains an escape hatch, but ordinary same-party
+    # and uncontested races are inferred from General Election Party Structure.
+    out.loc[
+        out["general_election_party_structure"].isin(["D_vs_D", "D_unopposed"]),
+        "party_control_fixed",
+    ] = "D"
+
+    out.loc[
+        out["general_election_party_structure"].isin(["R_vs_R", "R_unopposed"]),
+        "party_control_fixed",
+    ] = "R"
+
+    # Explicit override wins over automatic inference.
     out.loc[out["party_control_override"].isin(["D", "R"]), "party_control_fixed"] = out.loc[
         out["party_control_override"].isin(["D", "R"]),
         "party_control_override",
@@ -415,6 +429,11 @@ def run_simulation(race_table, days_out, config):
         "demographic_error_groups": int(race_table["demographic_error_group"].nunique()),
         "fixed_dem_control_districts": int((race_table["party_control_fixed"] == "D").sum()),
         "fixed_gop_control_districts": int((race_table["party_control_fixed"] == "R").sum()),
+        "d_unopposed_districts": int((race_table["general_election_party_structure"] == "D_unopposed").sum()),
+        "r_unopposed_districts": int((race_table["general_election_party_structure"] == "R_unopposed").sum()),
+        "d_vs_d_districts": int((race_table["general_election_party_structure"] == "D_vs_D").sum()),
+        "r_vs_r_districts": int((race_table["general_election_party_structure"] == "R_vs_R").sum()),
+        "other_candidate_districts": int(race_table["other_candidate"].fillna("").astype(str).str.strip().ne("").sum()) if "other_candidate" in race_table.columns else 0,
         "top_two_districts": int((race_table["election_system"] == "top_two").sum()),
         "top_four_rcv_districts": int((race_table["election_system"] == "top_four_rcv").sum()),
     }
