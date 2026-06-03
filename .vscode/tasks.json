@@ -121,6 +121,17 @@
         "panel": "shared",
         "clear": true
       }
+    },
+    {
+      "label": "Build House Calibration Audit",
+      "type": "shell",
+      "command": "python3 build_house_calibration_audit.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      }
     }
   ],
   "inputs": [

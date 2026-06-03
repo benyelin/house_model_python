@@ -18,6 +18,7 @@ NATIONAL_ENV_AUDIT = INPUTS / "house_national_environment_audit.csv"
 HOUSE_RACE_STATS = OUTPUTS / "house_race_stats.csv"
 HOUSE_SEAT_DISTRIBUTION = OUTPUTS / "house_seat_distribution.csv"
 HOUSE_FORECAST_SUMMARY = OUTPUTS / "house_forecast_summary.csv"
+HOUSE_CALIBRATION_AUDIT = OUTPUTS / "house_calibration_audit.csv"
 
 st.set_page_config(
     page_title="2026 House Forecast Dashboard",
@@ -1136,3 +1137,140 @@ with tab_manual_polls:
     st.caption(
         "Poll ingestion is the next infrastructure step. For now, this tab creates and manages the poll CSV."
     )
+
+def render_calibration_audit():
+    st.header("Calibration Audit")
+
+    audit_path = OUTPUTS / "house_calibration_audit.csv"
+
+    if not audit_path.exists():
+        st.info("No calibration audit found yet. Run the House full pipeline or Build House Calibration Audit task.")
+        return
+
+    audit = pd.read_csv(audit_path)
+
+    if audit.empty:
+        st.info("Calibration audit file is empty.")
+        return
+
+    st.caption(
+        "This table decomposes each district into baseline, environment, incumbency, candidate quality, polling, final margin, and rating."
+    )
+
+    flagged = audit[audit.get("audit_flags", "").fillna("").astype(str).str.strip().ne("")] if "audit_flags" in audit.columns else pd.DataFrame()
+
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Districts", len(audit))
+    c2.metric("Flagged Rows", len(flagged))
+    c3.metric("Median Dem Win Prob", f"{audit['dem_win_probability'].median():.1%}" if "dem_win_probability" in audit.columns else "NA")
+    c4.metric("Polled Districts", int((audit["poll_count"].fillna(0) > 0).sum()) if "poll_count" in audit.columns else 0)
+
+    st.subheader("Filters")
+
+    f1, f2, f3, f4 = st.columns(4)
+
+    region_options = ["All"]
+    if "region" in audit.columns:
+        region_options += sorted(audit["region"].fillna("Unknown").astype(str).unique().tolist())
+
+    district_type_options = ["All"]
+    if "district_type" in audit.columns:
+        district_type_options += sorted(audit["district_type"].fillna("Unknown").astype(str).unique().tolist())
+
+    rating_options = ["All"]
+    if "rating" in audit.columns:
+        rating_options += sorted(audit["rating"].fillna("Unknown").astype(str).unique().tolist())
+
+    flag_filter = f1.selectbox("Audit flags", ["All", "Flagged only", "Unflagged only"])
+    region_filter = f2.selectbox("Region", region_options)
+    type_filter = f3.selectbox("District type", district_type_options)
+    rating_filter = f4.selectbox("Rating", rating_options)
+
+    view = audit.copy()
+
+    if flag_filter == "Flagged only" and "audit_flags" in view.columns:
+        view = view[view["audit_flags"].fillna("").astype(str).str.strip().ne("")]
+    elif flag_filter == "Unflagged only" and "audit_flags" in view.columns:
+        view = view[view["audit_flags"].fillna("").astype(str).str.strip().eq("")]
+
+    if region_filter != "All" and "region" in view.columns:
+        view = view[view["region"].fillna("Unknown").astype(str) == region_filter]
+
+    if type_filter != "All" and "district_type" in view.columns:
+        view = view[view["district_type"].fillna("Unknown").astype(str) == type_filter]
+
+    if rating_filter != "All" and "rating" in view.columns:
+        view = view[view["rating"].fillna("Unknown").astype(str) == rating_filter]
+
+    st.subheader("Calibration Table")
+
+    display_cols = [
+        "district_id",
+        "rating",
+        "model_margin_label",
+        "dem_win_probability",
+        "baseline_label",
+        "state_environment_adjustment_dem",
+        "audit_elasticity",
+        "incumbency_adjustment_dem",
+        "candidate_quality_adjustment_dem",
+        "fundamentals_margin_label",
+        "polling_margin_label",
+        "poll_count",
+        "bayesian_polling_weight",
+        "region",
+        "district_type",
+        "college_share_tier",
+        "white_share_tier",
+        "black_share_tier",
+        "hispanic_share_tier",
+        "median_income_tier",
+        "general_election_party_structure",
+        "party_control_fixed",
+        "audit_flags",
+    ]
+
+    display_cols = [c for c in display_cols if c in view.columns]
+
+    st.dataframe(
+        view[display_cols],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    if not flagged.empty:
+        st.subheader("Flagged Rows")
+        flagged_cols = [
+            "district_id",
+            "rating",
+            "model_margin_label",
+            "dem_win_probability",
+            "audit_flags",
+        ]
+        flagged_cols = [c for c in flagged_cols if c in flagged.columns]
+        st.dataframe(flagged[flagged_cols], use_container_width=True, hide_index=True)
+
+    st.subheader("Largest Model Movement from Fundamentals")
+
+    if "audit_final_vs_fundamentals_gap" in audit.columns:
+        move = audit.copy()
+        move["abs_gap"] = move["audit_final_vs_fundamentals_gap"].abs()
+        move = move.sort_values("abs_gap", ascending=False)
+
+        move_cols = [
+            "district_id",
+            "rating",
+            "fundamentals_margin_label",
+            "polling_margin_label",
+            "model_margin_label",
+            "poll_count",
+            "bayesian_polling_weight",
+            "audit_final_vs_fundamentals_gap",
+        ]
+        move_cols = [c for c in move_cols if c in move.columns]
+
+        st.dataframe(move[move_cols].head(25), use_container_width=True, hide_index=True)
+
+
+st.divider()
+render_calibration_audit()
