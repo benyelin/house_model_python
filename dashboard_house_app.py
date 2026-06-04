@@ -30,6 +30,19 @@ st.set_page_config(
 # Helpers
 # -----------------------------
 
+
+def get_first_available(row, names, default=None):
+    for name in names:
+        try:
+            value = row.get(name)
+        except Exception:
+            value = None
+
+        if value is not None and not pd.isna(value):
+            return value
+
+    return default
+
 def rating_party_bucket(rating):
     s = str(rating).strip().lower()
 
@@ -256,7 +269,12 @@ if not forecast_summary_output.empty:
     summary_row = forecast_summary_output.iloc[-1]
     expected_dem_seats = as_float(summary_row.get("expected_dem_seats"))
     median_like_dem_seats = as_float(summary_row.get("median_dem_seats"))
-    dem_majority_probability = as_float(summary_row.get("dem_majority_probability"))
+    dem_majority_probability = as_float(
+        summary_row.get(
+            "dem_majority_probability",
+            summary_row.get("dem_control_probability"),
+        )
+    )
 else:
     expected_dem_seats = df["dem_win_probability"].sum()
     median_like_dem_seats = int((df["dem_win_probability"] >= 0.5).sum())
@@ -299,6 +317,10 @@ with tab_overview:
         "Seat totals now come from the House simulation engine when outputs are available."
     )
 
+
+
+    st.divider()
+
     st.divider()
 
     if not seat_distribution_output.empty:
@@ -325,6 +347,30 @@ with tab_overview:
         )
         fig_seats.update_layout(yaxis_tickformat=".0%")
         st.plotly_chart(fig_seats, use_container_width=True)
+
+    st.divider()
+
+    if not forecast_summary_output.empty:
+        srow = forecast_summary_output.iloc[-1]
+        engine = str(srow.get("uncertainty_engine", "")).strip()
+
+        if engine:
+            st.subheader("Dynamic Uncertainty")
+            st.caption(f"Uncertainty engine: {engine}")
+
+            u1, u2, u3, u4, u5 = st.columns(5)
+            u1.metric("Days Out", fmt_num(srow.get("days_out"), 0))
+            u2.metric("National SD", fmt_num(srow.get("national_error_sd"), 2))
+            u3.metric("Region SD", fmt_num(srow.get("region_error_sd"), 2))
+            u4.metric("Demographic SD", fmt_num(srow.get("demographic_error_sd"), 2))
+            u5.metric("District SD", fmt_num(srow.get("district_error_sd"), 2))
+
+            v1, v2, v3, v4 = st.columns(4)
+            v1.metric("Total Error SD", fmt_num(srow.get("total_error_sd"), 2))
+            v2.metric("Implied Correlation", fmt_pct(srow.get("implied_correlation")))
+            v3.metric("Region Groups", fmt_num(srow.get("region_groups"), 0))
+            v4.metric("Demographic Groups", fmt_num(srow.get("demographic_groups"), 0))
+
 
     st.divider()
 
@@ -663,9 +709,9 @@ with tab_diagnostics:
     if not forecast_summary_output.empty:
         srow = forecast_summary_output.iloc[-1]
         e1, e2, e3, e4, e5, e6 = st.columns(6)
-        e1.metric("National Error SD", fmt_num(srow.get("national_error_sd"), 2))
+        e1.metric("National Error SD", fmt_num(get_first_available(srow, ["national_error_sd", "house_national_error_sd"]), 2))
         e2.metric("State Error SD", fmt_num(srow.get("state_error_sd"), 2))
-        e3.metric("Region Error SD", fmt_num(srow.get("region_error_sd"), 2))
+        e3.metric("Region Error SD", fmt_num(get_first_available(srow, ["region_error_sd", "regional_error_sd", "house_region_error_sd"]), 2))
         e4.metric("District Type Error SD", fmt_num(srow.get("district_type_error_sd"), 2))
         e5.metric("Education/Race Error SD", fmt_num(srow.get("education_race_error_sd"), 2))
         e6.metric("District Floor SD", fmt_num(srow.get("district_specific_error_sd_floor"), 2))
@@ -1137,6 +1183,51 @@ with tab_manual_polls:
     st.caption(
         "Poll ingestion is the next infrastructure step. For now, this tab creates and manages the poll CSV."
     )
+
+
+def render_dynamic_uncertainty_audit():
+    st.header("Dynamic Uncertainty")
+
+    summary_path = OUTPUTS / "house_forecast_summary.csv"
+    audit_path = OUTPUTS / "house_uncertainty_audit.csv"
+
+    if not summary_path.exists():
+        st.info("No House forecast summary found yet.")
+        return
+
+    summary = pd.read_csv(summary_path)
+
+    if summary.empty:
+        st.info("House forecast summary is empty.")
+        return
+
+    srow = summary.iloc[0]
+
+    if str(srow.get("uncertainty_engine", "")).strip() == "":
+        st.info("Dynamic uncertainty engine has not been run yet.")
+        return
+
+    u1, u2, u3 = st.columns(3)
+    u1.metric("Uncertainty Engine", str(srow.get("uncertainty_engine", "NA")))
+    u2.metric("Days Out", fmt_num(srow.get("days_out"), 0))
+    u3.metric("Total Error SD", fmt_num(get_first_available(srow, ["total_error_sd", "house_total_error_sd"]), 2))
+
+    u4, u5, u6, u7 = st.columns(4)
+    u4.metric("National SD", fmt_num(get_first_available(srow, ["national_error_sd", "house_national_error_sd"]), 2))
+    u5.metric("Region SD", fmt_num(get_first_available(srow, ["region_error_sd", "regional_error_sd", "house_region_error_sd"]), 2))
+    u6.metric("Demographic SD", fmt_num(get_first_available(srow, ["demographic_error_sd", "education_race_error_sd", "demographic_group_error_sd", "house_demographic_error_sd"]), 2))
+    u7.metric("District SD", fmt_num(get_first_available(srow, ["district_error_sd", "race_error_sd", "house_district_error_sd"]), 2))
+
+    u8, u9, u10 = st.columns(3)
+    u8.metric("Implied Correlation", fmt_pct(get_first_available(srow, ["implied_correlation", "house_implied_correlation"])))
+    u9.metric("Region Groups", fmt_num(get_first_available(srow, ["region_groups", "region_error_groups"]), 0))
+    u10.metric("Demographic Groups", fmt_num(get_first_available(srow, ["demographic_groups", "education_race_error_groups", "demographic_error_groups"]), 0))
+
+    if audit_path.exists():
+        audit = pd.read_csv(audit_path)
+        if not audit.empty:
+            st.subheader("Uncertainty Settings Audit")
+            st.dataframe(audit, use_container_width=True, hide_index=True)
 
 def render_calibration_audit():
     st.header("Calibration Audit")
