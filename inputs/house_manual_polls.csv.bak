@@ -1,0 +1,3 @@
+race,state,district,district_id,pollster,pollster_grade,house_effect_dem,start_date,end_date,sample_size,sample_type,dem_candidate,gop_candidate,ind_candidate,other_candidate,dem_pct,gop_pct,ind_pct,other_pct,undecided_pct,notes
+MO-2 House,MO,2,MO-2,FM3 Research,B,3.0,2026-05-26,2026-05-31,600,LV,,Wagner,,,41.0,44.0,0.0,0.0,15.0,
+WI-3 House,WI,3,WI-3,,B,3.0,2026-05-26,2026-05-31,500,LV,Cooke,Van Orden,,,50.0,46.0,0.0,0.0,1.0,
