@@ -1,0 +1,22 @@
+district_id,actual_dem_margin,district_pres_margin_dem,national_environment_margin_dem,district_elasticity,incumbency_adjustment_dem,candidate_quality_adjustment_dem,special_adjustment_dem,notes
+CA-25,8.8,-6.7,8.6,1.0,0,0,0,2018 pilot district
+CA-39,3.2,-8.6,8.6,1.0,0,0,0,2018 pilot district
+CA-45,3.2,-5.4,8.6,1.0,-1.5,0,0,2018 pilot district
+CA-48,7.2,-1.7,8.6,1.0,-1.5,0,0,2018 pilot district
+GA-6,1.0,-1.5,8.6,1.0,-1.5,0,0,2018 pilot district
+IA-1,5.1,-3.5,8.6,
+1.0,-1.5,0,0,2018 pilot district
+IA-3,2.2,-3.5,8.6,1.0,-1.5,0,0,2018 pilot district
+KS-3,9.7,1.2,8.6,1.0,-1.5,0,0,2018 pilot district
+ME-2,1.0,-10.3,8.6,1.0,-1.5,0,0,2018 pilot district
+MI-8,6.5,-6.7,8.6,1.0,-1.5,0,0,2018 pilot district
+NJ-2,8.0,-4.6,8.6,1.0,0,0,0,2018 pilot district
+NJ-3,1.3,6.2,8.6,1.0,-1.5,0,0,2018 pilot district
+NJ-7,1.2,1.1,8.6,1.0,-1.5,0,0,2018 pilot district
+NM-2,-1.8,-10.2,8.6,1.0,0,0,0,2018 pilot district
+NY-19,4.1,-6.8,8.6,1.0,-1.5,0,0,2018 pilot district
+OK-5,1.4,-13.4,8.6,1.0,0,1.0,0,2018 pilot district
+PA-1,-2.6,-2.1,8.6,1.0,-1.5,0,0,2018 pilot district
+SC-1,1.4,-13.1,8.6,1.0,0,1.0,0,2018 pilot district
+TX-7,4.9,-1.4,8.6,1.0,-1.5,0,0,2018 pilot district
+VA-7,2.0,-6.5,8.6,1.0,-1.5,0,0,2018 pilot district

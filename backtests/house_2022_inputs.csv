@@ -1,0 +1,21 @@
+district_id,actual_dem_margin,district_pres_margin_dem,national_environment_margin_dem,district_elasticity,incumbency_adjustment_dem,candidate_quality_adjustment_dem,special_adjustment_dem,notes
+AK-AL,10.1,-10.1,-2.8,1.0,0,2.0,0,2022 pilot district
+AZ-1,-1.3,1.5,-2.8,1.0,-1.5,0,0,2022 pilot district
+AZ-6,-1.6,0.1,-2.8,1.0,0,0,0,2022 pilot district
+CA-13,-0.4,10.9,-2.8,1.0,0,0,0,2022 pilot district
+CA-22,-5.4,13.0,-2.8,1.0,-1.5,0,0,2022 pilot district
+CA-27,-6.4,12.5,-2.8,1.0,-1.5,0,0,2022 pilot district
+CO-3,-0.2,-8.3,-2.8,1.0,-1.5,0,0,2022 pilot district
+ME-2,-6.3,-6.1,-2.8,1.0,1.5,0,0,2022 pilot district
+MI-7,-5.4,0.8,-2.8,1.0,1.5,0,0,2022 pilot district
+NC-13,-3.6,-1.3,-2.8,1.0,0,0,0,2022 pilot district
+NM-2,0.7,6.0,-2.8,1.0,0,0,0,2022 pilot district
+NY-17,-0.6,10.0,-2.8,1.0,1.5,0,0,2022 pilot district
+NY-19,-1.6,4.6,-2.8,1.0,0,0,0,2022 pilot district
+OH-1,5.0,8.5,-2.8,1.0,-1.5,0,0,2022 pilot district
+OH-13,5.4,2.9,-2.8,1.0,0,0,0,2022 pilot district
+OR-5,-2.1,8.8,-2.8,1.0,0,0,0,2022 pilot district
+PA-7,2.0,0.6,-2.8,1.0,1.5,0,0,2022 pilot district
+TX-34,8.5,15.7,-2.8,1.0,0,0,0,2022 pilot district
+VA-2,-3.9,2.3,-2.8,1.0,1.5,0,0,2022 pilot district
+WA-3,0.8,-4.2,-2.8,1.0,0,1.0,0,2022 pilot district
