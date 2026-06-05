@@ -28,6 +28,7 @@ def main():
     run([py, "run_house_model.py", "--sims", str(args.sims)])
     run([py, "run_house_dynamic_uncertainty.py", "--sims", str(args.sims)])
     run([py, "build_house_calibration_audit.py"])
+    run([py, "build_house_local_context_audit.py"])
     run([py, "append_house_forecast_history.py"])
 
     print()

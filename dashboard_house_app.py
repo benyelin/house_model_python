@@ -20,6 +20,7 @@ HOUSE_SEAT_DISTRIBUTION = OUTPUTS / "house_seat_distribution.csv"
 HOUSE_FORECAST_SUMMARY = OUTPUTS / "house_forecast_summary.csv"
 HOUSE_FORECAST_HISTORY = OUTPUTS / "house_forecast_history.csv"
 HOUSE_CALIBRATION_AUDIT = OUTPUTS / "house_calibration_audit.csv"
+HOUSE_LOCAL_CONTEXT_AUDIT = OUTPUTS / "house_local_context_audit.csv"
 
 st.set_page_config(
     page_title="2026 House Forecast Dashboard",
@@ -285,12 +286,13 @@ else:
 # -----------------------------
 # Tabs
 # -----------------------------
-tab_overview, tab_ratings, tab_drivers, tab_manual_polls, tab_diagnostics = st.tabs(
+tab_overview, tab_ratings, tab_drivers, tab_manual_polls, tab_local_context, tab_diagnostics = st.tabs(
     [
         "Overview",
         "District Ratings",
         "Model Drivers",
         "Manual Poll Entry",
+        "Local Context Audit",
         "Diagnostics",
     ]
 )
@@ -765,6 +767,181 @@ with tab_drivers:
 # -----------------------------
 # Diagnostics
 # -----------------------------
+
+
+with tab_local_context:
+    st.header("Local Context Audit")
+
+    audit_path = OUTPUTS / "house_local_context_audit.csv"
+
+    if not audit_path.exists():
+        st.info("No local context audit found yet. Run `python3 build_house_local_context_audit.py`.")
+    else:
+        audit = pd.read_csv(audit_path)
+
+        if audit.empty:
+            st.info("Local context audit file exists but is empty.")
+        else:
+            st.caption(
+                "Flags competitive districts where the forecast is relying mostly on fundamentals "
+                "because polling, named candidates, incumbency, or special local adjustments are limited."
+            )
+
+            if "audit_priority" not in audit.columns:
+                audit["audit_priority"] = "Unknown"
+            if "mostly_fundamentals_only" not in audit.columns:
+                audit["mostly_fundamentals_only"] = False
+            if "has_polling" not in audit.columns:
+                audit["has_polling"] = False
+
+            for col in ["dem_win_probability", "model_margin_dem", "poll_count", "local_context_score"]:
+                if col in audit.columns:
+                    audit[col] = pd.to_numeric(audit[col], errors="coerce")
+
+            priority_counts = audit["audit_priority"].fillna("Unknown").astype(str).value_counts()
+
+            high_count = int(priority_counts.get("High", 0))
+            medium_count = int(priority_counts.get("Medium", 0))
+            low_count = int(priority_counts.get("Low", 0))
+
+            mostly_fundamentals = audit["mostly_fundamentals_only"].astype(str).str.lower().isin(
+                ["true", "1", "yes"]
+            ).sum()
+
+            with_polling = audit["has_polling"].astype(str).str.lower().isin(
+                ["true", "1", "yes"]
+            ).sum()
+
+            competitive_count = 0
+            if "competitiveness_band" in audit.columns:
+                competitive_count = audit["competitiveness_band"].isin(
+                    ["Toss-up range", "Competitive"]
+                ).sum()
+
+            m1, m2, m3, m4, m5, m6 = st.columns(6)
+            m1.metric("High Priority", high_count)
+            m2.metric("Medium Priority", medium_count)
+            m3.metric("Low Priority", low_count)
+            m4.metric("Mostly Fundamentals", int(mostly_fundamentals))
+            m5.metric("With Polling", int(with_polling))
+            m6.metric("Competitive", int(competitive_count))
+
+            st.divider()
+
+            priority_order = {"High": 0, "Medium": 1, "Low": 2}
+            audit["_priority_order"] = audit["audit_priority"].map(priority_order).fillna(9)
+
+            if "dem_win_probability" in audit.columns:
+                audit["_distance_from_50"] = (audit["dem_win_probability"] - 0.5).abs()
+            else:
+                audit["_distance_from_50"] = 9
+
+            audit = audit.sort_values(["_priority_order", "_distance_from_50"])
+
+            display_cols = [
+                "district_id",
+                "rating",
+                "dem_win_probability",
+                "model_margin_dem",
+                "poll_count",
+                "competitiveness_band",
+                "audit_priority",
+                "local_context_score",
+                "mostly_fundamentals_only",
+                "candidate_field_status",
+                "dem_candidate",
+                "gop_candidate",
+                "incumbent",
+                "incumbent_party",
+                "general_election_party_structure",
+                "recommended_review",
+            ]
+
+            display_cols = [c for c in display_cols if c in audit.columns]
+
+            st.subheader("Highest-Priority Review Targets")
+
+            high_medium = audit[audit["audit_priority"].isin(["High", "Medium"])]
+
+            if high_medium.empty:
+                st.success("No high- or medium-priority local context gaps found.")
+            else:
+                st.dataframe(
+                    high_medium[display_cols].head(75),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+
+            st.divider()
+            st.subheader("Full Local Context Audit")
+
+            f1, f2, f3 = st.columns(3)
+
+            priorities = ["All"] + sorted(
+                audit["audit_priority"].fillna("Unknown").astype(str).unique().tolist()
+            )
+            selected_priority = f1.selectbox(
+                "Priority",
+                priorities,
+                index=0,
+                key="local_context_priority",
+            )
+
+            if "competitiveness_band" in audit.columns:
+                bands = ["All"] + sorted(
+                    audit["competitiveness_band"].fillna("Unknown").astype(str).unique().tolist()
+                )
+            else:
+                bands = ["All"]
+
+            selected_band = f2.selectbox(
+                "Competitiveness",
+                bands,
+                index=0,
+                key="local_context_band",
+            )
+
+            fundamentals_filter = f3.selectbox(
+                "Fundamentals-only status",
+                ["All", "Mostly fundamentals only", "Has local context"],
+                index=0,
+                key="local_context_fundamentals_filter",
+            )
+
+            filtered = audit.copy()
+
+            if selected_priority != "All":
+                filtered = filtered[filtered["audit_priority"].astype(str) == selected_priority]
+
+            if selected_band != "All" and "competitiveness_band" in filtered.columns:
+                filtered = filtered[filtered["competitiveness_band"].astype(str) == selected_band]
+
+            if fundamentals_filter == "Mostly fundamentals only":
+                filtered = filtered[
+                    filtered["mostly_fundamentals_only"]
+                    .astype(str)
+                    .str.lower()
+                    .isin(["true", "1", "yes"])
+                ]
+            elif fundamentals_filter == "Has local context":
+                filtered = filtered[
+                    ~filtered["mostly_fundamentals_only"]
+                    .astype(str)
+                    .str.lower()
+                    .isin(["true", "1", "yes"])
+                ]
+
+            st.dataframe(filtered[display_cols], use_container_width=True, hide_index=True)
+
+            csv = filtered[display_cols].to_csv(index=False).encode("utf-8")
+            st.download_button(
+                "Download filtered local context audit",
+                csv,
+                file_name="house_local_context_audit_filtered.csv",
+                mime="text/csv",
+                key="download_local_context_audit",
+            )
+
 with tab_diagnostics:
     st.subheader("Model Diagnostics")
 
@@ -1301,6 +1478,151 @@ def render_dynamic_uncertainty_audit():
         if not audit.empty:
             st.subheader("Uncertainty Settings Audit")
             st.dataframe(audit, use_container_width=True, hide_index=True)
+
+
+def render_local_context_audit():
+    st.header("Local Context Audit")
+
+    if local_context_audit_output.empty:
+        st.info("No local context audit found yet. Run `python3 build_house_local_context_audit.py` or the full House pipeline.")
+        return
+
+    audit = local_context_audit_output.copy()
+
+    st.caption(
+        "This audit flags districts where the model is relying mostly on fundamentals "
+        "because polling, named candidates, candidate quality, incumbency, or local context are limited."
+    )
+
+    # Basic cleanup
+    if "audit_priority" not in audit.columns:
+        audit["audit_priority"] = "Unknown"
+
+    if "mostly_fundamentals_only" not in audit.columns:
+        audit["mostly_fundamentals_only"] = False
+
+    if "has_polling" not in audit.columns:
+        audit["has_polling"] = False
+
+    for col in ["dem_win_probability", "model_margin_dem", "poll_count", "local_context_score"]:
+        if col in audit.columns:
+            audit[col] = pd.to_numeric(audit[col], errors="coerce")
+
+    # Summary metrics
+    priority_counts = audit["audit_priority"].fillna("Unknown").astype(str).value_counts()
+    high_count = int(priority_counts.get("High", 0))
+    medium_count = int(priority_counts.get("Medium", 0))
+    low_count = int(priority_counts.get("Low", 0))
+
+    mostly_fundamentals = audit["mostly_fundamentals_only"].astype(str).str.lower().isin(["true", "1", "yes"]).sum()
+    with_polling = audit["has_polling"].astype(str).str.lower().isin(["true", "1", "yes"]).sum()
+
+    competitive_count = 0
+    if "competitiveness_band" in audit.columns:
+        competitive_count = audit["competitiveness_band"].isin(["Toss-up range", "Competitive"]).sum()
+
+    m1, m2, m3, m4, m5, m6 = st.columns(6)
+    m1.metric("High Priority", high_count)
+    m2.metric("Medium Priority", medium_count)
+    m3.metric("Low Priority", low_count)
+    m4.metric("Mostly Fundamentals", int(mostly_fundamentals))
+    m5.metric("With Polling", int(with_polling))
+    m6.metric("Competitive", int(competitive_count))
+
+    st.divider()
+
+    # High-priority table
+    st.subheader("Highest-Priority Review Targets")
+
+    priority_order = {"High": 0, "Medium": 1, "Low": 2}
+    audit["_priority_order"] = audit["audit_priority"].map(priority_order).fillna(9)
+
+    if "dem_win_probability" in audit.columns:
+        audit["_distance_from_50"] = (audit["dem_win_probability"] - 0.5).abs()
+    else:
+        audit["_distance_from_50"] = 9
+
+    review = audit.sort_values(["_priority_order", "_distance_from_50"]).copy()
+
+    display_cols = [
+        "district_id",
+        "rating",
+        "dem_win_probability",
+        "model_margin_dem",
+        "poll_count",
+        "competitiveness_band",
+        "audit_priority",
+        "local_context_score",
+        "mostly_fundamentals_only",
+        "candidate_field_status",
+        "dem_candidate",
+        "gop_candidate",
+        "incumbent",
+        "incumbent_party",
+        "general_election_party_structure",
+        "recommended_review",
+    ]
+
+    display_cols = [c for c in display_cols if c in review.columns]
+
+    high_medium = review[review["audit_priority"].isin(["High", "Medium"])]
+
+    if high_medium.empty:
+        st.success("No high- or medium-priority local context gaps found.")
+    else:
+        st.dataframe(
+            high_medium[display_cols].head(50),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+    # Filters for full audit
+    st.divider()
+    st.subheader("Full Local Context Audit")
+
+    f1, f2, f3 = st.columns(3)
+
+    priorities = ["All"] + sorted(audit["audit_priority"].fillna("Unknown").astype(str).unique().tolist())
+    selected_priority = f1.selectbox("Priority", priorities, index=0)
+
+    if "competitiveness_band" in audit.columns:
+        bands = ["All"] + sorted(audit["competitiveness_band"].fillna("Unknown").astype(str).unique().tolist())
+    else:
+        bands = ["All"]
+    selected_band = f2.selectbox("Competitiveness", bands, index=0)
+
+    fundamentals_filter = f3.selectbox(
+        "Fundamentals-only status",
+        ["All", "Mostly fundamentals only", "Has local context"],
+        index=0,
+    )
+
+    filtered = review.copy()
+
+    if selected_priority != "All":
+        filtered = filtered[filtered["audit_priority"].astype(str) == selected_priority]
+
+    if selected_band != "All" and "competitiveness_band" in filtered.columns:
+        filtered = filtered[filtered["competitiveness_band"].astype(str) == selected_band]
+
+    if fundamentals_filter == "Mostly fundamentals only":
+        filtered = filtered[filtered["mostly_fundamentals_only"].astype(str).str.lower().isin(["true", "1", "yes"])]
+    elif fundamentals_filter == "Has local context":
+        filtered = filtered[~filtered["mostly_fundamentals_only"].astype(str).str.lower().isin(["true", "1", "yes"])]
+
+    st.dataframe(
+        filtered[display_cols],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    csv = filtered[display_cols].to_csv(index=False).encode("utf-8")
+    st.download_button(
+        "Download filtered local context audit",
+        csv,
+        file_name="house_local_context_audit_filtered.csv",
+        mime="text/csv",
+    )
 
 def render_calibration_audit():
     st.header("Calibration Audit")
