@@ -18,6 +18,7 @@ NATIONAL_ENV_AUDIT = INPUTS / "house_national_environment_audit.csv"
 HOUSE_RACE_STATS = OUTPUTS / "house_race_stats.csv"
 HOUSE_SEAT_DISTRIBUTION = OUTPUTS / "house_seat_distribution.csv"
 HOUSE_FORECAST_SUMMARY = OUTPUTS / "house_forecast_summary.csv"
+HOUSE_FORECAST_HISTORY = OUTPUTS / "house_forecast_history.csv"
 HOUSE_CALIBRATION_AUDIT = OUTPUTS / "house_calibration_audit.csv"
 
 st.set_page_config(
@@ -208,6 +209,7 @@ env = read_csv_safe(NATIONAL_ENV_AUDIT)
 race_stats_output = read_csv_safe(HOUSE_RACE_STATS)
 seat_distribution_output = read_csv_safe(HOUSE_SEAT_DISTRIBUTION)
 forecast_summary_output = read_csv_safe(HOUSE_FORECAST_SUMMARY)
+forecast_history_output = read_csv_safe(HOUSE_FORECAST_HISTORY)
 
 # Prefer simulated race stats when available.
 if not race_stats_output.empty:
@@ -347,6 +349,77 @@ with tab_overview:
         )
         fig_seats.update_layout(yaxis_tickformat=".0%")
         st.plotly_chart(fig_seats, use_container_width=True)
+
+    st.divider()
+
+    st.subheader("Model Odds Over Time")
+
+    if forecast_history_output.empty:
+        st.info("No forecast history yet. Run the House full pipeline to start building the time series.")
+    else:
+        history = forecast_history_output.copy()
+
+        if "timestamp" in history.columns:
+            history["timestamp"] = pd.to_datetime(history["timestamp"], errors="coerce")
+            history = history.dropna(subset=["timestamp"]).sort_values("timestamp")
+            history["Run"] = history["timestamp"].dt.strftime("%b %-d, %I:%M %p")
+        elif "run_date" in history.columns:
+            history["Run"] = history["run_date"].astype(str)
+        else:
+            history["Run"] = range(1, len(history) + 1)
+
+        chart_cols = []
+
+        if "dem_control_probability" in history.columns:
+            history["Dem majority odds"] = pd.to_numeric(
+                history["dem_control_probability"],
+                errors="coerce",
+            ) * 100
+            chart_cols.append("Dem majority odds")
+
+        if "expected_dem_seats" in history.columns:
+            history["Expected Dem seats"] = pd.to_numeric(
+                history["expected_dem_seats"],
+                errors="coerce",
+            )
+
+        if "median_dem_seats" in history.columns:
+            history["Median Dem seats"] = pd.to_numeric(
+                history["median_dem_seats"],
+                errors="coerce",
+            )
+
+        if chart_cols:
+            fig_history = px.line(
+                history,
+                x="Run",
+                y="Dem majority odds",
+                markers=True,
+                labels={
+                    "Run": "Run",
+                    "Dem majority odds": "Dem majority odds (%)",
+                },
+                title="House Democratic Majority Odds Over Time",
+            )
+            fig_history.update_layout(yaxis_ticksuffix="%", yaxis_range=[0, 100])
+            st.plotly_chart(fig_history, use_container_width=True)
+        else:
+            st.info("Forecast history exists, but no dem_control_probability column was found.")
+
+        with st.expander("Forecast history table"):
+            display_cols = [
+                "timestamp",
+                "days_out",
+                "expected_dem_seats",
+                "median_dem_seats",
+                "dem_control_probability",
+                "national_environment",
+                "total_error_sd",
+                "uncertainty_engine",
+            ]
+            display_cols = [c for c in display_cols if c in history.columns]
+            st.dataframe(history[display_cols].tail(25), use_container_width=True, hide_index=True)
+
 
     st.divider()
 
