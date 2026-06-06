@@ -131,7 +131,7 @@ FL-3,Safe R,0.02395,-14.090766666666664,-14.090766666666664,,0,Likely/Safe,Low,1
 TX-38,Safe R,0.0239,-13.8767,-13.8767,,0,Likely/Safe,Low,3,False,D and R named,False,False,False,False,True,False,"McDonagh, Melissa","Bonck, John",,,R,D_vs_R,,Mixed,Urban South,No immediate review needed.
 TX-10,Safe R,0.02355,-14.096699999999998,-14.096699999999998,,0,Likely/Safe,Low,3,False,D and R named,False,False,False,False,True,False,"Rourk, Caitlin","Gober, Chris",,,R,D_vs_R,,Mixed,Urban South,No immediate review needed.
 CO-4,Safe R,0.02345,-13.959283333333332,-13.959283333333332,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Rural,Great Plains,No immediate review needed.
-CA-23,Safe R,0.0229,-14.239283333333336,-14.239283333333336,,0,Likely/Safe,Low,4,False,Only R named,False,True,False,False,True,False,,"Obernolte, Jay",,,R,unresolved,,Rural,Pacific,No immediate review needed.
+CA-23,Safe R,0.0229,-14.239283333333336,-14.239283333333336,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Hodge, Tessa","Obernolte, Jay",,,R,D_vs_R,,Rural,Pacific,No immediate review needed.
 FL-28,Safe R,0.0229,-14.005216666666673,-14.005216666666673,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Mixed,Southeast,No immediate review needed.
 MO-3,Safe R,0.02245,-14.37225,-14.37225,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Rural,Midwest,No immediate review needed.
 CT-5,Safe D,0.9781,14.23885,14.23885,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,D,unresolved,,Suburban,Northeast,No immediate review needed.
@@ -166,7 +166,7 @@ OR-5,Safe D,0.98855,16.253299999999996,16.253299999999996,,0,Likely/Safe,Low,5,F
 WI-7,Safe R,0.0109,-16.642249999999997,-16.642249999999997,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Rural,Midwest,No immediate review needed.
 TX-2,Safe R,0.01035,-16.3167,-16.3167,,0,Likely/Safe,Low,3,False,D and R named,False,False,False,False,True,False,"Finnie, Shaun","Toth, Steve",,,R,D_vs_R,,Mixed,Urban South,No immediate review needed.
 TN-4,Safe R,0.0097,-16.61076666666667,-16.61076666666667,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Rural,Middle South,No immediate review needed.
-CA-25,Safe D,0.9905,16.603299999999997,16.603299999999997,,0,Likely/Safe,Low,4,False,Only D named,False,True,False,False,True,False,"Ruiz, Raul",,,,D,unresolved,,Mixed,Pacific,No immediate review needed.
+CA-25,Safe D,0.9905,16.603299999999997,16.603299999999997,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Ruiz, Raul","Males, John",,,D,D_vs_R,,Mixed,Pacific,No immediate review needed.
 TX-26,Safe R,0.00945,-16.53115,-16.53115,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Shook, Steven","Gill, Brandon",,,R,D_vs_R,,Suburban,Urban South,No immediate review needed.
 SC-5,Safe R,0.0093,-16.680766666666663,-16.680766666666663,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Rural,Southeast,No immediate review needed.
 TX-5,Safe R,0.0093,-16.670766666666665,-16.670766666666665,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Hockett, Chrissy","Gooden, Lance",,,R,D_vs_R,,Rural,Middle South,No immediate review needed.
@@ -212,7 +212,6 @@ MA-9,Safe D,0.99815,20.02885,20.02885,,0,Likely/Safe,Low,1,True,No major candida
 CA-38,Safe D,0.99845,20.73368333333333,20.73368333333333,,0,Likely/Safe,Low,3,False,D and R named,False,False,False,False,True,False,"Solis, Hilda","Casas, Pedro",,,D,D_vs_R,,Urban,Pacific,No immediate review needed.
 MI-5,Safe R,0.00155,-20.783733333333338,-20.783733333333338,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Mixed,Midwest,No immediate review needed.
 DE-AL,Safe D,0.9986,21.131816666666666,21.131816666666666,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,D,unresolved,,Mixed,Mid-Atlantic,No immediate review needed.
-CA-7,Safe D,0.99865,20.9333,20.9333,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,D,unresolved,,Mixed,Pacific,No immediate review needed.
 IL-11,Safe D,0.99865,21.85588333333333,21.85588333333333,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Foster, Bill","Walter, Jeff",,,D,D_vs_R,,Suburban,Midwest,No immediate review needed.
 MA-1,Safe D,0.99865,21.556266666666662,21.556266666666662,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,D,unresolved,,Mixed,Northeast,No immediate review needed.
 IN-2,Safe R,0.0013,-21.005216666666666,-21.005216666666666,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Decio, Jamie","Yakym, Rudy",,,R,D_vs_R,,Exurban,Midwest,No immediate review needed.
@@ -221,6 +220,7 @@ AR-3,Safe R,0.00115,-21.210766666666665,-21.210766666666665,,0,Likely/Safe,Low,5
 FL-23,Safe D,0.9989,21.7022,21.7022,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,D,unresolved,,Urban,Southeast,No immediate review needed.
 PA-6,Safe D,0.999,21.367366666666666,21.367366666666666,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Houlahan, Chrissy","Young, Marty",,,D,D_vs_R,,Suburban,Mid-Atlantic,No immediate review needed.
 CO-7,Safe D,0.9991,22.20736666666667,22.20736666666667,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,D,unresolved,,Suburban,Mountain West,No immediate review needed.
+CA-7,Safe D,0.9992,22.4333,22.4333,,0,Likely/Safe,Low,4,False,Only D named,False,True,False,False,True,False,"Matsui, Doris",,,,D,unresolved,,Mixed,Pacific,No immediate review needed.
 CA-39,Safe D,0.99925,23.05885,23.05885,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Takano, Mark","Manos, Steve",,,D,D_vs_R,,Suburban,Pacific,No immediate review needed.
 MO-6,Safe R,0.0007,-21.65928333333333,-21.65928333333333,,0,Likely/Safe,Low,1,True,No major candidates named,False,False,False,False,True,False,,,,,R,unresolved,,Rural,Midwest,No immediate review needed.
 CA-41,Safe D,0.99935,22.833683333333333,22.833683333333333,,0,Likely/Safe,Low,5,False,D and R named,False,True,False,False,True,False,"Sanchez, Linda","Clemmons, Mitch",,,D,D_vs_R,,Urban,Pacific,No immediate review needed.
