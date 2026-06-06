@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 
 INPUTS = Path("inputs")
+OUTPUTS = Path("outputs") if "OUTPUTS" not in globals() else OUTPUTS
+HOUSE_CANDIDATE_WAR_AUDIT = OUTPUTS / "house_candidate_war_audit.csv"
 HOUSE_INPUT_PATH = INPUTS / "house_race_inputs.csv"
 
 # Prefer local file if one exists, but default to the Senate model's shared national environment.
@@ -132,6 +134,123 @@ def ensure_column(df, col, default):
     return df
 
 
+
+
+def read_house_calibration_setting_value(setting_name, default=0.0):
+    """
+    Small local settings reader used by optional candidate WAR integration.
+    """
+    from pathlib import Path
+    import pandas as pd
+
+    settings_path = Path("inputs/house_calibration_settings.csv")
+
+    if not settings_path.exists():
+        return default
+
+    try:
+        settings = pd.read_csv(settings_path)
+    except Exception:
+        return default
+
+    if settings.empty or "setting" not in settings.columns or "value" not in settings.columns:
+        return default
+
+    mask = settings["setting"].astype(str).str.strip().eq(setting_name)
+
+    if not mask.any():
+        return default
+
+    try:
+        return float(settings.loc[mask, "value"].iloc[0])
+    except Exception:
+        return default
+
+
+def merge_candidate_war_adjustments(df):
+    """
+    Merge candidate_war_adjustment_dem into race fundamentals data.
+
+    This is audit-safe:
+    - If use_candidate_war_adjustments is 0, all WAR adjustments are set to 0.
+    - If the WAR audit file is missing, all WAR adjustments are set to 0.
+    - If active, candidate_war_adjustment_dem is added to
+      objective_candidate_quality_adjustment_dem.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    out = df.copy()
+
+    use_war = read_house_calibration_setting_value("use_candidate_war_adjustments", 0.0) >= 0.5
+
+    out["use_candidate_war_adjustments"] = int(use_war)
+    out["candidate_war_adjustment_dem"] = 0.0
+    out["candidate_war_match_status"] = "WAR inactive"
+
+    war_path = Path("outputs/house_candidate_war_audit.csv")
+
+    if not use_war:
+        return out
+
+    if not war_path.exists():
+        out["candidate_war_match_status"] = "WAR active but audit missing"
+        return out
+
+    war = pd.read_csv(war_path)
+
+    if war.empty or "district_id" not in war.columns or "candidate_war_adjustment_dem" not in war.columns:
+        out["candidate_war_match_status"] = "WAR active but malformed audit"
+        return out
+
+    war_keep = [
+        "district_id",
+        "candidate_war_adjustment_dem",
+        "war_match_status",
+        "dem_war_name",
+        "gop_war_name",
+        "dem_candidate_war",
+        "gop_candidate_war",
+    ]
+
+    war_keep = [c for c in war_keep if c in war.columns]
+    war = war[war_keep].copy()
+
+    war["district_id"] = war["district_id"].astype(str).str.strip().str.upper()
+    out["district_id"] = out["district_id"].astype(str).str.strip().str.upper()
+
+    out = out.merge(war, on="district_id", how="left", suffixes=("", "_war"))
+
+    out["candidate_war_adjustment_dem"] = pd.to_numeric(
+        out["candidate_war_adjustment_dem"],
+        errors="coerce",
+    ).fillna(0.0)
+
+    if "war_match_status" in out.columns:
+        out["candidate_war_match_status"] = out["war_match_status"].fillna("No WAR match")
+    else:
+        out["candidate_war_match_status"] = "No WAR match"
+
+    if "objective_candidate_quality_adjustment_dem" not in out.columns:
+        out["objective_candidate_quality_adjustment_dem"] = 0.0
+
+    out["objective_candidate_quality_adjustment_dem"] = pd.to_numeric(
+        out["objective_candidate_quality_adjustment_dem"],
+        errors="coerce",
+    ).fillna(0.0)
+
+    out["objective_candidate_quality_adjustment_dem_before_war"] = out[
+        "objective_candidate_quality_adjustment_dem"
+    ]
+
+    out["objective_candidate_quality_adjustment_dem"] = (
+        out["objective_candidate_quality_adjustment_dem"]
+        + out["candidate_war_adjustment_dem"]
+    )
+
+    return out
+
+
 def calculate_incumbency_adjustment(row, incumbency_points=None):
     if incumbency_points is None:
         incumbency_points = abs(DEM_INCUMBENCY_ADJUSTMENT)
@@ -146,6 +265,111 @@ def calculate_incumbency_adjustment(row, incumbency_points=None):
         return -incumbency_points
 
     return OPEN_SEAT_INCUMBENCY_ADJUSTMENT
+
+
+
+
+def apply_candidate_war_to_house_fundamentals(df):
+    """
+    Optional candidate WAR integration.
+
+    If use_candidate_war_adjustments = 1 in inputs/house_calibration_settings.csv,
+    merge outputs/house_candidate_war_audit.csv and add candidate_war_adjustment_dem
+    to candidate_quality_adjustment_dem.
+
+    If off/missing, leaves candidate_quality_adjustment_dem unchanged and sets
+    candidate_war_adjustment_dem to 0.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    out = df.copy()
+
+    settings_path = Path("inputs/house_calibration_settings.csv")
+    war_path = Path("outputs/house_candidate_war_audit.csv")
+
+    use_war = 0.0
+
+    if settings_path.exists():
+        try:
+            settings = pd.read_csv(settings_path)
+            mask = settings["setting"].astype(str).str.strip().eq("use_candidate_war_adjustments")
+            if mask.any():
+                use_war = float(settings.loc[mask, "value"].iloc[0])
+        except Exception:
+            use_war = 0.0
+
+    out["use_candidate_war_adjustments"] = int(use_war >= 0.5)
+    out["candidate_war_adjustment_dem"] = 0.0
+    out["candidate_war_match_status"] = "WAR inactive"
+
+    if use_war < 0.5:
+        return out
+
+    if not war_path.exists():
+        out["candidate_war_match_status"] = "WAR active but audit missing"
+        return out
+
+    try:
+        war = pd.read_csv(war_path)
+    except Exception:
+        out["candidate_war_match_status"] = "WAR active but unreadable audit"
+        return out
+
+    if war.empty or "district_id" not in war.columns or "candidate_war_adjustment_dem" not in war.columns:
+        out["candidate_war_match_status"] = "WAR active but malformed audit"
+        return out
+
+    keep = [
+        "district_id",
+        "candidate_war_adjustment_dem",
+        "war_match_status",
+        "dem_war_name",
+        "gop_war_name",
+        "dem_candidate_war",
+        "gop_candidate_war",
+    ]
+    keep = [c for c in keep if c in war.columns]
+
+    war = war[keep].copy()
+    war["district_id"] = war["district_id"].astype(str).str.strip().str.upper()
+    out["district_id"] = out["district_id"].astype(str).str.strip().str.upper()
+
+    out = out.merge(war, on="district_id", how="left", suffixes=("", "_from_war"))
+
+    # If merge created a duplicate candidate_war_adjustment_dem_from_war, prefer that.
+    if "candidate_war_adjustment_dem_from_war" in out.columns:
+        out["candidate_war_adjustment_dem"] = pd.to_numeric(
+            out["candidate_war_adjustment_dem_from_war"],
+            errors="coerce",
+        ).fillna(0.0)
+    else:
+        out["candidate_war_adjustment_dem"] = pd.to_numeric(
+            out["candidate_war_adjustment_dem"],
+            errors="coerce",
+        ).fillna(0.0)
+
+    if "war_match_status" in out.columns:
+        out["candidate_war_match_status"] = out["war_match_status"].fillna("No WAR match")
+    else:
+        out["candidate_war_match_status"] = "No WAR match"
+
+    if "candidate_quality_adjustment_dem" not in out.columns:
+        out["candidate_quality_adjustment_dem"] = 0.0
+
+    out["candidate_quality_adjustment_dem"] = pd.to_numeric(
+        out["candidate_quality_adjustment_dem"],
+        errors="coerce",
+    ).fillna(0.0)
+
+    out["candidate_quality_adjustment_dem_before_war"] = out["candidate_quality_adjustment_dem"]
+
+    out["candidate_quality_adjustment_dem"] = (
+        out["candidate_quality_adjustment_dem"]
+        + out["candidate_war_adjustment_dem"]
+    )
+
+    return out
 
 
 def main():
@@ -286,6 +510,8 @@ def main():
         ),
         axis=1,
     )
+
+    df = apply_candidate_war_to_house_fundamentals(df)
 
     df["fundamentals_margin_dem"] = (
         df["district_partisan_baseline_dem"]
