@@ -283,15 +283,566 @@ else:
     median_like_dem_seats = int((df["dem_win_probability"] >= 0.5).sum())
     dem_majority_probability = np.nan
 
+
+
+def margin_label_from_dem_margin(margin):
+    try:
+        margin = float(margin)
+    except Exception:
+        return "—"
+
+    if abs(margin) < 0.05:
+        return "Even"
+
+    if margin > 0:
+        return f"D+{margin:.1f}"
+
+    return f"R+{abs(margin):.1f}"
+
+
+def party_leader_from_margin(margin):
+    try:
+        margin = float(margin)
+    except Exception:
+        return "Unknown"
+
+    if margin > 0.05:
+        return "Democrat"
+
+    if margin < -0.05:
+        return "Republican"
+
+    return "Even"
+
+
+def style_margin_table(df):
+    def row_style(row):
+        margin = row.get("model_margin_dem", 0)
+
+        try:
+            margin = float(margin)
+        except Exception:
+            margin = 0
+
+        if margin > 0.05:
+            return ["background-color: rgba(30, 100, 220, 0.18)"] * len(row)
+
+        if margin < -0.05:
+            return ["background-color: rgba(220, 60, 60, 0.18)"] * len(row)
+
+        return ["background-color: rgba(160, 160, 160, 0.14)"] * len(row)
+
+    return df.style.apply(row_style, axis=1)
+
+
+def render_candidate_war_visibility():
+    st.header("Candidate WAR")
+
+    st.caption(
+        "Candidate WAR is an empirical candidate-quality layer based on how candidates performed "
+        "relative to partisan baseline in prior elections. Both-candidate matches receive the full "
+        "shrunk/capped adjustment; one-sided matches receive the configured one-sided discount."
+    )
+
+    war_path = OUTPUTS / "house_candidate_war_audit.csv"
+    unmatched_path = OUTPUTS / "house_candidate_war_unmatched_competitive_review.csv"
+
+    if not war_path.exists():
+        st.info("No candidate WAR audit found yet. Run `python3 build_house_candidate_war.py`.")
+        return
+
+    war = pd.read_csv(war_path)
+
+    if war.empty:
+        st.info("Candidate WAR audit exists but is empty.")
+        return
+
+    settings_path = INPUTS / "house_calibration_settings.csv"
+    war_active = "Unknown"
+    shrinkage = "—"
+    cap = "—"
+    one_sided = "—"
+
+    if settings_path.exists():
+        try:
+            settings = pd.read_csv(settings_path)
+
+            def get_setting(name, default="—"):
+                mask = settings["setting"].astype(str).str.strip().eq(name)
+                if mask.any():
+                    return settings.loc[mask, "value"].iloc[0]
+                return default
+
+            war_active = get_setting("use_candidate_war_adjustments", "0")
+            shrinkage = get_setting("house_candidate_war_shrinkage", "—")
+            cap = get_setting("house_candidate_war_cap", "—")
+            one_sided = get_setting("house_candidate_war_one_sided_multiplier", "—")
+        except Exception:
+            pass
+
+    for col in [
+        "candidate_war_adjustment_dem",
+        "candidate_war_adjustment_dem_before_match_quality",
+        "candidate_war_match_quality_multiplier",
+        "dem_candidate_war",
+        "gop_candidate_war",
+    ]:
+        if col in war.columns:
+            war[col] = pd.to_numeric(war[col], errors="coerce").fillna(0.0)
+
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("WAR active", str(war_active))
+    m2.metric("Shrinkage", str(shrinkage))
+    m3.metric("Cap", str(cap))
+    m4.metric("One-sided multiplier", str(one_sided))
+
+    st.divider()
+
+    if "war_match_status" in war.columns:
+        counts = war["war_match_status"].fillna("Unknown").value_counts().reset_index()
+        counts.columns = ["Match status", "Districts"]
+
+        c1, c2 = st.columns([1, 2])
+
+        with c1:
+            st.subheader("Match counts")
+            st.dataframe(counts, use_container_width=True, hide_index=True)
+
+        with c2:
+            try:
+                import plotly.express as px
+
+                fig = px.bar(
+                    counts,
+                    x="Districts",
+                    y="Match status",
+                    orientation="h",
+                    title="Candidate WAR match coverage",
+                )
+                fig.update_layout(height=320, margin=dict(l=10, r=10, t=45, b=10))
+                st.plotly_chart(fig, use_container_width=True)
+            except Exception:
+                pass
+
+    st.divider()
+    st.subheader("Largest WAR Adjustments")
+
+    display_cols = [
+        "district_id",
+        "dem_candidate",
+        "gop_candidate",
+        "war_match_status",
+        "candidate_war_adjustment_dem_before_match_quality",
+        "candidate_war_match_quality_multiplier",
+        "candidate_war_adjustment_dem",
+        "dem_candidate_war",
+        "gop_candidate_war",
+        "dem_war_name",
+        "gop_war_name",
+    ]
+    display_cols = [c for c in display_cols if c in war.columns]
+
+    largest = war.reindex(
+        war["candidate_war_adjustment_dem"].abs().sort_values(ascending=False).index
+    )
+
+    st.dataframe(
+        largest[display_cols].head(75),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.divider()
+    st.subheader("WAR-Influenced Competitive Districts")
+
+    race_path = OUTPUTS / "house_race_stats.csv"
+
+    if race_path.exists():
+        race = pd.read_csv(race_path)
+
+        if "district_id" in race.columns:
+            race["district_id"] = race["district_id"].astype(str).str.strip().str.upper()
+            war["district_id"] = war["district_id"].astype(str).str.strip().str.upper()
+
+            merged = race.merge(
+                war[
+                    [
+                        c for c in [
+                            "district_id",
+                            "candidate_war_adjustment_dem",
+                            "war_match_status",
+                            "dem_candidate_war",
+                            "gop_candidate_war",
+                        ]
+                        if c in war.columns
+                    ]
+                ],
+                on="district_id",
+                how="left",
+                suffixes=("", "_war_audit"),
+            )
+
+            for col in ["dem_win_probability", "model_margin_dem", "candidate_war_adjustment_dem"]:
+                if col in merged.columns:
+                    merged[col] = pd.to_numeric(merged[col], errors="coerce")
+
+            if "dem_win_probability" in merged.columns:
+                merged["distance_from_50"] = (merged["dem_win_probability"] - 0.5).abs()
+            else:
+                merged["distance_from_50"] = 1
+
+            war_competitive = merged[
+                merged.get("candidate_war_adjustment_dem", pd.Series([0] * len(merged))).abs().gt(0)
+                & merged["distance_from_50"].le(0.30)
+            ].copy()
+
+            war_competitive = war_competitive.sort_values(
+                ["distance_from_50", "candidate_war_adjustment_dem"],
+                ascending=[True, False],
+            )
+
+            comp_cols = [
+                "district_id",
+                "dem_candidate",
+                "gop_candidate",
+                "rating",
+                "model_margin_dem",
+                "dem_win_probability",
+                "candidate_war_adjustment_dem",
+                "war_match_status",
+            ]
+            comp_cols = [c for c in comp_cols if c in war_competitive.columns]
+
+            st.dataframe(
+                war_competitive[comp_cols].head(75),
+                use_container_width=True,
+                hide_index=True,
+            )
+
+    st.divider()
+    st.subheader("Competitive Unmatched WAR Review")
+
+    if unmatched_path.exists():
+        unmatched = pd.read_csv(unmatched_path)
+
+        if unmatched.empty:
+            st.success("No unmatched competitive candidates found.")
+        else:
+            st.dataframe(
+                unmatched.head(150),
+                use_container_width=True,
+                hide_index=True,
+            )
+    else:
+        st.info("No competitive unmatched WAR review file found yet.")
+
+
+def render_district_margin_explorer():
+    st.header("District Margin Explorer")
+
+    st.caption(
+        "Search, filter, and select any House district. Blue rows are Democratic-leading districts; "
+        "red rows are Republican-leading districts. Margins are Democratic margin by convention."
+    )
+
+    race_path = OUTPUTS / "house_race_stats.csv"
+
+    if not race_path.exists():
+        st.info("No House race stats found. Run the House pipeline first.")
+        return
+
+    race = pd.read_csv(race_path)
+
+    if race.empty or "district_id" not in race.columns:
+        st.info("House race stats file exists but does not contain district_id.")
+        return
+
+    race["district_id"] = race["district_id"].astype(str).str.strip().str.upper()
+
+    for col in [
+        "model_margin_dem",
+        "fundamentals_margin_dem",
+        "dem_win_probability",
+        "candidate_war_adjustment_dem",
+        "poll_count",
+    ]:
+        if col in race.columns:
+            race[col] = pd.to_numeric(race[col], errors="coerce")
+
+    if "model_margin_dem" not in race.columns:
+        st.info("house_race_stats.csv does not contain model_margin_dem.")
+        return
+
+    race["margin_label"] = race["model_margin_dem"].apply(margin_label_from_dem_margin)
+    race["party_leader"] = race["model_margin_dem"].apply(party_leader_from_margin)
+
+    if "state" not in race.columns:
+        race["state"] = race["district_id"].str.extract(r"^([A-Z]{2})", expand=False)
+
+    states = ["All"] + sorted(race["state"].dropna().astype(str).unique().tolist())
+    ratings = ["All"]
+    if "rating" in race.columns:
+        ratings += sorted(race["rating"].dropna().astype(str).unique().tolist())
+
+    f1, f2, f3, f4 = st.columns(4)
+
+    selected_state = f1.selectbox("State", states, index=0, key="margin_state_filter")
+    selected_rating = f2.selectbox("Rating", ratings, index=0, key="margin_rating_filter")
+    selected_party = f3.selectbox(
+        "Leader",
+        ["All", "Democrat", "Republican", "Even"],
+        index=0,
+        key="margin_party_filter",
+    )
+    sort_mode = f4.selectbox(
+        "Sort by",
+        ["Closest races", "Most Democratic", "Most Republican", "District ID"],
+        index=0,
+        key="margin_sort_mode",
+    )
+
+    filtered = race.copy()
+
+    if selected_state != "All":
+        filtered = filtered[filtered["state"].astype(str).eq(selected_state)]
+
+    if selected_rating != "All" and "rating" in filtered.columns:
+        filtered = filtered[filtered["rating"].astype(str).eq(selected_rating)]
+
+    if selected_party != "All":
+        filtered = filtered[filtered["party_leader"].eq(selected_party)]
+
+    if sort_mode == "Closest races":
+        filtered = filtered.assign(_sort=filtered["model_margin_dem"].abs()).sort_values("_sort")
+    elif sort_mode == "Most Democratic":
+        filtered = filtered.sort_values("model_margin_dem", ascending=False)
+    elif sort_mode == "Most Republican":
+        filtered = filtered.sort_values("model_margin_dem", ascending=True)
+    else:
+        filtered = filtered.sort_values("district_id")
+
+    st.divider()
+
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("Districts shown", len(filtered))
+    m2.metric("D-leading", int((filtered["model_margin_dem"] > 0.05).sum()))
+    m3.metric("R-leading", int((filtered["model_margin_dem"] < -0.05).sum()))
+    m4.metric("Toss-up range", int((filtered["model_margin_dem"].abs() <= 1.0).sum()))
+
+    st.subheader("Visual Margin Chart")
+
+    chart_df = filtered.copy()
+
+    # Keep chart readable by showing all when filtered, or closest 120 by default.
+    if selected_state == "All" and selected_rating == "All" and selected_party == "All" and len(chart_df) > 120:
+        chart_df = chart_df.assign(_abs=chart_df["model_margin_dem"].abs()).sort_values("_abs").head(120)
+        st.caption("Showing the 120 closest districts in the chart. Use filters to inspect all districts in a state/category.")
+
+    try:
+        import plotly.express as px
+
+        chart_df["leader_color"] = chart_df["party_leader"].map(
+            {
+                "Democrat": "Democrat-leading",
+                "Republican": "Republican-leading",
+                "Even": "Even",
+            }
+        )
+
+        # Friendly display fields for hover labels.
+        chart_df["District"] = chart_df["district_id"]
+        chart_df["Model margin"] = chart_df["model_margin_dem"].apply(margin_label_from_dem_margin)
+        chart_df["Leading party"] = chart_df["party_leader"]
+        chart_df["Rating"] = chart_df["rating"] if "rating" in chart_df.columns else "—"
+
+        if "dem_candidate" in chart_df.columns:
+            chart_df["Democratic candidate"] = chart_df["dem_candidate"].fillna("—").astype(str)
+        else:
+            chart_df["Democratic candidate"] = "—"
+
+        if "gop_candidate" in chart_df.columns:
+            chart_df["Republican candidate"] = chart_df["gop_candidate"].fillna("—").astype(str)
+        else:
+            chart_df["Republican candidate"] = "—"
+
+        if "dem_win_probability" in chart_df.columns:
+            chart_df["Dem win probability"] = chart_df["dem_win_probability"].apply(
+                lambda x: f"{float(x):.1%}" if pd.notna(x) else "—"
+            )
+        else:
+            chart_df["Dem win probability"] = "—"
+
+        if "candidate_war_adjustment_dem" in chart_df.columns:
+            chart_df["Candidate WAR adjustment"] = chart_df["candidate_war_adjustment_dem"].apply(
+                margin_label_from_dem_margin
+            )
+        else:
+            chart_df["Candidate WAR adjustment"] = "—"
+
+        custom_data_cols = [
+            "District",
+            "Model margin",
+            "Leading party",
+            "Rating",
+            "Democratic candidate",
+            "Republican candidate",
+            "Dem win probability",
+            "Candidate WAR adjustment",
+        ]
+
+        fig = px.bar(
+            chart_df.sort_values("model_margin_dem"),
+            x="model_margin_dem",
+            y="district_id",
+            orientation="h",
+            color="leader_color",
+            color_discrete_map={
+                "Democrat-leading": "#2b6cb0",
+                "Republican-leading": "#c53030",
+                "Even": "#888888",
+            },
+            custom_data=custom_data_cols,
+            title="House district model margins",
+        )
+
+        fig.update_traces(
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>"
+                "Model margin: %{customdata[1]}<br>"
+                "Leading party: %{customdata[2]}<br>"
+                "Rating: %{customdata[3]}<br>"
+                "Democratic candidate: %{customdata[4]}<br>"
+                "Republican candidate: %{customdata[5]}<br>"
+                "Dem win probability: %{customdata[6]}<br>"
+                "Candidate WAR adjustment: %{customdata[7]}"
+                "<extra></extra>"
+            )
+        )
+
+        fig.add_vline(x=0, line_width=1)
+        fig.update_layout(
+            height=max(500, min(2400, 22 * len(chart_df))),
+            margin=dict(l=10, r=10, t=45, b=10),
+            xaxis_title="Democratic margin",
+            yaxis_title="District",
+            legend_title_text="Leader",
+            showlegend=True,
+        )
+
+        fig.update_xaxes(tickformat="+.1f")
+
+        st.plotly_chart(fig, use_container_width=True)
+    except Exception:
+        st.info("Plotly chart unavailable. Showing table below.")
+
+    st.divider()
+    st.subheader("Select a District")
+
+    district_options = filtered["district_id"].tolist()
+
+    if district_options:
+        selected_district = st.selectbox(
+            "District",
+            district_options,
+            index=0,
+            key="selected_margin_district",
+        )
+
+        selected = race[race["district_id"].eq(selected_district)].iloc[0]
+
+        d1, d2, d3, d4 = st.columns(4)
+        d1.metric("Model margin", margin_label_from_dem_margin(selected.get("model_margin_dem")))
+        if "dem_win_probability" in selected.index and pd.notna(selected.get("dem_win_probability")):
+            d2.metric("Dem win probability", f"{float(selected.get('dem_win_probability')):.1%}")
+        else:
+            d2.metric("Dem win probability", "—")
+        d3.metric("Rating", str(selected.get("rating", "—")))
+        if "candidate_war_adjustment_dem" in selected.index and pd.notna(selected.get("candidate_war_adjustment_dem")):
+            d4.metric("Candidate WAR", margin_label_from_dem_margin(selected.get("candidate_war_adjustment_dem")))
+        else:
+            d4.metric("Candidate WAR", "—")
+
+        detail_cols = [
+            "district_id",
+            "state",
+            "dem_candidate",
+            "gop_candidate",
+            "other_candidate",
+            "rating",
+            "model_margin_dem",
+            "margin_label",
+            "fundamentals_margin_dem",
+            "polling_margin_dem",
+            "poll_count",
+            "dem_win_probability",
+            "district_partisan_baseline_dem",
+            "district_environment_adjustment_dem",
+            "state_environment_adjustment_dem",
+            "incumbency_adjustment_dem",
+            "candidate_quality_adjustment_dem",
+            "candidate_war_adjustment_dem",
+            "candidate_war_match_status",
+            "special_adjustment_dem",
+            "district_elasticity",
+            "region",
+            "district_type",
+        ]
+        detail_cols = [c for c in detail_cols if c in race.columns]
+
+        st.dataframe(
+            pd.DataFrame([selected[detail_cols]]),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+    st.divider()
+    st.subheader("Full District Margin Table")
+
+    table_cols = [
+        "district_id",
+        "state",
+        "dem_candidate",
+        "gop_candidate",
+        "margin_label",
+        "model_margin_dem",
+        "dem_win_probability",
+        "rating",
+        "candidate_war_adjustment_dem",
+        "candidate_war_match_status",
+        "poll_count",
+    ]
+    table_cols = [c for c in table_cols if c in filtered.columns]
+
+    table = filtered[table_cols].copy()
+
+    st.dataframe(
+        style_margin_table(table),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    csv = table.to_csv(index=False).encode("utf-8")
+    st.download_button(
+        "Download filtered district margins",
+        csv,
+        file_name="house_district_margin_explorer_filtered.csv",
+        mime="text/csv",
+        key="download_district_margin_explorer",
+    )
+
+
+
 # -----------------------------
 # Tabs
 # -----------------------------
-tab_overview, tab_ratings, tab_drivers, tab_manual_polls, tab_local_context, tab_diagnostics = st.tabs(
+tab_overview, tab_ratings, tab_drivers, tab_margins, tab_war, tab_manual_polls, tab_local_context, tab_diagnostics = st.tabs(
     [
         "Overview",
-        "District Ratings",
+        "Race Ratings",
         "Model Drivers",
-        "Manual Poll Entry",
+        "District Margins",
+        "Candidate WAR",
+        "Manual Polls",
         "Local Context Audit",
         "Diagnostics",
     ]
@@ -1118,6 +1669,14 @@ with tab_diagnostics:
 # -----------------------------
 # Manual Poll Entry
 # -----------------------------
+with tab_margins:
+    render_district_margin_explorer()
+
+
+with tab_war:
+    render_candidate_war_visibility()
+
+
 with tab_manual_polls:
     st.subheader("Manual House Poll Entry")
 
