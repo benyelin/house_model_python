@@ -537,6 +537,228 @@ def render_candidate_war_visibility():
         st.info("No competitive unmatched WAR review file found yet.")
 
 
+
+
+def safe_float_for_display(value, default=None):
+    try:
+        if pd.isna(value):
+            return default
+        return float(value)
+    except Exception:
+        return default
+
+
+def probability_label(value):
+    value = safe_float_for_display(value)
+
+    if value is None:
+        return "—"
+
+    return f"{value:.1%}"
+
+
+def signed_points_label(value):
+    value = safe_float_for_display(value)
+
+    if value is None:
+        return "—"
+
+    if abs(value) < 0.05:
+        return "Even"
+
+    if value > 0:
+        return f"D+{value:.1f}"
+
+    return f"R+{abs(value):.1f}"
+
+
+def get_selected_value(row, col, default="—"):
+    try:
+        if col not in row.index:
+            return default
+        val = row.get(col)
+        if pd.isna(val):
+            return default
+        if str(val).strip() == "":
+            return default
+        return val
+    except Exception:
+        return default
+
+
+def build_district_component_breakdown(selected):
+    component_specs = [
+        ("Partisan baseline", "district_partisan_baseline_dem"),
+        ("National environment / elasticity", "district_environment_adjustment_dem"),
+        ("State adjustment", "state_environment_adjustment_dem"),
+        ("Incumbency", "incumbency_adjustment_dem"),
+        ("Candidate quality", "candidate_quality_adjustment_dem"),
+        ("Candidate WAR", "candidate_war_adjustment_dem"),
+        ("Special adjustment", "special_adjustment_dem"),
+    ]
+
+    rows = []
+
+    for label, col in component_specs:
+        value = safe_float_for_display(get_selected_value(selected, col, None), 0.0)
+
+        rows.append(
+            {
+                "Component": label,
+                "Column": col,
+                "Dem margin contribution": value,
+                "Display": signed_points_label(value),
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
+def render_district_detail_card(selected):
+    district_id = get_selected_value(selected, "district_id")
+    dem_candidate = get_selected_value(selected, "dem_candidate")
+    gop_candidate = get_selected_value(selected, "gop_candidate")
+    rating = get_selected_value(selected, "rating")
+    model_margin = safe_float_for_display(get_selected_value(selected, "model_margin_dem", None))
+    dem_prob = safe_float_for_display(get_selected_value(selected, "dem_win_probability", None))
+    war_adj = safe_float_for_display(get_selected_value(selected, "candidate_war_adjustment_dem", None), 0.0)
+
+    st.markdown(f"### {district_id} Detail Card")
+
+    subtitle_parts = []
+
+    if dem_candidate != "—":
+        subtitle_parts.append(f"**D:** {dem_candidate}")
+
+    if gop_candidate != "—":
+        subtitle_parts.append(f"**R:** {gop_candidate}")
+
+    if subtitle_parts:
+        st.markdown(" &nbsp; | &nbsp; ".join(subtitle_parts))
+
+    c1, c2, c3, c4 = st.columns(4)
+
+    c1.metric("Model margin", signed_points_label(model_margin))
+    c2.metric("Dem win probability", probability_label(dem_prob))
+    c3.metric("Rating", str(rating))
+    c4.metric("Candidate WAR", signed_points_label(war_adj))
+
+    st.markdown("#### Margin Components")
+
+    components = build_district_component_breakdown(selected)
+
+    # Remove empty all-zero rows only if the column exists but has no meaningful impact.
+    components_display = components.copy()
+
+    try:
+        import plotly.express as px
+
+        chart_df = components.copy()
+        chart_df["Leader"] = chart_df["Dem margin contribution"].apply(
+            lambda x: "D benefit" if x > 0.05 else "R benefit" if x < -0.05 else "Neutral"
+        )
+
+        fig = px.bar(
+            chart_df,
+            x="Dem margin contribution",
+            y="Component",
+            orientation="h",
+            color="Leader",
+            color_discrete_map={
+                "D benefit": "#2b6cb0",
+                "R benefit": "#c53030",
+                "Neutral": "#888888",
+            },
+            custom_data=["Component", "Display"],
+            title=f"{district_id} model margin components",
+        )
+
+        fig.update_traces(
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>"
+                "Contribution: %{customdata[1]}"
+                "<extra></extra>"
+            )
+        )
+
+        fig.add_vline(x=0, line_width=1)
+        fig.update_layout(
+            height=360,
+            margin=dict(l=10, r=10, t=45, b=10),
+            xaxis_title="Democratic margin contribution",
+            yaxis_title="",
+            legend_title_text="Effect",
+        )
+
+        fig.update_xaxes(tickformat="+.1f")
+
+        st.plotly_chart(fig, use_container_width=True)
+
+    except Exception:
+        pass
+
+    st.dataframe(
+        components_display[["Component", "Display", "Dem margin contribution"]],
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.markdown("#### Polling / Context")
+
+    context_cols = [
+        "polling_margin_dem",
+        "poll_count",
+        "avg_poll_age_days",
+        "total_poll_weight",
+        "candidate_war_match_status",
+        "district_elasticity",
+        "region",
+        "district_type",
+        "general_election_party_structure",
+    ]
+
+    context_rows = []
+
+    friendly = {
+        "polling_margin_dem": "Polling margin",
+        "poll_count": "Poll count",
+        "avg_poll_age_days": "Average poll age",
+        "total_poll_weight": "Total poll weight",
+        "candidate_war_match_status": "WAR match status",
+        "district_elasticity": "District elasticity",
+        "region": "Region",
+        "district_type": "District type",
+        "general_election_party_structure": "Election structure",
+    }
+
+    for col in context_cols:
+        if col not in selected.index:
+            continue
+
+        val = get_selected_value(selected, col)
+
+        if col == "polling_margin_dem":
+            val = signed_points_label(val)
+        elif col in ["avg_poll_age_days", "total_poll_weight", "district_elasticity"]:
+            num = safe_float_for_display(val)
+            val = "—" if num is None else f"{num:.2f}"
+
+        context_rows.append(
+            {
+                "Field": friendly.get(col, col),
+                "Value": val,
+            }
+        )
+
+    if context_rows:
+        st.dataframe(
+            pd.DataFrame(context_rows),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+
+
 def render_district_margin_explorer():
     st.header("District Margin Explorer")
 
@@ -750,50 +972,7 @@ def render_district_margin_explorer():
 
         selected = race[race["district_id"].eq(selected_district)].iloc[0]
 
-        d1, d2, d3, d4 = st.columns(4)
-        d1.metric("Model margin", margin_label_from_dem_margin(selected.get("model_margin_dem")))
-        if "dem_win_probability" in selected.index and pd.notna(selected.get("dem_win_probability")):
-            d2.metric("Dem win probability", f"{float(selected.get('dem_win_probability')):.1%}")
-        else:
-            d2.metric("Dem win probability", "—")
-        d3.metric("Rating", str(selected.get("rating", "—")))
-        if "candidate_war_adjustment_dem" in selected.index and pd.notna(selected.get("candidate_war_adjustment_dem")):
-            d4.metric("Candidate WAR", margin_label_from_dem_margin(selected.get("candidate_war_adjustment_dem")))
-        else:
-            d4.metric("Candidate WAR", "—")
-
-        detail_cols = [
-            "district_id",
-            "state",
-            "dem_candidate",
-            "gop_candidate",
-            "other_candidate",
-            "rating",
-            "model_margin_dem",
-            "margin_label",
-            "fundamentals_margin_dem",
-            "polling_margin_dem",
-            "poll_count",
-            "dem_win_probability",
-            "district_partisan_baseline_dem",
-            "district_environment_adjustment_dem",
-            "state_environment_adjustment_dem",
-            "incumbency_adjustment_dem",
-            "candidate_quality_adjustment_dem",
-            "candidate_war_adjustment_dem",
-            "candidate_war_match_status",
-            "special_adjustment_dem",
-            "district_elasticity",
-            "region",
-            "district_type",
-        ]
-        detail_cols = [c for c in detail_cols if c in race.columns]
-
-        st.dataframe(
-            pd.DataFrame([selected[detail_cols]]),
-            use_container_width=True,
-            hide_index=True,
-        )
+        render_district_detail_card(selected)
 
     st.divider()
     st.subheader("Full District Margin Table")
