@@ -26,3 +26,14 @@ house_candidate_war_cap,3.0,Maximum absolute House margin adjustment from candid
 house_candidate_war_incumbent_discount,0.5,Discount applied to incumbent candidate WAR to reduce double-counting with incumbency.
 house_candidate_war_min_name_score,0.9,Minimum normalized name-match score for candidate WAR. Raised after adding comma-aware and district-aware matching.
 house_candidate_war_one_sided_multiplier,0.5,Multiplier applied to candidate WAR adjustment when only one major-party candidate matches the WAR database.
+use_house_poll_spillover_adjustments,1.0,"1 = tiny poll-derived context/spillover signal is active. Effect is time-weighted, similarity-weighted, capped, and audit-visible."
+house_poll_spillover_base_weight,0.06,Base multiplier applied to poll residuals before similarity/time weighting.
+house_poll_spillover_max_adjustment_now,0.15,Conservative max absolute poll spillover adjustment far from Election Day.
+house_poll_spillover_max_adjustment_final,0.75,Approximate max absolute spillover adjustment close to Election Day.
+house_poll_spillover_same_state_bonus,0.35,Similarity bonus for same-state districts.
+house_poll_spillover_same_region_bonus,0.25,Similarity bonus for same-region districts.
+house_poll_spillover_same_district_type_bonus,0.15,Similarity bonus for same district type.
+house_poll_spillover_same_demo_group_bonus,0.25,Similarity bonus for same education/race error group.
+house_poll_spillover_baseline_similarity_bonus,0.2,Similarity bonus based on similar presidential/district partisan baseline.
+house_poll_spillover_min_similarity,0.25,Minimum similarity score needed before a poll contributes spillover to a target district.
+house_poll_spillover_polled_district_discount,0.35,Discount applied to spillover received by districts that already have their own polling.

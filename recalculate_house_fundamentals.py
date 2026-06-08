@@ -335,7 +335,26 @@ def apply_candidate_war_to_house_fundamentals(df):
     war["district_id"] = war["district_id"].astype(str).str.strip().str.upper()
     out["district_id"] = out["district_id"].astype(str).str.strip().str.upper()
 
-    out = out.merge(war, on="district_id", how="left", suffixes=("", "_from_war"))
+    # Make this merge idempotent. The pipeline may run this script after
+    # candidate WAR columns already exist from a previous pass/import.
+    stale_war_cols = [
+        "candidate_war_adjustment_dem",
+        "candidate_war_adjustment_dem_from_war",
+        "war_match_status",
+        "dem_war_name",
+        "gop_war_name",
+        "dem_candidate_war",
+        "gop_candidate_war",
+        "candidate_war_match_status",
+        "candidate_quality_adjustment_dem_before_war",
+    ]
+
+    out = out.drop(
+        columns=[c for c in stale_war_cols if c in out.columns],
+        errors="ignore",
+    )
+
+    out = out.merge(war, on="district_id", how="left")
 
     # If merge created a duplicate candidate_war_adjustment_dem_from_war, prefer that.
     if "candidate_war_adjustment_dem_from_war" in out.columns:
@@ -368,6 +387,131 @@ def apply_candidate_war_to_house_fundamentals(df):
         out["candidate_quality_adjustment_dem"]
         + out["candidate_war_adjustment_dem"]
     )
+
+    return out
+
+
+
+
+def apply_house_poll_spillover_adjustments(df):
+    """
+    Optional House poll spillover/context signal integration.
+
+    If use_house_poll_spillover_adjustments = 1 in inputs/house_calibration_settings.csv,
+    merge outputs/house_poll_spillover_signal.csv and add poll_spillover_adjustment_dem
+    to fundamentals_margin_dem.
+
+    If off/missing, keep the column visible but set the active adjustment to 0.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    out = df.copy()
+
+    settings_path = Path("inputs/house_calibration_settings.csv")
+    signal_path = Path("outputs/house_poll_spillover_signal.csv")
+
+    use_spillover = 0.0
+
+    if settings_path.exists():
+        try:
+            settings = pd.read_csv(settings_path)
+            mask = settings["setting"].astype(str).str.strip().eq("use_house_poll_spillover_adjustments")
+            if mask.any():
+                use_spillover = float(settings.loc[mask, "value"].iloc[0])
+        except Exception:
+            use_spillover = 0.0
+
+    out["use_house_poll_spillover_adjustments"] = int(use_spillover >= 0.5)
+    out["poll_spillover_adjustment_dem"] = 0.0
+    out["poll_spillover_raw_adjustment_dem"] = 0.0
+    out["poll_spillover_source_count"] = 0
+    out["poll_spillover_notes"] = "Poll spillover inactive"
+
+    if use_spillover < 0.5:
+        return out
+
+    if not signal_path.exists():
+        out["poll_spillover_notes"] = "Poll spillover active but signal file missing"
+        return out
+
+    try:
+        signal = pd.read_csv(signal_path)
+    except Exception:
+        out["poll_spillover_notes"] = "Poll spillover active but signal file unreadable"
+        return out
+
+    if signal.empty or "district_id" not in signal.columns or "poll_spillover_adjustment_dem" not in signal.columns:
+        out["poll_spillover_notes"] = "Poll spillover active but signal file malformed"
+        return out
+
+    keep = [
+        "district_id",
+        "poll_spillover_adjustment_dem",
+        "poll_spillover_raw_adjustment_dem",
+        "poll_spillover_source_count",
+        "poll_spillover_abs_signal",
+        "poll_spillover_cap",
+        "poll_spillover_days_out",
+        "poll_spillover_time_weight",
+        "poll_spillover_target_has_polling",
+        "poll_spillover_notes",
+    ]
+
+    keep = [c for c in keep if c in signal.columns]
+
+    signal = signal[keep].copy()
+    signal["district_id"] = signal["district_id"].astype(str).str.strip().str.upper()
+    out["district_id"] = out["district_id"].astype(str).str.strip().str.upper()
+
+    out = out.merge(signal, on="district_id", how="left", suffixes=("", "_from_signal"))
+
+    # Prefer merged signal values if suffixes were created.
+    for col in [
+        "poll_spillover_adjustment_dem",
+        "poll_spillover_raw_adjustment_dem",
+        "poll_spillover_source_count",
+        "poll_spillover_abs_signal",
+        "poll_spillover_cap",
+        "poll_spillover_days_out",
+        "poll_spillover_time_weight",
+        "poll_spillover_target_has_polling",
+        "poll_spillover_notes",
+    ]:
+        from_signal = f"{col}_from_signal"
+        if from_signal in out.columns:
+            out[col] = out[from_signal]
+
+    out["poll_spillover_adjustment_dem"] = pd.to_numeric(
+        out["poll_spillover_adjustment_dem"],
+        errors="coerce",
+    ).fillna(0.0)
+
+    out["poll_spillover_raw_adjustment_dem"] = pd.to_numeric(
+        out.get("poll_spillover_raw_adjustment_dem", 0.0),
+        errors="coerce",
+    ).fillna(0.0)
+
+    out["poll_spillover_source_count"] = pd.to_numeric(
+        out.get("poll_spillover_source_count", 0),
+        errors="coerce",
+    ).fillna(0).astype(int)
+
+    if "poll_spillover_notes" in out.columns:
+        out["poll_spillover_notes"] = out["poll_spillover_notes"].fillna("No spillover signal")
+    else:
+        out["poll_spillover_notes"] = "No spillover signal"
+
+    if "fundamentals_margin_dem" in out.columns:
+        out["fundamentals_margin_dem_before_poll_spillover"] = pd.to_numeric(
+            out["fundamentals_margin_dem"],
+            errors="coerce",
+        ).fillna(0.0)
+
+        out["fundamentals_margin_dem"] = (
+            out["fundamentals_margin_dem_before_poll_spillover"]
+            + out["poll_spillover_adjustment_dem"]
+        )
 
     return out
 
@@ -521,6 +665,8 @@ def main():
         + df["candidate_quality_adjustment_dem"]
         + df["special_adjustment_dem"]
     )
+
+    df = apply_house_poll_spillover_adjustments(df)
 
     # For now, model margin equals fundamentals unless polling is later added.
     df["model_margin_dem"] = df["fundamentals_margin_dem"]

@@ -269,10 +269,27 @@ def main():
         "special_adjustment_dem",
     ]
 
+    # Optional active components that are added after the core fundamentals formula.
+    optional_component_cols = []
+
+    use_poll_spillover = as_float(
+        get_setting(settings, "use_house_poll_spillover_adjustments", 0),
+        0,
+    )
+
+    if use_poll_spillover >= 0.5 and "poll_spillover_adjustment_dem" in race_inputs.columns:
+        optional_component_cols.append("poll_spillover_adjustment_dem")
+        info.append("Poll spillover adjustment is active and included in fundamentals component check.")
+    elif "poll_spillover_adjustment_dem" in race_inputs.columns:
+        info.append("Poll spillover adjustment column present but inactive.")
+
+    all_component_cols = component_cols + optional_component_cols
+
     if not race_inputs.empty and all(c in race_inputs.columns for c in component_cols + ["fundamentals_margin_dem"]):
         component_sum = sum(
             pd.to_numeric(race_inputs[c], errors="coerce").fillna(0.0)
-            for c in component_cols
+            for c in all_component_cols
+            if c in race_inputs.columns
         )
 
         actual_fund = pd.to_numeric(race_inputs["fundamentals_margin_dem"], errors="coerce")
@@ -281,15 +298,18 @@ def main():
         bad = diff.gt(0.01).sum()
 
         if bad:
-            worst = race_inputs.loc[diff.sort_values(ascending=False).head(5).index, ["district_id", "fundamentals_margin_dem"]].copy()
+            worst = race_inputs.loc[
+                diff.sort_values(ascending=False).head(5).index,
+                ["district_id", "fundamentals_margin_dem"]
+            ].copy()
             worst["component_sum"] = component_sum.loc[worst.index]
             worst["difference"] = diff.loc[worst.index]
             errors.append(
-                "Fundamentals margins do not match component sums for "
+                "Fundamentals margins do not match active component sums for "
                 f"{bad} districts. Worst examples: {worst.to_dict(orient='records')}"
             )
         else:
-            info.append("Fundamentals margins match visible component sums.")
+            info.append("Fundamentals margins match active component sums.")
 
     # ------------------------------------------------------------
     # Forecast summary
