@@ -1,2 +1,2 @@
 days_out,national_error_sd,region_error_sd,demographic_error_sd,district_error_sd,total_error_sd,implied_correlation,polling_district_error_multiplier_1_poll,polling_district_error_multiplier_2_polls,polling_district_error_multiplier_3plus_polls
-150,4.333333333333333,2.25,1.75,4.75,7.033155605969327,0.5438719640600871,0.9,0.8,0.7
+148,4.305555555555555,2.2333333333333334,1.7333333333333334,4.716666666666667,6.984051496706047,0.5439047972188862,0.9,0.8,0.7
