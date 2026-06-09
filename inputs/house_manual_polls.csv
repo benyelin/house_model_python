@@ -1,6 +1,6 @@
-race,state,district,district_id,pollster,pollster_grade,house_effect_dem,start_date,end_date,sample_size,sample_type,dem_candidate,gop_candidate,ind_candidate,other_candidate,dem_pct,gop_pct,ind_pct,other_pct,undecided_pct,notes,poll_sponsor_type,pollster_partisan_affiliation,partisan_sponsor_party,is_internal_poll,partisan_pollster_review_notes
-MO-2 House,MO,2,MO-2,FM3 Research,B,3.0,2026-05-26,2026-05-31,600,LV,,Wagner,,,41.0,44.0,0.0,0.0,15.0,,,,,False,
-WI-3 House,WI,3,WI-3,Impact Research,B,3.0,2026-05-26,2026-05-31,500,LV,Cooke,Van Orden,,,50.0,46.0,0.0,0.0,1.0,,,,,False,
-NJ-7 House,NJ,7,NJ-7,Z to A Research,B,0.0,2026-05-24,2026-06-26,430,LV,"Bennett, Rebecca","Kean, Tom",,,47.0,43.0,0.0,0.0,10.0,,,,,False,
-MI-4 House,MI,4,MI-4,GBAO,B,2.0,2026-05-28,2026-06-01,500,LV,McCann,Huizenga,,,48.0,45.0,0.0,0.0,7.0,,,,,False,
-WI-6 House,WI,6,WI-6,,B,2.0,2026-03-17,2026-03-20,640,LV,Thurow,Grothman,,,38.0,42.0,0.0,0.0,18.0,,,,,False,
+district_id,district,race,state,pollster,pollster_grade,poll_sponsor_type,partisan_sponsor_party,is_internal_poll,pollster_partisan_affiliation,partisan_pollster_review_notes,start_date,end_date,sample_size,sample_type,dem_candidate,gop_candidate,dem_pct,gop_pct,ind_pct,other_pct,undecided_pct,notes,ind_candidate,other_candidate
+MO-2,2,MO-2 House,MO,FM3 Research,B,,,False,,,2026-05-26,2026-05-31,600,LV,,Wagner,41.0,44.0,0.0,0.0,15.0,,,
+WI-3,3,WI-3 House,WI,Impact Research,B,,,False,,,2026-05-26,2026-05-31,500,LV,Cooke,Van Orden,50.0,46.0,0.0,0.0,1.0,,,
+NJ-7,7,NJ-7 House,NJ,Z to A Research,B,,,False,,,2026-05-24,2026-06-26,430,LV,"Bennett, Rebecca","Kean, Tom",47.0,43.0,0.0,0.0,10.0,,,
+MI-4,4,MI-4 House,MI,GBAO,B,,D,False,,,2026-05-28,2026-06-01,500,LV,McCann,Huizenga,48.0,45.0,0.0,0.0,7.0,,,
+WI-6,6,WI-6 House,WI,,B,,,False,,,2026-03-17,2026-03-20,640,LV,Thurow,Grothman,38.0,42.0,0.0,0.0,18.0,,,
