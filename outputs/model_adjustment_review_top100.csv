@@ -1,0 +1,101 @@
+model,race_id,rating,model_margin_dem,dem_win_probability,adjustment_column,adjustment_value_dem,risk_level,criticality_score,recommended_range,review_note,dem_candidate,gop_candidate
+Senate,OH,,-2.5125509999999993,,state_environment_adjustment_dem,5.345,High,12,-1.5 to +1.5 usually,Review for double counting.,Sherrod Brown,Jon Husted
+Senate,TX,,-2.8976221371834847,,state_environment_adjustment_dem,5.345,High,12,-1.5 to +1.5 usually,Review for double counting.,James Talarico,Ken Paxton
+Senate,ME,,3.031794990958212,,state_environment_adjustment_dem,5.345,High,12,-1.5 to +1.5 usually,Review for double counting.,Graham Platner,Susan Collins
+Senate,FL,,-4.632078861229004,,state_environment_adjustment_dem,4.988666666666666,High,12,-1.5 to +1.5 usually,Review for double counting.,Angie Nixon / Alex Vindman primary,Ashley Moody
+Senate,ME,,3.031794990958212,,candidate_quality_adjustment_dem,-4.0,High,12,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,Graham Platner,Susan Collins
+Senate,MI,,7.313,,state_environment_adjustment_dem,7.483,High,10,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Republican nominee TBD
+Senate,GA,,6.522015057957779,,state_environment_adjustment_dem,6.414,High,10,-1.5 to +1.5 usually,Review for double counting.,Jon Ossoff,Mike Collins / Derek Dooley runoff
+Senate,NC,,7.674378,,state_environment_adjustment_dem,6.414,High,10,-1.5 to +1.5 usually,Review for double counting.,Roy Cooper,Michael Whatley
+Senate,IA,,-5.873870000000001,,state_environment_adjustment_dem,5.345,High,10,-1.5 to +1.5 usually,Review for double counting.,Josh Turek,Ashley Hinson
+Senate,AK,,-6.814120666666667,,state_environment_adjustment_dem,4.632333333333333,High,10,-1.5 to +1.5 usually,Review for double counting.,Mary Peltola,Dan Sullivan
+Senate,NH,,11.013,,state_environment_adjustment_dem,7.483,High,9,-1.5 to +1.5 usually,Review for double counting.,Chris Pappas / Karishma Manzur / Jared Sullivan primary,Scott Brown / John E. Sununu / Daniel Innis primary
+Senate,VA,,15.450333333333331,,state_environment_adjustment_dem,6.770333333333332,High,9,-1.5 to +1.5 usually,Review for double counting.,Mark Warner,Republican nominee TBD
+Senate,MN,,10.994,,state_environment_adjustment_dem,6.414,High,9,-1.5 to +1.5 usually,Review for double counting.,Peggy Flanagan / Angie Craig primary,Michele Tafoya / Royce White / Tom Weiler / Adam Schwarze primary
+Senate,NM,,15.944,,state_environment_adjustment_dem,6.414,High,9,-1.5 to +1.5 usually,Review for double counting.,Ben Ray Lujan,Larry Marker
+Senate,NJ,,17.567666666666668,,state_environment_adjustment_dem,6.057666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,Cory Booker,Justin Murphy
+Senate,CO,,18.767666666666663,,state_environment_adjustment_dem,6.057666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,John Hickenlooper,Republican nominee TBD
+Senate,OR,,22.076333333333334,,state_environment_adjustment_dem,5.701333333333333,High,9,-1.5 to +1.5 usually,Review for double counting.,Jeff Merkley,David Brock Smith
+Senate,IL,,18.67,,state_environment_adjustment_dem,5.345,High,9,-1.5 to +1.5 usually,Review for double counting.,Juliana Stratton,Don Tracy
+Senate,DE,,22.624999999999996,,state_environment_adjustment_dem,5.345,High,9,-1.5 to +1.5 usually,Review for double counting.,Chris Coons,Republican nominee TBD
+Senate,SC,,-12.761333333333331,,state_environment_adjustment_dem,4.988666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,Annie Andrews / Brandon Brown / Kyle Freeman primary,Lindsey Graham / Republican primary
+Senate,KS,,-13.34633333333333,,state_environment_adjustment_dem,4.988666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Roger Marshall
+Senate,MT,,-14.467666666666664,,state_environment_adjustment_dem,4.632333333333333,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Kurt Alme
+Senate,RI,,22.257333333333335,,state_environment_adjustment_dem,4.632333333333333,High,9,-1.5 to +1.5 usually,Review for double counting.,Jack Reed,Republican nominee TBD
+Senate,LA,,-18.514000000000003,,state_environment_adjustment_dem,4.276,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Julia Letlow / John Fleming runoff
+Senate,MS,,-19.819,,state_environment_adjustment_dem,4.276,High,9,-1.5 to +1.5 usually,Review for double counting.,Scott Colom,Cindy Hyde-Smith
+Senate,KY,,-25.529,,state_environment_adjustment_dem,4.276,High,9,-1.5 to +1.5 usually,Review for double counting.,Charles Booker,Andy Barr
+Senate,MA,,33.551,,state_environment_adjustment_dem,4.276,High,9,-1.5 to +1.5 usually,Review for double counting.,Ed Markey,Republican nominee TBD
+Senate,NE,,-18.920333333333332,,state_environment_adjustment_dem,3.919666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic / Independent nominee TBD,Pete Ricketts
+Senate,AL,,-24.91033333333333,,state_environment_adjustment_dem,3.919666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Republican nominee TBD
+Senate,TN,,-25.60033333333333,,state_environment_adjustment_dem,3.919666666666666,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Bill Hagerty
+Senate,SD,,-26.976666666666667,,state_environment_adjustment_dem,3.563333333333333,High,9,-1.5 to +1.5 usually,Review for double counting.,Julian Beaudion,Mike Rounds
+Senate,AR,,-32.23166666666667,,state_environment_adjustment_dem,3.563333333333333,High,9,-1.5 to +1.5 usually,Review for double counting.,Hallie Schoffner,Tom Cotton
+Senate,OK,,-31.107999999999997,,state_environment_adjustment_dem,3.207,High,9,-1.5 to +1.5 usually,Review for double counting.,Troy Green / Jim Priest / N'Kiyla Thomas primary,Kevin Hern / William Buckner / Gary Ty England / GOP primary
+Senate,ID,,-33.163,,state_environment_adjustment_dem,3.207,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Republican nominee TBD
+Senate,WV,,-39.973,,state_environment_adjustment_dem,3.207,High,9,-1.5 to +1.5 usually,Review for double counting.,Democratic nominee TBD,Shelley Moore Capito
+Senate,ME,,3.031794990958212,,overperformance_adjustment_dem,-2.0,Medium,8,-4 to +4 after shrinkage,Strong candidate/race priors should have written rationale.,Graham Platner,Susan Collins
+Senate,AR,,-32.23166666666667,,candidate_quality_adjustment_dem,-3.0,Medium,7,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,Hallie Schoffner,Tom Cotton
+House,NC-9,Likely R,,,candidate_quality_adjustment_dem,3.0,Medium,7,"-3 to +3, usually smaller",Candidate quality should be shrunk/capped and reviewed in competitive races.,"Ojeda, Richard","Hudson, Richard"
+Senate,NC,,7.674378,,candidate_quality_adjustment_dem,2.875,Medium,6,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,Roy Cooper,Michael Whatley
+Senate,ME,,3.031794990958212,,incumbency_adjustment_dem,-2.5,Medium,6,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Graham Platner,Susan Collins
+Senate,AK,,-6.814120666666667,,overperformance_adjustment_dem,2.0,Medium,6,-4 to +4 after shrinkage,Strong candidate/race priors should have written rationale.,Mary Peltola,Dan Sullivan
+House,NC-9,Likely R,,,candidate_war_adjustment_dem,3.0,Medium,5,-3 to +3 cap,Review large or one-sided WAR matches.,"Ojeda, Richard","Hudson, Richard"
+Senate,WY,,-41.88433333333333,,state_environment_adjustment_dem,2.8506666666666667,Medium,5,-1.5 to +1.5 usually,Review for double counting.,James W. Byrd,Harriet Hageman / Sam Mead / Jimmy Skovgard primary
+House,PA-12,Safe D,,,candidate_quality_adjustment_dem,-2.588181818181818,Medium,5,"-3 to +3, usually smaller",Candidate quality should be shrunk/capped and reviewed in competitive races.,"Lee, Summer","Hayes, James"
+House,PA-10,Lean D,,,candidate_quality_adjustment_dem,2.3427,Medium,5,"-3 to +3, usually smaller",Candidate quality should be shrunk/capped and reviewed in competitive races.,"Stelson, Janelle","Perry, Scott"
+House,OH-9,Toss-Up,,,candidate_quality_adjustment_dem,1.87515,Medium,5,"-3 to +3, usually smaller",Candidate quality should be shrunk/capped and reviewed in competitive races.,"Kaptur, Marcy","Merrin, Derek"
+House,OR-4,Safe D,,,candidate_quality_adjustment_dem,-1.8470454545454549,Medium,5,"-3 to +3, usually smaller",Candidate quality should be shrunk/capped and reviewed in competitive races.,"Hoyle, Val","DeSpain, Monique"
+Senate,OH,,-2.5125509999999993,,overperformance_adjustment_dem,1.25,Low,5,-4 to +4 after shrinkage,Strong candidate/race priors should have written rationale.,Sherrod Brown,Jon Husted
+Senate,OH,,-2.5125509999999993,,candidate_quality_adjustment_dem,1.25,Low,5,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,Sherrod Brown,Jon Husted
+Senate,TX,,-2.8976221371834847,,candidate_liability_adjustment_dem,1.0,Low,5,-3 to +3 usually,Large liabilities should be rare and documented.,James Talarico,Ken Paxton
+Senate,ME,,3.031794990958212,,candidate_liability_adjustment_dem,-1.0,Low,5,-3 to +3 usually,Large liabilities should be rare and documented.,Graham Platner,Susan Collins
+Senate,TX,,-2.8976221371834847,,overperformance_adjustment_dem,0.5,Low,5,-4 to +4 after shrinkage,Strong candidate/race priors should have written rationale.,James Talarico,Ken Paxton
+Senate,TX,,-2.8976221371834847,,candidate_quality_adjustment_dem,0.5,Low,5,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,James Talarico,Ken Paxton
+Senate,GA,,6.522015057957779,,incumbency_adjustment_dem,2.0,Medium,4,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Jon Ossoff,Mike Collins / Derek Dooley runoff
+Senate,MS,,-19.819,,candidate_quality_adjustment_dem,-1.5,Low,4,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,Scott Colom,Cindy Hyde-Smith
+Senate,AR,,-32.23166666666667,,overperformance_adjustment_dem,-1.5,Low,4,-4 to +4 after shrinkage,Strong candidate/race priors should have written rationale.,Hallie Schoffner,Tom Cotton
+House,PA-12,Safe D,,,candidate_war_adjustment_dem,-2.588181818181818,Medium,3,-3 to +3 cap,Review large or one-sided WAR matches.,"Lee, Summer","Hayes, James"
+House,PA-10,Lean D,,,candidate_war_adjustment_dem,2.3427,Medium,3,-3 to +3 cap,Review large or one-sided WAR matches.,"Stelson, Janelle","Perry, Scott"
+Senate,SC,,-12.761333333333331,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Annie Andrews / Brandon Brown / Kyle Freeman primary,Lindsey Graham / Republican primary
+Senate,KS,,-13.34633333333333,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Democratic nominee TBD,Roger Marshall
+Senate,VA,,15.450333333333331,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Mark Warner,Republican nominee TBD
+Senate,NM,,15.944,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Ben Ray Lujan,Larry Marker
+Senate,NJ,,17.567666666666668,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Cory Booker,Justin Murphy
+Senate,LA,,-18.514000000000003,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Democratic nominee TBD,Julia Letlow / John Fleming runoff
+Senate,CO,,18.767666666666663,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,John Hickenlooper,Republican nominee TBD
+Senate,NE,,-18.920333333333332,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Democratic / Independent nominee TBD,Pete Ricketts
+Senate,MS,,-19.819,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Scott Colom,Cindy Hyde-Smith
+Senate,OR,,22.076333333333334,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Jeff Merkley,David Brock Smith
+Senate,RI,,22.257333333333335,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Jack Reed,Republican nominee TBD
+Senate,DE,,22.624999999999996,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Chris Coons,Republican nominee TBD
+Senate,TN,,-25.60033333333333,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Democratic nominee TBD,Bill Hagerty
+Senate,SD,,-26.976666666666667,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Julian Beaudion,Mike Rounds
+Senate,AR,,-32.23166666666667,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Hallie Schoffner,Tom Cotton
+Senate,ID,,-33.163,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Democratic nominee TBD,Republican nominee TBD
+Senate,MA,,33.551,,incumbency_adjustment_dem,2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Ed Markey,Republican nominee TBD
+Senate,WV,,-39.973,,incumbency_adjustment_dem,-2.0,Medium,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Democratic nominee TBD,Shelley Moore Capito
+House,OH-9,Toss-Up,,,candidate_war_adjustment_dem,1.87515,Medium,3,-3 to +3 cap,Review large or one-sided WAR matches.,"Kaptur, Marcy","Merrin, Derek"
+House,OR-4,Safe D,,,candidate_war_adjustment_dem,-1.8470454545454549,Medium,3,-3 to +3 cap,Review large or one-sided WAR matches.,"Hoyle, Val","DeSpain, Monique"
+Senate,AK,,-6.814120666666667,,incumbency_adjustment_dem,-1.5,Low,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Mary Peltola,Dan Sullivan
+Senate,NC,,7.674378,,overperformance_adjustment_dem,1.375,Low,3,-4 to +4 after shrinkage,Strong candidate/race priors should have written rationale.,Roy Cooper,Michael Whatley
+Senate,OH,,-2.5125509999999993,,incumbency_adjustment_dem,-1.0,Low,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Sherrod Brown,Jon Husted
+Senate,FL,,-4.632078861229004,,incumbency_adjustment_dem,-1.0,Low,3,-3 to +3 generic Senate points,Review whether generic incumbency is double-counted with overperformance.,Angie Nixon / Alex Vindman primary,Ashley Moody
+Senate,GA,,6.522015057957779,,candidate_quality_adjustment_dem,0.75,Low,3,-3 to +3 usually,Candidate quality should be reviewed race-by-race.,Jon Ossoff,Mike Collins / Derek Dooley runoff
+House,AL-3,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"McGinnis, Lee","Rogers, Mike"
+House,AL-4,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Pusczek, Amanda","Aderholt, Robert"
+House,AL-6,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,,"Strong, Dale"
+House,AR-1,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Yarbrough Green, Terri","Crawford, Rick"
+House,AR-2,Likely R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Jones, Chris","Hill, French"
+House,AR-3,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Ryerse, Robb","Womack, Steve"
+House,AR-4,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Russell, James","Westerman, Bruce"
+House,CA-3,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Bera, Ami","Tucker, Robb"
+House,CA-4,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Thompson, Mike",
+House,CA-5,Safe R,,,incumbency_adjustment_dem,-1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Mesuda, Michael","McClintock, Tom"
+House,CA-7,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Matsui, Doris",
+House,CA-8,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Garamendi, John",
+House,CA-9,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Harder, Josh","McBride, John"
+House,CA-10,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"DeSaulnier, Mark",
+House,CA-12,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Simon, Lateefah",
+House,CA-13,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Gray, Adam","Lincoln, Kevin"
+House,CA-15,Safe D,,,incumbency_adjustment_dem,1.5,Low,2,-2 to +2 House points,House incumbency should generally stay around +/-1.5 unless backtests justify more.,"Mullin, Kevin","Hoelter, Charles"
