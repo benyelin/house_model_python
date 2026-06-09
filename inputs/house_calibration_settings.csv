@@ -37,3 +37,8 @@ house_poll_spillover_same_demo_group_bonus,0.25,Similarity bonus for same educat
 house_poll_spillover_baseline_similarity_bonus,0.2,Similarity bonus based on similar presidential/district partisan baseline.
 house_poll_spillover_min_similarity,0.25,Minimum similarity score needed before a poll contributes spillover to a target district.
 house_poll_spillover_polled_district_discount,0.35,Discount applied to spillover received by districts that already have their own polling.
+use_partisan_pollster_adjustments,1.0,"0/1 toggle. If 1, partisan/campaign-sponsored polls receive margin adjustment and weight discount."
+partisan_pollster_default_adjustment,2.0,Default points adjustment against sponsoring party.
+partisan_pollster_internal_adjustment,2.5,Points adjustment against sponsoring party for campaign/internal polls.
+partisan_pollster_max_adjustment,3.0,Hard cap on partisan pollster margin adjustment.
+partisan_pollster_weight_multiplier,0.5,Weight multiplier for partisan/campaign-sponsored polls.
