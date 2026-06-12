@@ -1,2 +1,2 @@
 national_environment_source_path,national_environment_margin_dem,as_of_date,generic_ballot_margin_dem,presidential_approval,presidential_disapproval,presidential_net_approval,approval_adjustment_dem,midterm_adjustment_dem,source_notes
-../senate_model_python_Q1_auto_calendar_candidate_refresh/inputs/national_environment.csv,7.091666666666666,2026-06-10,6.5,38.6,57.9,-19.299999999999997,2.133333333333333,1.0,Manual update from latest generic ballot and presidential approval averages.
+../senate_model_python_Q1_auto_calendar_candidate_refresh/inputs/national_environment.csv,7.211666666666667,2026-06-12,6.7,38.9,57.8,-18.9,2.0333333333333337,1.0,Manual update from latest generic ballot and presidential approval averages.
