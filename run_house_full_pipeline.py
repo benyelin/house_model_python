@@ -1,40 +1,51 @@
-import argparse
+from pathlib import Path
 import subprocess
 import sys
 
+PYTHON = sys.executable
 
-def run(cmd):
+
+def run_script(label, script, extra_args=None):
+    script_path = Path(script)
+
+    if not script_path.exists():
+        print(f"Skipping missing step: {label} ({script})")
+        return
+
+    cmd = [PYTHON, script]
+
+    if extra_args:
+        cmd.extend(extra_args)
+
     print()
-    print("$", " ".join(cmd))
-    proc = subprocess.run(cmd)
-    if proc.returncode != 0:
-        raise SystemExit(proc.returncode)
+    print("=" * 72)
+    print(label)
+    print("=" * 72)
+    print("$ " + " ".join(cmd))
+
+    subprocess.run(cmd, check=True)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Run full House model pipeline.")
-    parser.add_argument("--sims", type=int, default=20000)
-    parser.add_argument("--import-seed", action="store_true", help="Re-import House Model Data.xlsx before running.")
-    args = parser.parse_args()
+    args = sys.argv[1:]
 
-    py = sys.executable
+    # Build/update House candidate WAR before core pipeline.
+    # This makes the main House forecast WAR-on by default.
+    run_script("Build/update House candidate WAR", "build_house_candidate_war.py")
 
-    if args.import_seed:
-        run([py, "import_house_model_seed.py"])
+    # Run the original full House pipeline with the same command-line args
+    # such as --import-seed.
+    run_script("Run core House full pipeline", "run_house_full_pipeline_core.py", args)
 
-    run([py, "update_house_elasticity.py"])
-    run([py, "recalculate_house_fundamentals.py"])
-    run([py, "ingest_house_polls.py"])
-    run([py, "run_house_model.py", "--sims", str(args.sims)])
-    run([py, "run_house_dynamic_uncertainty.py", "--sims", str(args.sims)])
-    run([py, "build_house_calibration_audit.py"])
-    run([py, "build_house_local_context_audit.py"])
-    run([py, "append_house_forecast_history.py"])
+    # Post-forecast WAR diagnostics. These do not feed the same forecast run;
+    # they explain where candidate WAR matters most.
+    run_script("Build House candidate WAR rankings", "build_house_candidate_war_rankings.py")
 
     print()
-    print("House pipeline complete.")
-    print("Launch dashboard:")
-    print("  streamlit run dashboard_house_app.py")
+    print("House WAR-on full pipeline complete.")
+    print("Main forecast uses candidate WAR generated before the core pipeline.")
+    print("For a separate WAR-on/WAR-off diagnostic comparison, run:")
+    print("  python3 compare_house_candidate_war_toggle.py")
 
 
 if __name__ == "__main__":
