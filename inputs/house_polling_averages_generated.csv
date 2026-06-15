@@ -2,5 +2,6 @@ district_id,state,district,polling_margin_dem,poll_count,latest_poll_end_date,av
 MI-4,MI,4,3.0000000000000004,1,2026-06-01,14.0,0.7195561326894497,Manual House polling average from 1 poll(s): GBAO
 MO-2,MO,2,-3.0,1,2026-05-31,15.0,0.7777942154240827,Manual House polling average from 1 poll(s): FM3 Research
 NJ-7,NJ,7,4.0,1,2026-06-26,0.0,0.8042335896160187,Manual House polling average from 1 poll(s): Z to A Research
+OH-15,OH,15,-3.0,1,2026-06-21,0.0,0.7678758580222023,Manual House polling average from 1 poll(s): Tulchin
 WI-3,WI,3,4.0,1,2026-05-31,15.0,0.7100257281413379,Manual House polling average from 1 poll(s): Impact Research
 WI-6,WI,6,-4.0,1,2026-03-20,87.0,0.3075787786488724,Manual House polling average from 1 poll(s): Unknown

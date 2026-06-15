@@ -1856,7 +1856,7 @@ with tab_war:
     render_candidate_war_visibility()
 
 
-if False:
+with tab_manual_polls:
     st.subheader("Manual House Poll Entry")
 
     st.caption(
