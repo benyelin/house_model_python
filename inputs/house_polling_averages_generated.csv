@@ -1,6 +1,6 @@
 district_id,state,district,polling_margin_dem,poll_count,latest_poll_end_date,avg_poll_age_days,total_poll_weight,polling_notes
-MI-4,MI,4,3.0,1,2026-06-01,13.0,0.7292144602229559,Manual House polling average from 1 poll(s): GBAO
-MO-2,MO,2,-3.0,1,2026-05-31,14.0,0.7882342505303841,Manual House polling average from 1 poll(s): FM3 Research
+MI-4,MI,4,3.0000000000000004,1,2026-06-01,14.0,0.7195561326894497,Manual House polling average from 1 poll(s): GBAO
+MO-2,MO,2,-3.0,1,2026-05-31,15.0,0.7777942154240827,Manual House polling average from 1 poll(s): FM3 Research
 NJ-7,NJ,7,4.0,1,2026-06-26,0.0,0.8042335896160187,Manual House polling average from 1 poll(s): Z to A Research
-WI-3,WI,3,4.0,1,2026-05-31,14.0,0.7195561326894497,Manual House polling average from 1 poll(s): Impact Research
-WI-6,WI,6,-4.0,1,2026-03-20,86.0,0.31170729128546565,Manual House polling average from 1 poll(s): Unknown
+WI-3,WI,3,4.0,1,2026-05-31,15.0,0.7100257281413379,Manual House polling average from 1 poll(s): Impact Research
+WI-6,WI,6,-4.0,1,2026-03-20,87.0,0.3075787786488724,Manual House polling average from 1 poll(s): Unknown
