@@ -26,24 +26,35 @@ def run_script(label, script, extra_args=None):
     subprocess.run(cmd, check=True)
 
 
+def strip_import_seed(args):
+    """The second core run should not re-import stale seed data."""
+    return [a for a in args if a != "--import-seed"]
+
+
 def main():
     args = sys.argv[1:]
 
-    # Build/update House candidate WAR before core pipeline.
-    # This makes the main House forecast WAR-on by default.
+    # First let the core pipeline perform any requested seed import.
+    # This may overwrite inputs/house_race_inputs.csv, so we refresh Excel after it.
+    if "--import-seed" in args:
+        run_script("Run core House seed import pass", "run_house_full_pipeline_core.py", args)
+
+    # Now import the authoritative Excel candidate/source fields.
+    run_script("Import House Model Data Excel", "import_house_model_data_excel.py")
+
+    # Build/update House candidate WAR after candidates are refreshed.
     run_script("Build/update House candidate WAR", "build_house_candidate_war.py")
 
-    # Run the original full House pipeline with the same command-line args
-    # such as --import-seed.
-    run_script("Run core House full pipeline", "run_house_full_pipeline_core.py", args)
+    # Final forecast run. Do not pass --import-seed again, or it may wipe out Excel updates.
+    final_args = strip_import_seed(args)
+    run_script("Run core House full pipeline", "run_house_full_pipeline_core.py", final_args)
 
-    # Post-forecast WAR diagnostics. These do not feed the same forecast run;
-    # they explain where candidate WAR matters most.
+    # Post-forecast WAR diagnostics.
     run_script("Build House candidate WAR rankings", "build_house_candidate_war_rankings.py")
 
     print()
     print("House WAR-on full pipeline complete.")
-    print("Main forecast uses candidate WAR generated before the core pipeline.")
+    print("Main forecast uses House Model Data Excel candidate fields and candidate WAR.")
     print("For a separate WAR-on/WAR-off diagnostic comparison, run:")
     print("  python3 compare_house_candidate_war_toggle.py")
 

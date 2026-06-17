@@ -207,82 +207,6 @@ def normalize_existing_district_id(raw_district_id):
 df = read_csv_safe(HOUSE_INPUTS)
 env = read_csv_safe(NATIONAL_ENV_AUDIT)
 
-
-def enrich_candidates_from_house_inputs(display_df):
-    """Merge latest candidate fields from inputs/house_race_inputs.csv into dashboard display data."""
-    try:
-        source_path = INPUTS / "house_race_inputs.csv"
-        if display_df is None or display_df.empty or not source_path.exists():
-            return display_df
-
-        source = pd.read_csv(source_path)
-        out = display_df.copy()
-
-        def norm_state(x):
-            if pd.isna(x):
-                return ""
-            return str(x).strip().upper()
-
-        def norm_district(x):
-            if pd.isna(x):
-                return ""
-            s = str(x).strip().upper()
-            if s in {"AL", "AT-LARGE", "AT LARGE"}:
-                return "AL"
-            try:
-                return str(int(float(s)))
-            except Exception:
-                return s
-
-        state_col = next((c for c in out.columns if c.lower() in {"state", "state_abbr"}), None)
-        district_col = next((c for c in out.columns if c.lower() in {"district", "district_number", "cd"}), None)
-
-        if state_col is None or district_col is None:
-            return display_df
-        if "state" not in source.columns or "district" not in source.columns:
-            return display_df
-
-        out["_state_key"] = out[state_col].apply(norm_state)
-        out["_district_key"] = out[district_col].apply(norm_district)
-
-        source["_state_key"] = source["state"].apply(norm_state)
-        source["_district_key"] = source["district"].apply(norm_district)
-
-        candidate_cols = [
-            "dem_candidate",
-            "gop_candidate",
-            "other_candidate",
-            "incumbent_raw",
-            "incumbent_party",
-            "dem_candidate_is_incumbent",
-            "gop_candidate_is_incumbent",
-            "general_election_party_structure",
-            "election_system",
-        ]
-        candidate_cols = [c for c in candidate_cols if c in source.columns]
-
-        if not candidate_cols:
-            return display_df
-
-        source_small = source[["_state_key", "_district_key"] + candidate_cols].drop_duplicates(
-            ["_state_key", "_district_key"]
-        )
-
-        # Drop stale candidate columns from display data, then bring in current input values.
-        out = out.drop(columns=[c for c in candidate_cols if c in out.columns], errors="ignore")
-        out = out.merge(source_small, on=["_state_key", "_district_key"], how="left")
-        out = out.drop(columns=["_state_key", "_district_key"], errors="ignore")
-
-        return out
-
-    except Exception as e:
-        try:
-            st.warning(f"Candidate enrichment skipped: {e}")
-        except Exception:
-            pass
-        return display_df
-
-
 race_stats_output = read_csv_safe(HOUSE_RACE_STATS)
 seat_distribution_output = read_csv_safe(HOUSE_SEAT_DISTRIBUTION)
 forecast_summary_output = read_csv_safe(HOUSE_FORECAST_SUMMARY)
@@ -291,7 +215,6 @@ forecast_history_output = read_csv_safe(HOUSE_FORECAST_HISTORY)
 # Prefer simulated race stats when available.
 if not race_stats_output.empty:
     df = race_stats_output.copy()
-    df = enrich_candidates_from_house_inputs(df)
 
 st.title("2026 House Forecast Dashboard")
 st.caption("First-pass House fundamentals model using district presidential margins, shared national environment, and incumbency flags.")

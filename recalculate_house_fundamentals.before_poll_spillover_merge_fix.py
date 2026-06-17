@@ -464,25 +464,6 @@ def apply_house_poll_spillover_adjustments(df):
     signal["district_id"] = signal["district_id"].astype(str).str.strip().str.upper()
     out["district_id"] = out["district_id"].astype(str).str.strip().str.upper()
 
-    # Drop stale signal-merge columns from prior runs so this step is idempotent.
-    stale_signal_cols = [
-        c for c in out.columns
-        if c.endswith("_from_signal")
-        or c in {
-            "poll_spillover_adjustment_dem_from_signal",
-            "poll_spillover_raw_adjustment_dem_from_signal",
-            "poll_spillover_source_count_from_signal",
-            "poll_spillover_notes_from_signal",
-            "poll_spillover_abs_signal_from_signal",
-            "poll_spillover_cap_from_signal",
-            "poll_spillover_days_out_from_signal",
-            "poll_spillover_time_weight_from_signal",
-            "poll_spillover_target_has_polling_from_signal",
-        }
-    ]
-    if stale_signal_cols:
-        out = out.drop(columns=stale_signal_cols, errors="ignore")
-
     out = out.merge(signal, on="district_id", how="left", suffixes=("", "_from_signal"))
 
     # Prefer merged signal values if suffixes were created.

@@ -1,0 +1,268 @@
+state_key,district_key,excel_value,csv_value,field
+AL,5,"Sneed, Andrew",,Dem Candidate vs dem_candidate
+GA,1,"Hollowell, Amanda",,Dem Candidate vs dem_candidate
+GA,12,"Smith, Ceretta",,Dem Candidate vs dem_candidate
+GA,7,"Kozycki, Tony",,Dem Candidate vs dem_candidate
+ND,AL,"Hammer, Trygve",,Dem Candidate vs dem_candidate
+NM,1,,"Stansbury, Melanie",Dem Candidate vs dem_candidate
+NM,2,,"Vasquez, Gabriel",Dem Candidate vs dem_candidate
+NM,3,,"Fernandez, Teresa Leger",Dem Candidate vs dem_candidate
+NV,4,"Horsford, Steven","Hosford, Steven",Dem Candidate vs dem_candidate
+OK,1,"Croisant, John",,Dem Candidate vs dem_candidate
+OK,2,"Wade, Brandon",,Dem Candidate vs dem_candidate
+OK,3,"Byrd, Suzie",,Dem Candidate vs dem_candidate
+OK,4,"Jacob, Mitchell",,Dem Candidate vs dem_candidate
+SC,5,"Dittmer, Mallory","Ditmer, Mallory",Dem Candidate vs dem_candidate
+SC,6,"Clyburn, Jim","Clyburn, James",Dem Candidate vs dem_candidate
+SD,1,"Gronli, Nicole",,Dem Candidate vs dem_candidate
+SD,AL,,"Gronli, Nicole",Dem Candidate vs dem_candidate
+AL,5,"Strong, Dale",,GOP Candidate vs gop_candidate
+AL,6,,"Strong, Dale",GOP Candidate vs gop_candidate
+CA,10,"Frese, Jeff",,GOP Candidate vs gop_candidate
+CA,16,"Soule, Peter",,GOP Candidate vs gop_candidate
+CA,2,"Littau, Robin","Littau, Robert",GOP Candidate vs gop_candidate
+CA,43,"Morales, Cristian",,GOP Candidate vs gop_candidate
+GA,11,"Cowan, John",,GOP Candidate vs gop_candidate
+ND,AL,"Fedorchak, Julie","Fedorchuk, Julie",GOP Candidate vs gop_candidate
+NJ,9,"Pino, Rosie",,GOP Candidate vs gop_candidate
+NM,1,,"Okpareke, N.E.C.",GOP Candidate vs gop_candidate
+NM,2,,"Cunningham, Greg",GOP Candidate vs gop_candidate
+NM,3,,"Zamora, Martin",GOP Candidate vs gop_candidate
+OK,2,"Brecheen, Josh",,GOP Candidate vs gop_candidate
+OK,3,"Lucas, Frank",,GOP Candidate vs gop_candidate
+OK,4,"Cole, Tom",,GOP Candidate vs gop_candidate
+OK,5,"Bice, Stephanie",,GOP Candidate vs gop_candidate
+SD,1,"Jackley, Marty",,GOP Candidate vs gop_candidate
+SD,AL,,"Jackley, Marty",GOP Candidate vs gop_candidate
+SD,1,R,,Incumbent Party vs incumbent_party
+SD,AL,,R,Incumbent Party vs incumbent_party
+VT,1,D,,Incumbent Party vs incumbent_party
+VT,AL,,D,Incumbent Party vs incumbent_party
+AK,AL,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AL,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AL,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AL,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AL,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AL,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+AZ,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CA,10,D_vs_R,unresolved,General Election Party Structure vs general_election_party_structure
+CA,14,D_vs_D,unresolved,General Election Party Structure vs general_election_party_structure
+CA,16,D_vs_R,unresolved,General Election Party Structure vs general_election_party_structure
+CA,2,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+CA,4,D_vs_D,unresolved,General Election Party Structure vs general_election_party_structure
+CA,43,D_vs_R,unresolved,General Election Party Structure vs general_election_party_structure
+CO,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CO,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CT,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CT,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CT,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CT,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+CT,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+DE,AL,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,10,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,11,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,12,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,13,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,14,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,15,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,16,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,17,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,18,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,19,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,20,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,21,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,22,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,23,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,24,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,25,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,26,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,27,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,28,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+FL,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+GA,1,D_vs_R,unresolved,General Election Party Structure vs general_election_party_structure
+HI,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+HI,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+KS,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+KS,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+KS,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+KS,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+LA,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+LA,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+LA,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+LA,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+LA,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+LA,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MA,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MD,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+ME,1,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+ME,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,10,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,11,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,12,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,13,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MI,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MN,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+MO,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+ND,AL,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NH,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NH,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NJ,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NM,1,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NM,2,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NM,3,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NV,1,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NV,2,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NV,3,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NV,4,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+NY,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,10,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,11,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,12,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,13,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,14,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,15,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,16,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,17,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,18,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,19,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,20,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,21,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,22,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,23,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,24,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,25,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,26,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+NY,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+OK,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+OK,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+OK,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+OK,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+OK,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+RI,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+RI,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+SC,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+SC,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+SC,3,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+SC,4,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+SC,5,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+SC,6,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+SC,7,Unresolved,D_vs_R,General Election Party Structure vs general_election_party_structure
+SD,1,D_vs_R,,General Election Party Structure vs general_election_party_structure
+SD,AL,,D_vs_R,General Election Party Structure vs general_election_party_structure
+TN,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+TN,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+UT,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+UT,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+UT,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+UT,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,10,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,11,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VA,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+VT,1,Unresolved,,General Election Party Structure vs general_election_party_structure
+VT,AL,,unresolved,General Election Party Structure vs general_election_party_structure
+WA,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,10,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WA,9,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,1,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,2,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,3,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,4,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,5,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,6,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,7,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WI,8,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+WY,AL,Unresolved,unresolved,General Election Party Structure vs general_election_party_structure
+ME,1,standard,top_two_rcv,Election System vs election_system
+ME,2,standard,top_two_rcv,Election System vs election_system
+SD,1,standard,,Election System vs election_system
+SD,AL,,standard,Election System vs election_system
+VT,1,standard,,Election System vs election_system
+VT,AL,,standard,Election System vs election_system
