@@ -1,9 +1,10 @@
 district_id,state,district,polling_margin_dem,poll_count,latest_poll_end_date,avg_poll_age_days,total_poll_weight,polling_notes
-AZ-6,AZ,,2.0,1,2026-06-11,11.0,0.9473194400007362,Manual House polling average from 1 poll(s): House Majority PAC
-MI-4,MI,4.0,3.0,1,2026-06-01,21.0,0.6554363560023426,Manual House polling average from 1 poll(s): GBAO
-MO-2,MO,2.0,-3.0,1,2026-05-31,22.0,0.7084848326868226,Manual House polling average from 1 poll(s): FM3 Research
+AZ-6,AZ,,2.0,1,2026-06-11,13.0,0.9223914388139185,Manual House polling average from 1 poll(s): House Majority PAC
+MI-4,MI,4.0,3.0,1,2026-06-01,23.0,0.6381890394474357,Manual House polling average from 1 poll(s): GBAO
+MO-2,MO,2.0,-3.0000000000000004,1,2026-05-31,24.0,0.6898415852200064,Manual House polling average from 1 poll(s): FM3 Research
 NJ-7,NJ,7.0,4.0,1,2026-06-26,0.0,0.8042335896160187,Manual House polling average from 1 poll(s): Z to A Research
-OH-15,OH,15.0,-3.0,1,2026-06-21,1.0,0.7577054665305374,Manual House polling average from 1 poll(s): Tulchin
-TN-5,TN,,-6.0,1,2026-06-13,9.0,0.8125493397263238,Manual House polling average from 1 poll(s): Impact Research
-WI-3,WI,3.0,4.0,1,2026-05-31,22.0,0.6467552075214104,Manual House polling average from 1 poll(s): Impact Research
-WI-6,WI,6.0,-4.0,1,2026-03-20,94.0,0.28017037824104685,Manual House polling average from 1 poll(s): Unknown
+OH-15,OH,15.0,-3.0,1,2026-06-21,3.0,0.7377670149677606,Manual House polling average from 1 poll(s): Tulchin
+OH-7,OH,,-1.0,1,2026-06-20,4.0,1.0399934431864635,Manual House polling average from 1 poll(s): GBAO
+TN-5,TN,,-6.0,1,2026-06-13,11.0,0.7911677127378288,Manual House polling average from 1 poll(s): Impact Research
+WI-3,WI,3.0,4.0,1,2026-05-31,24.0,0.6297363288835331,Manual House polling average from 1 poll(s): Impact Research
+WI-6,WI,6.0,-4.0,1,2026-03-20,96.0,0.27279790468418774,Manual House polling average from 1 poll(s): Unknown
