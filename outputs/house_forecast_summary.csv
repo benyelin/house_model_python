@@ -1,2 +1,2 @@
 n_sims,days_out,expected_dem_seats,median_dem_seats,dem_control_probability,dem_control_threshold,national_error_sd,region_error_sd,demographic_error_sd,district_error_sd,total_error_sd,implied_correlation,districts_with_polling,region_groups,demographic_groups,uncertainty_engine
-20000,131,229.94945,228.0,0.7723,218,4.069444444444445,2.091666666666667,1.5916666666666668,4.433333333333334,6.566832931717269,0.5442267443389691,10,13,17,dynamic_correlated_house_v1
+20000,130,229.93805,228.0,0.773,218,4.055555555555555,2.0833333333333335,1.5833333333333333,4.416666666666667,6.5423006298139645,0.5442483459825854,11,13,17,dynamic_correlated_house_v1
