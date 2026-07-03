@@ -16,20 +16,19 @@ AZ,6,general_election_party_structure,Unresolved
 AZ,7,general_election_party_structure,Unresolved
 AZ,8,general_election_party_structure,Unresolved
 AZ,9,general_election_party_structure,Unresolved
-CA,2,general_election_party_structure,Unresolved
 CA,4,general_election_party_structure,D_vs_D
 CA,10,general_election_party_structure,D_vs_R
 CA,14,general_election_party_structure,D_vs_D
 CA,16,general_election_party_structure,D_vs_R
 CA,43,general_election_party_structure,D_vs_R
-CO,1,general_election_party_structure,Unresolved
-CO,2,general_election_party_structure,Unresolved
-CO,3,general_election_party_structure,Unresolved
-CO,4,general_election_party_structure,Unresolved
-CO,5,general_election_party_structure,Unresolved
-CO,6,general_election_party_structure,Unresolved
-CO,7,general_election_party_structure,Unresolved
-CO,8,general_election_party_structure,Unresolved
+CO,1,general_election_party_structure,D_vs_R
+CO,2,general_election_party_structure,D_vs_R
+CO,3,general_election_party_structure,D_vs_R
+CO,4,general_election_party_structure,D_vs_R
+CO,5,general_election_party_structure,D_vs_R
+CO,6,general_election_party_structure,D_vs_R
+CO,7,general_election_party_structure,D_vs_R
+CO,8,general_election_party_structure,D_vs_R
 CT,1,general_election_party_structure,Unresolved
 CT,2,general_election_party_structure,Unresolved
 CT,3,general_election_party_structure,Unresolved
@@ -218,10 +217,14 @@ WI,7,general_election_party_structure,Unresolved
 WI,8,general_election_party_structure,Unresolved
 WY,AL,general_election_party_structure,Unresolved
 AL,5,dem_candidate,"Sneed, Andrew"
+CO,1,dem_candidate,"Kiros, Milat"
 CO,2,dem_candidate,"Neguse, Joe"
+CO,3,dem_candidate,"Romero, Dwayne"
 CO,4,dem_candidate,"Laubacher, Ellen"
+CO,5,dem_candidate,"Killin, Jessica"
 CO,6,dem_candidate,"Crow, Jason"
 CO,7,dem_candidate,"Pettersen, Brittany"
+CO,8,dem_candidate,"Rutinel, Manny"
 GA,1,dem_candidate,"Hollowell, Amanda"
 GA,7,dem_candidate,"Kozycki, Tony"
 GA,10,dem_candidate,"DeLancy, Pamela"
@@ -283,6 +286,7 @@ CA,10,gop_candidate,"Frese, Jeff"
 CA,16,gop_candidate,"Soule, Peter"
 CA,43,gop_candidate,"Morales, Cristian"
 CO,1,gop_candidate,"Peterson, Christy"
+CO,3,gop_candidate,"Hurd, Jeff"
 CO,4,gop_candidate,"Boebert, Lauren"
 CO,5,gop_candidate,"Crank, Jeff"
 CO,7,gop_candidate,"Bennett, Tim"
