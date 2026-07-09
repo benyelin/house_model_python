@@ -49,12 +49,6 @@ def cycle_polling_cap(days_out):
 
 
 def poll_count_multiplier(poll_count):
-    """Convert effective/quality poll count into a polling-weight multiplier.
-
-    This intentionally supports fractional effective counts. A district with
-    1.05 quality-adjusted polls should behave like a little more than one poll,
-    not like a fully mature polling average.
-    """
     try:
         poll_count = float(poll_count)
     except Exception:
@@ -62,25 +56,12 @@ def poll_count_multiplier(poll_count):
 
     if poll_count <= 0:
         return 0.0
-
-    # Anchor points:
-    # 0 polls -> 0.00
-    # 1 poll  -> 0.30
-    # 2 polls -> 0.55
-    # 3 polls -> 0.75
-    # 4+      -> 1.00
-    if poll_count <= 1:
-        return 0.30 * poll_count
-
-    if poll_count <= 2:
-        return 0.30 + (poll_count - 1.0) * (0.55 - 0.30)
-
-    if poll_count <= 3:
-        return 0.55 + (poll_count - 2.0) * (0.75 - 0.55)
-
-    if poll_count <= 4:
-        return 0.75 + (poll_count - 3.0) * (1.00 - 0.75)
-
+    if poll_count == 1:
+        return 0.30
+    if poll_count == 2:
+        return 0.55
+    if poll_count == 3:
+        return 0.75
     return 1.0
 
 

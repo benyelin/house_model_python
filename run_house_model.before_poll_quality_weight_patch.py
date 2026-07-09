@@ -49,12 +49,6 @@ def cycle_polling_cap(days_out):
 
 
 def poll_count_multiplier(poll_count):
-    """Convert effective/quality poll count into a polling-weight multiplier.
-
-    This intentionally supports fractional effective counts. A district with
-    1.05 quality-adjusted polls should behave like a little more than one poll,
-    not like a fully mature polling average.
-    """
     try:
         poll_count = float(poll_count)
     except Exception:
@@ -62,25 +56,12 @@ def poll_count_multiplier(poll_count):
 
     if poll_count <= 0:
         return 0.0
-
-    # Anchor points:
-    # 0 polls -> 0.00
-    # 1 poll  -> 0.30
-    # 2 polls -> 0.55
-    # 3 polls -> 0.75
-    # 4+      -> 1.00
-    if poll_count <= 1:
-        return 0.30 * poll_count
-
-    if poll_count <= 2:
-        return 0.30 + (poll_count - 1.0) * (0.55 - 0.30)
-
-    if poll_count <= 3:
-        return 0.55 + (poll_count - 2.0) * (0.75 - 0.55)
-
-    if poll_count <= 4:
-        return 0.75 + (poll_count - 3.0) * (1.00 - 0.75)
-
+    if poll_count == 1:
+        return 0.30
+    if poll_count == 2:
+        return 0.55
+    if poll_count == 3:
+        return 0.75
     return 1.0
 
 
@@ -127,8 +108,6 @@ def prepare_house_table(df, days_out, config):
         "fundamentals_margin_dem",
         "polling_margin_dem",
         "poll_count",
-        "effective_poll_count",
-        "largest_pollster_weight_share",
         "district_partisan_baseline_dem",
         "district_environment_adjustment_dem",
         "state_environment_adjustment_dem",
@@ -153,49 +132,10 @@ def prepare_house_table(df, days_out, config):
     )
 
     out["poll_count"] = out["poll_count"].fillna(0.0)
-    out["effective_poll_count"] = out["effective_poll_count"].fillna(out["poll_count"])
-    out["largest_pollster_weight_share"] = out["largest_pollster_weight_share"].fillna(0.0)
-
-    if "only_partisan_or_internal_polls" not in out.columns:
-        out["only_partisan_or_internal_polls"] = False
-
-    out["only_partisan_or_internal_polls_bool"] = out[
-        "only_partisan_or_internal_polls"
-    ].apply(normalize_bool)
-
-    # Polling quality adjustment:
-    # - start with Kish effective poll count
-    # - penalize averages dominated by one pollster
-    # - penalize averages made only from partisan/internal polls
-    out["poll_quality_count"] = out["effective_poll_count"].copy()
-
-    concentration_penalty = np.where(
-        out["largest_pollster_weight_share"] >= 0.95,
-        0.70,
-        np.where(out["largest_pollster_weight_share"] >= 0.75, 0.85, 1.00),
-    )
-
-    partisan_only_penalty = np.where(
-        out["only_partisan_or_internal_polls_bool"],
-        0.75,
-        1.00,
-    )
-
-    out["poll_quality_count"] = (
-        out["poll_quality_count"]
-        * concentration_penalty
-        * partisan_only_penalty
-    )
-
-    out["poll_quality_count"] = np.where(
-        has_polling,
-        out["poll_quality_count"],
-        0.0,
-    )
 
     cap = cycle_polling_cap(days_out)
 
-    out["poll_count_multiplier"] = out["poll_quality_count"].apply(poll_count_multiplier)
+    out["poll_count_multiplier"] = out["poll_count"].apply(poll_count_multiplier)
 
     out["bayesian_polling_weight"] = np.where(
         has_polling,

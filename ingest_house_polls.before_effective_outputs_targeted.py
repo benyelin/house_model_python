@@ -559,90 +559,6 @@ def main():
 
     averages = pd.DataFrame(rows)
 
-
-
-    # Add effective-count and concentration diagnostics after the ordinary
-
-
-    # average rows are built.
-
-
-    diagnostic_rows = []
-
-
-
-    for district_id, group in polls.groupby("district_id"):
-
-
-        diagnostic_rows.append(
-
-
-            {
-
-
-                "district_id": district_id,
-
-
-                "effective_poll_count": kish_effective_count(group["poll_weight"]),
-
-
-                "largest_pollster_weight_share": largest_pollster_share(group),
-
-
-                "only_partisan_or_internal_polls": bool(
-
-
-                    group["sponsor_classification"]
-
-
-                    .fillna("unknown")
-
-
-                    .astype(str)
-
-
-                    .str.lower()
-
-
-                    .isin(["partisan", "internal"])
-
-
-                    .all()
-
-
-                ),
-
-
-            }
-
-
-        )
-
-
-
-    diagnostics = pd.DataFrame(diagnostic_rows)
-
-
-
-    if not diagnostics.empty:
-
-
-        averages = averages.merge(
-
-
-            diagnostics,
-
-
-            on="district_id",
-
-
-            how="left",
-
-
-        )
-
-
-
     averages.to_csv(OUTPUT_AVERAGES, index=False)
 
     # Clear existing poll fields first.
@@ -653,9 +569,6 @@ def main():
         ("latest_poll_end_date", ""),
         ("avg_poll_age_days", np.nan),
         ("total_poll_weight", 0.0),
-        ("effective_poll_count", 0.0),
-        ("largest_pollster_weight_share", 0.0),
-        ("only_partisan_or_internal_polls", False),
         ("polling_notes", ""),
     ]:
         races[col] = default
@@ -692,75 +605,6 @@ def main():
 
     races["poll_count"] = pd.to_numeric(races["poll_count"], errors="coerce").fillna(0).astype(int)
     races["polling_active"] = races["poll_count"] > 0
-
-
-    # Final safety sync: copy polling diagnostics from generated averages
-
-    # into house_race_inputs.csv immediately before saving.
-
-    for diagnostic_col, default in [
-
-        ("effective_poll_count", 0.0),
-
-        ("largest_pollster_weight_share", 0.0),
-
-        ("only_partisan_or_internal_polls", False),
-
-    ]:
-
-        if diagnostic_col not in races.columns:
-
-            races[diagnostic_col] = default
-
-    
-
-        if diagnostic_col in averages.columns:
-
-            diagnostic_map = dict(
-
-                zip(
-
-                    averages["district_id"].astype(str),
-
-                    averages[diagnostic_col],
-
-                )
-
-            )
-
-            races[diagnostic_col] = (
-
-                races["district_id"]
-
-                .astype(str)
-
-                .map(diagnostic_map)
-
-                .fillna(default)
-
-            )
-
-    
-
-    races["effective_poll_count"] = pd.to_numeric(
-
-        races["effective_poll_count"],
-
-        errors="coerce",
-
-    ).fillna(0.0)
-
-    
-
-    races["largest_pollster_weight_share"] = pd.to_numeric(
-
-        races["largest_pollster_weight_share"],
-
-        errors="coerce",
-
-    ).fillna(0.0)
-
-    
 
     races.to_csv(HOUSE_RACE_INPUTS, index=False)
 
