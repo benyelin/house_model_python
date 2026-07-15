@@ -231,31 +231,20 @@ def merge_candidate_war_adjustments(df):
     else:
         out["candidate_war_match_status"] = "No WAR match"
 
-    if "objective_candidate_quality_adjustment_dem_before_war" in df.columns:
-        base_objective_quality = pd.to_numeric(
-            df["objective_candidate_quality_adjustment_dem_before_war"],
-            errors="coerce",
-        )
-    elif "objective_candidate_quality_adjustment_dem" in df.columns:
-        base_objective_quality = pd.to_numeric(
-            df["objective_candidate_quality_adjustment_dem"],
-            errors="coerce",
-        )
-    else:
-        base_objective_quality = pd.Series(
-            0.0,
-            index=out.index,
-            dtype=float,
-        )
+    if "objective_candidate_quality_adjustment_dem" not in out.columns:
+        out["objective_candidate_quality_adjustment_dem"] = 0.0
 
-    base_objective_quality = base_objective_quality.fillna(0.0)
+    out["objective_candidate_quality_adjustment_dem"] = pd.to_numeric(
+        out["objective_candidate_quality_adjustment_dem"],
+        errors="coerce",
+    ).fillna(0.0)
 
-    out["objective_candidate_quality_adjustment_dem_before_war"] = (
-        base_objective_quality.to_numpy()
-    )
+    out["objective_candidate_quality_adjustment_dem_before_war"] = out[
+        "objective_candidate_quality_adjustment_dem"
+    ]
 
     out["objective_candidate_quality_adjustment_dem"] = (
-        out["objective_candidate_quality_adjustment_dem_before_war"]
+        out["objective_candidate_quality_adjustment_dem"]
         + out["candidate_war_adjustment_dem"]
     )
 
@@ -384,39 +373,18 @@ def apply_candidate_war_to_house_fundamentals(df):
     else:
         out["candidate_war_match_status"] = "No WAR match"
 
-    # Recover the underlying candidate-quality value before WAR.
-    #
-    # On the first clean run, candidate_quality_adjustment_dem_before_war may
-    # not exist, so candidate_quality_adjustment_dem is used as the source.
-    #
-    # On later runs, candidate_quality_adjustment_dem already includes WAR.
-    # Reusing that field would compound WAR repeatedly, so prefer the saved
-    # pre-WAR value from the incoming dataframe.
-    if "candidate_quality_adjustment_dem_before_war" in df.columns:
-        base_candidate_quality = pd.to_numeric(
-            df["candidate_quality_adjustment_dem_before_war"],
-            errors="coerce",
-        )
-    elif "candidate_quality_adjustment_dem" in df.columns:
-        base_candidate_quality = pd.to_numeric(
-            df["candidate_quality_adjustment_dem"],
-            errors="coerce",
-        )
-    else:
-        base_candidate_quality = pd.Series(
-            0.0,
-            index=out.index,
-            dtype=float,
-        )
+    if "candidate_quality_adjustment_dem" not in out.columns:
+        out["candidate_quality_adjustment_dem"] = 0.0
 
-    base_candidate_quality = base_candidate_quality.fillna(0.0)
+    out["candidate_quality_adjustment_dem"] = pd.to_numeric(
+        out["candidate_quality_adjustment_dem"],
+        errors="coerce",
+    ).fillna(0.0)
 
-    out["candidate_quality_adjustment_dem_before_war"] = (
-        base_candidate_quality.to_numpy()
-    )
+    out["candidate_quality_adjustment_dem_before_war"] = out["candidate_quality_adjustment_dem"]
 
     out["candidate_quality_adjustment_dem"] = (
-        out["candidate_quality_adjustment_dem_before_war"]
+        out["candidate_quality_adjustment_dem"]
         + out["candidate_war_adjustment_dem"]
     )
 

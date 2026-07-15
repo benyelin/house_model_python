@@ -313,16 +313,10 @@ def main():
 
     dem_prob = dem_wins.mean(axis=0)
     avg_sim_margin = simulated_margins.mean(axis=0)
-    margin_p25_dem = np.percentile(simulated_margins, 25, axis=0)
-    margin_p50_dem = np.percentile(simulated_margins, 50, axis=0)
-    margin_p75_dem = np.percentile(simulated_margins, 75, axis=0)
 
     df["simulated_dem_win_prob"] = dem_prob
     df["dem_win_probability"] = dem_prob
     df["avg_simulated_margin_dem"] = avg_sim_margin
-    df["margin_p25_dem"] = margin_p25_dem
-    df["margin_p50_dem"] = margin_p50_dem
-    df["margin_p75_dem"] = margin_p75_dem
     df["model_margin_label"] = df["model_margin_dem"].apply(fmt_margin)
     df["rating"] = df["dem_win_probability"].apply(infer_rating)
 
@@ -353,9 +347,6 @@ def main():
 
     expected_dem_seats = float(np.mean(dem_seats_by_sim))
     median_dem_seats = float(np.median(dem_seats_by_sim))
-    dem_seats_p25 = float(np.percentile(dem_seats_by_sim, 25))
-    dem_seats_p50 = float(np.percentile(dem_seats_by_sim, 50))
-    dem_seats_p75 = float(np.percentile(dem_seats_by_sim, 75))
     dem_control_probability = float(np.mean(dem_seats_by_sim >= HOUSE_CONTROL_THRESHOLD))
 
     total_error_sd = float(
@@ -379,9 +370,6 @@ def main():
                 "days_out": days_out,
                 "expected_dem_seats": expected_dem_seats,
                 "median_dem_seats": median_dem_seats,
-                "dem_seats_p25": dem_seats_p25,
-                "dem_seats_p50": dem_seats_p50,
-                "dem_seats_p75": dem_seats_p75,
                 "dem_control_probability": dem_control_probability,
                 "dem_control_threshold": HOUSE_CONTROL_THRESHOLD,
                 "national_error_sd": national_sd,

@@ -456,9 +456,6 @@ def run_simulation(race_table, days_out, config):
     race_stats = race_table.copy()
     race_stats["simulated_dem_win_probability"] = district_win_probs
     race_stats["avg_simulated_margin_dem"] = avg_simulated_margin
-    race_stats["margin_p25_dem"] = np.percentile(simulated_margins, 25, axis=0)
-    race_stats["margin_p50_dem"] = np.percentile(simulated_margins, 50, axis=0)
-    race_stats["margin_p75_dem"] = np.percentile(simulated_margins, 75, axis=0)
 
     majority_prob = float((dem_seats >= config.majority_threshold).mean())
 
@@ -467,9 +464,6 @@ def run_simulation(race_table, days_out, config):
         "days_out": days_out,
         "expected_dem_seats": float(dem_seats.mean()),
         "median_dem_seats": float(np.median(dem_seats)),
-        "dem_seats_p25": float(np.percentile(dem_seats, 25)),
-        "dem_seats_p50": float(np.percentile(dem_seats, 50)),
-        "dem_seats_p75": float(np.percentile(dem_seats, 75)),
         "dem_majority_probability": majority_prob,
         "majority_threshold": config.majority_threshold,
         "total_error_sd": total_sd,

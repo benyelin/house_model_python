@@ -717,9 +717,6 @@ def render_district_detail_card(selected):
     gop_candidate = get_selected_value(selected, "gop_candidate")
     rating = get_selected_value(selected, "rating")
     model_margin = safe_float_for_display(get_selected_value(selected, "model_margin_dem", None))
-    margin_p25 = safe_float_for_display(get_selected_value(selected, "margin_p25_dem", None))
-    margin_p75 = safe_float_for_display(get_selected_value(selected, "margin_p75_dem", None))
-    middle_50_margin = fmt_margin_range(margin_p25, margin_p75)
     dem_prob = safe_float_for_display(get_selected_value(selected, "dem_win_probability", None))
     war_adj = safe_float_for_display(get_selected_value(selected, "candidate_war_adjustment_dem", None), 0.0)
 
@@ -739,7 +736,6 @@ def render_district_detail_card(selected):
     c1, c2, c3, c4 = st.columns(4)
 
     c1.metric("Model margin", signed_points_label(model_margin))
-    c1.caption(f"Middle 50%: {middle_50_margin}")
     c2.metric("Dem win probability", probability_label(dem_prob))
     c3.metric("Rating", str(rating))
     c4.metric("Candidate WAR", signed_points_label(war_adj))
@@ -1578,7 +1574,6 @@ with tab_drivers:
                 "Special adj.": fmt_margin(row.get("special_adjustment_dem")),
                 "Fundamentals": fmt_margin(row.get("fundamentals_margin_dem")),
                 "Model margin": fmt_margin(row.get("model_margin_dem")),
-                "Middle 50% margin": fmt_margin_range(row.get("margin_p25_dem"), row.get("margin_p75_dem")),
                 "Dem odds": fmt_pct(row.get("dem_win_probability")),
                 "Notes": row.get("race_notes", ""),
             }

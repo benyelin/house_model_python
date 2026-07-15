@@ -122,26 +122,6 @@ def fmt_num(x, digits=2):
     return f"{x:.{digits}f}"
 
 
-def fmt_seat_range(p25, p75):
-    p25 = as_float(p25)
-    p75 = as_float(p75)
-
-    if pd.isna(p25) or pd.isna(p75):
-        return "—"
-
-    return f"{p25:.0f}–{p75:.0f}"
-
-
-def fmt_margin_range(p25, p75):
-    p25_label = fmt_margin(p25)
-    p75_label = fmt_margin(p75)
-
-    if p25_label == "—" or p75_label == "—":
-        return "—"
-
-    return f"{p25_label} to {p75_label}"
-
-
 def race_rating_from_prob(p):
     p = as_float(p)
     if pd.isna(p):
@@ -717,9 +697,6 @@ def render_district_detail_card(selected):
     gop_candidate = get_selected_value(selected, "gop_candidate")
     rating = get_selected_value(selected, "rating")
     model_margin = safe_float_for_display(get_selected_value(selected, "model_margin_dem", None))
-    margin_p25 = safe_float_for_display(get_selected_value(selected, "margin_p25_dem", None))
-    margin_p75 = safe_float_for_display(get_selected_value(selected, "margin_p75_dem", None))
-    middle_50_margin = fmt_margin_range(margin_p25, margin_p75)
     dem_prob = safe_float_for_display(get_selected_value(selected, "dem_win_probability", None))
     war_adj = safe_float_for_display(get_selected_value(selected, "candidate_war_adjustment_dem", None), 0.0)
 
@@ -739,7 +716,6 @@ def render_district_detail_card(selected):
     c1, c2, c3, c4 = st.columns(4)
 
     c1.metric("Model margin", signed_points_label(model_margin))
-    c1.caption(f"Middle 50%: {middle_50_margin}")
     c2.metric("Dem win probability", probability_label(dem_prob))
     c3.metric("Rating", str(rating))
     c4.metric("Candidate WAR", signed_points_label(war_adj))
@@ -1139,13 +1115,6 @@ with tab_overview:
 
     c1.metric("Expected Dem Seats", fmt_num(expected_dem_seats, 2))
     c2.metric("Median Dem Seats", fmt_num(median_like_dem_seats, 0))
-    st.metric(
-        "Middle 50% Seats",
-        fmt_seat_range(
-            summary_row.get("dem_seats_p25") if "summary_row" in globals() else np.nan,
-            summary_row.get("dem_seats_p75") if "summary_row" in globals() else np.nan,
-        ),
-    )
     c3.metric("Dem Majority Odds", fmt_pct(dem_majority_probability))
     c4.metric(
         "National Environment",
@@ -1578,7 +1547,6 @@ with tab_drivers:
                 "Special adj.": fmt_margin(row.get("special_adjustment_dem")),
                 "Fundamentals": fmt_margin(row.get("fundamentals_margin_dem")),
                 "Model margin": fmt_margin(row.get("model_margin_dem")),
-                "Middle 50% margin": fmt_margin_range(row.get("margin_p25_dem"), row.get("margin_p75_dem")),
                 "Dem odds": fmt_pct(row.get("dem_win_probability")),
                 "Notes": row.get("race_notes", ""),
             }
