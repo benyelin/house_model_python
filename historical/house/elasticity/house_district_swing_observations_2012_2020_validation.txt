@@ -1,0 +1,34 @@
+House District Swing Dataset Validation
+=======================================
+
+Boundary era: 2012-2020 congressional districts
+Observations: 1363
+Eligible observations: 1363
+Unique districts: 405
+Duplicate transition/district observations: 0
+Missing district swings: 0
+Missing national swings: 0
+Margins outside [-100, 100]: 0
+
+Observations by transition:
+transition
+2012_to_2014    328
+2014_to_2016    319
+2016_to_2018    342
+2018_to_2020    374
+
+National two-party movement by transition:
+  transition  common_districts  national_margin_from  national_margin_to  national_swing_dem  mean_district_swing_dem  median_district_swing_dem
+2012_to_2014               328                0.9450             -6.4056             -7.3506                  -6.9644                    -6.6812
+2014_to_2016               319               -6.9357             -3.6551              3.2806                   3.3398                     3.1368
+2016_to_2018               342               -5.2685              3.7907              9.0592                   8.8541                     8.1614
+2018_to_2020               374                3.5320             -1.6614             -5.1933                  -5.1754                    -4.8262
+
+District observation counts:
+1     31
+2     67
+3     30
+4    277
+
+Validation status:
+PASSED

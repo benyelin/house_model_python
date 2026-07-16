@@ -1,0 +1,18 @@
+race_id,party_code,target_name,fec_candidate_id,fec_candidate_name,fec_race_id,incumbent_challenger_status,candidate_status,committee_id,search_result
+TN-4,D,WAYNE STEELE,H8TN04123,"STEELE, RUSSELL",TN-4,C,C,C00812529,Token match
+LA-2,R,DAN HALLERAN,,,,,,,No token match
+CA-13,R,JOHN DUARTE,,,,,,,No token match
+CA-29,D,ANGELICA MARIA DUENAS,H8CA29100,"DUENAS, ANGELICA MARIA",CA-29,C,C,C00697391,Token match
+CA-47,R,SCOTT BAUGH,,,,,,,No token match
+GA-11,D,ANTONIO DAZA,H2GA11230,"DAZA-FERNANDEZ, ANTONIO MIGUEL",GA-11,C,C,C00774190,Token match
+IA-2,R,ASHLEY HINSON,H0IA01174,"ARENHOLZ, ASHLEY HINSON",IA-2,I,C,C00706267,Token match
+IL-4,D,JESUS CHUY GARCIA,H8IL04134,"GARCIA, JESUS",IL-4,I,C,C00661777,Token match
+MD-4,D,GLENN IVEY,,,,,,,No token match
+MT-1,R,RYAN ZINKE,,,,,,,No token match
+NC-14,R,PAT HARRIGAN,,,,,,,No token match
+NY-4,R,ANTHONY D'ESPOSITO,H2NY04277,"DESPOSITO, ANTHONY P",NY-4,C,C,C00809426,Token match
+PA-2,R,AARON BASHIR,,,,,,,No token match
+TX-10,D,LINDA NUNO,H2TX21201,"TREVNO, ROSALINDA NUNO",TX-10,C,N,C00796771,Token match
+TX-3,R,KEITH SELF,,,,,,,No token match
+VT-AL,R,LIAM MADDEN,,,,,,,No token match
+WA-1,R,VINCENT CAVELERI,,,,,,,No token match

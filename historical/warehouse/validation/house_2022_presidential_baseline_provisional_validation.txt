@@ -1,0 +1,22 @@
+2022 House Presidential Baseline Validation
+===========================================
+
+Rows: 435
+Unique race IDs: 435
+Usable provisional 2022 baselines: 368
+Withheld due to changed boundaries: 67
+Failed joins: 0
+
+Withheld districts by state:
+state
+AL     7
+GA    14
+LA     6
+NC    14
+NY    26
+
+Anti-hindsight rule:
+Only the 2020 presidential margin is imported. The 2024 presidential result and the current blended partisan baseline are excluded from the 2022 backtest.
+
+Next requirement:
+Obtain 2020 presidential results calculated on the actual 2022 congressional boundaries for AL, GA, LA, NC, and NY.

@@ -1,0 +1,19 @@
+field_name,data_type,required,description
+dataset_id,string,yes,Permanent internal dataset identifier
+dataset_name,string,yes,Human-readable dataset name
+cycle,integer,no,Election cycle if cycle-specific
+chamber,string,no,House Senate shared or other
+source_organization,string,yes,Publishing organization
+source_title,string,yes,Source dataset or document title
+source_url,string,yes,Original source URL
+source_version,string,no,Source version or release date
+retrieved_date,date,yes,Date downloaded
+local_raw_path,string,yes,Warehouse raw file location
+file_size_bytes,integer,no,Downloaded file size
+sha256,string,no,File checksum
+license,string,no,Source license
+coverage_description,string,yes,Geographic and temporal coverage
+known_limitations,string,no,Known source issues
+ingestion_script,string,no,Script that processes the source
+processed_output,string,no,Generated canonical output
+validation_report,string,no,Generated validation report

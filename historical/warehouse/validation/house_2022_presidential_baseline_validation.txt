@@ -1,0 +1,16 @@
+2022 House Presidential Baseline Validation
+===========================================
+
+Rows: 435
+Unique race IDs: 435
+Numeric Democratic margins: 435
+Failed joins: 0
+Maximum Biden-minus-Trump margin residual: 0.100000
+Minimum Democratic presidential margin: -61.8
+Maximum Democratic presidential margin: +81.0
+
+Boundary status:
+All values are calculated on congressional boundaries used in the 2022 House election.
+
+Validation status:
+PASSED

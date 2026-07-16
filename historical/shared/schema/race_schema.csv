@@ -1,0 +1,32 @@
+field_name,data_type,required,source_or_derived,description
+cycle,integer,yes,source,Election cycle year
+chamber,string,yes,source,House or Senate
+race_id,string,yes,source,Canonical race identifier such as CA-22 or GA-SEN
+state,string,yes,source,Two-letter state abbreviation
+district,string,house_only,source,House district number or AL
+seat_class,string,senate_only,source,Senate class when applicable
+election_date,date,yes,source,General election date
+election_type,string,yes,source,General special runoff jungle or other
+dem_candidate,string,no,source,Democratic nominee
+gop_candidate,string,no,source,Republican nominee
+other_candidates,string,no,source,Delimited list of other candidates
+dem_vote_total,integer,no,source,Certified Democratic vote total
+gop_vote_total,integer,no,source,Certified Republican vote total
+other_vote_total,integer,no,source,Certified other-candidate vote total
+total_vote,integer,no,derived,Total certified vote
+dem_vote_share,float,no,derived,Democratic two-party or all-candidate vote share as defined in metadata
+gop_vote_share,float,no,derived,Republican vote share
+actual_dem_margin,float,yes,derived,Democratic margin in percentage points
+actual_winner,string,yes,derived,D R or Other
+incumbent_name,string,no,source,Incumbent officeholder before the election
+incumbent_party,string,no,source,D R I or blank
+dem_candidate_is_incumbent,boolean,no,derived,Whether the Democratic nominee is the incumbent
+gop_candidate_is_incumbent,boolean,no,derived,Whether the Republican nominee is the incumbent
+open_seat,boolean,yes,derived,Whether no incumbent sought reelection
+uncontested_dem,boolean,yes,derived,Democratic candidate had no Republican opponent
+uncontested_gop,boolean,yes,derived,Republican candidate had no Democratic opponent
+redistricted,boolean,house_only,source,Whether district boundaries materially changed before this cycle
+special_handling_notes,string,no,source,Notes on unusual election structure or data limitations
+source_name,string,yes,source,Primary source name
+source_url,string,yes,source,Primary source URL
+retrieved_date,date,yes,source,Date the source was retrieved

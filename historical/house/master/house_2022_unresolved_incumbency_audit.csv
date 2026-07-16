@@ -1,0 +1,36 @@
+race_id,dem_candidate,gop_candidate,general_election_party_structure,dem_fec_candidate_id,gop_fec_candidate_id,dem_fec_status,gop_fec_status,dem_match_method,gop_match_method,dem_is_incumbent,gop_is_incumbent,dem_is_open_seat_candidate,gop_is_open_seat_candidate
+AZ-2,TOM OâHALLERAN,ELI CRANE,D_vs_R,,H2AZ01354,,C,unmatched,high_confidence_automatic,False,False,False,False
+CA-3,KERMIT JONES,KEVIN KILEY,D_vs_R,H2CA04122,H2CA03157,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+CA-13,ADAM GRAY,JOHN DUARTE,D_vs_R,H2CA13115,,C,,high_confidence_automatic,unmatched,False,False,False,False
+CA-35,NORMA J TORRES,MIKE CARGILE,D_vs_R,H4CA35031,H0CA35146,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+CA-42,ROBERT GARCIA,JOHN BRISCOE,D_vs_R,H2CA47188,H8CA47078,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+CA-51,SARA JACOBS,STAN CAPLAN,D_vs_R,H8CA49074,H2CA51206,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+FL-4,LASHONDA âLJâ HOLLOWAY,AARON BEAN,D_vs_R,H6FL05193,H2FL04211,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+FL-15,ALAN M COHN,LAUREL LEE,D_vs_R,H4FL15155,H2FL15241,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+FL-19,CINDY BANYAI,BYRON DONALDS,D_vs_R,H0FL19106,H2FL14186,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+FL-23,JARED MOSKOWITZ,JOE BUDD,D_vs_R,H2FL22171,H2FL23138,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+GA-6,BOB CHRISTIAN,RICH MCCORMICK,D_vs_R,H2GA06222,H0GA07273,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+IL-3,DELIA RAMIREZ,JUSTIN BURAU,D_vs_R,H2IL03162,H2IL06082,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+IL-13,NIKKI BUDZINSKI,REGAN DEERING,D_vs_R,H2IL13153,H2IL13179,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+LA-2,TROY A CARTER,âDANâ LUX,D_vs_R,H2LA02149,H2LA02297,C,C,high_confidence_automatic,review_required,False,False,False,False
+LA-5,OSCAR âOMARâ DANTZLER,JULIA LETLOW,D_vs_R,H2LA05282,H2LA05126,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+MI-3,HILLARY SCHOLTEN,JOHN GIBBS,D_vs_R,H0MI03316,H2MI03197,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+MI-10,CARL J MARLINGA,JOHN JAMES,D_vs_R,H2MI10176,H2MI10150,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+MI-13,SHRI THANEDAR,MARTELL D BIVINGS,D_vs_R,H2MI13204,H2MI13360,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+MS-4,JOHNNY L DUPREE,MIKE EZELL,D_vs_R,H2MS04332,H2MS04258,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+MT-1,MONICA TRANEL,RYAN K ZINKE,D_vs_R,H2MT02092,,C,,high_confidence_automatic,unmatched,False,False,False,False
+NC-1,DON DAVIS,SANDY SMITH,D_vs_R,H2NC02287,H0NC03149,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+NC-11,JASMINE BEACH-FERRARA,CHUCK EDWARDS,D_vs_R,H2NC11155,H2NC14050,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+NM-1,MELANIE A STANSBURY,MICHELLE GARCIA HOLMES,D_vs_R,H2NM01144,H0NM01189,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+NY-1,BRIDGET FLEMING,NICHOLAS J LALOTA,D_vs_R,H0NY01202,,C,,high_confidence_automatic,unmatched,False,False,False,False
+NY-4,LAURA A GILLEN,ANTHONY P DâESPOSITO,D_vs_R,H2NY04244,H2NY04277,C,C,high_confidence_automatic,manual_override,False,False,False,False
+NY-10,DANIEL GOLDMAN,BENINE A HAMDAN,D_vs_R,H2NY10308,H2NY10134,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+NY-18,PATRICK RYAN,COLIN J SCHMITT,D_vs_R,H8NY19223,H2NY18087,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+NY-19,JOSH RILEY,MARCUS MOLINARO,D_vs_R,H8NY22177,H2NY19127,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+NY-22,FRANCIS CONOLE,BRANDON M WILLIAMS,D_vs_R,H0NY24063,H2NY22212,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+OR-5,JAMIE MCLEOD-SKINNER,LORI CHAVEZ-DEREMER,D_vs_R,H8OR02161,H2OR05209,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+SC-7,DARYL W SCOTT,RUSSELL FRY,D_vs_R,H2SC07314,H2SC07280,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+TX-15,MICHELLE VALLEJO,MONICA DE LA CRUZ,D_vs_R,H2TX15203,H0TX15124,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+TX-35,GREG CASAR,DAN MCQUEEN,D_vs_R,H2TX35144,H0TX20124,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+WA-3,MARIE GLUESENKAMP PEREZ,JOE KENT,D_vs_R,H2WA03217,H2WA03100,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False
+WY-AL,LYNNETTE GREYBULL,HARRIET HAGEMAN,D_vs_R,H0WY01036,H2WY00166,C,C,high_confidence_automatic,high_confidence_automatic,False,False,False,False

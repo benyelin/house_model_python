@@ -1,0 +1,26 @@
+2022 House Candidate Registry Validation
+==========================================
+
+Registry rows: 850
+Unique candidate UIDs: 850
+Unique races: 435
+Matched to FEC ID: 839
+High-confidence matches: 793
+Usable automatic/manual matches: 835
+Review-required or unmatched: 15
+
+Match methods:
+match_method
+high_confidence_automatic         766
+probable_automatic                 41
+manual_override                    18
+unmatched                          11
+high_confidence_state_fallback      9
+review_required                     4
+probable_state_fallback             1
+
+Incumbency codes among usable matches:
+incumbent_challenger_status
+C    390
+I    359
+O     86

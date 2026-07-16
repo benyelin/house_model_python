@@ -1,0 +1,23 @@
+2022 House Historical Master Validation
+=======================================
+
+Master rows: 435
+Unique race IDs: 435
+Columns: 61
+Democratic candidates lacking registry joins: 3
+Republican candidates lacking registry joins: 0
+Races with complete available FEC identity data: 400
+Democratic incumbents identified: 177
+Republican incumbents identified: 182
+Confirmed open seats: 43
+Unresolved incumbency classifications: 35
+
+Incumbency status counts:
+incumbency_status
+confirmed_incumbent_running    355
+confirmed_open                  43
+unresolved                      35
+member_vs_member                 2
+
+Important limitation:
+Unresolved races retain a missing open_seat value rather than being silently classified as open. These races require either a candidate-identity override or a separate historical-status override.

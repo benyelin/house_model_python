@@ -1,0 +1,84 @@
+2012 House Results Validation
+==================================
+
+Raw candidate-level rows: 1427
+Processed race rows: 435
+Expected race rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+Missing Democratic candidates: 26
+Missing Republican candidates: 20
+Missing actual margins: 0
+Missing winners: 0
+Major-party-contested races: 389
+Nonstandard party structures: 46
+Actually uncontested races: 11
+Uncontested Democratic races: 2
+Uncontested Republican races: 9
+
+Party structure counts:
+general_election_party_structure
+D_vs_R         389
+R_vs_Other      15
+D_vs_Other      12
+R_unopposed      9
+D_vs_D           6
+R_vs_R           2
+D_unopposed      2
+
+Total Democratic votes: 58660470
+Total Republican votes: 57691485
+Total other votes: 5172466
+Total votes: 122345022
+
+Validation status:
+PASSED
+
+Warnings:
+- AL-1: no Democratic candidate
+- AR-3: no Democratic candidate
+- AZ-7: no Republican candidate
+- CA-13: no Republican candidate
+- CA-15: no Republican candidate
+- CA-23: no Democratic candidate
+- CA-29: no Republican candidate
+- CA-30: no Republican candidate
+- CA-31: no Democratic candidate
+- CA-33: no Republican candidate
+- CA-35: no Republican candidate
+- CA-40: no Republican candidate
+- CA-43: no Republican candidate
+- CA-44: no Republican candidate
+- CA-8: no Democratic candidate
+- CO-5: no Democratic candidate
+- CT-3: reported total 291301 differs from summed candidate votes 291300
+- FL-15: no Democratic candidate
+- FL-20: no Republican candidate
+- FL-21: no Republican candidate
+- FL-24: no Republican candidate
+- FL-25: no Democratic candidate
+- FL-4: no Democratic candidate
+- GA-10: no Democratic candidate
+- GA-3: no Democratic candidate
+- GA-8: no Democratic candidate
+- KS-1: no Democratic candidate
+- KS-3: no Democratic candidate
+- LA-4: no Democratic candidate
+- LA-5: no Democratic candidate
+- LA-6: no Democratic candidate
+- MA-1: no Republican candidate
+- MA-2: no Republican candidate
+- MA-7: no Republican candidate
+- MS-3: no Democratic candidate
+- ND-AL: no Democratic candidate
+- NY-7: no Republican candidate
+- OH-11: no Republican candidate
+- OH-8: no Democratic candidate
+- SC-2: no Democratic candidate
+- SC-6: no Republican candidate
+- TN-6: no Democratic candidate
+- TX-13: no Democratic candidate
+- TX-17: no Democratic candidate
+- TX-19: no Democratic candidate
+- TX-29: no Republican candidate
+- TX-3: no Democratic candidate

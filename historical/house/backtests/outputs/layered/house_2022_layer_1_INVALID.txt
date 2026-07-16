@@ -1,0 +1,15 @@
+The initial 2022 Layer 1 backtest is invalid and must not be used for model evaluation.
+
+Reason:
+The presidential baseline was imported from the current 2026 production district table. Several congressional districts were redrawn after the 2024 election, so current district IDs and boundaries do not consistently correspond to the districts used in the 2022 House election.
+
+Required replacement:
+A complete table of 2020 presidential results calculated on the congressional boundaries used in the 2022 election.
+
+Affected outputs:
+- house_2022_layered_backtest_summary.csv
+- house_2022_layer_1_comparison.csv
+- house_2022_layered_calibration.csv
+- house_2022_layered_district_results.csv
+
+These files are retained only as pipeline tests and should not be interpreted as model-performance results.

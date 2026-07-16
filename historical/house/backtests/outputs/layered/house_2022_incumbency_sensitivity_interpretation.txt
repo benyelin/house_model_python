@@ -1,0 +1,27 @@
+2022 House Incumbency Sensitivity Interpretation
+================================================
+
+Exploratory range tested:
+0.00 to 3.00 points in 0.25-point increments.
+
+Key results:
+- Best MAE: 2.00-point incumbency bonus
+- Best RMSE: 2.25-point incumbency bonus
+- Broad performance plateau: approximately 1.75 to 2.50 points
+- Existing production value: 1.50 points
+
+Decision:
+Retain the 1.50-point incumbency bonus as the official benchmark pending
+validation on additional election cycles.
+
+Reason:
+The 2022 results suggest a somewhat larger effect, but optimizing the
+coefficient on one election would create in-sample overfitting. The difference
+between 1.50 and the 2022 optimum is small.
+
+Probability-metric caution:
+Brier score and log loss should not be used to select the incumbency
+coefficient until the margin-to-probability error scale has been calibrated.
+
+Candidate value for future multi-cycle testing:
+2.00 points.

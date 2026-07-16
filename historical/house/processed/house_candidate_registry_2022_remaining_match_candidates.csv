@@ -1,0 +1,162 @@
+race_id,party_code,mit_candidate_name,current_match_method,rank,score,fec_candidate_id,fec_candidate_name,fec_race_id,incumbent_challenger_status,candidate_status,match_reason
+AL-3,D,LIN VEASEY,review_required,1,100.0,H2AL03149,"VEASEY, LIN",AL-3,C,N,last_exact+first_match+token_overlap
+AL-3,D,LIN VEASEY,review_required,2,92.0,H2AL03131,"VEASEY, KAREN LIN MRS",AL-3,C,C,last_exact+alternate_given_name_match+token_overlap
+AL-3,D,LIN VEASEY,review_required,3,0.0,H0AL02202,"HARVEY-HALL, PHYLLIS",AL-2,C,C,last_name_mismatch
+AL-3,D,LIN VEASEY,review_required,4,0.0,H0AL07086,"SEWELL, TERRI A.",AL-7,I,C,last_name_mismatch
+AL-3,D,LIN VEASEY,review_required,5,0.0,H2AL02158,"ANDERSON, TERELL",AL-2,C,N,last_name_mismatch
+CA-24,R,BRAD ALLEN,review_required,1,100.0,H2CA24229,"ALLEN, BRAD DR.",CA-24,C,C,last_exact+first_match+token_overlap
+CA-24,R,BRAD ALLEN,review_required,2,100.0,H4CA24175,"ALLEN, BRAD DR",CA-24,C,N,last_exact+first_match+token_overlap
+CA-24,R,BRAD ALLEN,review_required,3,0.0,H0CA03128,"HAMILTON, TAMIKA",CA-6,C,C,last_name_mismatch
+CA-24,R,BRAD ALLEN,review_required,4,0.0,H0CA05107,"GIBLIN, SCOTT",CA-5,C,N,last_name_mismatch
+CA-24,R,BRAD ALLEN,review_required,5,0.0,H0CA06170,"BISH, CHRISTINE",CA-AL,C,C,last_name_mismatch
+IL-15,D,PAUL J LANGE,review_required,1,100.0,H2IL15091,"LANGE, PAUL J",IL-15,C,N,last_exact+first_match+token_overlap
+IL-15,D,PAUL J LANGE,review_required,2,95.0,H2IL15109,"LANGE, PAUL",IL-15,C,C,last_exact+first_match+token_overlap
+IL-15,D,PAUL J LANGE,review_required,3,0.0,H0IL01210,"MATTHEWS, AMEENA",IL-1,O,C,last_name_mismatch
+IL-15,D,PAUL J LANGE,review_required,4,0.0,H0IL03133,"HUGHES, CHARLES M",IL-6,C,N,last_name_mismatch
+IL-15,D,PAUL J LANGE,review_required,5,0.0,H0IL05096,"QUIGLEY, MIKE",IL-5,I,C,last_name_mismatch
+TX-9,R,JIMMY I LEON,review_required,1,100.0,H2TX09149,"LEON, JIMMY I",TX-9,C,N,last_exact+first_match+token_overlap
+TX-9,R,JIMMY I LEON,review_required,2,95.0,H2TX09156,"LEON, JIMMY",TX-9,C,C,last_exact+first_match+token_overlap
+TX-9,R,JIMMY I LEON,review_required,3,0.0,H0TX04219,"FALLON, PATRICK",TX-4,I,C,last_name_mismatch
+TX-9,R,JIMMY I LEON,review_required,4,0.0,H0TX07170,"HUNT, WESLEY",TX-38,O,C,last_name_mismatch
+TX-9,R,JIMMY I LEON,review_required,5,0.0,H0TX07220,"REHMAN, LAIQUE",TX-7,C,C,last_name_mismatch
+IN-4,D,ROGER D DAY,review_required,1,100.0,H2IN04184,"DAY, ROGER D MR",IN-4,C,N,last_exact+first_match+token_overlap
+IN-4,D,ROGER D DAY,review_required,2,95.0,H8IN04231,"DAY, ROGER",IN-4,C,N,last_exact+first_match+token_overlap
+IN-4,D,ROGER D DAY,review_required,3,0.0,H0IN01135,"MCDERMOTT, THOMAS",IN-1,C,C,last_name_mismatch
+IN-4,D,ROGER D DAY,review_required,4,0.0,H0IN01150,"MRVAN, FRANK J.",IN-1,I,C,last_name_mismatch
+IN-4,D,ROGER D DAY,review_required,5,0.0,H0IN09161,"DORRIS, DALE WILLIAM MR. II",IN-9,O,N,last_name_mismatch
+OH-12,D,AMY RIPPEL-ELTON,review_required,1,100.0,H2OH12126,"RIPPEL-ELTON, AMY MRS.",OH-12,C,N,last_exact+first_match+token_overlap
+OH-12,D,AMY RIPPEL-ELTON,review_required,2,100.0,H2OH12134,"ELTON, AMY RIPPEL",OH-12,C,N,last_exact+first_match+token_overlap
+OH-12,D,AMY RIPPEL-ELTON,review_required,3,0.0,H0OH04085,"SITES, JEFFREY ALAN",OH-4,C,C,last_name_mismatch
+OH-12,D,AMY RIPPEL-ELTON,review_required,4,0.0,H0OH11122,"SHABAZZ, TARIQ K.",OH-11,C,N,last_name_mismatch
+OH-12,D,AMY RIPPEL-ELTON,review_required,5,0.0,H0OH12179,"SHEARER, ALAINA",OH-12,C,C,last_name_mismatch
+OH-15,D,GARY JOSEPHSON,review_required,1,100.0,H2OH15269,"JOSEPHSON, GARY",OH-15,C,N,last_exact+first_match+token_overlap
+OH-15,D,GARY JOSEPHSON,review_required,2,100.0,H2OH15277,"JOSEPHSON, GARY",OH-15,C,C,last_exact+first_match+token_overlap
+OH-15,D,GARY JOSEPHSON,review_required,3,0.0,H0OH04085,"SITES, JEFFREY ALAN",OH-4,C,C,last_name_mismatch
+OH-15,D,GARY JOSEPHSON,review_required,4,0.0,H0OH11122,"SHABAZZ, TARIQ K.",OH-11,C,N,last_name_mismatch
+OH-15,D,GARY JOSEPHSON,review_required,5,0.0,H0OH12179,"SHEARER, ALAINA",OH-12,C,C,last_name_mismatch
+NY-25,R,LAâRON D SINGLETARY,review_required,1,69.5,H2NY25082,"SINGLETARY, LA'RON DESMOND",NY-25,C,C,last_exact+first_initial
+NY-25,R,LAâRON D SINGLETARY,review_required,2,0.0,H0NY02234,"GARBARINO, ANDREW",NY-2,I,C,last_name_mismatch
+NY-25,R,LAâRON D SINGLETARY,review_required,3,0.0,H0NY03083,"DEVOLDER-SANTOS, GEORGE ANTHONY",NY-3,O,C,last_name_mismatch
+NY-25,R,LAâRON D SINGLETARY,review_required,4,0.0,H0NY05088,"LAL, AMIT",NY-5,C,N,last_name_mismatch
+NY-25,R,LAâRON D SINGLETARY,review_required,5,0.0,H0NY06086,"ZMICH, THOMAS",NY-6,C,C,last_name_mismatch
+TN-4,D,WAYNE STEELE,review_required,1,50.0,H8TN04123,"STEELE, RUSSELL",TN-4,C,C,last_exact+first_mismatch
+TN-4,D,WAYNE STEELE,review_required,2,0.0,H2TN01106,"PARSONS, CAMERON",TN-1,C,N,last_name_mismatch
+TN-4,D,WAYNE STEELE,review_required,3,0.0,H2TN02120,"HARMON, MARK DESMOND DR.",TN-2,C,C,last_name_mismatch
+TN-4,D,WAYNE STEELE,review_required,4,0.0,H2TN03185,"LINDSEY, BABO",TN-3,C,N,last_name_mismatch
+TN-4,D,WAYNE STEELE,review_required,5,0.0,H2TN03201,"DOSS, NATHANIEL MR. III",TN-3,C,N,last_name_mismatch
+TX-7,D,LIZZIE FLETCHER,review_required,1,50.0,H8TX07140,"FLETCHER, ELIZABETH",TX-7,I,C,last_exact+first_mismatch
+TX-7,D,LIZZIE FLETCHER,review_required,2,0.0,H0TX03104,"ROBERTSON, AL D",TX-3,O,N,last_name_mismatch
+TX-7,D,LIZZIE FLETCHER,review_required,3,0.0,H0TX04151,"FOSTER, RUSSELL",TX-4,C,N,last_name_mismatch
+TX-7,D,LIZZIE FLETCHER,review_required,4,0.0,H0TX08145,"JONES, LAURA",TX-8,O,C,last_name_mismatch
+TX-7,D,LIZZIE FLETCHER,review_required,5,0.0,H0TX14218,"WILLIAMS, MIKAL D. DR",TX-14,C,C,last_name_mismatch
+CA-46,D,J LUIS CORREA,review_required,1,48.75,H6CA46116,"CORREA, LOU",CA-46,I,C,last_exact+first_mismatch
+CA-46,D,J LUIS CORREA,review_required,2,0.0,H0CA03078,"BERA, AMERISH",CA-6,I,C,last_name_mismatch
+CA-46,D,J LUIS CORREA,review_required,3,0.0,H0CA04175,"KENNEDY, BRYNNE",CA-4,C,C,last_name_mismatch
+CA-46,D,J LUIS CORREA,review_required,4,0.0,H0CA08226,"GOMEZ, BLANCA",CA-8,C,N,last_name_mismatch
+CA-46,D,J LUIS CORREA,review_required,5,0.0,H0CA10073,"DESAULNIER, MARK",CA-10,I,C,last_name_mismatch
+NC-13,R,BO HINES,review_required,1,48.75,H2NC05157,"HINES, ROBERT NICHOLAS",NC-13,O,C,last_exact+first_mismatch
+NC-13,R,BO HINES,review_required,2,0.0,H0NC02059,"ELLMERS, RENEE JACISIN",NC-13,O,C,last_name_mismatch
+NC-13,R,BO HINES,review_required,3,0.0,H0NC02158,"SWAIN, ALAN D",NC-4,O,C,last_name_mismatch
+NC-13,R,BO HINES,review_required,4,0.0,H0NC03149,"SMITH, SANDY",NC-1,C,C,last_name_mismatch
+NC-13,R,BO HINES,review_required,5,0.0,H0NC03172,"MURPHY, GREGORY FRANCIS DR.",NC-3,I,C,last_name_mismatch
+PA-16,R,MIKE KELLY,review_required,1,48.75,H0PA03271,"KELLY, GEORGE J JR",PA-16,I,C,last_exact+first_mismatch
+PA-16,R,MIKE KELLY,review_required,2,0.0,H0PA05094,"PRUETT, DASHA",PA-1,C,C,last_name_mismatch
+PA-16,R,MIKE KELLY,review_required,3,0.0,H0PA07132,"SCHELLER, LISA",PA-7,C,C,last_name_mismatch
+PA-16,R,MIKE KELLY,review_required,4,0.0,H0PA08197,"DANIELS, TEDDY",PA-8,C,C,last_name_mismatch
+PA-16,R,MIKE KELLY,review_required,5,0.0,H0PA08221,"BOGNET, JIM",PA-8,C,C,last_name_mismatch
+LA-2,R,âDANâ LUX,review_required,1,48.75,H2LA02297,"LUX, DANIEL ANTHONY",LA-2,C,C,last_exact+first_mismatch
+LA-2,R,âDANâ LUX,review_required,2,0.0,H0LA01087,"SCALISE, STEVE MR",LA-1,I,C,last_name_mismatch
+LA-2,R,âDANâ LUX,review_required,3,0.0,H2LA03097,"SHAHEEN, JACOB LEWIS",LA-3,C,N,last_name_mismatch
+LA-2,R,âDANâ LUX,review_required,4,0.0,H2LA03113,"PAYNE, THOMAS LANE JR",LA-3,C,C,last_name_mismatch
+LA-2,R,âDANâ LUX,review_required,5,0.0,H2LA03121,"HOGGATT, ""HOLDEN""",LA-3,C,C,last_name_mismatch
+LA-5,R,ALLEN GUILLORY,review_required,1,48.75,H8LA03037,"GUILLORY, JOSHUA S",LA-5,C,N,last_exact+first_mismatch
+LA-5,R,ALLEN GUILLORY,review_required,2,0.0,H0LA01087,"SCALISE, STEVE MR",LA-1,I,C,last_name_mismatch
+LA-5,R,ALLEN GUILLORY,review_required,3,0.0,H2LA02297,"LUX, DANIEL ANTHONY",LA-2,C,C,last_name_mismatch
+LA-5,R,ALLEN GUILLORY,review_required,4,0.0,H2LA03097,"SHAHEEN, JACOB LEWIS",LA-3,C,N,last_name_mismatch
+LA-5,R,ALLEN GUILLORY,review_required,5,0.0,H2LA03113,"PAYNE, THOMAS LANE JR",LA-3,C,C,last_name_mismatch
+MO-2,D,TRISH GUNBY,review_required,1,48.75,H2MO02201,"GUNBY, PATRICIA WASHBURN",MO-2,C,C,last_exact+first_mismatch
+MO-2,D,TRISH GUNBY,review_required,2,0.0,H0MO05182,"SALAZAR, MAITE",MO-5,C,N,last_name_mismatch
+MO-2,D,TRISH GUNBY,review_required,3,0.0,H0MO06206,"WEST, CHARLES",MO-6,C,C,last_name_mismatch
+MO-2,D,TRISH GUNBY,review_required,4,0.0,H2MO01161,"CHILDRESS, EARL",MO-1,C,C,last_name_mismatch
+MO-2,D,TRISH GUNBY,review_required,5,0.0,H2MO01187,"HARSHAW, RONALD",MO-1,C,N,last_name_mismatch
+NY-1,R,NICHOLAS J LALOTA,unmatched,1,25.0,H0NY05088,"LAL, AMIT",NY-5,C,N,last_prefix+first_mismatch
+NY-1,R,NICHOLAS J LALOTA,unmatched,2,0.0,H0NY02234,"GARBARINO, ANDREW",NY-2,I,C,last_name_mismatch
+NY-1,R,NICHOLAS J LALOTA,unmatched,3,0.0,H0NY03083,"DEVOLDER-SANTOS, GEORGE ANTHONY",NY-3,O,C,last_name_mismatch
+NY-1,R,NICHOLAS J LALOTA,unmatched,4,0.0,H0NY06086,"ZMICH, THOMAS",NY-6,C,C,last_name_mismatch
+NY-1,R,NICHOLAS J LALOTA,unmatched,5,0.0,H0NY11078,"MALLIOTAKIS, NICOLE",NY-11,I,C,last_name_mismatch
+AZ-2,D,TOM OâHALLERAN,unmatched,1,0.0,H0AZ05185,"RAMOS, JAVIER GARCIA MR.",AZ-5,C,C,last_name_mismatch
+AZ-2,D,TOM OâHALLERAN,unmatched,2,0.0,H0AZ08072,"MUSCATO, MICHAEL ARCHANGEL",AZ-8,C,C,last_name_mismatch
+AZ-2,D,TOM OâHALLERAN,unmatched,3,0.0,H2AZ01404,"TORRES, GINGER SYKES",AZ-1,C,C,last_name_mismatch
+AZ-2,D,TOM OâHALLERAN,unmatched,4,0.0,H2AZ02311,"ENGEL, KIRSTEN",AZ-6,C,C,last_name_mismatch
+AZ-2,D,TOM OâHALLERAN,unmatched,5,0.0,H2AZ02329,"FRIESE, RANDALL S.",AZ-2,C,C,last_name_mismatch
+CA-13,R,JOHN DUARTE,unmatched,1,0.0,H0CA03128,"HAMILTON, TAMIKA",CA-6,C,C,last_name_mismatch
+CA-13,R,JOHN DUARTE,unmatched,2,0.0,H0CA05107,"GIBLIN, SCOTT",CA-5,C,N,last_name_mismatch
+CA-13,R,JOHN DUARTE,unmatched,3,0.0,H0CA06170,"BISH, CHRISTINE",CA-AL,C,C,last_name_mismatch
+CA-13,R,JOHN DUARTE,unmatched,4,0.0,H0CA07137,"PATTERSON, ROBERT BUZZ",CA-7,C,C,last_name_mismatch
+CA-13,R,JOHN DUARTE,unmatched,5,0.0,H0CA08135,"OBERNOLTE, JAY",CA-23,I,C,last_name_mismatch
+CA-29,D,ANGÃLICA MARIA DUEÃAS,unmatched,1,0.0,H0CA03078,"BERA, AMERISH",CA-6,I,C,last_name_mismatch
+CA-29,D,ANGÃLICA MARIA DUEÃAS,unmatched,2,0.0,H0CA04175,"KENNEDY, BRYNNE",CA-4,C,C,last_name_mismatch
+CA-29,D,ANGÃLICA MARIA DUEÃAS,unmatched,3,0.0,H0CA08226,"GOMEZ, BLANCA",CA-8,C,N,last_name_mismatch
+CA-29,D,ANGÃLICA MARIA DUEÃAS,unmatched,4,0.0,H0CA10073,"DESAULNIER, MARK",CA-10,I,C,last_name_mismatch
+CA-29,D,ANGÃLICA MARIA DUEÃAS,unmatched,5,0.0,H0CA10149,"GARAMENDI, JOHN",CA-8,I,C,last_name_mismatch
+CA-47,R,SCOTT BAUGH,unmatched,1,0.0,H0CA03128,"HAMILTON, TAMIKA",CA-6,C,C,last_name_mismatch
+CA-47,R,SCOTT BAUGH,unmatched,2,0.0,H0CA05107,"GIBLIN, SCOTT",CA-5,C,N,last_name_mismatch
+CA-47,R,SCOTT BAUGH,unmatched,3,0.0,H0CA06170,"BISH, CHRISTINE",CA-AL,C,C,last_name_mismatch
+CA-47,R,SCOTT BAUGH,unmatched,4,0.0,H0CA07137,"PATTERSON, ROBERT BUZZ",CA-7,C,C,last_name_mismatch
+CA-47,R,SCOTT BAUGH,unmatched,5,0.0,H0CA08135,"OBERNOLTE, JAY",CA-23,I,C,last_name_mismatch
+GA-11,D,ANTONIO DAZA,unmatched,1,0.0,H0GA01029,"GRIGGS, JOYCE MARIE",GA-1,C,C,last_name_mismatch
+GA-11,D,ANTONIO DAZA,unmatched,2,0.0,H0GA03074,"ALMONORD, VALBRUN DR.",GA-3,C,C,last_name_mismatch
+GA-11,D,ANTONIO DAZA,unmatched,3,0.0,H0GA04122,"HICKS, ANTONIO CORTEZ",GA-4,C,N,last_name_mismatch
+GA-11,D,ANTONIO DAZA,unmatched,4,0.0,H0GA05301,"WILLIAMS, NIKEMA NATASSHA",GA-5,I,C,last_name_mismatch
+GA-11,D,ANTONIO DAZA,unmatched,5,0.0,H0GA12059,"JOHNSON, ELIZABETH",GA-12,C,C,last_name_mismatch
+IL-4,D,JESÃS G âCHUYâ GARCÃA,unmatched,1,0.0,H0IL01210,"MATTHEWS, AMEENA",IL-1,O,C,last_name_mismatch
+IL-4,D,JESÃS G âCHUYâ GARCÃA,unmatched,2,0.0,H0IL03133,"HUGHES, CHARLES M",IL-6,C,N,last_name_mismatch
+IL-4,D,JESÃS G âCHUYâ GARCÃA,unmatched,3,0.0,H0IL05096,"QUIGLEY, MIKE",IL-5,I,C,last_name_mismatch
+IL-4,D,JESÃS G âCHUYâ GARCÃA,unmatched,4,0.0,H0IL07167,"COLLINS, KINA ISIS",IL-7,C,C,last_name_mismatch
+IL-4,D,JESÃS G âCHUYâ GARCÃA,unmatched,5,0.0,H0IL10369,"WANG, ANDREW",IL-10,C,N,last_name_mismatch
+MD-4,D,GLENN F IVEY,unmatched,1,0.0,H0MD01224,"PINGLEY, JENNIFER",MD-1,C,N,last_name_mismatch
+MD-4,D,GLENN F IVEY,unmatched,2,0.0,H0MD01232,"MASON, MIA",MD-1,C,N,last_name_mismatch
+MD-4,D,GLENN F IVEY,unmatched,3,0.0,H0MD04160,"SHELTON, KIM",MD-4,O,N,last_name_mismatch
+MD-4,D,GLENN F IVEY,unmatched,4,0.0,H2MD01220,"MIZEUR, HEATHER RENAY",MD-1,C,C,last_name_mismatch
+MD-4,D,GLENN F IVEY,unmatched,5,0.0,H2MD01238,"HARDEN, R. DAVID",MD-1,C,C,last_name_mismatch
+NY-4,R,ANTHONY P DâESPOSITO,unmatched,1,0.0,H0NY02234,"GARBARINO, ANDREW",NY-2,I,C,last_name_mismatch
+NY-4,R,ANTHONY P DâESPOSITO,unmatched,2,0.0,H0NY03083,"DEVOLDER-SANTOS, GEORGE ANTHONY",NY-3,O,C,last_name_mismatch
+NY-4,R,ANTHONY P DâESPOSITO,unmatched,3,0.0,H0NY05088,"LAL, AMIT",NY-5,C,N,last_name_mismatch
+NY-4,R,ANTHONY P DâESPOSITO,unmatched,4,0.0,H0NY06086,"ZMICH, THOMAS",NY-6,C,C,last_name_mismatch
+NY-4,R,ANTHONY P DâESPOSITO,unmatched,5,0.0,H0NY11078,"MALLIOTAKIS, NICOLE",NY-11,I,C,last_name_mismatch
+NC-14,R,PAT HARRIGAN,unmatched,1,0.0,H0NC02059,"ELLMERS, RENEE JACISIN",NC-13,O,C,last_name_mismatch
+NC-14,R,PAT HARRIGAN,unmatched,2,0.0,H0NC02158,"SWAIN, ALAN D",NC-4,O,C,last_name_mismatch
+NC-14,R,PAT HARRIGAN,unmatched,3,0.0,H0NC03149,"SMITH, SANDY",NC-1,C,C,last_name_mismatch
+NC-14,R,PAT HARRIGAN,unmatched,4,0.0,H0NC03172,"MURPHY, GREGORY FRANCIS DR.",NC-3,I,C,last_name_mismatch
+NC-14,R,PAT HARRIGAN,unmatched,5,0.0,H0NC04220,"THOMAS, ROBERT",NC-4,O,C,last_name_mismatch
+PA-2,R,AARON BASHIR,unmatched,1,0.0,H0PA03271,"KELLY, GEORGE J JR",PA-16,I,C,last_name_mismatch
+PA-2,R,AARON BASHIR,unmatched,2,0.0,H0PA05094,"PRUETT, DASHA",PA-1,C,C,last_name_mismatch
+PA-2,R,AARON BASHIR,unmatched,3,0.0,H0PA07132,"SCHELLER, LISA",PA-7,C,C,last_name_mismatch
+PA-2,R,AARON BASHIR,unmatched,4,0.0,H0PA08197,"DANIELS, TEDDY",PA-8,C,C,last_name_mismatch
+PA-2,R,AARON BASHIR,unmatched,5,0.0,H0PA08221,"BOGNET, JIM",PA-8,C,C,last_name_mismatch
+TX-3,R,KEITH SELF,unmatched,1,0.0,H0TX04219,"FALLON, PATRICK",TX-4,I,C,last_name_mismatch
+TX-3,R,KEITH SELF,unmatched,2,0.0,H0TX07170,"HUNT, WESLEY",TX-38,O,C,last_name_mismatch
+TX-3,R,KEITH SELF,unmatched,3,0.0,H0TX07220,"REHMAN, LAIQUE",TX-7,C,C,last_name_mismatch
+TX-3,R,KEITH SELF,unmatched,4,0.0,H0TX09176,"TEAGUE, JOHNNY MARK DR.",TX-7,C,C,last_name_mismatch
+TX-3,R,KEITH SELF,unmatched,5,0.0,H0TX09184,"WILLIAMS, MELISSA MECHELLE",TX-9,C,N,last_name_mismatch
+TX-10,D,LINDA NUNO,unmatched,1,0.0,H0TX03104,"ROBERTSON, AL D",TX-3,O,N,last_name_mismatch
+TX-10,D,LINDA NUNO,unmatched,2,0.0,H0TX04151,"FOSTER, RUSSELL",TX-4,C,N,last_name_mismatch
+TX-10,D,LINDA NUNO,unmatched,3,0.0,H0TX08145,"JONES, LAURA",TX-8,O,C,last_name_mismatch
+TX-10,D,LINDA NUNO,unmatched,4,0.0,H0TX14218,"WILLIAMS, MIKAL D. DR",TX-14,C,C,last_name_mismatch
+TX-10,D,LINDA NUNO,unmatched,5,0.0,H0TX14234,"SAJNA, CYRUS",TX-14,C,N,last_name_mismatch
+WA-1,R,VINCENT J CAVELERI,unmatched,1,0.0,H0WA01124,"CHARTRAND, DEREK",WA-1,C,N,last_name_mismatch
+WA-1,R,VINCENT J CAVELERI,unmatched,2,0.0,H0WA01140,"HEINES, MATTHEW",WA-1,C,N,last_name_mismatch
+WA-1,R,VINCENT J CAVELERI,unmatched,3,0.0,H0WA03187,"HERRERA BEUTLER, JAIME",WA-3,I,C,last_name_mismatch
+WA-1,R,VINCENT J CAVELERI,unmatched,4,0.0,H0WA06081,"KREISELMAIER, ELIZABETH",WA-6,C,C,last_name_mismatch
+WA-1,R,VINCENT J CAVELERI,unmatched,5,0.0,H0WA08103,"JENSEN, JESSE",WA-8,C,C,last_name_mismatch
+IA-2,R,ASHLEY HINSON,unmatched,1,0.0,H0IA01174,"ARENHOLZ, ASHLEY HINSON",IA-2,I,C,last_name_mismatch
+IA-2,R,ASHLEY HINSON,unmatched,2,0.0,H0IA04145,"FEENSTRA, RANDALL",IA-4,I,C,last_name_mismatch
+IA-2,R,ASHLEY HINSON,unmatched,3,0.0,H2IA01097,"KUEHL, KYLE",IA-1,C,C,last_name_mismatch
+IA-2,R,ASHLEY HINSON,unmatched,4,0.0,H2IA03093,"HANUSA, MARY ANN",IA-3,C,C,last_name_mismatch
+IA-2,R,ASHLEY HINSON,unmatched,5,0.0,H2IA03101,"HASSO, NICOLE",IA-3,C,C,last_name_mismatch
+MT-1,R,RYAN K ZINKE,unmatched,1,0.0,H2MT00112,"TODD, MARY BROOKS",MT-1,C,C,last_name_mismatch
+MT-1,R,RYAN K ZINKE,unmatched,2,0.0,H2MT01102,"WALKING CHILD, CHARLES A",MT-1,C,N,last_name_mismatch
+MT-1,R,RYAN K ZINKE,unmatched,3,0.0,H2MT01110,"JETTE, MATTHEW DR.",MT-1,C,N,last_name_mismatch
+MT-1,R,RYAN K ZINKE,unmatched,4,0.0,H2MT01128,"MCKIBBEN, ALLEN HARLEY II",MT-1,C,N,last_name_mismatch
+MT-1,R,RYAN K ZINKE,unmatched,5,0.0,H2MT01136,"HEUER, MITCH MR.",MT-1,O,C,last_name_mismatch
+VT-AL,R,LIAM MADDEN,unmatched,1,0.0,H8VT01065,"TYNIO, NATASHA",VT-AL,O,N,last_name_mismatch

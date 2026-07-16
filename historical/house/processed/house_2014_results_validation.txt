@@ -1,0 +1,115 @@
+2014 House Results Validation
+==================================
+
+Raw candidate-level rows: 1357
+Processed race rows: 435
+Expected race rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+Missing Democratic candidates: 37
+Missing Republican candidates: 41
+Missing actual margins: 0
+Missing winners: 0
+Major-party-contested races: 357
+Nonstandard party structures: 78
+Actually uncontested races: 23
+Uncontested Democratic races: 8
+Uncontested Republican races: 15
+
+Party structure counts:
+general_election_party_structure
+D_vs_R         357
+D_vs_Other      27
+R_vs_Other      18
+R_unopposed     15
+D_unopposed      8
+D_vs_D           6
+R_vs_R           4
+
+Total Democratic votes: 35037131
+Total Republican votes: 39484003
+Total other votes: 3613076
+Total votes: 78812774
+
+Validation status:
+PASSED
+
+Warnings:
+- AL-4: no Democratic candidate
+- AL-5: no Democratic candidate
+- AL-7: no Republican candidate
+- AR-3: no Democratic candidate
+- AZ-7: no Republican candidate
+- AZ-8: no Democratic candidate
+- CA-17: no Republican candidate
+- CA-19: no Republican candidate
+- CA-20: no Republican candidate
+- CA-25: no Democratic candidate
+- CA-28: no Republican candidate
+- CA-34: no Republican candidate
+- CA-35: no Republican candidate
+- CA-4: no Democratic candidate
+- CA-40: no Republican candidate
+- CA-44: no Republican candidate
+- CA-5: no Republican candidate
+- FL-12: no Democratic candidate
+- FL-13: no Democratic candidate
+- FL-14: no Republican candidate
+- FL-21: no Republican candidate
+- FL-25: no Democratic candidate
+- FL-27: no Democratic candidate
+- FL-4: no Democratic candidate
+- GA-11: no Democratic candidate
+- GA-13: no Republican candidate
+- GA-14: no Democratic candidate
+- GA-3: no Democratic candidate
+- GA-4: no Republican candidate
+- GA-5: no Republican candidate
+- GA-8: no Democratic candidate
+- LA-2: no Republican candidate
+- LA-3: no Democratic candidate
+- LA-4: no Democratic candidate
+- MA-1: no Republican candidate
+- MA-2: no Republican candidate
+- MA-4: no Republican candidate
+- MA-5: no Republican candidate
+- MA-7: no Republican candidate
+- MA-8: no Republican candidate
+- MS-2: no Republican candidate
+- NC-9: no Democratic candidate
+- ND-AL: no Democratic candidate
+- NY-10: no Republican candidate
+- NY-13: no Republican candidate
+- NY-14: no Republican candidate
+- NY-15: no Republican candidate
+- NY-16: no Republican candidate
+- NY-22: no Democratic candidate
+- NY-5: no Republican candidate
+- NY-6: no Republican candidate
+- NY-8: no Republican candidate
+- NY-9: no Republican candidate
+- OH-7: no Democratic candidate
+- OK-1: no Democratic candidate
+- PA-14: no Republican candidate
+- PA-15: no Democratic candidate
+- PA-18: no Democratic candidate
+- SC-1: no Democratic candidate
+- SC-4: no Democratic candidate
+- TN-1: no Democratic candidate
+- TX-11: no Democratic candidate
+- TX-20: no Republican candidate
+- TX-21: no Democratic candidate
+- TX-26: no Democratic candidate
+- TX-28: no Republican candidate
+- TX-29: no Republican candidate
+- TX-3: no Democratic candidate
+- TX-30: no Republican candidate
+- TX-33: no Republican candidate
+- TX-4: no Democratic candidate
+- TX-5: no Democratic candidate
+- TX-8: no Democratic candidate
+- TX-9: no Republican candidate
+- VA-3: no Republican candidate
+- VA-6: no Democratic candidate
+- VA-9: no Democratic candidate
+- WA-4: no Democratic candidate

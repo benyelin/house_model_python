@@ -1,0 +1,17 @@
+2022 House Provisional Backtest Input Validation
+================================================
+
+Rows: 435
+Unique race IDs: 435
+Presidential baselines available: 435
+Presidential baselines withheld: 0
+D-vs-R races with presidential baseline: 400
+
+National environment status:
+Not yet populated.
+
+Other historical feature status:
+Elasticity, incumbency adjustment, candidate quality, special adjustments, and polling adjustments remain intentionally missing until historically reconstructed.
+
+No-hindsight safeguard:
+No 2024 presidential results or current-cycle national environment values are included.

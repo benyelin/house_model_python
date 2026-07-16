@@ -1,0 +1,25 @@
+field_name,data_type,required,source_or_derived,description
+cycle,integer,yes,source,Election cycle year
+chamber,string,yes,source,House or Senate
+race_id,string,yes,source,Canonical race identifier
+pollster,string,yes,source,Pollster name
+sponsor,string,no,source,Sponsor or commissioning organization
+partisan_sponsor,string,no,source,D R or blank
+start_date,date,yes,source,Fieldwork start date
+end_date,date,yes,source,Fieldwork end date
+sample_size,integer,no,source,Reported sample size
+population,string,no,source,LV RV A or other
+mode,string,no,source,Phone online mixed or other
+dem_pct,float,no,source,Reported Democratic candidate share
+gop_pct,float,no,source,Reported Republican candidate share
+other_pct,float,no,source,Reported other candidate share
+undecided_pct,float,no,source,Reported undecided share
+poll_margin_dem,float,yes,derived,Democratic margin in percentage points
+snapshot_days_out,integer,yes,derived,Days before Election Day at snapshot
+poll_age_days,float,no,derived,Age of poll at the snapshot
+pollster_grade,string,no,source,Historical pollster grade if available
+pollster_house_effect_dem,float,no,derived,Shrunken historical house effect
+poll_weight,float,no,derived,Model poll weight
+source_name,string,yes,source,Poll archive or original source
+source_url,string,yes,source,Source URL
+retrieved_date,date,yes,source,Date the source was retrieved

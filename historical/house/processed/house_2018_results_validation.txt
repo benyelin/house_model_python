@@ -1,0 +1,80 @@
+2018 House Results Validation
+==================================
+
+Raw candidate-level rows: 1359
+Processed race rows: 435
+Expected race rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+Missing Democratic candidates: 4
+Missing Republican candidates: 38
+Missing actual margins: 0
+Missing winners: 0
+Major-party-contested races: 393
+Nonstandard party structures: 42
+Actually uncontested races: 17
+Uncontested Democratic races: 15
+Uncontested Republican races: 2
+
+Party structure counts:
+general_election_party_structure
+D_vs_R         393
+D_vs_Other      19
+D_unopposed     15
+D_vs_D           4
+R_unopposed      2
+R_vs_R           1
+R_vs_Other       1
+
+Total Democratic votes: 60056048
+Total Republican votes: 50652784
+Total other votes: 2595593
+Total votes: 113694115
+
+Validation status:
+PASSED
+
+Warnings:
+- AL-7: no Republican candidate
+- AZ-7: no Republican candidate
+- CA-13: no Republican candidate
+- CA-20: no Republican candidate
+- CA-27: no Republican candidate
+- CA-34: no Republican candidate
+- CA-40: no Republican candidate
+- CA-44: no Republican candidate
+- CA-5: no Republican candidate
+- CA-6: no Republican candidate
+- CA-8: no Democratic candidate
+- FL-10: no Republican candidate
+- FL-14: no Republican candidate
+- FL-20: no Republican candidate
+- FL-21: no Republican candidate
+- FL-24: no Republican candidate
+- GA-5: no Republican candidate
+- GA-8: no Democratic candidate
+- LA-2: no Republican candidate
+- MA-1: no Republican candidate
+- MA-4: no Republican candidate
+- MA-7: no Republican candidate
+- MA-8: no Republican candidate
+- ME-2: reported total 281371 differs from summed candidate votes 275557
+- MI-13: no Republican candidate
+- MS-2: no Republican candidate
+- NC-3: no Democratic candidate
+- ND-AL: no Democratic candidate
+- NY-16: no Republican candidate
+- NY-17: no Republican candidate
+- NY-5: no Republican candidate
+- NY-6: no Republican candidate
+- NY-7: no Republican candidate
+- NY-8: no Republican candidate
+- PA-18: no Republican candidate
+- TX-20: no Republican candidate
+- TX-28: no Republican candidate
+- TX-30: no Republican candidate
+- TX-9: no Republican candidate
+- VA-3: no Republican candidate
+- WA-2: no Republican candidate
+- WA-9: no Republican candidate
+- WI-2: no Republican candidate

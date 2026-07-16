@@ -1,0 +1,19 @@
+cycle,chamber,race_id,party_code,source_candidate_name,target_candidate_id,target_candidate_name,notes
+2022,House,AL-3,D,LIN VEASEY,H2AL03131,"VEASEY, KAREN LIN MRS","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,CA-24,R,BRAD ALLEN,H2CA24229,"ALLEN, BRAD DR.","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,IL-15,D,PAUL J LANGE,H2IL15109,"LANGE, PAUL","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,IN-4,D,ROGER D DAY,H2IN04184,"DAY, ROGER D MR","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,OH-12,D,AMY RIPPEL-ELTON,H2OH12126,"RIPPEL-ELTON, AMY MRS.","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,OH-15,D,GARY JOSEPHSON,H2OH15277,"JOSEPHSON, GARY","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,TX-9,R,JIMMY I LEON,H2TX09156,"LEON, JIMMY","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,NY-25,R,LAâRON D SINGLETARY,H2NY25082,"SINGLETARY, LA'RON DESMOND","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,TX-7,D,LIZZIE FLETCHER,H8TX07140,"FLETCHER, ELIZABETH","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,CA-46,D,J LUIS CORREA,H6CA46116,"CORREA, LOU","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,NC-13,R,BO HINES,H2NC05157,"HINES, ROBERT NICHOLAS","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,PA-16,R,MIKE KELLY,H0PA03271,"KELLY, GEORGE J JR","Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+2022,House,CA-29,D,ANGÃLICA MARIA DUEÃAS,H8CA29100,"DUENAS, ANGELICA MARIA",Verified through targeted FEC candidate-master search.
+2022,House,GA-11,D,ANTONIO DAZA,H2GA11230,"DAZA-FERNANDEZ, ANTONIO MIGUEL",Verified through targeted FEC candidate-master search.
+2022,House,IA-2,R,ASHLEY HINSON,H0IA01174,"ARENHOLZ, ASHLEY HINSON",Verified through targeted FEC candidate-master search.
+2022,House,IL-4,D,JESÃS G âCHUYâ GARCÃA,H8IL04134,"GARCIA, JESUS",Verified through targeted FEC candidate-master search.
+2022,House,NY-4,R,ANTHONY P DâESPOSITO,H2NY04277,"DESPOSITO, ANTHONY P",Verified through targeted FEC candidate-master search.
+2022,House,TX-10,D,LINDA NUNO,H2TX21201,"TREVNO, ROSALINDA NUNO",Verified through targeted FEC candidate-master search.

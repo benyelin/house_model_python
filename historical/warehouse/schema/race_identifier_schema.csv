@@ -1,0 +1,11 @@
+field_name,data_type,required,description
+cycle,integer,yes,Election cycle year
+chamber,string,yes,House Senate or President
+race_id,string,yes,Canonical race ID
+state,string,yes,Two-letter state abbreviation
+district,string,house_only,Unpadded district number or AL
+seat_class,string,senate_only,Senate seat class
+special,boolean,yes,Whether election is special
+election_stage,string,yes,General runoff special general or other
+election_date,date,yes,Election date
+boundary_cycle,integer,house_only,Cycle whose district boundaries are represented

@@ -1,0 +1,24 @@
+field_name,data_type,required,source_or_derived,description
+cycle,integer,yes,source,Election cycle year
+chamber,string,yes,source,House or Senate
+race_id,string,yes,source,Canonical race identifier
+presidential_margin_dem,float,no,source,Most recent presidential margin appropriate for that cycle
+prior_presidential_margin_dem,float,no,source,Earlier presidential margin used for blended baseline
+district_partisan_baseline_dem,float,no,derived,Blended district or state partisan baseline
+generic_ballot_margin_dem,float,no,source,National generic ballot snapshot
+presidential_approval,float,no,source,Presidential approval snapshot
+presidential_disapproval,float,no,source,Presidential disapproval snapshot
+presidential_net_approval,float,no,derived,Approval minus disapproval
+national_environment_margin_dem,float,no,derived,National environment used by the model
+days_out,integer,yes,source,Days before Election Day represented by the snapshot
+district_elasticity,float,no,derived,House district responsiveness to national environment
+state_elasticity,float,no,derived,Senate state responsiveness to national environment
+region,string,no,source,Model region classification
+district_type,string,no,source,Urban suburban rural exurban or mixed
+state_environment_adjustment_dem,float,no,derived,State-specific environment adjustment
+incumbency_adjustment_dem,float,no,derived,Model incumbency adjustment
+candidate_war_adjustment_dem,float,no,derived,Model candidate WAR adjustment
+special_adjustment_dem,float,no,derived,Documented special adjustment
+source_name,string,yes,source,Primary source name
+source_url,string,yes,source,Primary source URL
+retrieved_date,date,yes,source,Date the source was retrieved

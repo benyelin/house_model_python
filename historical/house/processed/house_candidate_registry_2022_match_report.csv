@@ -1,0 +1,851 @@
+race_id,party_code,mit_candidate_name,fec_candidate_name,fec_candidate_id,incumbent_challenger_status,match_method,match_score,second_best_score,candidate_count_considered,match_reason
+AL-2,D,PHYLLIS HARVEY-HALL,"HARVEY-HALL, PHYLLIS",H0AL02202,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+AL-7,D,TERRI A SEWELL,"SEWELL, TERRI A.",H0AL07086,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+AZ-2,R,ELI CRANE,"CRANE, ELI",H2AZ01354,C,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+AZ-3,D,RUBEN GALLEGO,"GALLEGO, RUBEN",H4AZ07043,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+AZ-4,R,KELLY COOPER,"COOPER, KELLY",H2AZ09191,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+AZ-4,D,GREG STANTON,"STANTON, GREG",H8AZ09040,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+AZ-5,R,ANDY BIGGS,"BIGGS, ANDY MR.",H6AZ05083,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+AZ-6,R,JUAN CISCOMANI,"CISCOMANI, JUAN",H2AZ02360,O,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+AZ-6,D,KIRSTEN ENGEL,"ENGEL, KIRSTEN",H2AZ02311,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+AZ-8,R,DEBBIE LESKO,"LESKO, DEBBIE",H8AZ08158,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+AZ-9,R,PAUL GOSAR,"GOSAR, PAUL DR.",H0AZ01259,I,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+AR-1,D,MONTE HODGES,"HODGES, MONTE",H2AR01113,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+AR-2,D,QUINTESSA HATHAWAY,"HATHAWAY, QUINTESSA DR.",H2AR02095,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+AR-3,R,STEVE WOMACK,"WOMACK, STEVE",H0AR03055,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+AR-4,R,BRUCE WESTERMAN,"WESTERMAN, BRUCE",H4AR04048,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+AR-4,D,JOHN WHITE,"WHITE, JOHN",H2AR04158,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-1,R,DOUG LAMALFA,"LAMALFA, DOUG",H2CA02142,I,high_confidence_automatic,100.0,0.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-1,D,MAX STEINER,"STEINER, MAX",H2CA01227,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-2,R,DOUGLAS BROWER,"BROWER, DOUGLAS REV",H2CA02209,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-2,D,JARED HUFFMAN,"HUFFMAN, JARED",H2CA06259,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-3,R,KEVIN KILEY,"KILEY, KEVIN",H2CA03157,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-3,D,KERMIT JONES,"JONES, KERMIT",H2CA04122,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-4,D,MIKE THOMPSON,"THOMPSON, MIKE MR.",H8CA01109,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-6,R,TAMIKA HAMILTON,"HAMILTON, TAMIKA",H0CA03128,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-7,R,MAX SEMENENKO,"SEMENENKO, MAX",H2CA07141,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-8,R,RUDY RECILE,"RECILE, RUDY",H2CA00153,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-8,D,JOHN GARAMENDI,"GARAMENDI, JOHN",H0CA10149,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-9,D,JOSH HARDER,"HARDER, JOSH",H8CA10126,O,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-10,D,MARK DESAULNIER,"DESAULNIER, MARK",H0CA10073,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-11,R,JOHN DENNIS,"DENNIS, JOHN MR.",H2CA12174,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-11,D,NANCY PELOSI,"PELOSI, NANCY",H8CA05035,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-12,D,BARBARA LEE,"LEE, BARBARA",H8CA09060,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-14,R,ALISON HAYDEN,"HAYDEN, ALISON",H0CA15247,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-15,D,KEVIN MULLIN,"MULLIN, KEVIN",H2CA14162,O,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-16,D,ANNA G ESHOO,"ESHOO, ANNA G.",H8CA12098,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-16,D,RISHI KUMAR,"KUMAR, RISHI",H0CA18068,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-17,R,RITESH TANDON,"TANDON, RITESH",H0CA17193,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-18,R,PETER HERNANDEZ,"HERNANDEZ, PETER",H2CA18163,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-18,D,ZOE LOFGREN,"LOFGREN, ZOE",H4CA16049,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-19,R,JEFF GORMAN,"GORMAN, JEFF",H0CA20122,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-19,D,JIMMY PANETTA,"PANETTA, JIMMY",H6CA20152,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-20,R,KEVIN MCCARTHY,"MCCARTHY, KEVIN",H6CA22125,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-20,D,MARISA WOOD,"WOOD, MARISA",H2CA23155,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-21,D,JIM COSTA,"COSTA, JIM",H4CA20082,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-22,D,RUDY SALAS,"SALAS, RUDY",H2CA21233,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-23,R,JAY OBERNOLTE,"OBERNOLTE, JAY",H0CA08135,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-23,D,DEREK MARSHALL,"MARSHALL, DEREK",H2CA08214,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-24,D,SALUD O CARBAJAL,"CARBAJAL, SALUD O.",H6CA24303,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-25,D,RAUL RUIZ,"RUIZ, RAUL DR.",H2CA36439,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-26,D,JULIA BROWNLEY,"BROWNLEY, JULIA",H2CA00120,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-27,D,CHRISTY SMITH,"SMITH, CHRISTY",H0CA25154,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-28,D,JUDY CHU,"CHU, JUDY",H0CA32101,I,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-29,D,TONY CÃRDENAS,"CARDENAS, TONY",H2CA28113,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-32,R,LUCIE LAPOINTE VOLOTZKY,"VOLOTZKY, LUCIE LAPOINTE",H2CA30283,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-32,D,BRAD SHERMAN,"SHERMAN, BRAD",H6CA24113,I,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+CA-33,R,JOHN MARK PORTER,"PORTER, JOHN MARK MR",H2CA33253,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-33,D,PETE AGUILAR,"AGUILAR, PETE",H2CA31125,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-34,D,JIMMY GOMEZ,"GOMEZ, JIMMY",H8CA34266,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-35,R,MIKE CARGILE,"CARGILE, MIKE",H0CA35146,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-36,R,JOE E COLLINS III,"COLLINS, JOE E III",H0CA43108,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-36,D,TED LIEU,"LIEU, TED",H4CA33119,I,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-37,D,SYDNEY KAMLAGER,"KAMLAGER, SYDNEY",H2CA37304,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-38,R,ERIC J CHING,"CHING, ERIC J",H2CA39151,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-39,D,MARK TAKANO,"TAKANO, MARK",H2CA43245,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-40,R,YOUNG KIM,"KIM, YOUNG",H8CA39240,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-40,D,ASIF MAHMOOD,"MAHMOOD, ASIF DR.",H2CA40092,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-41,R,KEN CALVERT,"CALVERT, KEN",H2CA37023,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-41,D,WILL ROLLINS,"ROLLINS, WILL",H2CA42205,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-42,R,JOHN BRISCOE,"BRISCOE, JOHN",H8CA47078,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-42,D,ROBERT GARCIA,"GARCIA, ROBERT",H2CA47188,C,high_confidence_automatic,100.0,52.0,9,last_exact+first_match+token_overlap+scope_same_race
+CA-43,R,OMAR NAVARRO,"NAVARRO, OMAR",H6CA44145,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-43,D,MAXINE WATERS,"WATERS, MAXINE",H4CA23011,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-45,R,MICHELLE STEEL,"STEEL, MICHELLE",H0CA48198,I,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+CA-48,R,DARRELL ISSA,"ISSA, DARRELL",H0CA48024,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-49,D,MIKE LEVIN,"LEVIN, MIKE",H8CA49058,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-50,R,COREY GUSTAFSON,"GUSTAFSON, COREY",H2CA50232,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-51,R,STAN CAPLAN,"CAPLAN, STAN",H2CA51206,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-51,D,SARA JACOBS,"JACOBS, SARA",H8CA49074,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-52,R,TYLER GEFFENEY,"GEFFENEY, TYLER",H2CA52188,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CO-1,R,JENNIFER QUALTERI,"QUALTERI, JENNIFER",H2CO01215,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CO-2,R,MARSHALL DAWSON,"DAWSON, MARSHALL",H2CO02205,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CO-3,R,LAUREN BOEBERT,"BOEBERT, LAUREN",H0CO03165,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CO-3,D,ADAM FRISCH,"FRISCH, ADAM",H2CO03351,C,high_confidence_automatic,100.0,2.0,14,last_exact+first_match+token_overlap+scope_same_race
+CO-6,D,JASON CROW,"CROW, JASON",H8CO06229,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CO-7,R,ERIK AADLAND,"AADLAND, ERIK",H2CO07170,O,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CO-8,R,BARBARA KIRKMEYER,"KIRKMEYER, BARBARA",H2CO08079,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CO-8,D,YADIRA CARAVEO,"CARAVEO, YADIRA",H2CO08020,O,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-1,R,MATT GAETZ,"GAETZ, MATT",H6FL01119,I,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+FL-1,D,REBEKAH JONES,"JONES, REBEKAH",H2FL01233,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+FL-3,R,KAT CAMMACK,"CAMMACK, KAT",H0FL03175,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+FL-6,R,MICHAEL WALTZ,"WALTZ, MICHAEL",H8FL06148,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-7,R,CORY MILLS,"MILLS, CORY",H2FL07156,O,high_confidence_automatic,100.0,2.0,12,last_exact+first_match+token_overlap+scope_same_race
+FL-7,D,KAREN GREEN,"GREEN, KAREN REV. DR.",H2FL08139,O,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+FL-8,R,BILL POSEY,"POSEY, BILL",H8FL15107,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+FL-9,R,SCOTTY MOORE,"MOORE, SCOTTY",H2FL09228,C,high_confidence_automatic,100.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+FL-9,D,DARREN SOTO,"SOTO, DARREN",H6FL09179,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-10,R,CALVIN B WIMBISH,"WIMBISH, CALVIN B MR",H2FL10283,O,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+FL-10,D,MAXWELL ALEJANDRO FROST,"FROST, MAXWELL ALEJANDRO",H2FL10259,O,high_confidence_automatic,100.0,2.0,13,last_exact+first_match+token_overlap+scope_same_race
+FL-11,R,DANIEL WEBSTER,"WEBSTER, DANIEL",H0FL08208,I,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+FL-11,D,SHANTE MUNNS,"MUNNS, SHANTE",H2FL11174,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+FL-12,R,GUS M BILIRAKIS,"BILIRAKIS, GUS M",H6FL09070,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+FL-13,R,ANNA PAULINA LUNA,"PAULINA LUNA, ANNA",H0FL13158,O,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+FL-13,D,ERIC LYNN,"LYNN, ERIC",H6FL13189,O,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+FL-14,R,JAMES JUDGE,"JUDGE, JAMES",H2FL14277,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+FL-14,D,KATHY CASTOR,"CASTOR, KATHY",H6FL11126,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-15,R,LAUREL LEE,"LEE, LAUREL MRS.",H2FL15241,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+FL-16,D,JAN SCHNEIDER,"SCHNEIDER, JAN",H2FL13139,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-17,D,ANDREA DORIA KALE,"KALE, ANDREA DORIA",H2FL17106,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-19,R,BYRON DONALDS,"DONALDS, BYRON",H2FL14186,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-20,R,DREW MONTEZ CLARK,"CLARK, DREW-MONTEZ DR.",H2FL25083,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-20,D,SHEILA CHERFILUS-MCCORMICK,"CHERFILUS-MCCORMICK, SHEILA",H8FL20032,I,high_confidence_automatic,100.0,2.0,14,last_exact+first_match+token_overlap+scope_same_race
+FL-21,D,CORINNA BALDERRAMOS ROBINSON,"BALDERRAMOS ROBINSON, CORINNA",H2FL18096,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+FL-23,R,JOE BUDD,"BUDD, JOE",H2FL23138,C,high_confidence_automatic,100.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+FL-23,D,JARED MOSKOWITZ,"MOSKOWITZ, JARED",H2FL22171,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+FL-24,D,FREDERICA S WILSON,"WILSON, FREDERICA S.",H0FL17068,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+FL-25,D,DEBBIE WASSERMAN SCHULTZ,"WASSERMAN SCHULTZ, DEBBIE",H4FL20023,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-26,R,MARIO DIAZ-BALART,"DIAZ-BALART, MARIO",H2FL25018,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-26,D,CHRISTINE ALEXANDRIA OLIVO,"OLIVO, CHRISTINE ALEXANDRIA",H2FL24037,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+FL-27,R,MARIA ELVIRA SALAZAR,"SALAZAR, MARIA ELVIRA",H8FL27185,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-27,D,ANNETTE TADDEO,"TADDEO, ANNETTE",H8FL00034,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+FL-28,D,ROBERT ASENCIO,"ASENCIO, ROBERT",H2FL28038,O,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+GA-4,R,JONATHAN CHAVEZ,"CHAVEZ, JONATHAN",H2GA04201,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+GA-7,R,MARK GONSALVES,"GONSALVES, MARK",H0GA07232,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+GA-10,D,TABITHA JOHNSON-GREEN,"JOHNSON-GREEN, TABITHA",H8GA10197,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+GA-11,R,BARRY LOUDERMILK,"LOUDERMILK, BARRY",H4GA11061,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+GA-13,R,CAESAR GONZALES,"GONZALES, CAESAR",H0GA13149,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+GA-14,R,MARJORIE TAYLOR GREENE,"GREENE, MARJORIE TAYLOR MRS.",H0GA06192,I,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+IL-2,R,THOMAS LYNCH,"LYNCH, THOMAS",H2IL02214,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+IL-3,R,JUSTIN BURAU,"BURAU, JUSTIN",H2IL06082,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IL-3,D,DELIA RAMIREZ,"RAMIREZ, DELIA",H2IL03162,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+IL-4,R,JAMES FALAKOS,"FALAKOS, JAMES",H2IL04160,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IL-5,D,MIKE QUIGLEY,"QUIGLEY, MIKE",H0IL05096,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+IL-6,R,KEITH PEKAU,"PEKAU, KEITH",H2IL06116,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+IL-6,D,SEAN CASTEN,"CASTEN, SEAN",H8IL06139,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+IL-7,D,DANNY K DAVIS,"DAVIS, DANNY K. MR.",H4IL07037,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+IL-9,D,JANICE D SCHAKOWSKY,"SCHAKOWSKY, JANICE D",H8IL09067,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+IL-10,R,JOSEPH SEVERINO,"SEVERINO, JOSEPH",H0IL10393,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IL-11,R,CATALINA LAUF,"LAUF, CATALINA",H2IL16107,O,high_confidence_automatic,100.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+IL-13,R,REGAN DEERING,"DEERING, REGAN",H2IL13179,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+IL-13,D,NIKKI BUDZINSKI,"BUDZINSKI, NIKKI",H2IL13153,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+IL-14,D,LAUREN UNDERWOOD,"UNDERWOOD, LAUREN",H8IL14174,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IL-17,R,ESTHER JOY KING,"KING, ESTHER JOY",H0IL17083,O,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+IL-17,D,ERIC SORENSEN,"SORENSEN, ERIC",H2IL17147,O,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+MD-2,R,NICOLEE AMBROSE,"AMBROSE, NICOLEE",H2MD02368,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+MD-2,D,C A DUTCH RUPPERSBERGER,"RUPPERSBERGER, C. A. DUTCH",H2MD02160,I,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MD-3,R,YURIPZY MORGAN,"MORGAN, YURIPZY",H2MD02343,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MD-3,D,JOHN P SARBANES,"SARBANES, JOHN P. MR.",H6MD03292,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+MD-4,R,JEFF WARNER,"WARNER, JEFF",H2MD04307,O,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+MD-7,R,SCOTT M COLLIER,"COLLIER, SCOTT M",H0MD02255,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+MD-7,D,KWEISI MFUME,"MFUME, KWEISI",H6MD07020,I,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+MD-8,R,GREGORY THOMAS COLL,"COLL, GREGORY THOMAS",H0MD08203,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MD-8,D,JAMIE RASKIN,"RASKIN, JAMIE",H6MD08457,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-1,D,RICHARD E NEAL,"NEAL, RICHARD E MR.",H8MA02041,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-2,D,JAMES P MCGOVERN,"MCGOVERN, JAMES P. MR.",H4MA03022,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-3,D,LORI TRAHAN,"TRAHAN, LORI",H8MA03106,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-4,D,JAKE AUCHINCLOSS,"AUCHINCLOSS, JAKE",H0MA04192,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-5,R,CAROLINE COLARUSSO,"COLARUSSO, CAROLINE",H2MA05153,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-6,D,SETH MOULTON,"MOULTON, SETH",H4MA06090,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-7,R,"DONNIE DIONICIO PALMER, JR","PALMER, DONNIE DIONICIO",H2MA07100,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-7,D,AYANNA PRESSLEY,"PRESSLEY, AYANNA",H8MA07032,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-8,R,ROBERT G BURKE,"BURKE, ROBERT G.",H2MA08090,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-9,D,WILLIAM R KEATING,"KEATING, WILLIAM R",H0MA10082,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MI-3,R,JOHN GIBBS,"GIBBS, JOHN",H2MI03197,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MI-3,D,HILLARY SCHOLTEN,"SCHOLTEN, HILLARY",H0MI03316,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MI-4,D,JOSEPH ALFONSO,"ALFONSO, JOSEPH",H2MI04260,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MI-6,R,WHITTNEY WILLIAMS,"WILLIAMS, WHITTNEY",H2MI06158,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+MI-6,D,DEBBIE DINGELL,"DINGELL, DEBBIE",H4MI12079,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MI-7,D,ELISSA SLOTKIN,"SLOTKIN, ELISSA",H8MI08102,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MI-8,R,PAUL JUNGE,"JUNGE, PAUL",H0MI08141,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MI-8,D,DANIEL T KILDEE,"KILDEE, DANIEL T DANIEL T.",H2MI05119,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MI-10,R,JOHN JAMES,"JAMES, JOHN",H2MI10150,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+MI-11,R,MARK AMBROSE,"AMBROSE, MARK",H2MI11265,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MI-12,R,STEVEN ELLIOTT,"ELLIOTT, STEVEN",H2MI13311,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+MI-12,D,RASHIDA TLAIB,"TLAIB, RASHIDA",H8MI13250,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+MI-13,D,SHRI THANEDAR,"THANEDAR, SHRI",H2MI13204,C,high_confidence_automatic,100.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+MN-1,R,BRAD FINSTAD,"FINSTAD, BRAD",H2MN01223,I,high_confidence_automatic,100.0,2.0,13,last_exact+first_match+token_overlap+scope_same_race
+MN-2,R,TYLER KISTNER,"KISTNER, TYLER",H0MN02134,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MN-3,R,TOM WEILER,"WEILER, TOM",H2MN03104,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MN-3,D,DEAN PHILLIPS,"PHILLIPS, DEAN",H8MN03143,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MN-4,R,MAY LOR XIONG,"LOR XIONG, MAY",H2MN04177,C,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+MN-4,D,BETTY MCCOLLUM,"MCCOLLUM, BETTY",H0MN04049,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+MN-5,R,CICELY DAVIS,"DAVIS, CICELY",H2MN05166,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MN-5,D,ILHAN OMAR,"OMAR, ILHAN",H8MN05239,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+MN-6,D,JEANNE HENDRICKS,"HENDRICKS, JEANNE",H2MN06214,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MN-7,R,MICHELLE FISCHBACH,"FISCHBACH, MICHELLE",H0MN07091,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+MN-7,D,JILL ABAHSAIN,"ABAHSAIN, JILL",H2MN07162,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NJ-3,D,ANDY KIM,"KIM, ANDY",H8NJ03206,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NJ-4,R,CHRISTOPHER H SMITH,"SMITH, CHRISTOPHER H",H8NJ04014,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NJ-4,D,MATTHEW JENKINS,"JENKINS, MATTHEW",H2NJ04215,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NJ-5,D,JOSH GOTTHEIMER,"GOTTHEIMER, JOSH",H6NJ05171,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NJ-6,R,SUSAN M KILEY,"KILEY, SUSAN M",H2NJ06228,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NJ-6,D,"FRANK PALLONE, JR","PALLONE, FRANK JR",H8NJ03073,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NJ-7,R,"THOMAS H KEAN, JR","KEAN, THOMAS H. JR.",H0NJ07261,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+NJ-7,D,TOM MALINOWSKI,"MALINOWSKI, TOM",H8NJ07223,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+NJ-8,R,MARCOS ARROYO,"ARROYO, MARCOS",H2NJ08299,O,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+NJ-8,D,ROBERT J MENENDEZ,"MENENDEZ, ROBERT J.",H2NJ08232,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NJ-10,D,"DONALD M PAYNE, JR","PAYNE, DONALD M. JR",H2NJ10154,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NJ-11,R,PAUL DEGROOT,"DEGROOT, PAUL",H2NJ11186,C,high_confidence_automatic,100.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+NJ-11,D,MIKIE SHERRILL,"SHERRILL, MIKIE",H8NJ11142,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NJ-12,R,DARIUS MAYFIELD,"MAYFIELD, DARIUS",H2NJ12127,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NJ-12,D,BONNIE WATSON COLEMAN,"COLEMAN, BONNIE WATSON",H4NJ12149,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-1,D,BRIDGET FLEMING,"FLEMING, BRIDGET",H0NY01202,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+NY-5,R,PAUL KING,"KING, PAUL",H2NY05126,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-5,D,GREGORY W MEEKS,"MEEKS, GREGORY W.",H8NY06048,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-6,D,GRACE MENG,"MENG, GRACE",H2NY06116,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-7,R,JUAN PAGAN,"PAGAN, JUAN",H2NY07064,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-7,D,NYDIA M VELÃZQUEZ,"VELAZQUEZ, NYDIA M.",H2NY00010,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-8,R,YURI DASHEVSKY,"DASHEVSKY, YURI MR",H2NY08187,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-9,D,YVETTE D CLARKE,"CLARKE, YVETTE  D.",H4NY11138,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-10,D,DANIEL GOLDMAN,"GOLDMAN, DANIEL",H2NY10308,C,high_confidence_automatic,100.0,2.0,20,last_exact+first_match+token_overlap+scope_same_race
+NY-11,R,NICOLE MALLIOTAKIS,"MALLIOTAKIS, NICOLE",H0NY11078,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-12,R,MICHAEL K ZUMBLUSKAS,"ZUMBLUSKAS, MICHAEL K MR.",H2NY12221,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-13,D,ADRIANO ESPAILLAT,"ESPAILLAT, ADRIANO",H2NY13096,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NY-14,R,TINA FORTE,"FORTE, TINA",H2NY14128,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-14,D,ALEXANDRIA OCASIO-CORTEZ,"OCASIO-CORTEZ, ALEXANDRIA",H8NY15148,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-16,D,JAMAAL BOWMAN,"BOWMAN, JAMAAL",H0NY16143,I,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NY-17,D,SEAN PATRICK MALONEY,"MALONEY, SEAN PATRICK",H2NY22139,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-18,R,COLIN J SCHMITT,"SCHMITT, COLIN J",H2NY18087,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-18,D,PATRICK RYAN,"RYAN, PATRICK",H8NY19223,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NY-19,D,JOSH RILEY,"RILEY, JOSH",H8NY22177,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-20,R,ELIZABETH L JOY,"JOY, ELIZABETH L",H0NY20111,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-21,R,ELISE M STEFANIK,"STEFANIK, ELISE M.",H4NY21079,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-21,D,MATT CASTELLI,"CASTELLI, MATT",H2NY21164,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NY-22,D,FRANCIS CONOLE,"CONOLE, FRANCIS",H0NY24063,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NY-23,R,NICK LANGWORTHY,"LANGWORTHY, NICK",H2NY23228,O,high_confidence_automatic,100.0,2.0,11,last_exact+first_match+token_overlap+scope_same_race
+NY-24,R,CLAUDIA TENNEY,"TENNEY, CLAUDIA",H4NY22051,I,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+NY-25,D,JOSEPH D MORELLE,"MORELLE, JOSEPH D",H8NY25105,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-26,D,BRIAN HIGGINS,"HIGGINS, BRIAN",H4NY27076,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NC-1,R,SANDY SMITH,"SMITH, SANDY",H0NC03149,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+NC-1,D,DON DAVIS,"DAVIS, DON",H2NC02287,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NC-3,D,BARBARA D GASKINS,"GASKINS, BARBARA D MS.",H2NC03095,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NC-7,D,CHARLES GRAHAM,"GRAHAM, CHARLES",H2NC09183,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NC-8,D,SCOTT HUFFMAN,"HUFFMAN, SCOTT",H8NC08109,O,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NC-9,D,BEN CLARK,"CLARK, BEN",H2NC09225,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NC-11,R,CHUCK EDWARDS,"EDWARDS, CHUCK",H2NC14050,C,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+NC-11,D,JASMINE BEACH-FERRARA,"BEACH-FERRARA, JASMINE",H2NC11155,C,high_confidence_automatic,100.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+NC-12,R,TYLER LEE,"LEE, TYLER",H2NC12229,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NC-13,D,WILEY NICKEL,"NICKEL, WILEY",H2NC14019,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NC-14,D,JEFF JACKSON,"JACKSON, JEFF",H2NC14076,O,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+PA-1,D,ASHLEY EHASZ,"EHASZ, ASHLEY",H2PA01099,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-2,D,BRENDAN F BOYLE,"BOYLE, BRENDAN F",H4PA13199,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-3,D,DWIGHT EVANS,"EVANS, DWIGHT",H6PA02171,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+PA-4,R,CHRISTIAN NASCIMENTO,"NASCIMENTO, CHRISTIAN",H2PA04226,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+PA-4,D,MADELEINE DEAN,"DEAN, MADELEINE",H8PA04116,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+PA-5,R,DAVID GALLUCH,"GALLUCH, DAVID",H2PA05074,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-5,D,MARY GAY SCANLON,"SCANLON, MARY GAY",H8PA07200,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-6,R,GUY CIARROCCHI,"CIARROCCHI, GUY",H2PA06197,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+PA-6,D,CHRISSY HOULAHAN,"HOULAHAN, CHRISSY",H8PA06087,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+PA-7,R,LISA SCHELLER,"SCHELLER, LISA",H0PA07132,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-7,D,SUSAN WILD,"WILD, SUSAN",H8PA15229,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+PA-8,R,JIM BOGNET,"BOGNET, JIM",H0PA08221,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-9,R,DANIEL MEUSER,"MEUSER, DANIEL",H8PA10147,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-10,R,SCOTT PERRY,"PERRY, SCOTT",H2PA04135,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+PA-10,D,SHAMAINE DANIELS,"DANIELS, SHAMAINE MS",H2PA10124,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-12,D,SUMMER LEE,"LEE, SUMMER",H2PA18200,O,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+PA-13,R,JOHN JOYCE,"JOYCE, JOHN",H8PA13125,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-14,R,GUY RESCHENTHALER,"RESCHENTHALER, GUY MR.",H8PA18199,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+PA-15,R,GLENN THOMPSON,"THOMPSON, GLENN MR.",H8PA05071,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+PA-15,D,MIKE MOLESEVICH,"MOLESEVICH, MIKE",H2PA15131,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+PA-17,R,JEREMY SHAFFER,"SHAFFER, JEREMY",H2PA17160,O,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+TN-1,R,DIANA HARSHBARGER,"HARSHBARGER, DIANA",H0TN01118,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TN-1,D,CAMERON PARSONS,"PARSONS, CAMERON",H2TN01106,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TN-2,R,TIM BURCHETT,"BURCHETT, TIM",H8TN02119,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TN-4,R,SCOTT DESJARLAIS,"DESJARLAIS, SCOTT HON.",H0TN04195,I,high_confidence_automatic,100.0,0.0,5,last_exact+first_match+token_overlap+scope_same_race
+TN-5,R,ANDY OGLES,"OGLES, ANDY",H2TN05446,O,high_confidence_automatic,100.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+TN-5,D,HEIDI CAMPBELL,"CAMPBELL, HEIDI",H2TN05438,O,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+TN-6,R,JOHN W ROSE,"ROSE, JOHN W.",H8TN06094,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TN-8,R,DAVID KUSTOFF,"KUSTOFF, DAVID",H2TN07103,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+TN-9,R,CHARLOTTE BERGMANN,"BERGMANN, CHARLOTTE",H0TN09061,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-5,R,LANCE GOODEN,"GOODEN, LANCE",H8TX05144,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-8,D,LAURA JONES,"JONES, LAURA",H0TX08145,O,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-12,R,KAY GRANGER,"GRANGER, KAY",H6TX12060,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+TX-15,R,MONICA DE LA CRUZ,"DE LA CRUZ, MONICA",H0TX15124,C,high_confidence_automatic,100.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+TX-15,D,MICHELLE VALLEJO,"VALLEJO, MICHELLE",H2TX15203,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+TX-16,R,IRENE ARMENDARIZ JACKSON,"ARMENDARIZ-JACKSON, IRENE",H0TX16106,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-16,D,VERONICA ESCOBAR,"ESCOBAR, VERONICA",H8TX16109,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-17,R,PETE SESSIONS,"SESSIONS, PETE",H2TX03126,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+TX-17,D,MARY JO WOODS,"WOODS, MARY JO",H2TX17118,C,high_confidence_automatic,100.0,70.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-18,D,SHEILA JACKSON LEE,"LEE, SHEILA JACKSON",H4TX18054,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-20,D,JOAQUIN CASTRO,"CASTRO, JOAQUIN",H2TX35011,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-21,R,CHIP ROY,"ROY, CHIP",H8TX21307,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+TX-21,D,CLAUDIA ANDREANA ZAPATA,"ZAPATA, CLAUDIA ANDREANA",H2TX35128,C,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+TX-22,D,JAMIE KAYE JORDAN,"JORDAN, JAMIE KAYE MS.",H2TX22183,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+TX-23,D,JOHN LIRA,"LIRA, JOHN",H2TX23132,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-24,D,JAN MCDOWELL,"MCDOWELL, JAN",H6TX24149,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+TX-25,R,ROGER WILLIAMS,"WILLIAMS, ROGER",H2TX33040,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-26,R,MICHAEL C BURGESS,"BURGESS, MICHAEL C. DR.",H2TX26093,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+TX-27,R,MICHAEL CLOUD,"CLOUD, MICHAEL",H8TX27049,I,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+TX-27,D,"MACLOVIO PEREZ, JR","PEREZ, MACLOVIO MR JR",H2TX27299,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-28,D,HENRY CUELLAR,"CUELLAR, HENRY",H2TX23082,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-29,D,SYLVIA R GARCIA,"GARCIA, SYLVIA R.",H8TX29052,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-30,D,JASMINE CROCKETT,"CROCKETT, JASMINE",H2TX30178,O,high_confidence_automatic,100.0,2.0,13,last_exact+first_match+token_overlap+scope_same_race
+TX-32,R,ANTONIO SWAD,"SWAD, ANTONIO",H2TX32166,C,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+TX-33,R,PATRICK DAVID GILLESPIE,"GILLESPIE, PATRICK DAVID",H2TX33248,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-34,D,VICENTE GONZALEZ,"GONZALEZ, VICENTE",H6TX15162,I,high_confidence_automatic,100.0,2.0,13,last_exact+first_match+token_overlap+scope_same_race
+TX-35,D,GREG CASAR,"CASAR, GREG",H2TX35144,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+TX-36,R,BRIAN BABIN,"BABIN, BRIAN",H6TX02079,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-37,D,LLOYD DOGGETT,"DOGGETT, LLOYD",H4TX10028,O,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+TX-38,R,WESLEY HUNT,"HUNT, WESLEY",H0TX07170,O,high_confidence_automatic,100.0,2.0,11,last_exact+first_match+token_overlap+scope_same_race
+VA-1,R,ROBERT J WITTMAN,"WITTMAN, ROBERT J MR.",H8VA01147,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+VA-4,R,"LEON BENJAMIN, SR","BENJAMIN, LEON MR. SR.",H0VA04064,C,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+VA-9,R,H MORGAN GRIFFITH,"GRIFFITH, H MORGAN",H0VA09055,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+VA-10,R,HUNG CAO,"CAO, HUNG",H2VA10240,C,high_confidence_automatic,100.0,2.0,14,last_exact+first_match+token_overlap+scope_same_race
+VA-10,D,JENNIFER WEXTON,"WEXTON, JENNIFER",H8VA10106,I,high_confidence_automatic,100.0,1.0,2,last_exact+first_match+token_overlap+scope_same_race
+WA-1,D,SUZAN K DELBENE,"DELBENE, SUZAN K",H0WA08046,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WA-2,R,DAN MATTHEWS,"MATTHEWS, DAN",H2WA02177,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+WA-2,D,RICK LARSEN,"LARSEN, RICK",H0WA02080,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+WA-3,D,MARIE GLUESENKAMP PEREZ,"GLUESENKAMP PEREZ, MARIE",H2WA03217,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+WA-4,R,DAN NEWHOUSE,"NEWHOUSE, DAN",H4WA04104,I,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+WA-4,D,DOUG WHITE,"WHITE, DOUG",H2WA04199,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WA-5,R,CATHY MCMORRIS RODGERS,"MCMORRIS RODGERS, CATHY",H4WA05077,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+WA-5,D,NATASHA HILL,"HILL, NATASHA",H2WA05105,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+WA-6,R,ELIZABETH KREISELMAIER,"KREISELMAIER, ELIZABETH",H0WA06081,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+WA-6,D,DEREK KILMER,"KILMER, DEREK",H2WA06129,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+WA-7,D,PRAMILA JAYAPAL,"JAYAPAL, PRAMILA",H6WA07458,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WA-8,R,MATT LARKIN,"LARKIN, MATT MR",H2WA08182,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+WA-8,D,KIM SCHRIER,"SCHRIER, KIM DR.",H8WA08189,I,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+WA-10,D,MARILYN STRICKLAND,"STRICKLAND, MARILYN",H0WA10034,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+WI-1,D,ANN ROE,"ROE, ANN",H2WI01100,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+WI-2,R,ERIK OLSEN,"OLSEN, ERIK",H2WI02181,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+WI-2,D,MARK POCAN,"POCAN, MARK",H2WI02124,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WI-3,D,BRAD PFAFF,"PFAFF, BRAD",H2WI03122,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+WI-4,R,TIM ROGERS,"ROGERS, TIM",H8WI04069,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+WI-5,R,SCOTT FITZGERALD,"FITZGERALD, SCOTT",H0WI05113,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WI-5,D,MIKE VAN SOMEREN,"VAN SOMEREN, MIKE",H2WI05275,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CT-1,D,JOHN B LARSON,"LARSON, JOHN B",H8CT01046,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CT-2,R,MIKE FRANCE,"FRANCE, MIKE",H2CT02161,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CT-3,R,LESLEY DENARDIS,"DENARDIS, LESLEY",H2CT03110,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CT-3,D,ROSA L DELAURO,"DELAURO, ROSA L",H0CT03072,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CT-4,R,JAYME STEVENSON,"STEVENSON, JAYME MRS.",H2CT04134,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CT-5,D,JAHANA HAYES,"HAYES, JAHANA",H8CT05245,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+HI-1,R,CONRAD KRESS,"KRESS, CONRAD",H2HI02557,C,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+IN-1,R,JENNIFER-RUTH GREEN,"GREEN, JENNIFER-RUTH",H2IN01172,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+IN-1,D,FRANK J MRVAN,"MRVAN, FRANK J.",H0IN01150,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+IN-4,R,JAMES R BAIRD,"BAIRD, JAMES R DR.",H8IN04199,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+IN-5,R,VICTORIA SPARTZ,"SPARTZ, VICTORIA",H0IN05326,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IN-5,D,JEANNINE LEE LAKE,"LEE LAKE, JEANNINE",H8IN06202,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+IN-7,R,ANGELA GRABOVSKY,"GRABOVSKY, ANGELA",H2IN07179,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+IN-8,D,RAY MCCORMICK,"MCCORMICK, RAY",H2IN08169,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+IN-9,R,ERIN HOUCHIN,"HOUCHIN, ERIN",H6IN09143,O,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+IA-1,D,CHRISTINA BOHANNAN,"BOHANNAN, CHRISTINA",H2IA02111,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IA-3,R,ZACH NUNN,"NUNN, ZACH",H2IA03119,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+KS-2,R,JAKE LATURNER,"LATURNER, JAKE",H0KS02188,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+KS-2,D,PATRICK SCHMIDT,"SCHMIDT, PATRICK",H2KS02143,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+KS-3,D,SHARICE DAVIDS,"DAVIDS, SHARICE",H8KS03155,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+KS-4,R,RON ESTES,"ESTES, RON",H8KS04112,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+KS-4,D,BOB HERNANDEZ,"HERNANDEZ, BOB MR",H2KS04149,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+KY-1,R,JAMES COMER,"COMER, JAMES",H6KY01110,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+KY-2,D,HANK LINDERMAN,"LINDERMAN, HANK",H8KY02080,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+KY-3,R,STUART N RAY,"RAY, STUART N.",H2KY03214,O,high_confidence_automatic,100.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+KY-3,D,MORGAN MCGARVEY,"MCGARVEY, MORGAN",H2KY03206,O,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+KY-4,D,MATTHEW LEHMAN,"LEHMAN, MATTHEW",H2KY04212,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+KY-5,D,CONOR HALBLEIB,"HALBLEIB, CONOR",H2KY05177,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+LA-1,R,STEVE SCALISE,"SCALISE, STEVE MR",H0LA01087,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+LA-1,D,KATIE DARLING,"DARLING, KATIE DARLING",H2LA01109,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+LA-2,D,TROY A CARTER,"CARTER, TROY A. SR.",H2LA02149,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+LA-3,R,HOLDEN HOGGATT,"HOGGATT, ""HOLDEN""",H2LA03121,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+LA-3,D,LESSIE OLIVIA LEBLANC,"LEBLANC, LESSIE OLIVIA",H2LA03139,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+LA-5,R,JULIA LETLOW,"LETLOW, JULIA",H2LA05126,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+LA-5,D,WALTER EARL HUFF,"HUFF, WALTER EARL",H2LA05274,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+LA-6,R,GARRET GRAVES,"GRAVES, GARRET",H4LA06153,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+ME-2,R,BRUCE POLIQUIN,"POLIQUIN, BRUCE",H4ME02234,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MS-2,D,BENNIE G THOMPSON,"THOMPSON, BENNIE G.",H4MS02068,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+MS-4,D,JOHNNY L DUPREE,"DUPREE, JOHNNY L.",H2MS04332,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+MO-1,D,CORI BUSH,"BUSH, CORI",H8MO01143,I,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MO-4,R,MARK ALFORD,"ALFORD, MARK",H2MO04207,O,high_confidence_automatic,100.0,2.0,11,last_exact+first_match+token_overlap+scope_same_race
+MO-4,D,JACK TRUMAN,"TRUMAN, JACK",H6MO07169,O,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+MO-5,R,JACOB TURK,"TURK, JACOB",H6MO05189,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MO-5,D,EMANUEL CLEAVER,"CLEAVER II, EMANUEL",H4MO05234,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MO-7,R,ERIC BURLISON,"BURLISON, ERIC",H2MO07143,O,high_confidence_automatic,100.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+MO-7,D,KRISTEN RADAKER-SHEAFER,"RADAKER-SHEAFER, KRISTEN",H2MO07200,O,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+MO-8,D,RANDI MCCALLIAN,"MCCALLIAN, RANDI MCCALLIAN",H2MO08091,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MT-1,D,MONICA TRANEL,"TRANEL, MONICA",H2MT02092,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MT-2,D,PENNY RONNING,"RONNING, PENNY",H2MT02134,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NE-1,R,MIKE FLOOD,"FLOOD, MIKE",H2NE01118,I,high_confidence_automatic,100.0,1.0,5,last_exact+first_match+token_overlap+scope_same_race
+NE-1,D,PATTY PANSING BROOKS,"PANSING BROOKS, PATTY",H2NE01092,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NE-3,R,ADRIAN SMITH,"SMITH, ADRIAN",H6NE03115,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NE-3,D,DAVID J ELSE,"ELSE, DAVID J",H0NE03217,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NV-1,R,MARK ROBERTSON,"ROBERTSON, MARK",H2NV03153,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+NV-1,D,DINA TITUS,"TITUS, DINA",H8NV03036,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NV-3,R,APRIL BECKER,"BECKER, APRIL",H2NV03161,C,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NV-3,D,SUSIE LEE,"LEE, SUSIE",H6NV04020,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NH-1,R,KAROLINE LEAVITT,"LEAVITT, KAROLINE",H2NH01270,C,high_confidence_automatic,100.0,2.0,11,last_exact+first_match+token_overlap+scope_same_race
+NH-1,D,CHRIS PAPPAS,"PAPPAS, CHRIS",H8NH01210,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NM-1,R,MICHELLE GARCIA HOLMES,"GARCIA HOLMES, MICHELLE",H0NM01189,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NM-2,D,GABRIEL VASQUEZ,"VASQUEZ, GABRIEL",H2NM02191,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NM-3,R,ALEXIS MARTINEZ JOHNSON,"MARTINEZ JOHNSON, ALEXIS",H2NM03173,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NM-3,D,TERESA LEGER FERNANDEZ,"LEGER FERNANDEZ, TERESA",H0NM03102,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+OH-1,R,STEVE CHABOT,"CHABOT, STEVE",H8OH01043,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-1,D,GREG LANDSMAN,"LANDSMAN, GREG",H2OH01194,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OH-2,D,SAMANTHA MEADOWS,"MEADOWS, SAMANTHA",H2OH02127,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+OH-3,R,LEE R STAHLEY,"STAHLEY, LEE R.",H2OH03190,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+OH-3,D,JOYCE BEATTY,"BEATTY, JOYCE",H2OH03125,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+OH-6,R,BILL JOHNSON,"JOHNSON, BILL",H0OH06189,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+OH-7,R,MAX MILLER,"MILLER, MAX",H2OH16051,O,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+OH-7,D,MATTHEW DIEMER,"DIEMER, MATTHEW",H2OH16044,O,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+OH-8,R,WARREN DAVIDSON,"DAVIDSON, WARREN",H6OH08315,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+OH-8,D,VANESSA ENOCH,"ENOCH, VANESSA",H8OH08097,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+OH-9,R,J R MAJEWSKI,"MAJEWSKI, J R",H2OH09155,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-9,D,MARCY KAPTUR,"KAPTUR, MARCY",H2OH09031,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OH-10,D,DAVID ESRATI,"ESRATI, DAVID",H8OH03098,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+OH-11,R,ERIC J BREWER,"BREWER, ERIC J.",H2OH11326,C,high_confidence_automatic,100.0,1.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-13,R,MADISON GESIOTTO GILBERT,"GILBERT, MADISON GESIOTTO",H2OH09163,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+OH-13,D,EMILIA SYKES,"SYKES, EMILIA",H2OH13264,O,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-14,R,DAVID P JOYCE,"JOYCE, DAVID P",H2OH14064,I,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+OH-15,R,MIKE CAREY,"CAREY, MIKE",H2OH15228,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+OK-1,R,KEVIN HERN,"HERN, KEVIN",H8OK01157,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+OK-1,D,ADAM MARTIN,"MARTIN, ADAM",H2OK01176,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OK-2,R,JOSH BRECHEEN,"BRECHEEN, JOSH",H2OK02315,O,high_confidence_automatic,100.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+OK-2,D,NAOMI ANDREWS,"ANDREWS, NAOMI",H2OK02307,O,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OK-3,R,FRANK D LUCAS,"LUCAS, FRANK D.",H4OK06056,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+OK-3,D,JEREMIAH A ROSS,"ROSS, JEREMIAH A",H2OK03149,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OK-4,R,TOM COLE,"COLE, TOM",H2OK04055,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OK-4,D,MARY BRANNON,"BRANNON, MARY",H8OK04094,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OK-5,D,JOSHUA HARRIS-TILL,"HARRIS-TILL, JOSHUA",H2OK05169,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+OR-1,D,SUZANNE BONAMICI,"BONAMICI, SUZANNE MS.",H2OR01133,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OR-2,R,CLIFF BENTZ,"BENTZ, CLIFF",H0OR02127,I,high_confidence_automatic,100.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+OR-3,R,JOANNA HARBOUR,"HARBOUR, JOANNA",H0OR03174,C,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+OR-3,D,EARL BLUMENAUER,"BLUMENAUER, EARL",H6OR03064,I,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OR-4,R,ALEK SKARLATOS,"SKARLATOS, ALEK",H0OR04107,O,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OR-5,R,LORI CHAVEZ-DEREMER,"CHAVEZ-DEREMER, LORI",H2OR05209,C,high_confidence_automatic,100.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+OR-5,D,JAMIE MCLEOD-SKINNER,"MCLEOD-SKINNER, JAMIE",H8OR02161,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OR-6,R,MIKE ERICKSON,"ERICKSON, MIKE",H2OR06124,O,high_confidence_automatic,100.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+OR-6,D,ANDREA SALINAS,"SALINAS, ANDREA",H2OR06066,O,high_confidence_automatic,100.0,2.0,12,last_exact+first_match+token_overlap+scope_same_race
+RI-1,R,ALLEN R WATERS,"WATERS, ALLEN R",H2RI01202,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+RI-1,D,DAVID N CICILLINE,"CICILLINE, DAVID N",H0RI01073,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+SC-1,R,NANCY MACE,"MACE, NANCY",H0SC01394,I,high_confidence_automatic,100.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+SC-1,D,ANNIE ANDREWS,"ANDREWS, ANNIE DR.",H2SC01127,C,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+SC-4,R,WILLIAM R TIMMONS IV,"TIMMONS, WILLIAM R IV",H8SC04250,I,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+SC-5,D,EVANGELINE HUNDLEY,"HUNDLEY, EVANGELINE",H2SC05102,C,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+SC-6,R,DUKE BUCKNER,"BUCKNER, DUKE",H2SC06142,C,high_confidence_automatic,100.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+SC-6,D,JAMES E CLYBURN,"CLYBURN, JAMES E.",H2SC02042,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+SC-7,R,RUSSELL FRY,"FRY, RUSSELL",H2SC07280,C,high_confidence_automatic,100.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+UT-2,R,CHRIS STEWART,"STEWART, CHRIS",H2UT02324,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+UT-4,R,BURGESS OWENS,"OWENS, BURGESS",H0UT04076,I,high_confidence_automatic,100.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+UT-4,D,DARLENE MCDONALD,"MCDONALD, DARLENE",H8UT04046,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+WV-2,D,BARRY LEE WENDELL,"WENDELL, BARRY LEE MR.",H2WV02191,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+AK-AL,R,SARAH PALIN,"PALIN, SARAH",H2AK00226,O,high_confidence_automatic,100.0,2.0,23,last_exact+first_match+token_overlap+scope_same_race
+DE-AL,R,LEE MURPHY,"MURPHY, LEE",H8DE01044,C,high_confidence_automatic,100.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+DE-AL,D,LISA BLUNT ROCHESTER,"BLUNT ROCHESTER, LISA",H6DE00206,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+ND-AL,R,KELLY ARMSTRONG,"ARMSTRONG, KELLY",H8ND00096,I,high_confidence_automatic,100.0,,1,last_exact+first_match+token_overlap+scope_same_race
+SD-AL,R,DUSTY JOHNSON,"JOHNSON, DUSTY",H8SD01055,I,high_confidence_automatic,100.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+WY-AL,R,HARRIET HAGEMAN,"HAGEMAN, HARRIET",H2WY00166,C,high_confidence_automatic,100.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+WY-AL,D,LYNNETTE GREYBULL,"GREYBULL, LYNNETTE",H0WY01036,C,high_confidence_automatic,100.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-11,D,SHONTEL M BROWN,"BROWN, M SHONTEL",H2OH11169,I,high_confidence_automatic,97.0,2.0,4,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+AL-4,R,ROBERT B ADERHOLT,"ADERHOLT, ROBERT B. REP.",H6AL04098,I,high_confidence_automatic,96.25,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+AL-5,D,KATHY WARNER-STANTON,"WARNER-STANTON, KATHY L",H2AL05177,O,high_confidence_automatic,96.25,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-31,R,DANIEL BOCIC MARTINEZ,"MARTINEZ, DANIEL JOSE BOCIC",H2CA28162,C,high_confidence_automatic,96.25,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-23,D,MAX H DELLA PIA,"DELLA PIA, MAX",H8NY23175,O,high_confidence_automatic,96.25,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TN-3,R,CHARLES J âCHUCKâ FLEISCHMANN,"FLEISCHMANN, CHARLES J",H0TN03254,I,high_confidence_automatic,96.25,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-31,R,JOHN R CARTER,"CARTER, JOHN R. REP.",H2TX31044,I,high_confidence_automatic,96.25,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+VA-3,D,ROBERT C âBOBBYâ SCOTT,"SCOTT, ROBERT C",H6VA01117,I,high_confidence_automatic,96.25,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+WI-3,R,DERRICK VAN ORDEN,"VAN ORDEN, DERRICK F. MR.",H0WI03175,O,high_confidence_automatic,96.25,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+IA-1,R,MARIANNETTE MILLER-MEEKS,"MILLER-MEEKS, MARIANNETTE JANE",H8IA02043,I,high_confidence_automatic,96.25,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+KY-6,D,GEOFFREY M âGEOFFâ YOUNG,"YOUNG, GEOFFREY M",H4KY06163,C,high_confidence_automatic,96.25,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-10,R,MICHAEL R TURNER,"TURNER, MICHAEL R REP.",H2OH03067,I,high_confidence_automatic,96.25,,1,last_exact+first_match+token_overlap+scope_same_race
+AL-5,R,DALE STRONG,"STRONG, DALE WHITNEY",H2AL05102,C,high_confidence_automatic,95.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+AL-6,R,GARY J PALMER,"PALMER, GARY",H4AL06098,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+AL-7,R,BEATRICE NICHOLS,"NICHOLS, BEATRICE JACKSON",H2AL07173,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+AZ-1,D,JEVIN HODGE,"HODGE, JEVIN D",H2AZ06221,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+AZ-5,D,JAVIER RAMOS,"RAMOS, JAVIER GARCIA MR.",H0AZ05185,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+AR-3,D,LAUREN MALLETT-HAYS,"HAYS, LAUREN",H2AR03283,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CA-7,D,DORIS O MATSUI,"MATSUI, DORIS",H6CA05195,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-12,R,STEPHEN SLAUSON,"SLAUSON, STEPHEN SCOTT",H2CA12240,C,high_confidence_automatic,95.0,0.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-13,D,ADAM GRAY,"GRAY, ADAM C.",H2CA13115,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-14,D,ERIC SWALWELL,"SWALWELL, ERIC MICHAEL",H2CA15094,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+CA-15,D,DAVID J CANEPA,"CANEPA, DAVID",H2CA14170,O,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-21,R,MICHAEL MAHER,"MAHER, MICHAEL A",H2CA22215,O,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-22,R,DAVID G VALADAO,"VALADAO, DAVID",H2CA20094,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-25,R,BRIAN E HAWKINS,"HAWKINS, BRIAN",H2CA01177,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-30,D,ADAM B SCHIFF,"SCHIFF, ADAM",H0CA27085,I,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-31,D,GRACE F NAPOLITANO,"NAPOLITANO, GRACE",H8CA34068,I,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-35,D,NORMA J TORRES,"TORRES, NORMA",H4CA35031,C,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-37,D,JAN C PERRY,"PERRY, JAN",H2CA37312,O,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-38,D,LINDA T SÃNCHEZ,"SANCHEZ, LINDA",H2CA39078,I,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-44,D,NANETTE DIAZ BARRAGÃN,"BARRAGAN, NANETTE",H6CA44103,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-45,D,JAY F CHEN,"CHEN, JAY",H2CA39136,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-46,R,CHRISTOPHER J GONZALES,"GONZALES, CHRISTOPHER",H0CA45160,C,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-48,D,STEPHEN HOULAHAN,"HOULAHAN, STEPHEN WILLIAM",H2CA50174,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+CA-49,R,BRIAN MARYOTT,"MARYOTT, BRIAN L MR",H8CA49108,C,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+CA-50,D,SCOTT H PETERS,"PETERS, SCOTT",H2CA52089,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+CA-52,D,JUAN VARGAS,"VARGAS, JUAN C.",H2CA50026,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CO-1,D,DIANA DEGETTE,"DEGETTE, DIANA L",H6CO01141,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+CO-6,R,STEVEN MONAHAN,"MONAHAN, STEVEN EDWARD",H2CO06214,C,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+CO-7,D,BRITTANY PETTERSEN,"PETTERSEN, BRITTANY LOUISE MS.",H8CO07045,O,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-3,D,DANIELLE HAWK,"HAWK, DANIELLE NICOLE",H2FL03163,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+FL-4,R,AARON BEAN,"BEAN, AARON P.",H2FL04211,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+FL-5,R,JOHN H RUTHERFORD,"RUTHERFORD, JOHN",H6FL04105,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-8,D,JOANNE TERRY,"TERRY, JOANNE R",H2FL08105,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-12,D,KIMBERLY WALKER,"WALKER, KIMBERLY H MS",H6FL13197,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-15,D,ALAN M COHN,"COHN, ALAN",H4FL15155,C,high_confidence_automatic,95.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+FL-19,D,CINDY BANYAI,"BANYAI, CINDY LYN",H0FL19106,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-21,R,BRIAN J MAST,"MAST, BRIAN",H6FL18097,I,high_confidence_automatic,95.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+FL-22,D,LOIS FRANKEL,"FRANKEL, LOIS J.",H2FL14053,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-24,R,JESUS G NAVARRO,"NAVARRO, JESUS",H2FL24078,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+FL-25,R,CARLA SPALDING,"SPALDING, CARLA A",H0FL23090,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+FL-28,R,CARLOS A GIMENEZ,"GIMENEZ, CARLOS",H0FL26036,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+GA-1,D,WADE HERRING,"HERRING, WADE WILKES MR. II",H2GA01249,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+GA-2,R,CHRIS WEST,"WEST, CHRISTOPHER CHRIS",H2GA02155,C,high_confidence_automatic,95.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+GA-2,D,"SANFORD D BISHOP, JR","BISHOP, SANFORD",H2GA02031,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+GA-5,R,CHRISTIAN ZIMM,"ZIMM, CHRISTIAN GERARD",H2GA05166,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+GA-5,D,NIKEMA WILLIAMS,"WILLIAMS, NIKEMA NATASSHA",H0GA05301,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+GA-8,D,DARRIUS BUTLER,"BUTLER, DARRIUS MAURICE",H2GA08095,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+GA-9,R,ANDREW S CLYDE,"CLYDE, ANDREW",H0GA09246,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+GA-12,D,ELIZABETH âLIZâ JOHNSON,"JOHNSON, ELIZABETH",H0GA12059,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+GA-13,D,DAVID SCOTT,"SCOTT, DAVID ALBERT",H2GA13012,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+IL-1,R,ERIC CARLSON,"CARLSON, ERIC JOSEPH MR.",H2IL01323,O,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+IL-1,D,JONATHAN L JACKSON,"JACKSON, JONATHAN",H2IL01349,O,high_confidence_automatic,95.0,2.0,22,last_exact+first_match+token_overlap+scope_same_race
+IL-2,D,ROBIN L KELLY,"KELLY, ROBIN",H2IL02172,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+IL-9,R,MAXWELL âMAXâ RICE,"RICE, MAXWELL",H8IL09174,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+IL-14,R,SCOTT R GRYDER,"GRYDER, SCOTT",H2IL14102,C,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+IL-15,R,MARY E MILLER,"MILLER, MARY",H0IL15129,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+IL-16,R,DARIN LAHOOD,"LAHOOD, DARIN MCKAY",H6IL18088,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+IL-16,D,ELIZABETH âLISAâ HADERLEIN,"HADERLEIN, ELIZABETH",H2IL16156,O,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MD-5,D,STENY H HOYER,"HOYER, STENY",H2MD05155,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+MD-6,D,DAVID J TRONE,"TRONE, DAVID",H6MD08549,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+MA-1,R,DEAN JAMES MARTILLI,"MARTILLI, DEAN",H2MA01228,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-3,R,DEAN A TRAN,"TRAN, DEAN",H2MA03141,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MA-5,D,KATHERINE M CLARK,"CLARK, KATHERINE",H4MA05084,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-8,D,STEPHEN F LYNCH,"LYNCH, STEPHEN",H2MA09072,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MA-9,R,JESSE G BROWN,"BROWN, JESSE",H2MA09239,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MI-2,R,JOHN R MOOLENAAR,"MOOLENAAR, JOHN MR.",H4MI04126,I,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MI-9,D,BRIAN JAYE,"JAYE, BRIAN STEVEN",H2MI08154,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+MI-10,D,CARL J MARLINGA,"MARLINGA, CARL",H2MI10176,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MI-11,D,HALEY M STEVENS,"STEVENS, HALEY",H8MI11254,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NJ-1,R,CLAIRE GUSTAFSON,"GUSTAFSON, CLAIRE H.",H4NJ01118,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NJ-1,D,DONALD NORCROSS,"NORCROSS, DONALD W",H4NJ01084,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NJ-5,R,FRANK T PALLOTTA,"PALLOTTA, FRANK",H0NJ05174,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NJ-10,R,DAVID H PINCKNEY,"PINCKNEY, DAVID",H0NJ10133,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-2,R,ANDREW R GARBARINO,"GARBARINO, ANDREW",H0NY02234,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NY-3,D,ROBERT P ZIMMERMAN,"ZIMMERMAN, ROBERT",H2NY03188,O,high_confidence_automatic,95.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+NY-4,D,LAURA A GILLEN,"GILLEN, LAURA",H2NY04244,C,high_confidence_automatic,95.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+NY-6,R,THOMAS J ZMICH,"ZMICH, THOMAS",H0NY06086,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NY-8,D,HAKEEM S JEFFRIES,"JEFFRIES, HAKEEM",H2NY10092,I,high_confidence_automatic,95.0,0.0,4,last_exact+first_match+token_overlap+scope_same_race
+NY-10,R,BENINE A HAMDAN,"HAMDAN, BENINE",H2NY10134,C,high_confidence_automatic,95.0,0.0,6,last_exact+first_match+token_overlap+scope_same_race
+NY-11,D,MAX N ROSE,"ROSE, MAX",H2NY11140,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NY-12,D,JERROLD NADLER,"NADLER, JERROLD L.",H2NY17071,I,high_confidence_automatic,95.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+NY-15,D,RITCHIE TORRES,"TORRES, RITCHIE JOHN",H0NY15160,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-16,R,MIRIAM L FLISSER,"FLISSER, MIRIAM",H2NY16115,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NY-17,R,MICHAEL V LAWLER,"LAWLER, MICHAEL VINCENT",H2NY17162,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+NY-19,R,MARCUS MOLINARO,"MOLINARO, MARCUS J.",H2NY19127,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-20,D,PAUL TONKO,"TONKO, PAUL DAVID",H8NY21203,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NC-2,R,CHRISTINE E VILLAVERDE,"VILLAVERDE, CHRISTINE",H2NC08235,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NC-2,D,DEBORAH K ROSS,"ROSS, DEBORAH",H0NC02125,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+NC-4,R,COURTNEY GEELS,"GEELS, COURTNEY JOELE",H2NC13185,O,high_confidence_automatic,95.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+NC-4,D,VALERIE P FOUSHEE,"FOUSHEE, VALERIE",H2NC06114,C,high_confidence_automatic,95.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+NC-5,R,VIRGINIA FOXX,"FOXX, VIRGINIA ANN",H4NC05146,I,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NC-6,D,KATHY E MANNING,"MANNING, KATHY",H8NC13067,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NC-7,R,DAVID ROUZER,"ROUZER, DAVID CHESTON",H2NC07096,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NC-9,R,RICHARD HUDSON,"HUDSON, RICHARD L. JR.",H2NC08185,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+PA-1,R,BRIAN K FITZPATRICK,"FITZPATRICK, BRIAN",H6PA08277,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+PA-9,D,AMANDA R WALDMAN,"WALDMAN, AMANDA",H2PA09126,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+PA-11,R,LLOYD SMUCKER,"SMUCKER, LLOYD K.",H6PA16320,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TN-2,D,MARK HARMON,"HARMON, MARK DESMOND DR.",H2TN02120,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TN-6,D,RANDAL COOPER,"COOPER, RANDAL DEAN",H2TN06162,C,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+TN-7,R,MARK E GREEN,"GREEN, MARK DR.",H8TN07076,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TN-8,D,LYNNETTE P WILLIAMS,"WILLIAMS, LYNNETTE",H2TN08184,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TN-9,D,STEVE COHEN,"COHEN, STEVE I MR.",H6TN09068,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-1,R,NATHANIEL MORAN,"MORAN, NATHANIEL QUENTIN",H2TX01112,O,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+TX-2,D,ROBIN FULFORD,"FULFORD, ROBIN DAWN",H2TX02383,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-3,D,SANDEEP SRIVASTAVA,"SRIVASTAVA, SANDEEP KUMAR",H2TX03274,O,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-5,D,TARTISHA HILL,"HILL, TARTISHA A MRS.",H2TX05246,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-7,R,JOHNNY TEAGUE,"TEAGUE, JOHNNY MARK DR.",H0TX09176,C,high_confidence_automatic,95.0,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+TX-8,R,MORGAN LUTTRELL,"LUTTRELL, MORGAN JOE",H2TX08182,O,high_confidence_automatic,95.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+TX-10,R,MICHAEL T MCCAUL,"MCCAUL, MICHAEL",H4TX10093,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-11,R,AUGUST PFLUGER,"PFLUGER, AUGUST LEE II",H0TX11230,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-13,R,RONNY JACKSON,"JACKSON, RONNY LYNN",H0TX13228,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-14,R,"RANDY K WEBER, SR","WEBER, RANDY",H2TX14149,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+TX-14,D,MIKAL WILLIAMS,"WILLIAMS, MIKAL D. DR",H0TX14218,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-18,R,CARMEN MARIA MONTIEL,"MONTIEL, CARMEN",H2TX18207,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-20,R,KYLE SINCLAIR,"SINCLAIR, KYLE E MR",H2TX20096,C,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-22,R,TROY E NEHLS,"NEHLS, TROY",H0TX22302,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-29,R,ROBERT SCHAFRANEK,"SCHAFRANEK, ROBERT ALLAN",H6TX29080,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+TX-30,R,JAMES RODGERS,"RODGERS, JAMES BYRON MR.",H2TX30236,O,high_confidence_automatic,95.0,2.0,8,last_exact+first_match+token_overlap+scope_same_race
+TX-32,D,COLIN Z ALLRED,"ALLRED, COLIN",H8TX32098,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-34,R,MAYRA FLORES,"FLORES, MAYRA NOHEMI",H2TX34113,I,high_confidence_automatic,95.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+VA-2,D,ELAINE G LURIA,"LURIA, ELAINE",H8VA02111,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+VA-5,D,JOSHUA M THRONEBURG,"THRONEBURG, JOSHUA",H2VA05091,C,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+VA-6,D,JENNIFER LYNN LEWIS,"LEWIS, JENNIFER",H8VA06138,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+VA-7,R,YESLI I VEGA,"VEGA, YESLI",H2VA07261,C,high_confidence_automatic,95.0,2.0,15,last_exact+first_match+token_overlap+scope_same_race
+VA-7,D,ABIGAIL DAVIS SPANBERGER,"SPANBERGER, ABIGAIL",H8VA07094,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+VA-8,R,KARINA A LIPSMAN,"LIPSMAN, KARINA",H2VA08152,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+VA-9,D,TAYSHA LEE DEVAUGHAN,"DEVAUGHAN, TAYSHA",H2VA09085,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+WI-1,R,BRYAN STEIL,"STEIL, BRYAN GEORGE",H8WI01156,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WI-4,D,GWEN MOORE,"MOORE, GWEN S",H4WI04183,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+WI-6,R,GLENN GROTHMAN,"GROTHMAN, GLENN S.",H4WI06048,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+WI-7,D,RICHARD DICK AUSMAN,"AUSMAN, RICHARD",H2WI07123,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+CT-5,R,GEORGE LOGAN,"LOGAN, GEORGE S",H2CT05222,C,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+ID-1,D,KAYLEE PETERSON,"PETERSON, KAYLEE JADE",H2ID01192,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+ID-2,R,MICHAEL K SIMPSON,"SIMPSON, MICHAEL",H8ID02064,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+ID-2,D,WENDY NORMAN,"NORMAN, WENDY ANN",H2ID02216,C,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+IN-2,D,PAUL D STEURY,"STEURY, PAUL MR.",H2IN02279,O,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+IN-3,D,GARY L SNYDER,"SNYDER, GARY",H2IN03202,C,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+IN-6,D,CYNTHIA âCINDEâ WIRTH,"WIRTH, CYNTHIA",H2IN06304,C,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+IN-8,R,LARRY BUCSHON,"BUCSHON, LARRY D.",H0IN08114,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+IN-9,D,MATTHEW FYFE,"FYFE, MATTHEW JOHN",H2IN09191,O,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+KS-1,R,TRACEY MANN,"MANN, TRACEY ROBERT",H0KS01123,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+KS-3,R,AMANDA L ADKINS,"ADKINS, AMANDA",H0KS03236,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+KY-4,R,THOMAS MASSIE,"MASSIE, THOMAS H.",H2KY04121,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+KY-5,R,HAROLD ROGERS,"ROGERS, HAROLD DALLAS",H0KY05015,I,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+LA-3,R,CLAY HIGGINS,"HIGGINS, CLAY CAPTAIN",H6LA03148,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+LA-3,D,TIA LEBRUN,"LEBRUN, TIA MARIE MRS.",H2LA03105,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+LA-5,R,HUNTER PULLEN,"PULLEN, HUNTER I MR.",H2LA05266,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+LA-6,R,BRIAN BELZER,"BELZER, BRIAN T",H2LA06041,C,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+ME-1,R,EDWIN THELANDER,"THELANDER, EDWIN F MR.",H2ME01131,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+ME-1,D,CHELLIE PINGREE,"PINGREE, CHELLIE M",H8ME01120,I,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+ME-2,D,JARED F GOLDEN,"GOLDEN, JARED",H8ME02185,I,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+MS-1,D,DIANNE BLACK,"BLACK, DIANNE DODSON",H2MS01148,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MS-2,R,BRIAN FLOWERS,"FLOWERS, BRIAN WESLEY",H0MS02082,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MS-3,R,MICHAEL GUEST,"GUEST, MICHAEL PATRICK",H8MS03125,I,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MS-3,D,SHUWASKI A YOUNG,"YOUNG, SHUWASKI",H2MS03136,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+MO-1,R,ANDREW JONES,"JONES, ANDREW M JR",H2MO01179,C,high_confidence_automatic,95.0,0.0,5,last_exact+first_match+token_overlap+scope_same_race
+MO-2,R,ANN WAGNER,"WAGNER, ANN L.",H2MO02102,I,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+MO-3,D,BETHANY MANN,"MANN, BETHANY EILEEN",H2MO03167,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MO-6,D,HENRY MARTIN,"MARTIN, HENRY ROBERT",H8MO06092,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+MO-8,R,JASON SMITH,"SMITH, JASON T",H4MO08162,I,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NE-2,D,TONY VARGAS,"VARGAS, ANTHONY 'TONY'",H2NE02132,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NV-4,D,STEVEN HORSFORD,"HORSFORD, STEVEN ALEXZANDER",H2NV04011,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+NH-2,R,ROBERT BURNS,"BURNS, ROBERT ANDREW MR.",H2NH00025,C,high_confidence_automatic,95.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+NM-1,D,MELANIE A STANSBURY,"STANSBURY, MELANIE",H2NM01144,C,high_confidence_automatic,95.0,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+OH-2,R,BRAD R WENSTRUP,"WENSTRUP, BRAD DR.",H2OH02085,I,high_confidence_automatic,95.0,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+OH-5,D,CRAIG SWARTZ,"SWARTZ, CRAIG STEPHEN",H2OH05062,C,high_confidence_automatic,95.0,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+OK-5,R,STEPHANIE I BICE,"BICE, STEPHANIE",H0OK05205,I,high_confidence_automatic,95.0,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+RI-2,R,ALLAN W FUNG,"FUNG, ALLAN",H2RI02226,O,high_confidence_automatic,95.0,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+RI-2,D,SETH M MAGAZINER,"MAGAZINER, SETH",H2RI02184,O,high_confidence_automatic,95.0,2.0,10,last_exact+first_match+token_overlap+scope_same_race
+SC-2,R,JOE WILSON,"WILSON, JOE THE HON.",H2SC02059,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+SC-5,R,RALPH NORMAN,"NORMAN, RALPH W. JR.",H8SC05158,I,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+SC-7,D,DARYL W SCOTT,"SCOTT, DARYL",H2SC07314,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+UT-1,R,BLAKE D MOORE,"MOORE, BLAKE",H0UT01205,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+UT-1,D,RICK EDWIN JONES,"JONES, RICK",H2UT01300,C,high_confidence_automatic,95.0,,1,last_exact+first_match+token_overlap+scope_same_race
+UT-3,R,JOHN R CURTIS,"CURTIS, JOHN",H8UT03238,I,high_confidence_automatic,95.0,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+UT-3,D,GLENN J WRIGHT,"WRIGHT, GLENN",H2UT03306,C,high_confidence_automatic,95.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+AK-AL,D,MARY SATTLER PELTOLA,"PELTOLA, MARY",H2AK01158,I,high_confidence_automatic,95.0,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+GA-4,D,"HENRY C âHANKâ JOHNSON, JR","JOHNSON, HENRY C. 'HANK'",H6GA04129,I,high_confidence_automatic,94.0,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+AL-1,R,JERRY L CARL,"CARL, JERRY LEE, JR",H0AL01055,I,high_confidence_automatic,92.5,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+CA-34,D,DAVID KIM,"KIM, DAVID YUNG HO",H2CA34079,C,high_confidence_automatic,92.5,2.0,2,last_exact+first_match+token_overlap+scope_same_race
+FL-4,D,LASHONDA âLJâ HOLLOWAY,"HOLLOWAY, LASHONDA J",H6FL05193,C,high_confidence_automatic,92.5,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+GA-9,D,MICHAEL âMIKEâ FORD,"FORD, MICHAEL C. MR.",H2GA09234,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+GA-12,R,RICK W ALLEN,"ALLEN, RICHARD W",H2GA12121,I,high_confidence_automatic,92.5,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+IL-10,D,BRADLEY SCOTT SCHNEIDER,"SCHNEIDER, BRADLEY S.",H2IL10068,I,high_confidence_automatic,92.5,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+IL-12,D,HOMER âCHIPâ MARKEL,"MARKEL, HOMER CHIP MR.",H2IL12197,C,high_confidence_automatic,92.5,0.0,7,last_exact+first_match+token_overlap+scope_same_race
+MD-1,D,HEATHER R MIZEUR,"MIZEUR, HEATHER RENAY",H2MD01220,C,high_confidence_automatic,92.5,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+MD-6,R,NEIL C PARROTT,"PARROTT, NEIL CONRAD",H0MD06231,C,high_confidence_automatic,92.5,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NY-15,R,STYLO A SAPASKIS,"SAPASKIS, STYLO ADONIS",H6NY16140,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+NY-22,R,BRANDON M WILLIAMS,"WILLIAMS, BRANDON MCDONALD",H2NY22212,C,high_confidence_automatic,92.5,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+NY-26,R,STEVEN L SAMS II,"SAMS, STEVEN LYNN MR II",H2NY26189,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+NC-3,R,GREGORY F MURPHY,"MURPHY, GREGORY FRANCIS DR.",H0NC03172,I,high_confidence_automatic,92.5,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+NC-10,R,PATRICK T MCHENRY,"MCHENRY, PATRICK TIMOTHY",H4NC10047,I,high_confidence_automatic,92.5,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NC-12,D,ALMA S ADAMS,"ADAMS, ALMA SHEALEY",H4NC12100,I,high_confidence_automatic,92.5,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+TX-12,D,TREY J HUNT,"HUNT, TREY JOSEPH",H2TX12085,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-19,R,JODEY C ARRINGTON,"ARRINGTON, JODEY COOK",H6TX19099,I,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+TX-33,D,MARC A VEASEY,"VEASEY, MARC ALLISON",H2TX33073,I,high_confidence_automatic,92.5,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+TX-38,D,DUNCAN F KLUSSMANN,"KLUSSMANN, DUNCAN FOSTER",H2TX38056,O,high_confidence_automatic,92.5,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+VA-3,R,TERRY T NAMKUNG,"NAMKUNG, TERRY TOLBERT MR.",H2VA03070,C,high_confidence_automatic,92.5,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+VA-11,R,JAMES G âJIMâ MYLES,"MYLES, JAMES",H2VA11255,C,high_confidence_automatic,92.5,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+VA-11,D,GERALD E CONNOLLY,"CONNOLLY, GERALD EDWARD",H8VA11062,I,high_confidence_automatic,92.5,2.0,3,last_exact+first_match+token_overlap+scope_same_race
+WA-10,R,KEITH R SWANK,"SWANK, KEITH ROLAND",H2WA08166,C,high_confidence_automatic,92.5,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+HI-2,D,JILL N TOKUDA,"TOKUDA, JILL NAOMI",H2HI02581,O,high_confidence_automatic,92.5,2.0,9,last_exact+first_match+token_overlap+scope_same_race
+IA-4,D,RYAN MELTON,"MELTON, RYAN MICHAEL APPLETON",H2IA04141,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+KS-1,D,JAMES âJIMMYâ BEARD,"BEARD, JAMES KENNETH",H2KS01079,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+KY-1,D,JIMMY C AUSBROOKS,"AUSBROOKS, JIMMY CLIFTON",H2KY01085,C,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+LA-3,R,"THOMAS âLANEâ PAYNE, JR","PAYNE, THOMAS LANE JR",H2LA03113,C,high_confidence_automatic,92.5,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+LA-3,R,JACOB âJAKEâ SHAHEEN,"SHAHEEN, JACOB LEWIS",H2LA03097,C,high_confidence_automatic,92.5,2.0,4,last_exact+first_match+token_overlap+scope_same_race
+LA-5,D,OSCAR âOMARâ DANTZLER,"DANTZLER, OSCAR ""OMAR""",H2LA05282,C,high_confidence_automatic,92.5,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+NV-2,R,MARK E AMODEI,"AMODEI, MARK EUGENE",H2NV02395,I,high_confidence_automatic,92.5,2.0,5,last_exact+first_match+token_overlap+scope_same_race
+NH-2,D,ANN M KUSTER,"KUSTER, ANN MCLANE",H0NH02181,I,high_confidence_automatic,92.5,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+OH-5,R,ROBERT E LATTA,"LATTA, ROBERT EDWARD",H8OH05036,I,high_confidence_automatic,92.5,,1,last_exact+first_match+token_overlap+scope_same_race
+OH-6,D,LOUIS G LYRAS,"LYRAS, LOUIS GEORGE",H8OH13154,C,high_confidence_automatic,92.5,0.0,3,last_exact+first_match+token_overlap+scope_same_race
+OR-1,R,CHRISTOPHER A MANN,"MANN, CHRISTOPHER ALLAN",H2OR01273,C,high_confidence_automatic,92.5,0.0,2,last_exact+first_match+token_overlap+scope_same_race
+WV-1,R,CAROL D MILLER,"MILLER, CAROL DEVINE",H8WV03097,I,high_confidence_automatic,92.5,2.0,7,last_exact+first_match+token_overlap+scope_same_race
+WV-2,R,ALEXANDER X MOONEY,"MOONEY, ALEXANDER XAVIER",H4WV02080,I,high_confidence_automatic,92.5,2.0,6,last_exact+first_match+token_overlap+scope_same_race
+AL-2,R,BARRY MOORE,"MOORE, FELIX BARRY",H8AL02171,I,high_confidence_automatic,92.0,2.0,2,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+FL-18,R,C SCOTT FRANKLIN,"FRANKLIN, SCOTT MR.",H0FL15104,I,high_confidence_automatic,92.0,2.0,8,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+GA-8,R,AUSTIN SCOTT,"SCOTT, JAMES AUSTIN",H0GA08099,I,high_confidence_automatic,92.0,0.0,2,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+IL-8,D,RAJA KRISHNAMOORTHI,"KRISHNAMOORTHI, S. RAJA",H6IL08147,I,high_confidence_automatic,92.0,2.0,3,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+NC-5,D,KYLE PARRISH,"PARRISH, BERNARD KYLE",H2NC07203,C,high_confidence_automatic,92.0,,1,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+NC-6,R,CHRISTIAN CASTELLI,"CASTELLI, ROBERT CHRISTIAN",H2NC07161,C,high_confidence_automatic,92.0,2.0,7,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+TN-7,D,ODESSA KELLY,"KELLY, JACQUELYN ODESSA",H2TN05305,O,high_confidence_automatic,92.0,,1,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+TX-13,D,KATHLEEN BROWN,"BROWN, MARY KATHLEEN",H2TX13117,C,high_confidence_automatic,92.0,,1,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+TX-35,R,DAN MCQUEEN,"MCQUEEN, ELDON DAN",H0TX20124,C,high_confidence_automatic,92.0,2.0,10,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+WA-9,D,ADAM SMITH,"SMITH, D. ADAM",H6WA09025,I,high_confidence_automatic,92.0,2.0,5,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+KY-2,R,BRETT GUTHRIE,"GUTHRIE, S. BRETT HON.",H8KY02031,I,high_confidence_automatic,92.0,2.0,5,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+KY-6,R,ANDY BARR,"BARR, GARLAND ANDY",H0KY06104,I,high_confidence_automatic,92.0,0.0,2,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+MS-1,R,TRENT KELLY,"KELLY, JOHN TRENT",H6MS01131,I,high_confidence_automatic,92.0,0.0,2,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+MO-3,R,BLAINE LUETKEMEYER,"LUETKEMEYER, W BLAINE",H8MO09153,I,high_confidence_automatic,92.0,2.0,4,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+NM-2,R,YVETTE HERRELL,"HERRELL, STELLA YVETTE",H8NM02156,I,high_confidence_automatic,92.0,,1,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+OH-12,R,TROY BALDERSON,"BALDERSON, WILLIAM TROY",H8OH12180,I,high_confidence_automatic,92.0,0.0,2,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+VT-AL,D,BECCA BALINT,"BALINT, REBECCA 'BECCA'",H2VT01076,O,high_confidence_automatic,92.0,2.0,6,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+CA-30,D,G âMAEBE A GIRLâ PUDLO,"PUDLO, G MAEBE A. GIRL",H0CA28174,C,high_confidence_automatic,91.42857142857143,2.0,3,last_exact+first_match+scope_same_race
+CA-5,D,MICHAEL J âMIKEâ BARKLEY,"BARKLEY, MICHAEL JAMES MR.",H2CA00096,C,high_confidence_automatic,91.0,,1,last_exact+first_match+scope_same_race
+GA-1,R,EARL L âBUDDYâ CARTER,"CARTER, EARL LEROY",H4GA01039,I,high_confidence_automatic,91.0,,1,last_exact+first_match+scope_same_race
+MA-2,R,JEFFREY A SOSSA-PAQUETTE,"SOSSA-PAQUETTE, JEFF",H2MA02085,C,high_confidence_automatic,91.0,0.0,3,last_exact+first_match+scope_same_race
+MI-13,R,MARTELL D BIVINGS,"BIVINGS, MARTELL DE'ANGELO",H2MI13360,C,high_confidence_automatic,91.0,0.0,2,last_exact+first_match+scope_same_race
+TX-24,R,BETH VAN DUYNE,"VAN DUYNE, ELIZABETH ANN",H0TX24209,I,high_confidence_automatic,91.0,0.0,2,last_exact+first_match+scope_same_race
+VA-1,D,"HERBERT C âHERBâ JONES, JR","JONES, HERBERT CARROLL JR",H2VA01124,C,high_confidence_automatic,91.0,2.0,4,last_exact+first_match+scope_same_race
+VA-8,D,"DONALD S BEYER, JR","BEYER, DONALD STERNOFF HONORABLE JR.",H4VA08224,I,high_confidence_automatic,91.0,2.0,2,last_exact+first_match+scope_same_race
+AL-3,R,MIKE ROGERS,"ROGERS, MICHAEL",H2AL03032,I,high_confidence_automatic,90.0,0.0,2,last_exact+first_match+scope_same_race
+AR-1,R,ERIC A âRICKâ CRAWFORD,"CRAWFORD, ERIC ALAN RICK",H0AR01083,I,high_confidence_automatic,90.0,2.0,3,last_exact+first_match+scope_same_race
+CA-4,R,MATT BROCK,"BROCK, MATTHEW",H2CA04148,C,high_confidence_automatic,90.0,2.0,4,last_exact+first_match+scope_same_race
+CA-5,R,TOM MCCLINTOCK,"MCCLINTOCK, THOMAS",H8CA04152,I,high_confidence_automatic,90.0,2.0,7,last_exact+first_match+scope_same_race
+CA-9,R,TOM PATTI,"PATTI, THOMAS",H2CA09139,O,high_confidence_automatic,90.0,2.0,3,last_exact+first_match+scope_same_race
+CA-26,R,MATT JACOBS,"JACOBS, MATTHEW",H2CA26133,C,high_confidence_automatic,90.0,2.0,3,last_exact+first_match+scope_same_race
+CA-27,R,MIKE GARCIA,"GARCIA, MICHAEL",H0CA25105,I,high_confidence_automatic,90.0,0.0,4,last_exact+first_match+scope_same_race
+CA-47,D,KATIE PORTER,"PORTER, KATHERINE",H8CA45130,I,high_confidence_automatic,90.0,2.0,4,last_exact+first_match+scope_same_race
+CO-2,D,JOE NEGUSE,"NEGUSE, JOSEPH",H8CO02160,I,high_confidence_automatic,90.0,,1,last_exact+first_match+scope_same_race
+FL-2,R,NEAL P DUNN,"DUNN, NEAL PATRICK MD, FACS",H6FL02208,I,high_confidence_automatic,90.0,0.0,2,last_exact+first_match+scope_same_race
+IL-5,R,TOMMY HANSON,"HANSON, TOM",H8IL05073,C,high_confidence_automatic,90.0,2.0,2,last_exact+first_match+scope_same_race
+IL-12,R,MIKE BOST,"BOST, MICHAEL",H4IL12060,I,high_confidence_automatic,90.0,,1,last_exact+first_match+scope_same_race
+MD-5,R,CHRIS PALOMBI,"PALOMBI, CHRISTOPHER",H0MD05225,C,high_confidence_automatic,90.0,0.0,7,last_exact+first_match+scope_same_race
+MA-6,R,BOB MAY,"MAY, ROBERT",H2MA06086,C,high_confidence_automatic,90.0,,1,last_exact+first_match+scope_same_race
+MI-1,R,JACK BERGMAN,"BERGMAN, JOHN",H6MI01226,I,high_confidence_automatic,90.0,,1,last_exact+first_match+scope_same_race
+MN-8,D,JEN SCHULTZ,"SCHULTZ, JENNIFER",H2MN08152,C,high_confidence_automatic,90.0,2.0,4,last_exact+first_match+scope_same_race
+NJ-3,R,BOB HEALEY,"HEALEY, ROBERT JR",H2NJ03258,C,high_confidence_automatic,90.0,2.0,4,last_exact+first_match+scope_same_race
+NY-3,R,GEORGE A D SANTOS,"DEVOLDER-SANTOS, GEORGE ANTHONY",H0NY03083,O,high_confidence_automatic,90.0,2.0,2,last_exact+first_match+scope_same_race
+PA-12,R,MIKE DOYLE,"DOYLE, MICHAEL",H2PA12070,O,high_confidence_automatic,90.0,,1,last_exact+first_match+scope_same_race
+PA-16,D,DAN PASTORE,"PASTORE, DANIEL",H2PA16097,C,high_confidence_automatic,90.0,2.0,3,last_exact+first_match+scope_same_race
+PA-17,D,CHRIS DELUZIO,"DELUZIO, CHRISTOPHER",H2PA17103,O,high_confidence_automatic,90.0,2.0,4,last_exact+first_match+scope_same_race
+TX-2,R,DAN CRENSHAW,"CRENSHAW, DANIEL",H8TX02166,I,high_confidence_automatic,90.0,2.0,6,last_exact+first_match+scope_same_race
+TX-4,R,PAT FALLON,"FALLON, PATRICK",H0TX04219,I,high_confidence_automatic,90.0,2.0,3,last_exact+first_match+scope_same_race
+WA-3,R,JOE KENT,"KENT, JOSEPH",H2WA03100,C,high_confidence_automatic,90.0,2.0,7,last_exact+first_match+scope_same_race
+CT-2,D,JOE COURTNEY,"COURTNEY, JOSEPH",H2CT02112,I,high_confidence_automatic,90.0,0.0,2,last_exact+first_match+scope_same_race
+HI-1,D,ED CASE,"CASE, EDWARD",H2HI02128,I,high_confidence_automatic,90.0,2.0,2,last_exact+first_match+scope_same_race
+HI-2,R,JOE AKANA,"AKANA, JOSEPH",H0HI02213,C,high_confidence_automatic,90.0,2.0,2,last_exact+first_match+scope_same_race
+IA-2,D,LIZ MATHIS,"MATHIS, ELIZABETH",H2IA01089,C,high_confidence_automatic,90.0,0.0,2,last_exact+first_match+scope_same_race
+OH-14,D,MATT KILBOY,"KILBOY, MATTHEW",H2OH13223,C,high_confidence_automatic,90.0,2.0,2,last_exact+first_match+scope_same_race
+UT-2,D,NICK MITCHELL,"MITCHELL, NICHOLAS",H2UT02498,C,high_confidence_automatic,90.0,0.0,2,last_exact+first_match+scope_same_race
+AK-AL,R,NICK BEGICH,"BEGICH, NICHOLAS III",H2AK01083,C,high_confidence_automatic,90.0,2.0,23,last_exact+first_match+scope_same_race
+CO-5,D,DAVID TORRES,"GOENAGA-TORRES, SANTIAGO DAVID",H2CO05141,C,high_confidence_automatic,89.5,2.0,4,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+TX-23,R,TONY GONZALES,"GONZALES, ERNEST ANTHONY TONY II",H0TX35015,I,high_confidence_automatic,89.5,2.0,3,last_exact+alternate_given_name_match+token_overlap+scope_same_race
+AZ-3,R,JEFF ZINK,"ZINK, JEFFREY NELSON MR",H2AZ07187,C,high_confidence_automatic,88.75,2.0,5,last_exact+first_match+scope_same_race
+FL-22,R,DAN FRANZESE,"FRANZESE, DANIEL JOHN",H2FL21108,C,high_confidence_automatic,88.75,2.0,8,last_exact+first_match+scope_same_race
+GA-6,R,RICH MCCORMICK,"MCCORMICK, RICHARD DEAN DR.",H0GA07273,C,high_confidence_automatic,88.75,2.0,11,last_exact+first_match+scope_same_race
+GA-6,D,BOB CHRISTIAN,"CHRISTIAN, ROBERT FRANKLIN MR. III",H2GA06222,C,high_confidence_automatic,88.75,2.0,3,last_exact+first_match+scope_same_race
+GA-10,R,MIKE COLLINS,"COLLINS, MICHAEL A JR",H4GA10071,O,high_confidence_automatic,88.75,2.0,14,last_exact+first_match+scope_same_race
+IL-8,R,CHRIS DARGIS,"DARGIS, CHRISTOPHER BRYANT",H2IL08187,C,high_confidence_automatic,88.75,2.0,5,last_exact+first_match+scope_same_race
+MI-1,D,BOB LORINSER,"LORINSER, ROBERT JAMES",H2MI01142,C,high_confidence_automatic,88.75,,1,last_exact+first_match+scope_same_race
+MI-4,R,BILL HUIZENGA,"HUIZENGA, WILLIAM P",H0MI02094,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+MI-7,R,TOM BARRETT,"BARRETT, THOMAS MORE",H2MI07123,C,high_confidence_automatic,88.75,2.0,3,last_exact+first_match+scope_same_race
+MN-1,D,JEFF ETTINGER,"ETTINGER, JEFFREY M.",H2MN01249,O,high_confidence_automatic,88.75,2.0,8,last_exact+first_match+scope_same_race
+MN-6,R,TOM EMMER,"EMMER, THOMAS EARL JR.",H4MN06087,I,high_confidence_automatic,88.75,0.0,2,last_exact+first_match+scope_same_race
+NJ-2,D,TIM ALEXANDER,"ALEXANDER, TIMOTHY C",H2NJ02193,C,high_confidence_automatic,88.75,2.0,4,last_exact+first_match+scope_same_race
+NJ-9,R,BILLY PREMPEH,"PREMPEH, WILLIAM SREBOE",H0NJ09200,C,high_confidence_automatic,88.75,0.0,2,last_exact+first_match+scope_same_race
+NJ-9,D,"BILL PASCRELL, JR","PASCRELL, WILLIAM J. HON. JR.",H6NJ08118,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+PA-8,D,MATT CARTWRIGHT,"CARTWRIGHT, MATTHEW A.",H2PA17079,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+PA-11,D,BOB HOLLISTER,"HOLLISTER, ROBERT MICHAEL III",H2PA11114,C,high_confidence_automatic,88.75,,1,last_exact+first_match+scope_same_race
+TX-37,R,JENNY GARCIA SHARON,"SHARON, JENNIFER",H0TX35064,O,high_confidence_automatic,88.75,2.0,3,last_exact+first_match+scope_same_race
+VA-2,R,JEN A KIGGANS,"KIGGANS, JENNIFER",H2VA02064,C,high_confidence_automatic,88.75,2.0,4,last_exact+first_match+scope_same_race
+VA-5,R,BOB GOOD,"GOOD, ROBERT G.",H0VA05160,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+VA-6,R,BEN CLINE,"CLINE, BENJAMIN LEE",H8VA06104,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+WI-7,R,THOMAS P TIFFANY,"TIFFANY, TOM",H0WI07101,I,high_confidence_automatic,88.75,2.0,3,last_exact+first_match+scope_same_race
+WI-8,R,MIKE GALLAGHER,"GALLAGHER, MICHAEL JOHN",H6WI08155,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+CT-1,R,LARRY LAZOR,"LAZOR, LAWRENCE ZIDOVSKY DR",H2CT01213,C,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+CT-4,D,JAMES A HIMES,"HIMES, JIM",H8CT04172,I,high_confidence_automatic,88.75,,1,last_exact+first_match+scope_same_race
+IN-3,R,JIM BANKS,"BANKS, JAMES E HON.",H6IN03229,I,high_confidence_automatic,88.75,,1,last_exact+first_match+scope_same_race
+IN-6,R,GREG PENCE,"PENCE, GREGORY J.",H8IN06129,I,high_confidence_automatic,88.75,0.0,3,last_exact+first_match+scope_same_race
+MT-2,R,"MATTHEW M ROSENDALE, SR","ROSENDALE, MATT MR.",H4MT00050,I,high_confidence_automatic,88.75,0.0,3,last_exact+first_match+scope_same_race
+NE-2,R,DON BACON,"BACON, DONALD J",H6NE02125,I,high_confidence_automatic,88.75,2.0,2,last_exact+first_match+scope_same_race
+OH-4,R,JIM JORDAN,"JORDAN, JAMES D.",H6OH04082,I,high_confidence_automatic,88.75,,1,last_exact+first_match+scope_same_race
+OR-2,D,JOE YETTER,"YETTER, JOSEPH FREDERICK III",H2OR02156,C,high_confidence_automatic,88.75,0.0,2,last_exact+first_match+scope_same_race
+SC-3,R,JEFF DUNCAN,"DUNCAN, JEFFREY D MR.",H0SC03077,I,high_confidence_automatic,88.75,,1,last_exact+first_match+scope_same_race
+FL-17,R,W GREGORY STEUBE,"STEUBE, GREG",H8FL17053,I,high_confidence_automatic,85.75,,1,last_exact+alternate_given_name_match+scope_same_race
+IL-11,D,BILL FOSTER,"FOSTER, G. WILLIAM (BILL)",H8IL14067,I,high_confidence_automatic,85.75,,1,last_exact+alternate_given_name_match+scope_same_race
+NC-8,R,DAN BISHOP,"BISHOP, JAMES DANIEL",H0NC09187,I,high_confidence_automatic,85.75,,1,last_exact+alternate_given_name_match+scope_same_race
+TX-36,D,JON HAIRE,"HAIRE, MARVIN JONATHAN",H2TX36142,C,high_confidence_automatic,85.75,,1,last_exact+alternate_given_name_match+scope_same_race
+LA-4,R,MIKE JOHNSON,"JOHNSON, JAMES MICHAEL",H6LA04138,I,high_confidence_automatic,85.75,0.0,2,last_exact+alternate_given_name_match+scope_same_race
+MS-4,R,MIKE EZELL,"EZELL, WALTER MICHAEL",H2MS04258,C,high_confidence_automatic,85.75,2.0,8,last_exact+alternate_given_name_match+scope_same_race
+CA-39,R,AJA SMITH,"SMITH, AJA",H8CA41170,C,high_confidence_state_fallback,100.0,72.0,170,last_exact+first_match+token_overlap+scope_same_state_party
+GA-14,D,MARCUS FLOWERS,"FLOWERS, MARCUS",H2GA14044,C,high_confidence_state_fallback,100.0,2.0,40,last_exact+first_match+token_overlap+scope_same_state_party
+MI-9,R,LISA MCCLAIN,"MCCLAIN, LISA",H0MI10287,I,high_confidence_state_fallback,100.0,2.0,46,last_exact+first_match+token_overlap+scope_same_state_party
+AZ-1,R,DAVID SCHWEIKERT,"SCHWEIKERT, DAVID S.",H4AZ06045,I,high_confidence_state_fallback,95.0,2.0,44,last_exact+first_match+token_overlap+scope_same_state_party
+AZ-7,R,LUIS POZZOLO,"POZZOLO, LUIS B",H2AZ03152,C,high_confidence_state_fallback,95.0,2.0,44,last_exact+first_match+token_overlap+scope_same_state_party
+NY-24,D,STEVEN HOLDEN,"HOLDEN, STEVEN WESLEY SR.",H2NY24127,C,high_confidence_state_fallback,95.0,2.0,116,last_exact+first_match+token_overlap+scope_same_state_party
+TX-1,D,JRMAR âJJâ JEFFERSON,"JEFFERSON, JRMAR",H2TX01146,O,high_confidence_state_fallback,95.0,2.0,120,last_exact+first_match+token_overlap+scope_same_state_party
+CA-44,R,PAUL JONES,"JONES, PAUL IRVING REVEREND",H0CA38140,C,high_confidence_state_fallback,92.5,50.75,170,last_exact+first_match+token_overlap+scope_same_state_party
+WV-1,D,LACY WATSON,"WATSON, EUGENE LACY",H0WV03144,C,high_confidence_state_fallback,92.0,2.0,3,last_exact+alternate_given_name_match+token_overlap+scope_same_state_party
+AL-3,D,LIN VEASEY,"VEASEY, KAREN LIN MRS",H2AL03131,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+CA-24,R,BRAD ALLEN,"ALLEN, BRAD DR.",H2CA24229,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+CA-29,D,ANGÃLICA MARIA DUEÃAS,"DUENAS, ANGELICA MARIA",H8CA29100,C,manual_override,100.0,,1,Verified through targeted FEC candidate-master search.
+CA-46,D,J LUIS CORREA,"CORREA, LOU",H6CA46116,I,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+GA-11,D,ANTONIO DAZA,"DAZA-FERNANDEZ, ANTONIO MIGUEL",H2GA11230,C,manual_override,100.0,,1,Verified through targeted FEC candidate-master search.
+IL-4,D,JESÃS G âCHUYâ GARCÃA,"GARCIA, JESUS",H8IL04134,I,manual_override,100.0,,1,Verified through targeted FEC candidate-master search.
+IL-15,D,PAUL J LANGE,"LANGE, PAUL",H2IL15109,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+NY-4,R,ANTHONY P DâESPOSITO,"DESPOSITO, ANTHONY P",H2NY04277,C,manual_override,100.0,,1,Verified through targeted FEC candidate-master search.
+NY-25,R,LAâRON D SINGLETARY,"SINGLETARY, LA'RON DESMOND",H2NY25082,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+NC-13,R,BO HINES,"HINES, ROBERT NICHOLAS",H2NC05157,O,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+PA-16,R,MIKE KELLY,"KELLY, GEORGE J JR",H0PA03271,I,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+TX-7,D,LIZZIE FLETCHER,"FLETCHER, ELIZABETH",H8TX07140,I,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+TX-9,R,JIMMY I LEON,"LEON, JIMMY",H2TX09156,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+TX-10,D,LINDA NUNO,"TREVNO, ROSALINDA NUNO",H2TX21201,C,manual_override,100.0,,1,Verified through targeted FEC candidate-master search.
+IN-4,D,ROGER D DAY,"DAY, ROGER D MR",H2IN04184,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+IA-2,R,ASHLEY HINSON,"ARENHOLZ, ASHLEY HINSON",H0IA01174,I,manual_override,100.0,,1,Verified through targeted FEC candidate-master search.
+OH-12,D,AMY RIPPEL-ELTON,"RIPPEL-ELTON, AMY MRS.",H2OH12126,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+OH-15,D,GARY JOSEPHSON,"JOSEPHSON, GARY",H2OH15277,C,manual_override,100.0,,1,"Verified 2022 MIT-to-FEC identity; manual override resolves duplicate ID, nickname, or name-format ambiguity."
+AZ-7,D,RAÃL M GRIJALVA,"GRIJALVA, RAUL M",H2AZ07070,I,probable_automatic,74.5,,1,last_exact+first_initial+token_overlap+scope_same_race
+AR-2,R,J FRENCH HILL,"HILL, JAMES FRENCH",H4AR02141,I,probable_automatic,74.5,2.0,4,last_exact+first_initial+token_overlap+scope_same_race
+GA-3,R,A DREW FERGUSON IV,"FERGUSON, ANDERSON DREW IV",H6GA03113,I,probable_automatic,74.5,2.0,5,last_exact+first_initial+token_overlap+scope_same_race
+NJ-2,R,JEFFERSON VAN DREW,"VAN DREW, JEFF MR",H8NJ02166,I,probable_automatic,74.5,0.0,4,last_exact+first_initial+token_overlap+scope_same_race
+VA-4,D,A DONALD MCEACHIN,"MCEACHIN, ASTON DONALD",H6VA04061,I,probable_automatic,74.5,0.0,3,last_exact+first_initial+token_overlap+scope_same_race
+AL-4,D,RICK NEIGHBORS,"NEIGHBORS, RICKY",H8AL04086,C,probable_automatic,72.0,0.0,2,last_exact+first_initial+scope_same_race
+CA-6,D,AMI BERA,"BERA, AMERISH",H0CA03078,I,probable_automatic,72.0,0.0,3,last_exact+first_initial+scope_same_race
+CA-17,D,RO KHANNA,"KHANNA, ROHIT",H4CA12055,I,probable_automatic,72.0,0.0,4,last_exact+first_initial+scope_same_race
+CO-5,R,DOUG LAMBORN,"LAMBORN, DOUGLAS",H6CO05159,I,probable_automatic,72.0,2.0,4,last_exact+first_initial+scope_same_race
+FL-2,D,"AL LAWSON, JR","LAWSON, ALFRED JR",H0FL02086,I,probable_automatic,72.0,,1,last_exact+first_initial+scope_same_race
+FL-16,R,VERN BUCHANAN,"BUCHANAN, VERNON",H6FL13148,I,probable_automatic,72.0,2.0,2,last_exact+first_initial+scope_same_race
+GA-3,D,VAL ALMONORD,"ALMONORD, VALBRUN DR.",H0GA03074,C,probable_automatic,72.0,,1,last_exact+first_initial+scope_same_race
+NY-2,D,JACKIE GORDON,"GORDON, JACQUELINE",H0NY02192,C,probable_automatic,72.0,0.0,2,last_exact+first_initial+scope_same_race
+NC-10,D,PAM GENANT,"GENANT, PAMELA",H2NC13235,O,probable_automatic,72.0,0.0,2,last_exact+first_initial+scope_same_race
+TN-3,D,MEG GORMAN,"GORMAN, MARY",H2TN03219,C,probable_automatic,72.0,2.0,4,last_exact+first_initial+scope_same_race
+TX-9,D,AL GREEN,"GREEN, ALEXANDER",H4TX09095,I,probable_automatic,72.0,,1,last_exact+first_initial+scope_same_race
+TX-28,R,CASSY GARCIA,"GARCIA, CASSANDRA",H2TX28149,C,probable_automatic,72.0,2.0,7,last_exact+first_initial+scope_same_race
+ID-1,R,RUSS FULCHER,"FULCHER, RUSSELL",H8ID01124,I,probable_automatic,72.0,2.0,2,last_exact+first_initial+scope_same_race
+IN-7,D,ANDRÃ CARSON,"CARSON, ANDRE",H8IN07184,I,probable_automatic,72.0,0.0,3,last_exact+first_initial+scope_same_race
+IA-3,D,CYNTHIA AXNE,"AXNE, CINDY",H8IA03124,I,probable_automatic,72.0,,1,last_exact+first_initial+scope_same_race
+IA-4,R,RANDY FEENSTRA,"FEENSTRA, RANDALL",H0IA04145,I,probable_automatic,72.0,,1,last_exact+first_initial+scope_same_race
+OH-4,D,TAMIE WILSON,"WILSON, TAMARA",H2OH04164,C,probable_automatic,72.0,2.0,2,last_exact+first_initial+scope_same_race
+OR-4,D,VAL HOYLE,"HOYLE, VALERIE",H2OR04095,O,probable_automatic,72.0,2.0,10,last_exact+first_initial+scope_same_race
+SC-2,D,JUDD LARKINS,"LARKINS, JUDDSON",H2SC02182,C,probable_automatic,72.0,2.0,2,last_exact+first_initial+scope_same_race
+CA-28,R,WES HALLMAN,"HALLMAN, WESLEY PHILLIP",H2CA28188,C,probable_automatic,70.75,,1,last_exact+first_initial+scope_same_race
+CO-4,R,KEN BUCK,"BUCK, KENNETH R",H4CO04090,I,probable_automatic,70.75,2.0,2,last_exact+first_initial+scope_same_race
+CO-4,D,IKE MCCORKLE,"MCCORKLE, ISAAC IAN",H0CO04197,C,probable_automatic,70.75,0.0,4,last_exact+first_initial+scope_same_race
+GA-7,D,LUCY MCBATH,"MCBATH, LUCIA KAY MS.",H8GA06393,I,probable_automatic,70.75,2.0,3,last_exact+first_initial+scope_same_race
+MD-1,R,ANDY HARRIS,"HARRIS, ANDREW P",H8MD01094,I,probable_automatic,70.75,,1,last_exact+first_initial+scope_same_race
+MI-2,D,JERRY HILLIARD,"HILLIARD, JEROME C",H8MI04101,C,probable_automatic,70.75,0.0,2,last_exact+first_initial+scope_same_race
+MI-5,D,BART GOLDBERG,"GOLDBERG, BARTLEY F.",H2MI05176,C,probable_automatic,70.75,,1,last_exact+first_initial+scope_same_race
+MN-2,D,ANGIE CRAIG,"CRAIG, ANGELA DAWN",H6MN02131,I,probable_automatic,70.75,,1,last_exact+first_initial+scope_same_race
+MN-8,R,PETE STAUBER,"STAUBER, PETER ALLEN",H8MN08043,I,probable_automatic,70.75,0.0,2,last_exact+first_initial+scope_same_race
+TX-4,D,IRO OMERE,"OMERE, IROGHAMA C",H2TX04124,C,probable_automatic,70.75,2.0,4,last_exact+first_initial+scope_same_race
+TX-6,R,JAKE ELLZEY,"ELLZEY, JOHN KEVIN SR.",H8TX06266,I,probable_automatic,70.75,2.0,5,last_exact+first_initial+scope_same_race
+WA-7,R,CLIFF MOON,"MOON, CLIFFORD E",H2WA07127,C,probable_automatic,70.75,2.0,2,last_exact+first_initial+scope_same_race
+WA-9,R,DOUG BASLER,"BASLER, DOUGLAS MICHAEL",H4WA09061,C,probable_automatic,70.75,2.0,4,last_exact+first_initial+scope_same_race
+IN-2,R,RUDOLPH âRUDYâ YAKYM III,"YAKYM, RUDY",H2IN02295,O,probable_automatic,70.75,2.0,5,last_exact+first_initial+scope_same_race
+MO-6,R,SAM GRAVES,"GRAVES, SAMUEL B. JR.",H0MO06073,I,probable_automatic,70.75,2.0,5,last_exact+first_initial+scope_same_race
+NV-4,R,SAM PETERS,"PETERS, SAMUEL JAMES MR",H0NV04023,C,probable_automatic,70.75,2.0,5,last_exact+first_initial+scope_same_race
+NV-2,D,ELIZABETH MERCEDES KRAUSE,"KRAUSE, E M",H2NV02551,C,probable_automatic,70.0,2.0,8,last_exact+first_initial+scope_same_race
+MI-5,R,TIM WALBERG,"WALBERG, TIMOTHY L REP",H4MI07103,I,probable_state_fallback,88.0,2.0,46,last_exact+first_match+scope_same_state_party
+TN-4,D,WAYNE STEELE,"STEELE, RUSSELL",H8TN04123,C,review_required,50.0,0.0,2,last_exact+first_mismatch+scope_same_race
+LA-2,R,âDANâ LUX,"LUX, DANIEL ANTHONY",H2LA02297,C,review_required,48.75,,1,last_exact+first_mismatch+scope_same_race
+LA-5,R,ALLEN GUILLORY,"GUILLORY, JOSHUA S",H8LA03037,C,review_required,48.75,2.0,3,last_exact+first_mismatch+scope_same_race
+MO-2,D,TRISH GUNBY,"GUNBY, PATRICIA WASHBURN",H2MO02201,C,review_required,48.75,2.0,3,last_exact+first_mismatch+scope_same_race
+NY-1,R,NICHOLAS J LALOTA,,,,unmatched,25.0,2.0,76,last_prefix+first_mismatch+scope_same_state_party
+AZ-2,D,TOM OâHALLERAN,,,,unmatched,0.0,2.0,4,last_name_mismatch+scope_same_race
+CA-13,R,JOHN DUARTE,,,,unmatched,0.0,0.0,2,last_name_mismatch+scope_same_race
+CA-47,R,SCOTT BAUGH,,,,unmatched,0.0,2.0,5,last_name_mismatch+scope_same_race
+MD-4,D,GLENN F IVEY,,,,unmatched,0.0,2.0,10,last_name_mismatch+scope_same_race
+NC-14,R,PAT HARRIGAN,,,,unmatched,0.0,0.0,2,last_name_mismatch+scope_same_race
+PA-2,R,AARON BASHIR,,,,unmatched,0.0,,1,last_name_mismatch+scope_same_race
+TX-3,R,KEITH SELF,,,,unmatched,0.0,2.0,5,last_name_mismatch+scope_same_race
+WA-1,R,VINCENT J CAVELERI,,,,unmatched,0.0,0.0,3,last_name_mismatch+scope_same_race
+MT-1,R,RYAN K ZINKE,,,,unmatched,0.0,2.0,6,last_name_mismatch+scope_same_race
+VT-AL,R,LIAM MADDEN,,,,unmatched,0.0,,1,last_name_mismatch+scope_same_race

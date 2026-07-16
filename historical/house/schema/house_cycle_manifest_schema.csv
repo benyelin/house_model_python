@@ -1,0 +1,13 @@
+field_name,data_type,required,description
+cycle,integer,yes,Election cycle year
+election_date,date,yes,General election date
+expected_districts,integer,yes,Expected number of House districts
+presidential_baseline_year,integer,yes,Primary presidential baseline year
+prior_presidential_baseline_year,integer,no,Secondary presidential baseline year
+generic_ballot_snapshot_date,date,no,Date of national environment snapshot
+approval_snapshot_date,date,no,Date of presidential approval snapshot
+results_source_name,string,yes,Primary official results source
+results_source_url,string,yes,Primary official results URL
+district_baseline_source_name,string,no,Presidential district result source
+district_baseline_source_url,string,no,Presidential district result URL
+notes,string,no,Cycle-specific notes

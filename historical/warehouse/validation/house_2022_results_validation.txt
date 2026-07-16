@@ -1,0 +1,69 @@
+2022 House Results Validation
+==================================
+
+Raw candidate-level rows: 1349
+Processed race rows: 435
+Expected race rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+Missing Democratic candidates: 20
+Missing Republican candidates: 12
+Missing actual margins: 0
+Missing winners: 0
+Major-party-contested races: 400
+Nonstandard party structures: 35
+Actually uncontested races: 13
+Uncontested Democratic races: 1
+Uncontested Republican races: 12
+
+Party structure counts:
+general_election_party_structure
+D_vs_R         400
+R_unopposed     12
+R_vs_Other      10
+D_vs_D           6
+D_vs_Other       5
+D_unopposed      1
+R_vs_R           1
+
+Total Democratic votes: 50845922
+Total Republican votes: 54102564
+Total other votes: 2919936
+Total votes: 108443389
+
+Validation status:
+PASSED
+
+Warnings:
+- AL-1: no Democratic candidate
+- AL-6: no Democratic candidate
+- CA-10: no Republican candidate
+- CA-15: no Republican candidate
+- CA-16: no Republican candidate
+- CA-29: no Republican candidate
+- CA-30: no Republican candidate
+- CA-34: no Republican candidate
+- CA-37: no Republican candidate
+- FL-18: no Democratic candidate
+- FL-5: no Democratic candidate
+- FL-6: no Democratic candidate
+- IL-7: no Republican candidate
+- LA-4: no Democratic candidate
+- LA-6: no Democratic candidate
+- MA-4: no Republican candidate
+- ND-AL: no Democratic candidate
+- NY-13: no Republican candidate
+- NY-9: no Republican candidate
+- PA-13: no Democratic candidate
+- PA-14: no Democratic candidate
+- PA-3: no Republican candidate
+- SC-3: no Democratic candidate
+- SC-4: no Democratic candidate
+- SD-AL: no Democratic candidate
+- TX-11: no Democratic candidate
+- TX-19: no Democratic candidate
+- TX-25: no Democratic candidate
+- TX-26: no Democratic candidate
+- TX-31: no Democratic candidate
+- TX-6: no Democratic candidate
+- WI-6: no Democratic candidate

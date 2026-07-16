@@ -1,0 +1,2 @@
+cycle,election_date,expected_districts,presidential_baseline_year,prior_presidential_baseline_year,generic_ballot_snapshot_date,approval_snapshot_date,results_source_name,results_source_url,district_baseline_source_name,district_baseline_source_url,notes
+2022,2022-11-08,435,2020,,,,,,,Initial manifest. Source URLs will be added during ingestion.

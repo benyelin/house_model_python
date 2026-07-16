@@ -1,0 +1,12 @@
+table_name,grain,primary_key,purpose
+election_results_candidate,one candidate per election race and stage,cycle+chamber+race_id+candidate_source_id,Raw-normalized candidate vote totals
+election_results_race,one race per cycle and election stage,cycle+chamber+race_id,Canonical race-level election results
+candidate_registry,one candidate per cycle and race,cycle+chamber+race_id+candidate_uid,Candidate identities and external IDs
+officeholder_service,one officeholder service period per office,officeholder_uid+service_start+office_id,Historical incumbency and officeholding
+race_structure,one race per cycle,cycle+chamber+race_id,Open seat incumbency election type and unusual structure
+presidential_district_results,one presidential result per district boundary set,year+boundary_cycle+race_id,Presidential baseline by congressional district
+national_environment_snapshot,one national snapshot per date and chamber,snapshot_date+chamber,Generic ballot approval and derived environment
+poll_observation,one poll candidate matchup observation,poll_id+race_id+candidate_pair,Historical poll data
+race_snapshot,one race per historical snapshot,cycle+chamber+race_id+snapshot_date,All factual information available as of a date
+model_backtest_input,one race per model version and snapshot,model_version+cycle+race_id+snapshot_date,Derived model-ready historical inputs
+backtest_result,one race per model version and snapshot,model_version+cycle+race_id+snapshot_date,Predictions and scoring results

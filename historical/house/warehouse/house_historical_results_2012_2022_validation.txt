@@ -1,0 +1,30 @@
+Historical House Results Warehouse Validation
+=============================================
+
+Cycles: 2012, 2014, 2016, 2018, 2020, 2022
+Cycle count: 6
+Warehouse rows: 2610
+Expected rows: 2610
+Duplicate cycle/race records: 0
+Missing margins: 0
+
+Rows by cycle:
+cycle
+2012    435
+2014    435
+2016    435
+2018    435
+2020    435
+2022    435
+
+Major-party-contested races by cycle:
+cycle
+2012    389
+2014    357
+2016    371
+2018    393
+2020    407
+2022    400
+
+Validation status:
+PASSED

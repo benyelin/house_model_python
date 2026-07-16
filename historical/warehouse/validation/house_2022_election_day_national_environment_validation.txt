@@ -1,0 +1,20 @@
+2022 Historical National Environment Validation
+===============================================
+
+Generic ballot Dem margin: -1.2000
+Presidential approval: 41.3000
+Presidential disapproval: 54.2000
+Presidential net approval: -12.9000
+President party: D
+Approval adjustment Dem: -1.2333
+Midterm adjustment Dem: -1.0000
+
+Formula:
+0.85*generic ballot + 0.50*approval adjustment + 0.50*midterm adjustment
+
+Generic contribution: -1.0200
+Approval contribution: -0.6167
+Midterm contribution: -0.5000
+National environment Dem: -2.1367
+
+This is a forecast input snapshot, not the actual House popular-vote outcome.

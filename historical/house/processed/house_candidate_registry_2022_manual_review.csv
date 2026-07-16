@@ -1,0 +1,69 @@
+race_id,party_code,mit_candidate_name,fec_candidate_name,fec_candidate_id,incumbent_challenger_status,match_method,match_score,second_best_score,candidate_count_considered,match_reason,score_gap,review_priority
+AZ-1,R,DAVID SCHWEIKERT,"BARNETT, JOSH",H0AZ07082,C,review_required,0.0,0.0,4,last_name_mismatch,0.0,High
+AZ-2,D,TOM OâHALLERAN,"FRIESE, RANDALL S.",H2AZ02329,C,review_required,0.0,0.0,4,last_name_mismatch,0.0,High
+CA-13,R,JOHN DUARTE,"MARTINEZ, DIEGO J",H2CA13123,C,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+CA-29,D,ANGÃLICA MARIA DUEÃAS,"CARDENAS, TONY",H2CA28113,I,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+CA-39,R,AJA SMITH,"MINNELLA, JOHN LORDSAL",H2CA39177,C,review_required,0.0,0.0,5,last_name_mismatch,0.0,High
+CA-47,R,SCOTT BAUGH,"BURLEY, BRIAN J MR.",H0CA48172,C,review_required,0.0,0.0,5,last_name_mismatch,0.0,High
+GA-11,D,ANTONIO DAZA,"KILPATRICK, HEATHER",H2GA11214,C,review_required,0.0,0.0,3,last_name_mismatch,0.0,High
+GA-14,D,MARCUS FLOWERS,"TRAMBAUER-SMITH, BRITTANY",H2GA14028,C,review_required,0.0,0.0,5,last_name_mismatch,0.0,High
+IL-4,D,JESÃS G âCHUYâ GARCÃA,"GARCIA, JESUS",H8IL04134,I,review_required,0.0,,1,last_name_mismatch,,High
+MD-4,D,GLENN F IVEY,"SHELTON, KIM",H0MD04160,O,review_required,0.0,0.0,10,last_name_mismatch,0.0,High
+MI-5,R,TIM WALBERG,"SCOTT, EZRA MR.",H2MI06109,C,review_required,0.0,0.0,3,last_name_mismatch,0.0,High
+MI-9,R,LISA MCCLAIN,"NEEDHAM, JOEL PATRICK",H2MI09152,C,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+NY-1,R,NICHOLAS J LALOTA,"FIGLIOLA, ANTHONY M",H2NY01174,O,review_required,0.0,0.0,8,last_name_mismatch,0.0,High
+NY-4,R,ANTHONY P DâESPOSITO,"STANIFORD, WILLIAM",H2NY04160,C,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+NY-24,D,STEVEN HOLDEN,"MAJOK, CHOL-AWAN A",H2NY24168,O,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+NC-14,R,PAT HARRIGAN,"MCKIM, KEN",H2NC14068,O,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+PA-2,R,AARON BASHIR,"ROBLES, ALBERT IVAN",H2PA02162,C,review_required,0.0,,1,last_name_mismatch,,High
+TX-1,D,JRMAR âJJâ JEFFERSON,"DASS, GAVIN",H2TX01138,O,review_required,0.0,0.0,3,last_name_mismatch,0.0,High
+TX-3,R,KEITH SELF,"HARP, SUZANNE CASSIMATIS",H2TX03282,O,review_required,0.0,0.0,5,last_name_mismatch,0.0,High
+TX-10,D,LINDA NUNO,"WALLACE, LARIMEN T. II",H2TX10147,C,review_required,0.0,0.0,2,last_name_mismatch,0.0,High
+WA-1,R,VINCENT J CAVELERI,"CHARTRAND, DEREK",H0WA01124,C,review_required,0.0,0.0,3,last_name_mismatch,0.0,High
+IA-2,R,ASHLEY HINSON,"ARENHOLZ, ASHLEY HINSON",H0IA01174,I,review_required,0.0,,1,last_name_mismatch,,High
+MT-1,R,RYAN K ZINKE,"TODD, MARY BROOKS",H2MT00112,C,review_required,0.0,0.0,6,last_name_mismatch,0.0,High
+VT-AL,R,LIAM MADDEN,"TYNIO, NATASHA",H8VT01065,O,review_required,0.0,,1,last_name_mismatch,,High
+AZ-7,R,LUIS POZZOLO,,,,unmatched,0.0,,0,no_same_race_party_candidates,,High
+CA-44,R,PAUL JONES,,,,unmatched,0.0,,0,no_same_race_party_candidates,,High
+WV-1,D,LACY WATSON,,,,unmatched,0.0,,0,no_same_race_party_candidates,,High
+CA-46,D,J LUIS CORREA,"CORREA, LOU",H6CA46116,I,review_required,48.75,0.0,3,last_exact+first_mismatch,48.75,High
+FL-17,R,W GREGORY STEUBE,"STEUBE, GREG",H8FL17053,I,review_required,48.75,,1,last_exact+first_mismatch,,High
+IL-11,D,BILL FOSTER,"FOSTER, G. WILLIAM (BILL)",H8IL14067,I,review_required,48.75,,1,last_exact+first_mismatch,,High
+NC-8,R,DAN BISHOP,"BISHOP, JAMES DANIEL",H0NC09187,I,review_required,48.75,,1,last_exact+first_mismatch,,High
+NC-13,R,BO HINES,"HINES, ROBERT NICHOLAS",H2NC05157,O,review_required,48.75,0.0,12,last_exact+first_mismatch,48.75,High
+PA-16,R,MIKE KELLY,"KELLY, GEORGE J JR",H0PA03271,I,review_required,48.75,,1,last_exact+first_mismatch,,High
+TX-36,D,JON HAIRE,"HAIRE, MARVIN JONATHAN",H2TX36142,C,review_required,48.75,,1,last_exact+first_mismatch,,High
+LA-2,R,âDANâ LUX,"LUX, DANIEL ANTHONY",H2LA02297,C,review_required,48.75,,1,last_exact+first_mismatch,,High
+LA-4,R,MIKE JOHNSON,"JOHNSON, JAMES MICHAEL",H6LA04138,I,review_required,48.75,0.0,2,last_exact+first_mismatch,48.75,High
+LA-5,R,ALLEN GUILLORY,"GUILLORY, JOSHUA S",H8LA03037,C,review_required,48.75,0.0,3,last_exact+first_mismatch,48.75,High
+MS-4,R,MIKE EZELL,"EZELL, WALTER MICHAEL",H2MS04258,C,review_required,48.75,0.0,8,last_exact+first_mismatch,48.75,High
+MO-2,D,TRISH GUNBY,"GUNBY, PATRICIA WASHBURN",H2MO02201,C,review_required,48.75,0.0,3,last_exact+first_mismatch,48.75,High
+TN-4,D,WAYNE STEELE,"STEELE, RUSSELL",H8TN04123,C,review_required,50.0,0.0,2,last_exact+first_mismatch,50.0,High
+TX-7,D,LIZZIE FLETCHER,"FLETCHER, ELIZABETH",H8TX07140,I,review_required,50.0,,1,last_exact+first_mismatch,,High
+CO-5,D,DAVID TORRES,"GOENAGA-TORRES, SANTIAGO DAVID",H2CO05141,C,review_required,52.5,0.0,4,last_exact+first_mismatch+token_overlap,52.5,High
+TX-23,R,TONY GONZALES,"GONZALES, ERNEST ANTHONY TONY II",H0TX35015,I,review_required,52.5,0.0,3,last_exact+first_mismatch+token_overlap,52.5,High
+AL-2,R,BARRY MOORE,"MOORE, FELIX BARRY",H8AL02171,I,review_required,55.0,0.0,2,last_exact+first_mismatch+token_overlap,55.0,High
+FL-18,R,C SCOTT FRANKLIN,"FRANKLIN, SCOTT MR.",H0FL15104,I,review_required,55.0,0.0,8,last_exact+first_mismatch+token_overlap,55.0,High
+GA-8,R,AUSTIN SCOTT,"SCOTT, JAMES AUSTIN",H0GA08099,I,review_required,55.0,0.0,2,last_exact+first_mismatch+token_overlap,55.0,High
+IL-8,D,RAJA KRISHNAMOORTHI,"KRISHNAMOORTHI, S. RAJA",H6IL08147,I,review_required,55.0,0.0,3,last_exact+first_mismatch+token_overlap,55.0,High
+NC-5,D,KYLE PARRISH,"PARRISH, BERNARD KYLE",H2NC07203,C,review_required,55.0,,1,last_exact+first_mismatch+token_overlap,,High
+NC-6,R,CHRISTIAN CASTELLI,"CASTELLI, ROBERT CHRISTIAN",H2NC07161,C,review_required,55.0,0.0,7,last_exact+first_mismatch+token_overlap,55.0,High
+TN-7,D,ODESSA KELLY,"KELLY, JACQUELYN ODESSA",H2TN05305,O,review_required,55.0,,1,last_exact+first_mismatch+token_overlap,,High
+TX-13,D,KATHLEEN BROWN,"BROWN, MARY KATHLEEN",H2TX13117,C,review_required,55.0,,1,last_exact+first_mismatch+token_overlap,,High
+TX-35,R,DAN MCQUEEN,"MCQUEEN, ELDON DAN",H0TX20124,C,review_required,55.0,0.0,10,last_exact+first_mismatch+token_overlap,55.0,High
+WA-9,D,ADAM SMITH,"SMITH, D. ADAM",H6WA09025,I,review_required,55.0,0.0,5,last_exact+first_mismatch+token_overlap,55.0,High
+KY-2,R,BRETT GUTHRIE,"GUTHRIE, S. BRETT HON.",H8KY02031,I,review_required,55.0,0.0,5,last_exact+first_mismatch+token_overlap,55.0,High
+KY-6,R,ANDY BARR,"BARR, GARLAND ANDY",H0KY06104,I,review_required,55.0,0.0,2,last_exact+first_mismatch+token_overlap,55.0,High
+MS-1,R,TRENT KELLY,"KELLY, JOHN TRENT",H6MS01131,I,review_required,55.0,0.0,2,last_exact+first_mismatch+token_overlap,55.0,High
+MO-3,R,BLAINE LUETKEMEYER,"LUETKEMEYER, W BLAINE",H8MO09153,I,review_required,55.0,0.0,4,last_exact+first_mismatch+token_overlap,55.0,High
+NM-2,R,YVETTE HERRELL,"HERRELL, STELLA YVETTE",H8NM02156,I,review_required,55.0,,1,last_exact+first_mismatch+token_overlap,,High
+OH-12,R,TROY BALDERSON,"BALDERSON, WILLIAM TROY",H8OH12180,I,review_required,55.0,0.0,2,last_exact+first_mismatch+token_overlap,55.0,High
+VT-AL,D,BECCA BALINT,"BALINT, REBECCA 'BECCA'",H2VT01076,O,review_required,55.0,0.0,6,last_exact+first_mismatch+token_overlap,55.0,High
+CA-24,R,BRAD ALLEN,"ALLEN, BRAD DR.",H2CA24229,C,review_required,100.0,100.0,3,last_exact+first_match+token_overlap,0.0,High
+IL-15,D,PAUL J LANGE,"LANGE, PAUL J",H2IL15091,C,review_required,100.0,95.0,2,last_exact+first_match+token_overlap,5.0,High
+TX-9,R,JIMMY I LEON,"LEON, JIMMY I",H2TX09149,C,review_required,100.0,95.0,3,last_exact+first_match+token_overlap,5.0,High
+IN-4,D,ROGER D DAY,"DAY, ROGER D MR",H2IN04184,C,review_required,100.0,95.0,3,last_exact+first_match+token_overlap,5.0,High
+OH-12,D,AMY RIPPEL-ELTON,"RIPPEL-ELTON, AMY MRS.",H2OH12126,C,review_required,100.0,100.0,5,last_exact+first_match+token_overlap,0.0,High
+OH-15,D,GARY JOSEPHSON,"JOSEPHSON, GARY",H2OH15269,C,review_required,100.0,100.0,4,last_exact+first_match+token_overlap,0.0,High
+OH-11,D,SHONTEL M BROWN,"BROWN, M SHONTEL",H2OH11169,I,review_required,60.0,0.0,4,last_exact+first_mismatch+token_overlap,60.0,Medium
+NY-25,R,LAâRON D SINGLETARY,"SINGLETARY, LA'RON DESMOND",H2NY25082,C,review_required,69.5,,1,last_exact+first_initial,,Medium
