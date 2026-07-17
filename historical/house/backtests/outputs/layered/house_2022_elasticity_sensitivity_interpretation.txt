@@ -1,0 +1,89 @@
+2022 House District Elasticity Sensitivity Interpretation
+=========================================================
+
+Decision
+--------
+Do not add the tested district-level elasticity estimates to the
+production House forecasting model.
+
+The historical data infrastructure, estimator, component, and sensitivity
+runner should be retained for future research and improved district mapping.
+
+Benchmark
+---------
+Layer 2 uses:
+- 2020 presidential district baseline on 2022 boundaries
+- calibrated 2022 national environment
+- 2.0-point symmetric incumbency adjustment
+
+Layer 2 performance on 400 ordinary D-vs-R races:
+- Mean absolute error: 4.889978
+- RMSE: 6.475034
+- Winner accuracy: 0.957500
+- Brier score: 0.034720
+- Log loss: 0.125631
+- Predicted Democratic win-count error: 5 seats
+- Expected Democratic win-count error: 2.493523 seats
+
+Layer 3 test
+------------
+District elasticity was estimated from consecutive 2012-2020 House
+two-party swings using constrained ordinary least squares through the
+origin.
+
+District estimates were partially pooled through a shrinkage grid from
+0.00 through 1.00. Each tested elasticity vector was normalized to a
+mean of 1.0 among scored races so the experiment isolated district-level
+variation from the overall national-environment coefficient.
+
+The 1.00 shrinkage setting reproduced Layer 2 exactly, validating the
+experimental control.
+
+Best combined-rank setting
+--------------------------
+Shrinkage strength: 0.80
+District-level variation retained: 0.20
+
+Performance:
+- Mean absolute error: 4.892584
+- Change from Layer 2 MAE: +0.002606
+- RMSE: 6.465780
+- Change from Layer 2 RMSE: -0.009255
+- Winner accuracy: 0.955000
+- Change from Layer 2 winner accuracy: -0.002500
+- Brier score: 0.034709
+- Change from Layer 2 Brier score: -0.000011
+- Log loss: 0.125262
+- Change from Layer 2 log loss: -0.000370
+- Predicted Democratic win-count error: 4 seats
+- Expected Democratic win-count error: 2.354243 seats
+
+Interpretation
+--------------
+The best partially pooled elasticity setting produced extremely small
+improvements in RMSE, Brier score, log loss, and seat-count error, but
+slightly worsened mean absolute error and winner accuracy.
+
+More aggressive retention of district-level elasticity variation clearly
+degraded performance. With no shrinkage, MAE rose to 5.051948 and RMSE
+rose to 6.602405.
+
+The evidence therefore does not support adopting the current elasticity
+implementation. The estimated district variation appears to contain
+substantial noise from candidate effects, unusual elections, limited
+district observations, and the transfer of pre-2022 district-number
+estimates across the 2022 redistricting boundary.
+
+Production disposition
+----------------------
+- Keep Layer 2 as the official historical benchmark.
+- Do not add district-level elasticity to the production forecast.
+- Preserve all Layer 3 historical datasets, estimators, and sensitivity
+  tools.
+- Reconsider Layer 3 only after constructing a geographically compatible
+  crosswalk or estimating responsiveness from stable demographic and
+  geographic district characteristics.
+- Do not use the current production model's heuristic elasticity values
+  as substitutes for empirically validated historical estimates.
+
+Layer 3 status: RESEARCH COMPLETE; NOT ADOPTED

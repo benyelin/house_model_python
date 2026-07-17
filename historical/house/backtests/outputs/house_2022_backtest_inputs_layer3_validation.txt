@@ -1,0 +1,50 @@
+2022 House Layer 3 Input Validation
+===================================
+
+Rows: 435
+Unique race IDs: 435
+Historical district-label matches: 398
+Fallback elasticities used: 37
+Fallback elasticity: 0.974049
+Missing selected elasticities: 0
+Nonfinite selected elasticities: 0
+
+Match status counts:
+elasticity_match_status
+district_label_match_across_redistricting    398
+fallback_no_historical_district_label         37
+
+Selected elasticity summary:
+count   435.000000
+mean      0.961475
+std       0.405422
+min      -1.870785
+25%       0.781232
+50%       0.974049
+75%       1.154288
+max       2.936902
+
+Fallback counts by state:
+state
+AL    1
+AZ    1
+CA    6
+CO    1
+FL    4
+GA    2
+LA    1
+MA    4
+MS    1
+MT    2
+NC    1
+ND    1
+NY    4
+OR    1
+TX    6
+VA    1
+
+Boundary warning:
+Historical elasticity estimates use 2012-2020 district labels. Matching 2022 race IDs are approximate label matches across redistricting and do not guarantee geographic continuity.
+
+Validation status:
+PASSED

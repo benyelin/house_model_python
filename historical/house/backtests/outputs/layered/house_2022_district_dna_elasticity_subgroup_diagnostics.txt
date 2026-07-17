@@ -1,0 +1,36 @@
+2022 District DNA Elasticity Subgroup Diagnostics
+=================================================
+
+Best combined-rank retention: 0.45
+
+Overall candidate-retention results:
+ retention_level  races  layer_2_mae  layer_3_mae  mae_change  layer_2_rmse  layer_3_rmse  improved_races  worsened_races  mean_absolute_margin_change
+        0.000000    400     4.889978     4.889978    0.000000      6.475034      6.475034               0               0                     0.000000
+        0.300000    400     4.889978     4.882461   -0.007517      6.475034      6.468804             197             203                     0.239928
+        0.350000    400     4.889978     4.881492   -0.008486      6.475034      6.468994             197             203                     0.279856
+        0.400000    400     4.889978     4.880622   -0.009356      6.475034      6.469535             197             203                     0.319767
+        0.450000    400     4.889978     4.879935   -0.010043      6.475034      6.470425             197             203                     0.359661
+        0.500000    400     4.889978     4.880079   -0.009899      6.475034      6.471664             197             203                     0.399537
+
+Subgroups at the best combined-rank retention:
+       group_type                     group_value  races  mae_change  layer_2_rmse  layer_3_rmse  improved_races  worsened_races  mean_absolute_margin_change  maximum_absolute_margin_change
+  boundary_status Configured boundary-break state     64   -0.123711      7.198094      7.136767              40              24                     0.324961                        0.740583
+  boundary_status                     Other state    336    0.011608      6.327948      6.335562             157             179                     0.366270                        0.740583
+  competitiveness                        10 to 20     90   -0.003858      7.111753      7.102991              44              46                     0.353169                        0.740583
+  competitiveness                         5 to 10     41   -0.063846      6.773652      6.710196              22              19                     0.406737                        0.740583
+  competitiveness                         Over 20    243    0.021973      6.185639      6.211369             113             130                     0.349050                        0.740583
+  competitiveness                        Within 5     26   -0.245834      6.323408      6.153590              18               8                     0.407064                        0.740583
+    district_type                         Exurban     14   -0.318357      4.684413      4.352619              11               3                     0.559655                        0.740583
+    district_type                           Mixed    107   -0.009903      7.302365      7.274765              49              58                     0.326988                        0.740583
+    district_type                           Rural    138    0.054345      5.657311      5.720769              62              76                     0.350181                        0.740583
+    district_type                        Suburban     69   -0.109393      6.498979      6.450090              44              25                     0.388891                        0.740583
+    district_type                           Urban     72    0.021499      6.898514      6.903747              31              41                     0.359487                        0.740583
+prediction_source        Characteristics fallback     15    0.079248      8.651991      8.636728               6               9                     0.284353                        0.664550
+prediction_source                    District DNA    385   -0.013522      6.375190      6.371133             191             194                     0.362595                        0.740583
+      reliability                            high    282    0.007641      6.112293      6.124861             132             150                     0.377793                        0.740583
+      reliability       insufficient_single_cycle      4    0.260552     11.807155     11.886020               2               2                     0.310210                        0.664550
+      reliability                             low     45   -0.108987      5.379699      5.350359              30              15                     0.240831                        0.720291
+      reliability                          medium     58   -0.042348      8.104562      8.052149              29              29                     0.383173                        0.740583
+      reliability             no_scorable_history     11    0.013320      7.168230      7.095364               4               7                     0.274950                        0.546527
+
+Wrote: historical/house/backtests/outputs/layered/house_2022_district_dna_elasticity_subgroup_diagnostics.csv

@@ -1,0 +1,42 @@
+House Layer 4A Historical Behavior Panel Validation
+====================================================
+
+Rows: 2175
+Unique target-cycle/race rows: 2175
+Duplicate rows: 0
+Future-leakage rows: 0
+History-detail rows: 5267
+
+Cycle summary:
+              rows  unique_race_ids  target_scorable_races  behavior_feature_eligible  mean_prior_elections  districts_with_no_history  districts_with_two_plus_history
+target_cycle                                                                                                                                                           
+2014           435              435                    357                          0                 0.894                         46                                0
+2016           435              435                    371                        291                 1.520                         65                              291
+2018           435              435                    393                        326                 2.262                         26                              326
+2020           435              435                    407                        382                 3.108                         19                              382
+2022           435              435                    400                        419                 4.324                         11                              419
+
+Reliability by target cycle:
+prior_reliability  high  low  medium  no_history  single_cycle
+target_cycle                                                  
+2014                  0    0       0          46           389
+2016                  0  291       0          65            79
+2018                  0   77     249          26            83
+2020                243   71      68          19            34
+2022                361   13      45          11             5
+
+History-selection methods:
+history_selection_method
+same_boundary_regime_only            1740
+same_district_label_approximation     435
+
+Target continuity status:
+target_history_continuity
+same_regime                              1740
+approximate_across_2022_redistricting     435
+
+Important 2022 limitation:
+The 2022 target districts use post-redistricting boundaries. Without a geographic crosswalk, prior behavior is attached by district label and must be treated as exploratory rather than a clean same-geography pseudo-out-of-sample test.
+
+Validation status:
+PASSED

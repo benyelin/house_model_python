@@ -1,0 +1,5 @@
+forecast_cycle,source_war_rows,eligible_prior_war_rows,future_or_same_cycle_rows_excluded,aggregated_candidate_records,race_rows,both_matched,only_dem_matched,only_gop_matched,neither_matched,nonzero_adjustments,mean_absolute_adjustment,maximum_absolute_adjustment,future_war_rows_used
+2016,4652,714,3938,713,435,58,105,153,119,316,0.4334439655172414,3.0,0
+2018,4652,1452,3200,1128,435,39,127,175,94,340,0.3571271551724138,3.0,0
+2020,4652,2240,2412,1569,435,68,182,129,56,379,0.38207219827586214,3.0,0
+2022,4652,3056,1596,1957,435,68,126,160,81,353,0.2999175040487319,3.0,0

@@ -1,0 +1,20 @@
+2018 Historical National Environment Validation
+===============================================
+
+Generic ballot Dem margin: +7.3000
+Presidential approval: 40.0000
+Presidential disapproval: 54.0000
+Presidential net approval: -14.0000
+President party: R
+Approval adjustment Dem: +1.6667
+Midterm adjustment Dem: +1.0000
+
+Formula:
+0.85*generic ballot + 0.50*approval adjustment + 0.50*midterm adjustment
+
+Generic contribution: +6.2050
+Approval contribution: +0.8333
+Midterm contribution: +0.5000
+National environment Dem: +7.5383
+
+This is a forecast input snapshot, not the actual House popular-vote outcome.

@@ -1,0 +1,37 @@
+2022 House Candidate WAR Sensitivity
+====================================
+
+Scored races: 400
+National environment Dem: -2.136667
+Incumbency bonus: 2.0000
+Probability error scale: 6.5000
+
+Layer 2 benchmark:
+MAE: 4.889978
+RMSE: 6.475034
+Winner accuracy: 0.957500
+Brier: 0.032124
+Log loss: 0.103422
+
+Best combined-rank WAR setting:
+Shrinkage: 0.7000
+Incumbent discount: 1.0000
+One-sided multiplier: 1.0000
+Observation prior strength: 0.0000
+Cap: 4.0000
+MAE: 4.705597
+MAE change versus Layer 2: -0.184380
+RMSE: 6.181617
+RMSE change versus Layer 2: -0.293417
+Winner accuracy: 0.962500
+Brier change versus Layer 2: -0.004887
+Log-loss change versus Layer 2: -0.013499
+Expected-seat error: 2.614386
+Mean absolute WAR adjustment: 1.101988
+Maximum absolute WAR adjustment: 4.000000
+
+Methodological limitation:
+This calibrates WAR against the 2022 election only. No production setting should be changed until the same parameter family is tested across earlier election cycles.
+
+Validation status:
+PASSED

@@ -1,0 +1,44 @@
+House District Behavior Validation
+==================================
+
+Rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+District-regime detail rows: 510
+
+Selected-regime reliability:
+selected_regime_reliability
+high                         301
+medium                        68
+low                           49
+no_scorable_history           11
+insufficient_single_cycle      6
+
+Selected-regime scorable-election counts:
+selected_regime_scorable_elections
+0     11
+1      6
+2     49
+3     68
+4     75
+5    226
+
+Selected-regime behavior summary:
+                                                   count    mean     std      min      25%     50%     75%     max
+selected_regime_mean_dem_margin                 424.0000  2.4761 33.3755 -65.6908 -24.6687 -4.4849 29.8185 84.4109
+selected_regime_margin_std                      424.0000  6.0441  3.3823   0.0000   3.6347  5.4603  7.8571 19.4546
+selected_regime_mean_absolute_margin            424.0000 29.1353 16.6452   2.5165  15.7553 26.5183 39.8404 84.4109
+selected_regime_mean_absolute_swing             418.0000  7.5690  3.4867   0.0333   5.0554  7.1331  9.8409 20.2369
+selected_regime_party_switch_count              435.0000  0.1885  0.5400   0.0000   0.0000  0.0000  0.0000  3.0000
+selected_regime_competitive_within_10_rate      424.0000  0.1512  0.2530   0.0000   0.0000  0.0000  0.2500  1.0000
+selected_regime_trend_slope_points_per_election 418.0000  1.0776  4.4443 -14.3938  -1.3257  1.0605  3.6947 16.0444
+selected_regime_trend_residual_rmse             418.0000  3.8937  2.5519   0.0000   2.1795  3.9160  5.4654 12.3076
+
+Configured boundary-break states:
+FL, NC, PA, VA
+
+Boundary treatment:
+No behavior statistic crosses a configured boundary-regime break. Latest regimes with at least two scorable elections are preferred; single-cycle regimes are retained but marked insufficient for volatility and trend estimation.
+
+Validation status:
+PASSED

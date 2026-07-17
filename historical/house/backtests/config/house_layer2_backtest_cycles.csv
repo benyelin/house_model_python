@@ -1,0 +1,5 @@
+cycle,election_date,presidential_baseline_year,national_environment_file,results_cycle,enabled,status
+2016,2016-11-08,2012,historical/warehouse/processed/national_environment/house_2016_election_day_national_environment.csv,2016,1,pending
+2018,2018-11-06,2016,historical/warehouse/processed/national_environment/house_2018_election_day_national_environment.csv,2018,1,pending
+2020,2020-11-03,2016,historical/warehouse/processed/national_environment/house_2020_election_day_national_environment.csv,2020,1,pending
+2022,2022-11-08,2020,historical/warehouse/processed/national_environment/house_2022_election_day_national_environment.csv,2022,1,ready

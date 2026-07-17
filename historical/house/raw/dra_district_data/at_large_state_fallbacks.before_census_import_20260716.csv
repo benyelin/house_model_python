@@ -1,0 +1,7 @@
+race_id,state,district,dra_map_year,dra_population_dataset,total_population,white_population,hispanic_population,black_population,asian_population,native_population,pacific_population,voting_age_population,white_vap,hispanic_vap,black_vap,asian_vap,native_vap,pacific_vap,dra_composite_total_votes,dra_composite_dem_votes,dra_composite_rep_votes,source_name,source_notes
+AK-AL,AK,AL,2022,2020 Census,,,,,,,,,,,,,,,,,,,2020 Census state totals,At-large district; demographic values must equal statewide totals
+DE-AL,DE,AL,2022,2020 Census,,,,,,,,,,,,,,,,,,,2020 Census state totals,At-large district; demographic values must equal statewide totals
+ND-AL,ND,AL,2022,2020 Census,,,,,,,,,,,,,,,,,,,2020 Census state totals,At-large district; demographic values must equal statewide totals
+SD-AL,SD,AL,2022,2020 Census,,,,,,,,,,,,,,,,,,,2020 Census state totals,At-large district; demographic values must equal statewide totals
+VT-AL,VT,AL,2022,2020 Census,,,,,,,,,,,,,,,,,,,2020 Census state totals,At-large district; demographic values must equal statewide totals
+WY-AL,WY,AL,2022,2020 Census,,,,,,,,,,,,,,,,,,,2020 Census state totals,At-large district; demographic values must equal statewide totals

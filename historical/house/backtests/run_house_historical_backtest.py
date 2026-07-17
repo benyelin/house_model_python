@@ -7,13 +7,42 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+try:
+    from historical.house.overlays.candidate_quality import (
+        DEFAULT_WAR_PATH,
+        build_candidate_quality_overlay,
+    )
+except ModuleNotFoundError:
+    import sys
+    from pathlib import Path
+
+    PROJECT_ROOT_FOR_IMPORTS = (
+        Path(__file__).resolve().parents[3]
+    )
+
+    if str(PROJECT_ROOT_FOR_IMPORTS) not in sys.path:
+        sys.path.insert(
+            0,
+            str(PROJECT_ROOT_FOR_IMPORTS),
+        )
+
+    from historical.house.overlays.candidate_quality import (
+        DEFAULT_WAR_PATH,
+        build_candidate_quality_overlay,
+    )
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 DEFAULT_MASTER_PATH = (
     PROJECT_ROOT
-    / "historical/house/master/house_2022_master.csv"
+    / "historical"
+    / "house"
+    / "warehouse"
+    / "house_historical_backtest_inputs_2016_2022.csv"
 )
+
+SUPPORTED_CYCLES = (2016, 2018, 2020, 2022)
 
 DEFAULT_OUTPUT_DIR = (
     PROJECT_ROOT
@@ -165,6 +194,19 @@ def build_model_margin(
 
 
 def build_scoring_mask(df: pd.DataFrame) -> pd.Series:
+    """
+    Return the cycle-safe canonical scoring mask when available.
+
+    The canonical flag incorporates ordinary major-party scoring,
+    required observed inputs, and documented historical exceptions such
+    as the unavailable leakage-free presidential baseline for Florida
+    in 2016.
+    """
+    if "include_in_canonical_margin_backtest" in df.columns:
+        return parse_bool_series(
+            df["include_in_canonical_margin_backtest"]
+        )
+
     if "include_in_major_party_margin_scoring" in df.columns:
         return parse_bool_series(
             df["include_in_major_party_margin_scoring"]
@@ -536,6 +578,21 @@ def main() -> None:
         "--master-path",
         type=Path,
         default=DEFAULT_MASTER_PATH,
+        help=(
+            "Canonical historical backtest warehouse or a compatible "
+            "single-cycle input file."
+        ),
+    )
+
+    parser.add_argument(
+        "--cycle",
+        type=int,
+        choices=SUPPORTED_CYCLES,
+        default=2022,
+        help=(
+            "Historical election cycle to score from the canonical "
+            "multicycle warehouse. Default: 2022."
+        ),
     )
 
     parser.add_argument(
@@ -548,6 +605,26 @@ def main() -> None:
         "--default-error-sd",
         type=float,
         default=6.5,
+    )
+
+    parser.add_argument(
+        "--candidate-quality-weight",
+        type=float,
+        default=0.0,
+        help=(
+            "Multiplier applied to the leakage-safe historical "
+            "candidate WAR adjustment. Default: 0.0."
+        ),
+    )
+
+    parser.add_argument(
+        "--candidate-war-path",
+        type=Path,
+        default=DEFAULT_WAR_PATH,
+        help=(
+            "Path to the leakage-safe historical candidate WAR "
+            "warehouse."
+        ),
     )
 
     parser.add_argument(
@@ -567,7 +644,86 @@ def main() -> None:
             f"{args.master_path}"
         )
 
-    df = pd.read_csv(args.master_path)
+    loaded = pd.read_csv(
+        args.master_path,
+        low_memory=False,
+    )
+
+    # The canonical warehouse contains four cycles. Compatible legacy
+    # single-cycle inputs remain supported.
+    if "forecast_cycle" in loaded.columns:
+        forecast_cycle = pd.to_numeric(
+            loaded["forecast_cycle"],
+            errors="coerce",
+        )
+
+        df = loaded.loc[
+            forecast_cycle.eq(args.cycle)
+        ].copy()
+
+        if df.empty:
+            available_cycles = sorted(
+                forecast_cycle.dropna()
+                .astype(int)
+                .unique()
+                .tolist()
+            )
+
+            raise ValueError(
+                f"No rows found for cycle {args.cycle}. "
+                f"Available cycles: {available_cycles}"
+            )
+
+        if "cycle" in df.columns:
+            existing_cycle = pd.to_numeric(
+                df["cycle"],
+                errors="coerce",
+            )
+
+            inconsistent = (
+                existing_cycle.notna()
+                & existing_cycle.ne(args.cycle)
+            )
+
+            if inconsistent.any():
+                examples = df.loc[
+                    inconsistent,
+                    ["forecast_cycle", "cycle", "race_id"],
+                ].head(20)
+
+                raise ValueError(
+                    "Canonical forecast_cycle and cycle values are "
+                    "inconsistent. Examples: "
+                    f"{examples.to_dict('records')}"
+                )
+        else:
+            df["cycle"] = args.cycle
+
+    else:
+        df = loaded.copy()
+
+        if "cycle" not in df.columns:
+            raise ValueError(
+                "Input must contain forecast_cycle or cycle."
+            )
+
+        cycle_values = pd.to_numeric(
+            df["cycle"],
+            errors="coerce",
+        ).dropna().unique()
+
+        if len(cycle_values) != 1:
+            raise ValueError(
+                "Legacy input must contain exactly one cycle."
+            )
+
+        input_cycle = int(cycle_values[0])
+
+        if input_cycle != args.cycle:
+            raise ValueError(
+                f"Requested cycle {args.cycle}, but legacy input "
+                f"contains cycle {input_cycle}."
+            )
 
     missing_core = [
         column
@@ -577,25 +733,85 @@ def main() -> None:
 
     if missing_core:
         raise ValueError(
-            "Historical master is missing core fields: "
+            "Historical input is missing core fields: "
             + ", ".join(missing_core)
         )
 
     if len(df) != 435:
         raise ValueError(
-            f"Expected 435 House races; found {len(df)}."
+            f"Expected 435 House races for {args.cycle}; "
+            f"found {len(df)}."
         )
 
     if df["race_id"].duplicated().any():
-        duplicates = df.loc[
-            df["race_id"].duplicated(False),
-            "race_id",
-        ].tolist()
+        duplicates = (
+            df.loc[
+                df["race_id"].duplicated(False),
+                "race_id",
+            ]
+            .astype(str)
+            .tolist()
+        )
 
         raise ValueError(
             "Duplicate race IDs: "
             + ", ".join(duplicates)
         )
+
+    # Canonical geography and ordering should be deterministic.
+    sort_columns = [
+        column
+        for column in ("state", "district", "race_id")
+        if column in df.columns
+    ]
+
+    if sort_columns:
+        df = df.sort_values(
+            sort_columns,
+            kind="mergesort",
+        ).reset_index(drop=True)
+    else:
+        df = df.sort_values(
+            ["race_id"],
+            kind="mergesort",
+        ).reset_index(drop=True)
+
+    candidate_war_adjustment = (
+        build_candidate_quality_overlay(
+            df,
+            war_path=args.candidate_war_path,
+        )
+    )
+
+    df["candidate_war_adjustment_dem"] = (
+        candidate_war_adjustment
+    )
+
+    df["candidate_quality_weight"] = float(
+        args.candidate_quality_weight
+    )
+
+    df["candidate_quality_contribution_dem"] = (
+        df["candidate_war_adjustment_dem"]
+        * df["candidate_quality_weight"]
+    )
+
+    if "candidate_quality_adjustment_dem" in df.columns:
+        existing_candidate_quality = pd.to_numeric(
+            df["candidate_quality_adjustment_dem"],
+            errors="coerce",
+        ).fillna(0.0)
+    else:
+        existing_candidate_quality = pd.Series(
+            0.0,
+            index=df.index,
+            dtype=float,
+        )
+
+    df["candidate_quality_adjustment_dem"] = (
+        existing_candidate_quality
+        + df["candidate_quality_contribution_dem"]
+    )
 
     model_margin, forecast_source = build_model_margin(df)
 
@@ -611,10 +827,16 @@ def main() -> None:
 
     if len(cycle_values) != 1:
         raise ValueError(
-            "Historical master must contain exactly one cycle."
+            "Selected historical input must contain exactly one cycle."
         )
 
     cycle = int(cycle_values[0])
+
+    if cycle != args.cycle:
+        raise ValueError(
+            f"Selected data cycle {cycle} does not match requested "
+            f"cycle {args.cycle}."
+        )
 
     readiness_text = build_readiness_report(
         df,

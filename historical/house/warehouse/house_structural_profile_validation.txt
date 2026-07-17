@@ -1,0 +1,36 @@
+House Structural District Profile Validation
+============================================
+
+Rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+DRA-covered districts: 429
+DRA-missing districts: 6
+DRA-missing race IDs: AK-AL, DE-AL, ND-AL, SD-AL, VT-AL, WY-AL
+Missing presidential structural baselines: 0
+Missing DRA composite margins: 6
+Rows with invalid percentage shares: 0
+
+Presidential structural-feature summary:
+                                             count    mean     std      min      25%     50%     75%     max
+presidential_margin_average_2020_2024_dem 435.0000  2.3269 29.9463 -65.7500 -19.9000 -3.2500 23.6000 79.0500
+presidential_swing_2020_to_2024_dem       435.0000 -5.4960  4.7357 -23.2000  -7.4000 -4.5000 -2.1500  2.5000
+presidential_average_absolute_margin      435.0000 25.1304 16.4316   0.4000  12.4500 21.1000 35.3250 79.0500
+presidential_baseline_competitiveness     435.0000 74.8696 16.4316  20.9500  64.6750 78.9000 87.5500 99.6000
+
+Presidential party-lean counts:
+presidential_party_lean
+Republican    226
+Democratic    209
+
+Presidential trend-direction counts:
+presidential_trend_direction
+Republican    401
+Stable         20
+Democratic     14
+
+Profile stage:
+Foundation using existing validated DRA and presidential data. Future layers will add geography, historical House performance, volatility, and party-switch measures.
+
+Validation status:
+PASSED

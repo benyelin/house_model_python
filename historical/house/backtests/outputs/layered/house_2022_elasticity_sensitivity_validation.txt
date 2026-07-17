@@ -1,0 +1,30 @@
+2022 House Elasticity Sensitivity Validation
+============================================
+
+Scored races: 400
+National environment Dem: -2.136667
+Incumbency bonus: 2.0000
+Probability error scale: 6.5000
+Sensitivity strengths: 0.00, 0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00
+
+Normalization:
+Each elasticity vector is re-centered to mean 1.0 within the scored sample. This isolates district-level variation from the overall national-environment coefficient.
+
+Layer 2 equivalence control:
+Maximum absolute Layer 3 minus Layer 2 margin at 100% shrinkage: 0.000000000000
+MAE difference at 100% shrinkage: 0.000000000000
+
+Best combined-rank setting:
+Shrinkage strength: 0.80
+Elasticity variation retained: 0.20
+Layer 3 MAE: 4.892584
+Layer 3 minus Layer 2 MAE: +0.002606
+Layer 3 RMSE: 6.465780
+Layer 3 minus Layer 2 RMSE: -0.009255
+Layer 3 Brier score: 0.034709
+Layer 3 minus Layer 2 Brier: -0.000011
+Layer 3 log loss: 0.125262
+Layer 3 minus Layer 2 log loss: -0.000370
+
+Validation status:
+PASSED

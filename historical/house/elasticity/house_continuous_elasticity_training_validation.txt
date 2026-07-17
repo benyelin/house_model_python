@@ -1,0 +1,65 @@
+House Continuous Elasticity Training Validation
+===============================================
+
+Enriched characteristic rows available: 435
+Historical elasticity rows available: 405
+Joined rows: 398
+Eligible modeling rows: 393
+Unique race IDs: 398
+Duplicate race IDs: 0
+
+Ineligible-row reasons:
+Missing DRA coverage: 5
+Incomplete continuous features: 5
+
+Missing values by continuous feature:
+dra_composite_margin_dem               5
+dra_composite_minus_2020_margin_dem    5
+dra_composite_minus_2024_margin_dem    5
+white_vap_share                        5
+black_vap_share                        5
+hispanic_vap_share                     5
+asian_vap_share                        5
+native_vap_share                       5
+pacific_vap_share                      5
+pres_2020_margin_dem                   0
+pres_2024_margin_dem                   0
+presidential_swing_2020_to_2024_dem    0
+
+Observation counts among eligible rows:
+observation_count
+1     31
+2     66
+3     28
+4    268
+
+Elasticity target summary among eligible rows:
+count   393.000000
+mean      0.948412
+std       0.848106
+min      -4.715618
+25%       0.521054
+50%       0.918512
+75%       1.388002
+max       4.899756
+
+Continuous feature summary among eligible rows:
+                                       count    mean     std      min      25%     50%     75%     max
+pres_2020_margin_dem                393.0000  3.6374 30.2675 -63.7000 -18.4000 -1.8000 25.1000 80.8000
+pres_2024_margin_dem                393.0000 -1.5631 28.8081 -67.8000 -22.5000 -7.4000 18.4000 77.3000
+presidential_swing_2020_to_2024_dem 393.0000 -5.2005  4.4574 -23.2000  -7.0000 -4.3000 -2.0000  2.5000
+dra_composite_margin_dem            393.0000  3.0419 30.5458 -55.7366 -19.8329 -3.0707 23.3704 87.6647
+dra_composite_minus_2020_margin_dem 393.0000 -0.5954  4.8811 -15.3083  -3.3229 -0.7211  2.1650 15.2342
+dra_composite_minus_2024_margin_dem 393.0000  4.6050  7.6588 -16.3392  -0.0743  3.5257  8.2596 37.2230
+white_vap_share                     393.0000 62.1872 20.3415   7.9610  50.8570 65.6137 78.1192 94.1228
+black_vap_share                     393.0000 12.6110 11.7057   0.9183   4.5526  8.9276 16.5812 59.7838
+hispanic_vap_share                  393.0000 16.0185 15.7316   1.0991   5.1498 10.6433 20.2855 80.6755
+asian_vap_share                     393.0000  6.9763  8.0965   0.5318   2.4370  4.2409  7.8749 68.1221
+native_vap_share                    393.0000  2.6559  2.1878   0.7592   1.7895  2.1223  2.9966 25.4179
+pacific_vap_share                   393.0000  0.4284  1.6936   0.0553   0.1172  0.1663  0.3324 27.9630
+
+Important limitation:
+The model will use current district characteristics to predict elasticity targets derived from older district-label histories. Results remain exploratory until geographic crosswalks or multiple election cycles are available.
+
+Validation status:
+PASSED

@@ -1,0 +1,34 @@
+House District DNA Elasticity Candidate Validation
+==================================================
+
+Master rows: 435
+Training rows: 398
+Prediction rows: 435
+Model alpha: 1000.0000
+
+Prediction sources:
+elasticity_source
+district_dna_behavior_model                      418
+characteristics_model_sparse_history_fallback     17
+
+Mean before normalization: 0.941021
+Mean after initial normalization: 1.000000
+Mean after bounding and renormalization: 1.000000
+Configured lower bound: 0.2500
+Configured upper bound: 1.7500
+
+Final candidate summary:
+count   435.000000
+mean      1.000000
+std       0.442085
+min       0.253718
+25%       0.634916
+50%       0.967887
+75%       1.329241
+max       1.776028
+
+Important methodological caution:
+Behavior predictors and the historical elasticity target are derived from overlapping elections. The strong screening result may therefore overstate transferable predictive value. The candidate must improve the downstream 2022 election backtest before adoption.
+
+Validation status:
+PASSED

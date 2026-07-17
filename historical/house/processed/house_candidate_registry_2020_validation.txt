@@ -1,0 +1,24 @@
+2020 House Candidate Registry Validation
+==========================================
+
+Registry rows: 865
+Unique candidate UIDs: 865
+Unique races: 436
+Matched to FEC ID: 849
+High-confidence matches: 798
+Usable automatic/manual matches: 841
+Review-required or unmatched: 24
+
+Match methods:
+match_method
+high_confidence_automatic    798
+probable_automatic            43
+unmatched                     16
+review_required                8
+
+Incumbency codes among usable matches:
+incumbent_challenger_status
+C      382
+I      381
+O       77
+NaN      1

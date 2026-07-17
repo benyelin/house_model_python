@@ -1,0 +1,12 @@
+House canonical fundamentals regression benchmark
+=================================================
+
+Cycles: 2016, 2018, 2020, 2022
+Rows per cycle: 435
+Canonical input: /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/warehouse/house_historical_backtest_inputs_2016_2022.csv
+Canonical input SHA-256: 304f44092d1dc2e01a08a9978f811a5fad26053519230f3f9568c404c7b06de7
+Default error SD: 6.5
+Benchmark summary SHA-256: 5ad60318680ea5f56d8780ac45a8028cf27cfb8ba3561da45ad1e2dc5c699e17
+Benchmark results SHA-256: 30b599ffcfac59e4e71391e4520d94020895d38e022acb4a8296bc641cdc4e44
+
+This benchmark represents the cycle-safe fundamentals model before out-of-fold elasticity, District DNA, and candidate-quality components are added.

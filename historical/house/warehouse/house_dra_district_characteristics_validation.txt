@@ -1,0 +1,66 @@
+House DRA District Characteristics Validation
+=============================================
+
+ZIP exports processed: 44
+District rows: 429
+Unique race IDs: 429
+Duplicate race IDs: 0
+Missing total populations: 0
+Nonpositive total populations: 0
+Rows with invalid percentage shares: 0
+
+States processed:
+state  districts  map_year   population_dataset                              source_zip
+   AL          7      2026          2020 Census AL-2026-Congressional-district-data.zip
+   AR          4      2022          2020 Census AR-2022-Congressional-district-data.zip
+   AZ          9      2022          2020 Census AZ-2022-Congressional-district-data.zip
+   CA         52      2026 2020 Census adjusted CA-2026-Congressional-district-data.zip
+   CO          8      2022          2020 Census CO-2022-Congressional-district-data.zip
+   CT          5      2022          2020 Census CT-2022-Congressional-district-data.zip
+   FL         28      2026          2020 Census FL-2026-Congressional-district-data.zip
+   GA         14      2024          2020 Census GA-2024-Congressional-district-data.zip
+   HI          2      2022          2020 Census HI-2022-Congressional-district-data.zip
+   IA          4      2022          2020 Census IA-2022-Congressional-district-data.zip
+   ID          2      2022          2020 Census ID-2022-Congressional-district-data.zip
+   IL         17      2022          2020 Census IL-2022-Congressional-district-data.zip
+   IN          9      2022          2020 Census IN-2022-Congressional-district-data.zip
+   KS          4      2022          2020 Census KS-2022-Congressional-district-data.zip
+   KY          6      2022          2020 Census KY-2022-Congressional-district-data.zip
+   LA          6      2026          2020 Census LA-2026-Congressional-district-data.zip
+   MA          9      2022          2020 Census MA-2022-Congressional-district-data.zip
+   MD          8      2022 2020 Census adjusted MD-2022-Congressional-district-data.zip
+   ME          2      2022          2020 Census ME-2022-Congressional-district-data.zip
+   MI         13      2022          2020 Census MI-2022-Congressional-district-data.zip
+   MN          8      2022          2020 Census MN-2022-Congressional-district-data.zip
+   MO          8      2026          2020 Census MO-2026-Congressional-district-data.zip
+   MS          4      2022          2020 Census MS-2022-Congressional-district-data.zip
+   MT          2      2022          2020 Census MT-2022-Congressional-district-data.zip
+   NC         14      2026          2020 Census NC-2026-Congressional-district-data.zip
+   NE          3      2022          2020 Census NE-2022-Congressional-district-data.zip
+   NH          2      2022          2020 Census NH-2022-Congressional-district-data.zip
+   NJ         12      2022 2020 Census adjusted NJ-2022-Congressional-district-data.zip
+   NM          3      2022          2020 Census NM-2022-Congressional-district-data.zip
+   NV          4      2022 2020 Census adjusted NV-2022-Congressional-district-data.zip
+   NY         26      2024          2020 Census NY-2024-Congressional-district-data.zip
+   OH         15      2026          2020 Census OH-2026-Congressional-district-data.zip
+   OK          5      2022          2020 Census OK-2022-Congressional-district-data.zip
+   OR          6      2022          2020 Census OR-2022-Congressional-district-data.zip
+   PA         17      2022          2020 Census PA-2022-Congressional-district-data.zip
+   RI          2      2022          2020 Census RI-2022-Congressional-district-data.zip
+   SC          7      2022          2020 Census SC-2022-Congressional-district-data.zip
+   TN          9      2026          2020 Census TN-2026-Congressional-district-data.zip
+   TX         38      2026          2020 Census TX-2026-Congressional-district-data.zip
+   UT          4      2026          2020 Census UT-2026-Congressional-district-data.zip
+   VA         11      2022 2020 Census adjusted VA-2022-Congressional-district-data.zip
+   WA         10      2022 2020 Census adjusted WA-2022-Congressional-district-data.zip
+   WI          8      2022          2020 Census WI-2022-Congressional-district-data.zip
+   WV          2      2022          2020 Census WV-2022-Congressional-district-data.zip
+
+Population dataset warning:
+DRA exports may use different total-population datasets by state or map. The dra_population_dataset field must be preserved, and adjusted and unadjusted totals should not be treated as perfectly interchangeable.
+
+License note:
+Raw DRA exports include CC BY-SA 4.0 licensing and a prohibition on selling the data. Preserve each ZIP, README.txt, and LICENSE.txt.
+
+Validation status:
+PASSED

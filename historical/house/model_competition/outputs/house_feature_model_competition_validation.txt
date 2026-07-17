@@ -1,0 +1,57 @@
+2022 House Feature Model Competition
+====================================
+
+Scored races: 400
+Cross-validation folds: 10
+Random seed: 20260716
+National environment Dem: -2.136667
+Incumbency bonus: 2.0000
+Probability error scale: 6.5000
+
+Layer 2 benchmark:
+MAE: 4.889978
+RMSE: 6.475034
+Winner accuracy: 0.957500
+Brier: 0.032124
+Log loss: 0.103422
+
+Intercept-only residual benchmark:
+Mean out-of-fold residual correction: -2.942239
+MAE: 4.283740
+RMSE: 5.770802
+Winner accuracy: 0.955000
+Brier: 0.033399
+Log loss: 0.108019
+
+Selected feature models and control:
+                model_id        alpha  mean_absolute_error  change_vs_layer_2_mean_absolute_error  change_vs_intercept_only_mean_absolute_error     rmse  change_vs_layer_2_rmse  change_vs_intercept_only_rmse  winner_accuracy  change_vs_layer_2_winner_accuracy  brier_score  change_vs_layer_2_brier_score  change_vs_intercept_only_brier_score  log_loss  change_vs_layer_2_log_loss  change_vs_intercept_only_log_loss  predicted_win_count_error  expected_win_count_error  residual_prediction_sd  combined_rank
+H_safe_full_district_dna    30.000000             3.922335                              -0.967643                                     -0.361404 5.678792               -0.796242                      -0.092009         0.947500                          -0.010000     0.030333                      -0.001791                             -0.003066  0.097341                   -0.006081                          -0.010678                   3.000000                  5.895662                2.945637       8.000000
+     G_combined_behavior     3.000000             4.229601                              -0.660377                                     -0.054138 5.605401               -0.869633                      -0.165400         0.955000                          -0.002500     0.030757                      -0.001367                             -0.002642  0.097901                   -0.005521                          -0.010118                   4.000000                  5.292053                1.976048      10.000000
+  D_swing_predictability     3.000000             4.233273                              -0.656705                                     -0.050466 5.601260               -0.873774                      -0.169542         0.960000                           0.002500     0.030738                      -0.001385                             -0.002661  0.098866                   -0.004556                          -0.009153                   2.000000                  6.943668                1.508164      10.000000
+          F_demographics    30.000000             3.879208                              -1.010770                                     -0.404532 5.666778               -0.808257                      -0.104024         0.952500                          -0.005000     0.031082                      -0.001042                             -0.002317  0.100639                   -0.002783                          -0.007380                   5.000000                  7.324046                2.561352      12.000000
+  B_competitiveness_only   300.000000             4.260617                              -0.629361                                     -0.023123 5.756295               -0.718739                      -0.014506         0.950000                          -0.007500     0.033108                       0.000984                             -0.000291  0.106427                    0.003005                          -0.001592                   4.000000                  5.680095                0.552974      21.000000
+       C_volatility_only   100.000000             4.270808                              -0.619170                                     -0.012932 5.754036               -0.720998                      -0.016765         0.952500                          -0.005000     0.033469                       0.001345                              0.000070  0.107876                    0.004454                          -0.000143                   5.000000                  7.102036                0.433924      26.000000
+       A_elasticity_only  1000.000000             4.288597                              -0.601381                                      0.004857 5.769959               -0.705076                      -0.000843         0.955000                          -0.002500     0.033370                       0.001246                             -0.000029  0.107913                    0.004491                          -0.000106                   6.000000                  7.486420                0.087880      29.000000
+        0_intercept_only          NaN             4.283740                              -0.606238                                      0.000000 5.770802               -0.704233                       0.000000         0.955000                          -0.002500     0.033399                       0.001275                              0.000000  0.108019                    0.004597                           0.000000                   6.000000                  7.420019                0.041582      30.000000
+        E_party_behavior 10000.000000             4.283984                              -0.605994                                      0.000244 5.771407               -0.703627                       0.000606         0.955000                          -0.002500     0.033406                       0.001283                              0.000007  0.108049                    0.004627                           0.000030                   6.000000                  7.413030                0.041531      34.000000
+
+Top-ranked feature specification:
+Model: H_safe_full_district_dna
+Alpha: 30.000000
+MAE change versus Layer 2: -0.967643
+MAE change versus intercept-only: -0.361404
+RMSE change versus Layer 2: -0.796242
+RMSE change versus intercept-only: -0.092009
+Brier change versus Layer 2: -0.001791
+Brier change versus intercept-only: -0.003066
+Log-loss change versus Layer 2: -0.006081
+Log-loss change versus intercept-only: -0.010678
+
+Leakage and benchmark controls:
+Post-2022 presidential results and DRA election composites are excluded. Every feature model is compared with both the original Layer 2 forecast and an out-of-fold intercept-only residual correction.
+
+Methodological limitation:
+This is a held-out-district 2022 residual screen, not a held-out-election-cycle test. Features that beat the intercept-only control must still pass pseudo-out-of-sample testing across earlier election cycles.
+
+Validation status:
+PASSED

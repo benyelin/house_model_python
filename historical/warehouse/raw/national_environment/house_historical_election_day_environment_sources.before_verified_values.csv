@@ -1,0 +1,4 @@
+cycle,election_date,president,president_party,generic_ballot_dem,generic_ballot_gop,generic_ballot_margin_dem,presidential_approval,presidential_disapproval,approval_net,approval_poll_start,approval_poll_end,generic_ballot_source,approval_source,source_status,notes
+2016,2016-11-08,Barack Obama,D,,,,53,45,8,2016-10-31,2016-11-06,Historical generic-ballot archive,Gallup presidential job approval,partial,Generic-ballot value pending final source verification
+2018,2018-11-06,Donald Trump,R,49.7,42.4,7.3,40,54,-14,2018-10-29,2018-11-04,Historical generic-ballot archive,Gallup presidential job approval,verified,Final generic-ballot average recorded as D 49.7 to R 42.4
+2020,2020-11-03,Donald Trump,R,,,,46,52,-6,2020-10-16,2020-10-27,Historical generic-ballot archive,Gallup presidential job approval,partial,Generic-ballot value pending final source verification

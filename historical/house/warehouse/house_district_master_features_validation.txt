@@ -1,0 +1,48 @@
+House District Master Feature Validation
+========================================
+
+Rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+
+Feature-family coverage:
+DRA demographic coverage: 429/435
+Behavior history available: 424/435
+Behavior multi-cycle history available: 418/435
+Historical elasticity available on current district labels: 398/435
+Reliable historical elasticity estimates: 300/435
+Complete master feature rows: 393/435
+
+Behavior reliability:
+selected_regime_reliability
+high                         301
+medium                        68
+low                           49
+no_scorable_history           11
+insufficient_single_cycle      6
+
+Historical elasticity observation counts:
+historical_elasticity_observation_count
+1.0     31
+2.0     67
+3.0     29
+4.0    271
+NaN     37
+
+District-DNA descriptive feature summary:
+                                            count    mean     std     min     25%     50%     75%      max
+historical_behavior_competitiveness      424.0000 70.8647 16.6452 15.5891 60.1596 73.4817 84.2447  97.4835
+historical_behavior_volatility_index     424.0000  6.0441  3.3823  0.0000  3.6347  5.4603  7.8571  19.4546
+historical_behavior_swing_index          418.0000  7.5690  3.4867  0.0333  5.0554  7.1331  9.8409  20.2369
+historical_behavior_predictability_index 418.0000 80.5316 12.7594 38.4619 72.6732 80.4198 89.1023 100.0000
+historical_shrunk_elasticity             398.0000  0.9603  0.4239 -1.8708  0.7480  0.9464  1.1810   2.9369
+behavior_reliability_score               435.0000  0.8690  0.2322  0.0000  0.7500  1.0000  1.0000   1.0000
+
+Boundary treatment:
+Historical behavior metrics are imported from the boundary-regime-aware behavior warehouse. No configured mid-decade boundary break is crossed.
+
+Modeling note:
+The descriptive District DNA indexes are not yet production forecast components. Each must earn inclusion through out-of-sample model comparison and election backtesting.
+
+Validation status:
+PASSED

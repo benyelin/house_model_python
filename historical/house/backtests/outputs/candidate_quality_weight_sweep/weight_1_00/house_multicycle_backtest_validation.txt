@@ -1,0 +1,25 @@
+House Canonical Multicycle Backtest Validation
+===============================================
+
+Canonical input: /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/warehouse/house_historical_backtest_inputs_2016_2022.csv
+Canonical input SHA-256: 304f44092d1dc2e01a08a9978f811a5fad26053519230f3f9568c404c7b06de7
+Output directory: /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/candidate_quality_weight_sweep/weight_1_00
+Cycles: 2016, 2018, 2020, 2022
+
+Cycle manifest:
+ cycle  rows  unique_races  scored_races  missing_model_margin  missing_presidential_baseline                                                   summary_sha256                                                   results_sha256                                               calibration_sha256                                                 readiness_sha256
+  2016   435           435           345                     0                             27 c1a3ce0f9d0ad40f70f10551c24c9b11aaf421e1bdb2c8933f6b736dbd4a9611 7ba8859b39693e8df463e6c24e0c5f89cf27111599db5c1b7663b1e55bed4af4 aa0cd3bc8751b9e382465b0766daa651dd70cd665e5aed18ea8ed0cfc3391d6a 97cabd58d69f6f026fb37dfea5949278867cf43b46128f86b7582cfd3f16ae10
+  2018   435           435           393                     0                              0 fc4f8039d4e33cbe2a8f01d1d76c67f4685d453ea8fffe7ac88498faddf25884 156244a9bdc9b407d8423caca9e00d41a858dd38b4ba3264ad0a37ad10a8cc7a 15de9d00cb15d97db4dd0037a3383b511f8e07fad12fcbda8dde5a5b1591bf64 bd0e9975e948f81fb19ec44816af3c3738523e508e11fd47a237041bef5077c0
+  2020   435           435           407                     0                              0 cc4ad7949d63afc53e5650e83057f922152ff1afaa91a85bc78362817db43aa9 6efd94ae391531512303e198c002bd21f1b4f1c2cd471c254d42f86634e200bb ab92e6114820bec0227b71988a13d55eb6307c0d860d8a3db99f0cfda9df211c 42cb8953f9bf63eceaf87ffb9fbb4085577dc521f2a55b12c12a9fc48c562ec2
+  2022   435           435           400                     0                              0 582e2a19819b3c48cbaba2f8baab2474b9156f816b14e5aa23e0233346c53391 bfa2cfadd1d4b8b93ed6413089f2f668d7271906ace2837d8fb9ef4b41cc64eb 0e338677a321c5673056582b84a93f547c0cebef62c6b874997fa3552e4ab8db cc1683bdbe93d9b7188403152e12424a4cf211d19606cbbea93ef8efec9a1445
+
+Combined summary:
+ cycle  all_races  scored_major_party_races  winner_accuracy  mean_abs_margin_error  median_abs_margin_error  rmse_margin_error  mean_margin_error_dem_bias  brier_score  log_loss  actual_dem_seats  predicted_dem_seats  expected_dem_seats  predicted_seat_error  expected_seat_error
+  2016        435                       345         0.918841               9.801015                 7.848891          12.350258                    6.177936     0.058651  0.197027               194                  232          229.515952                    38            35.515952
+  2018        435                       393         0.951654               5.828343                 4.850836           7.481045                    2.365406     0.049394  0.174571               238                  237          246.925962                    -1             8.925962
+  2020        435                       407         0.950860               6.705082                 5.738219           8.488563                    5.582465     0.047766  0.172873               222                  229          239.045327                     7            17.045327
+  2022        435                       400         0.957500               5.104494                 4.261322           6.703070                    2.873521     0.038979  0.140714               215                  217          219.094230                     2             4.094230
+
+Regression benchmark status: SKIPPED by request
+
+Validation PASSED

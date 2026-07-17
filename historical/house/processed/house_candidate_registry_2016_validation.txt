@@ -1,0 +1,25 @@
+2016 House Candidate Registry Validation
+==========================================
+
+Registry rows: 834
+Unique candidate UIDs: 834
+Unique races: 435
+Matched to FEC ID: 823
+High-confidence matches: 758
+Usable automatic/manual matches: 806
+Review-required or unmatched: 28
+
+Match methods:
+match_method
+high_confidence_automatic         754
+probable_automatic                 48
+review_required                    17
+unmatched                          11
+high_confidence_state_fallback      4
+
+Incumbency codes among usable matches:
+incumbent_challenger_status
+I      380
+C      340
+O       85
+NaN      1

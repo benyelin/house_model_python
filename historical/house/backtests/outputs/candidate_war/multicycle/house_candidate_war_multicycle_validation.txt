@@ -1,0 +1,31 @@
+House Candidate WAR Multi-Cycle Calibration
+===========================================
+
+Ready cycles: 2022
+Missing-input cycles: 2016, 2018, 2020
+Parameter combinations per cycle: 3600
+
+Best pooled setting among ready cycles:
+Shrinkage: 0.7000
+Incumbent discount: 1.0000
+One-sided multiplier: 1.0000
+Observation prior strength: 0.0000
+Cap: 4.0000
+Mean MAE change versus Layer 2: -0.184380
+Mean RMSE change versus Layer 2: -0.293417
+
+Leave-one-cycle-out status:
+NOT YET AVAILABLE — at least two fully specified historical baseline cycles are required.
+
+Readiness:
+ cycle  ready                                                                                                                                                                        missing_files
+  2016  False historical/house/backtests/outputs/house_2016_backtest_inputs_provisional.csv | historical/warehouse/processed/national_environment/house_2016_election_day_national_environment.csv
+  2018  False historical/house/backtests/outputs/house_2018_backtest_inputs_provisional.csv | historical/warehouse/processed/national_environment/house_2018_election_day_national_environment.csv
+  2020  False historical/house/backtests/outputs/house_2020_backtest_inputs_provisional.csv | historical/warehouse/processed/national_environment/house_2020_election_day_national_environment.csv
+  2022   True                                                                                                                                                                                     
+
+Interpretation:
+A pooled result based only on 2022 remains a single-cycle calibration and must not change production settings. Production promotion requires multiple ready cycles and leave-one-cycle-out stability.
+
+Validation status:
+PASSED

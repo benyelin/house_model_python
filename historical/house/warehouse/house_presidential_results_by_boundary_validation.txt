@@ -1,0 +1,44 @@
+House Presidential Baseline Warehouse Validation
+================================================
+
+Warehouse rows: 4350
+Unique boundary/result-year/race rows: 4350
+Duplicate warehouse rows: 0
+
+Boundary/result-year coverage:
+                                         rows  unique_race_ids  available_results  missing_results  mean_dem_margin  minimum_dem_margin  maximum_dem_margin
+boundary_cycle presidential_result_year                                                                                                                    
+2016           2008                       435              435                344               91           5.1747            -55.0000             90.0000
+               2012                       435              435                408               27           4.6801            -61.7000             93.7000
+               2016                       435              435                435                0           3.2368            -63.0000             88.9000
+2018           2008                       435              435                326              109           4.9365            -55.0000             90.0000
+               2012                       435              435                408               27           4.6684            -61.7000             93.7000
+               2016                       435              435                435                0           3.2175            -63.0000             88.9000
+2020           2008                       435              435                326              109           4.9212            -55.0000             90.0000
+               2012                       435              435                408               27           4.6542            -61.7000             93.7000
+               2016                       435              435                435                0           3.1975            -63.0000             88.9000
+               2020                       435              435                435                0           5.1726            -63.4000             83.2000
+
+Forecast-baseline rows: 1305
+Duplicate forecast-cycle/race rows: 0
+
+Forecast baseline coverage:
+                rows  unique_race_ids  presidential_result_year  boundary_cycle  available_baselines  missing_baselines  mean_dem_margin
+forecast_cycle                                                                                                                          
+2016             435              435                      2012            2016                  408                 27           4.6801
+2018             435              435                      2016            2018                  435                  0           3.2175
+2020             435              435                      2016            2020                  435                  0           3.1975
+
+Baseline mapping:
+2016 forecast -> 2012 presidential result on 2016 district lines
+2018 forecast -> 2016 presidential result on 2018 district lines
+2020 forecast -> 2016 presidential result on 2020 district lines
+
+Temporal note:
+The 2020 presidential result contained in the 2020-boundary source is warehoused for future analysis but is not used as a baseline for the simultaneous 2020 House election.
+
+Known source limitation:
+The source contains no 2012 presidential estimates on Florida's court-ordered congressional map first used in 2016. All 27 Florida rows remain explicitly unavailable and must be excluded from 2016 baseline scoring unless a separate authoritative reconstruction is added.
+
+Validation status:
+PASSED

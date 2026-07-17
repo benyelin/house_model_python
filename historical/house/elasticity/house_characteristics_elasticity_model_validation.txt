@@ -1,0 +1,71 @@
+House Characteristics Elasticity Model Validation
+===============================================
+
+Eligible training rows: 398
+Prediction rows: 435
+Cross-validation folds: 10
+Random seed: 20260715
+Selected ridge alpha: 300.000000
+
+Selected model cross-validation:
+Unweighted MAE: 0.568077
+Unweighted RMSE: 0.841767
+Weighted MAE: 0.543269
+Weighted RMSE: 0.800239
+
+Prediction distribution before normalization:
+count   435.000000
+mean      0.928398
+std       0.272340
+min       0.023602
+25%       0.729860
+50%       0.894755
+75%       1.156354
+max       1.618347
+
+Prediction distribution after normalization:
+count   435.000000
+mean      1.000000
+std       0.293344
+min       0.025422
+25%       0.786149
+50%       0.963763
+75%       1.245537
+max       1.743160
+
+Training-label matches among predicted districts: 398
+Districts predicted without a historical target match: 37
+
+Largest absolute coefficients:
+                                   feature  coefficient  absolute_coefficient
+                               <INTERCEPT>     1.075829              1.075829
+          categorical__district_type_Urban    -0.550212              0.550212
+          categorical__region_Mid-Atlantic     0.544054              0.544054
+               categorical__region_Midwest     0.494421              0.494421
+  categorical__hispanic_share_tier_Unknown    -0.443623              0.443623
+          categorical__region_Great Plains     0.417013              0.417013
+          categorical__district_type_Rural    -0.396585              0.396585
+           categorical__region_Urban South     0.344931              0.344931
+          categorical__district_type_Mixed    -0.296096              0.296096
+       categorical__district_type_Suburban    -0.265234              0.265234
+categorical__hispanic_share_tier_Very High     0.229763              0.229763
+             categorical__region_Northeast     0.201957              0.201957
+   categorical__hispanic_share_tier_Medium    -0.168438              0.168438
+   categorical__white_share_tier_Very High    -0.168171              0.168171
+     categorical__white_share_tier_Unknown     0.155853              0.155853
+   categorical__college_share_tier_Unknown     0.155853              0.155853
+             categorical__region_Southwest    -0.152886              0.152886
+ categorical__college_share_tier_Very High     0.144815              0.144815
+               categorical__region_Pacific     0.127844              0.127844
+             numeric__pres_2020_margin_dem    -0.125262              0.125262
+         categorical__region_Mountain West     0.122526              0.122526
+      categorical__hispanic_share_tier_Low    -0.114208              0.114208
+             categorical__region_Northwest    -0.095965              0.095965
+            categorical__region_Deep South    -0.095046              0.095046
+          categorical__region_Middle South    -0.094421              0.094421
+
+Important limitation:
+Predictors describe post-2020 districts, while elasticity targets were estimated from 2012-2020 district-label histories.
+
+Validation status:
+PASSED

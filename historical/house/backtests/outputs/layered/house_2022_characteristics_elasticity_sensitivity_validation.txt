@@ -1,0 +1,27 @@
+2022 House Characteristics Elasticity Sensitivity
+================================================
+
+Scored races: 400
+National environment Dem: -2.136667
+Incumbency bonus: 2.0000
+Probability error scale: 6.5000
+
+Control validation:
+Maximum absolute margin difference at zero retention: 0.000000000000
+MAE difference at zero retention: 0.000000000000
+
+Best combined-rank setting:
+Retention level: 0.00
+Shrinkage toward elasticity 1.0: 1.00
+Layer 3 MAE: 4.889978
+Layer 3 minus Layer 2 MAE: +0.000000
+Layer 3 RMSE: 6.475034
+Layer 3 minus Layer 2 RMSE: +0.000000
+Layer 3 winner accuracy: 0.957500
+Layer 3 Brier: 0.034720
+Layer 3 minus Layer 2 Brier: +0.000000
+Layer 3 log loss: 0.125631
+Layer 3 minus Layer 2 log loss: +0.000000
+
+Validation status:
+PASSED

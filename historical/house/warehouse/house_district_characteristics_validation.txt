@@ -1,0 +1,18 @@
+House District Characteristics Validation
+========================================
+
+Rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+Missing 2020 margins: 0
+Missing 2024 margins: 0
+
+Missing characteristic values:
+college_share_tier: 13
+white_share_tier: 13
+black_share_tier: 14
+hispanic_share_tier: 14
+median_income_tier: 435
+
+Validation status:
+PASSED

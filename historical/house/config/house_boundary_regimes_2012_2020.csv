@@ -1,0 +1,10 @@
+state,regime_id,start_cycle,end_cycle,boundary_continuity_status,notes
+FL,FL_2012_2014,2012,2014,stable_within_regime,Pre-remedial Florida congressional map
+FL,FL_2016_2020,2016,2020,stable_within_regime,Court-adopted map used for 2016 through 2020
+NC,NC_2012_2014,2012,2014,stable_within_regime,2012 congressional plan
+NC,NC_2016_2018,2016,2018,stable_within_regime,Remedial congressional plan beginning in 2016
+NC,NC_2020,2020,2020,single_cycle_regime,New congressional plan used for 2020
+PA,PA_2012_2016,2012,2016,stable_within_regime,2011 plan used through 2016
+PA,PA_2018_2020,2018,2020,stable_within_regime,2018 Pennsylvania Supreme Court remedial map
+VA,VA_2012_2014,2012,2014,stable_within_regime,Original post-2010 congressional map
+VA,VA_2016_2020,2016,2020,stable_within_regime,Federal-court remedial map beginning in 2016

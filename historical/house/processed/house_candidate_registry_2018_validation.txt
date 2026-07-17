@@ -1,0 +1,25 @@
+2018 House Candidate Registry Validation
+==========================================
+
+Registry rows: 840
+Unique candidate UIDs: 840
+Unique races: 435
+Matched to FEC ID: 825
+High-confidence matches: 766
+Usable automatic/manual matches: 811
+Review-required or unmatched: 29
+
+Match methods:
+match_method
+high_confidence_automatic         765
+probable_automatic                 45
+unmatched                          15
+review_required                    14
+high_confidence_state_fallback      1
+
+Incumbency codes among usable matches:
+incumbent_challenger_status
+I      364
+C      334
+O      111
+NaN      2

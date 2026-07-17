@@ -1,0 +1,102 @@
+House Characteristics-Elasticity Training Validation
+====================================================
+
+Characteristic rows available: 435
+Historical elasticity rows available: 405
+Joined training rows: 398
+Eligible modeling rows: 398
+Unique race IDs: 398
+Duplicate race IDs: 0
+Nonfinite elasticity targets: 0
+Missing model weights: 0
+
+Observation counts:
+observation_count
+1     31
+2     67
+3     29
+4    271
+
+Elasticity target summary:
+count   398.000000
+mean      0.946564
+std       0.847748
+min      -4.715618
+25%       0.521989
+50%       0.918690
+75%       1.387899
+max       4.899756
+
+Weight summary:
+count   398.000000
+mean    146.030425
+std      46.011522
+min      10.762110
+25%     119.801903
+50%     173.832954
+75%     173.832954
+max     173.832954
+
+Categorical feature coverage:
+
+region:
+region
+Midwest          82
+Mid-Atlantic     63
+Pacific          53
+Southeast        41
+Northeast        29
+Middle South     22
+Appalachia       19
+Deep South       16
+Mountain West    16
+Urban South      16
+Southwest        15
+Great Plains     15
+Northwest        11
+
+district_type:
+district_type
+Rural       143
+Mixed       106
+Suburban     69
+Urban        66
+Exurban      14
+
+college_share_tier:
+college_share_tier
+Medium       162
+High          92
+Low           84
+Very High     49
+Unknown       11
+
+white_share_tier:
+white_share_tier
+High         120
+Very High    111
+Medium        79
+Low           77
+Unknown       11
+
+black_share_tier:
+black_share_tier
+Low          218
+Medium       123
+High          31
+Very High     14
+Unknown       12
+
+hispanic_share_tier:
+hispanic_share_tier
+Low          241
+Medium        89
+Very High     30
+High          26
+Unknown       12
+
+Important limitation:
+The predictors describe post-2020 congressional districts, while the historical elasticity targets were estimated from 2012-2020 district-label matches. This training dataset is appropriate for an exploratory out-of-sample test, not for claiming exact geographic continuity.
+
+Validation status:
+PASSED

@@ -1,0 +1,2 @@
+selected_district_component_sd,selected_shrinkage_strength,selected_multiplier_floor,selected_multiplier_ceiling,baseline_brier,selected_brier,brier_change,baseline_log_loss,selected_log_loss,log_loss_change,baseline_ece,selected_ece,ece_change,passes_primary_metrics,promotion_recommendation
+4.0,4.0,0.8,1.2,0.045266681874496145,0.045266520926673534,-1.6094782261111273e-07,0.1664436234182645,0.16443536291711783,-0.0020082605011466637,0.03434462481847309,0.03623716613048984,0.0018925413120167503,True,PROMOTE

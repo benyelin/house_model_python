@@ -9,15 +9,21 @@ import numpy as np
 import pandas as pd
 
 
-MIT_PATH = Path(
-    "historical/house/raw/2022/source_downloads/"
-    "1976-2024-house.tab"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+MIT_PATH = (
+    PROJECT_ROOT
+    / "historical/house/raw/shared/source_downloads/"
+    "mit_house_results/1976-2024-house.tab"
 )
 
-FEC_PATH = Path(
-    "historical/house/raw/2022/source_downloads/"
-    "fec_candidate_master/cn.txt"
-)
+
+def fec_path_for_cycle(cycle: int) -> Path:
+    return (
+        PROJECT_ROOT
+        / f"historical/house/raw/{cycle}/source_downloads/"
+        "fec_candidate_master/cn.txt"
+    )
 
 RESULTS_DIR = Path("historical/house/processed")
 
@@ -271,7 +277,16 @@ def district_label(value: object) -> str:
 
 
 def load_mit_candidates(cycle: int) -> pd.DataFrame:
-    df = pd.read_csv(MIT_PATH, sep=",", low_memory=False)
+    if not MIT_PATH.exists():
+        raise FileNotFoundError(
+            f"Missing shared MIT House results file: {MIT_PATH}"
+        )
+
+    df = pd.read_csv(
+        MIT_PATH,
+        sep=",",
+        low_memory=False,
+    )
 
     df["year"] = pd.to_numeric(
         df["year"],
@@ -324,8 +339,16 @@ def load_mit_candidates(cycle: int) -> pd.DataFrame:
 
 
 def load_fec_candidates(cycle: int) -> pd.DataFrame:
+    fec_path = fec_path_for_cycle(cycle)
+
+    if not fec_path.exists():
+        raise FileNotFoundError(
+            f"Missing FEC candidate-master file for {cycle}: "
+            f"{fec_path}"
+        )
+
     df = pd.read_csv(
-        FEC_PATH,
+        fec_path,
         sep="|",
         names=FEC_COLUMNS,
         dtype=str,

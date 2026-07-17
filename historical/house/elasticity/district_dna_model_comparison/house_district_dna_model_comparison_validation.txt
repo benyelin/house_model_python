@@ -1,0 +1,33 @@
+House District DNA Model Comparison
+===================================
+
+Common modeling rows: 393
+Cross-validation folds: 10
+Random seed: 20260716
+Alpha grid: 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000, 3000
+
+Selected model results:
+                 model_id       alpha   cv_mae  cv_rmse  weighted_mae  weighted_rmse    cv_r2  weighted_r2  cv_correlation  prediction_sd  weighted_mae_percent_change_vs_baseline  weighted_rmse_percent_change_vs_baseline  combined_rank
+          B_behavior_only 1000.000000 0.435330 0.729881      0.406466       0.684984 0.257476     0.270814        0.508893       0.463743                               -23.527739                                -12.827985       4.000000
+           C_district_dna 1000.000000 0.436987 0.734557      0.407218       0.688799 0.247931     0.262669        0.501201       0.472929                               -23.386207                                -12.342445       8.000000
+    D_full_structural_dna 1000.000000 0.437285 0.737472      0.407748       0.692285 0.241952     0.255188        0.496154       0.475230                               -23.286448                                -11.898901      12.000000
+A_continuous_demographics 1000.000000 0.555586 0.825410      0.531521       0.785784 0.050389     0.040414        0.229978       0.236397                                 0.000000                                  0.000000      16.000000
+
+Top-ranked specification:
+Model: B_behavior_only
+Alpha: 1000.000000
+Weighted MAE: 0.406466
+Weighted RMSE: 0.684984
+Weighted MAE change versus demographics baseline: -23.528%
+Weighted RMSE change versus demographics baseline: -12.828%
+Cross-validated R²: 0.257476
+Cross-validated correlation: 0.508893
+
+Leakage control:
+Direct historical mean House margin and derived historical partisan-baseline indexes are excluded. Behavior features focus on volatility, swing magnitude, competitiveness, party switching, trend residuals, and reliability.
+
+Adoption rule:
+This screening comparison does not by itself authorize production use. Any winning District DNA specification must next improve the downstream 2022 Layer 3 election backtest.
+
+Validation status:
+PASSED

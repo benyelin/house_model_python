@@ -1,0 +1,6 @@
+target_cycle,history_start_cycle,history_end_cycle,minimum_prior_scorable_elections,use_for_behavior_training,use_for_retention_selection,notes
+2014,2012,2012,1,false,false,Only one prior election; insufficient for swing or volatility features
+2016,2012,2014,2,true,true,First target supporting a genuine prior-cycle swing
+2018,2012,2016,2,true,true,Respect configured mid-decade boundary regimes
+2020,2012,2018,2,true,true,Respect configured mid-decade boundary regimes
+2022,2012,2020,2,true,true,Existing regime-aware behavior framework

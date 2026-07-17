@@ -1,0 +1,27 @@
+House Historical Backtest Data Readiness
+========================================
+
+Rows loaded: 435
+Unique race IDs: 435
+Forecast source: calculated_from_components
+
+Core result fields:
+- cycle: present; missing values=0
+- race_id: present; missing values=0
+- actual_dem_margin: present; missing values=0
+- actual_winner: present; missing values=0
+- general_election_party_structure: present; missing values=0
+
+Forecast component fields:
+- district_pres_margin_dem: present; numeric rows=435/435
+- national_environment_margin_dem: present; numeric rows=435/435
+- environment_multiplier: missing
+- district_elasticity: missing
+- state_environment_adjustment_dem: missing
+- incumbency_adjustment_dem: missing
+- candidate_quality_adjustment_dem: missing
+- special_adjustment_dem: missing
+- polling_adjustment_dem: missing
+
+Ordinary D-vs-R margin-scoring races: 393
+Excluded nonstandard races: 42

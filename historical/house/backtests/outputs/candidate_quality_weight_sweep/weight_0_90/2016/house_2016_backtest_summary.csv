@@ -1,0 +1,2 @@
+cycle,all_races,scored_major_party_races,winner_accuracy,mean_abs_margin_error,median_abs_margin_error,rmse_margin_error,mean_margin_error_dem_bias,brier_score,log_loss,actual_dem_seats,predicted_dem_seats,expected_dem_seats,predicted_seat_error,expected_seat_error
+2016,435,345,0.9188405797101449,9.81185557968145,7.763542073000002,12.367973058645223,6.181209171495362,0.05893164531374045,0.19767531855687692,194,232,229.57571187184993,38,35.57571187184993

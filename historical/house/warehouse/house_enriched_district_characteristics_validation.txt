@@ -1,0 +1,39 @@
+House Enriched District Characteristics Validation
+================================================
+
+Rows: 435
+Unique race IDs: 435
+Duplicate race IDs: 0
+DRA-covered districts: 429
+DRA-missing districts: 6
+DRA-missing race IDs: AK-AL, DE-AL, ND-AL, SD-AL, VT-AL, WY-AL
+Rows with invalid percentage shares: 0
+
+DRA population datasets:
+dra_population_dataset
+2020 Census             332
+2020 Census adjusted     97
+
+Continuous feature coverage:
+white_population_share: 429/435
+black_population_share: 429/435
+hispanic_population_share: 429/435
+asian_population_share: 429/435
+native_population_share: 429/435
+pacific_population_share: 429/435
+white_vap_share: 429/435
+black_vap_share: 429/435
+hispanic_vap_share: 429/435
+asian_vap_share: 429/435
+native_vap_share: 429/435
+pacific_vap_share: 429/435
+dra_composite_margin_dem: 429/435
+presidential_swing_2020_to_2024_dem: 435/435
+dra_composite_minus_2020_margin_dem: 429/435
+dra_composite_minus_2024_margin_dem: 429/435
+
+Known limitation:
+Six at-large districts do not have DRA map exports. They remain in the warehouse with explicit missing DRA values and should be excluded or imputed during model-specific preprocessing.
+
+Validation status:
+PASSED
