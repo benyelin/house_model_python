@@ -1,0 +1,9 @@
+Normalized baseline coefficient robustness validation: PASSED
+Eligible observations: 1,545
+Coefficients evaluated: 11
+Coefficient range: 0.50 to 1.00
+Coefficient increment: 0.05
+Cycle-level rows: 44
+Architecture fixed to normalized baseline.
+Environment fixed to generic ballot only.
+Production files modified: False
