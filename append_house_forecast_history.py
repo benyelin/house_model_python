@@ -29,6 +29,39 @@ def main():
 
     srow = summary.iloc[-1]
 
+    race_environment = {}
+    if RACE_STATS_PATH.exists():
+        race_environment_df = pd.read_csv(RACE_STATS_PATH)
+
+        for output_name, source_columns in {
+            "imported_national_environment": [
+                "imported_national_environment_margin_dem",
+            ],
+            "house_environment_multiplier": [
+                "house_environment_multiplier",
+            ],
+            "house_adjusted_national_environment": [
+                "house_national_environment_used_dem",
+                "national_environment_margin_dem",
+            ],
+        }.items():
+            race_environment[output_name] = None
+
+            for source_column in source_columns:
+                if source_column not in race_environment_df.columns:
+                    continue
+
+                values = pd.to_numeric(
+                    race_environment_df[source_column],
+                    errors="coerce",
+                ).dropna()
+
+                if not values.empty:
+                    race_environment[output_name] = float(
+                        values.iloc[0]
+                    )
+                    break
+
     timestamp = datetime.now().isoformat(timespec="seconds")
 
     snapshot = {
@@ -46,10 +79,41 @@ def main():
         "national_environment": first_available(
             srow,
             [
+                "house_adjusted_national_environment",
                 "national_environment_margin",
                 "national_environment",
                 "national_environment_margin_dem",
             ],
+            race_environment.get(
+                "house_adjusted_national_environment"
+            ),
+        ),
+        "imported_national_environment": first_available(
+            srow,
+            [
+                "imported_national_environment_margin",
+                "imported_national_environment",
+            ],
+            race_environment.get(
+                "imported_national_environment"
+            ),
+        ),
+        "house_environment_multiplier": first_available(
+            srow,
+            ["house_environment_multiplier"],
+            race_environment.get(
+                "house_environment_multiplier"
+            ),
+        ),
+        "house_adjusted_national_environment": first_available(
+            srow,
+            [
+                "house_adjusted_national_environment",
+                "national_environment_margin",
+            ],
+            race_environment.get(
+                "house_adjusted_national_environment"
+            ),
         ),
         "national_error_sd": first_available(srow, ["national_error_sd"]),
         "region_error_sd": first_available(srow, ["region_error_sd"]),

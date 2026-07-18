@@ -1,0 +1,44 @@
+setting,value,notes
+house_environment_multiplier,0.95,Multiplier applied to imported Senate/shared national environment before House district elasticity. Set to 0.95 after pilot 2018/2022 House backtest grid; lower values underfit 2018 wave conditions.
+generic_house_incumbency_points,1.5,Generic House incumbency adjustment in points; positive for Dem incumbents and negative for GOP incumbents. Set to 1.50 after calibration comparison because modern House incumbency appears weaker than older defaults.
+house_uncertainty_national_sd_180,4.75,National correlated House error SD at 180+ days out. Widened after pilot House backtest.
+house_uncertainty_region_sd_180,2.5,Regional correlated House error SD at 180+ days out. Widened after pilot House backtest.
+house_uncertainty_demographic_sd_180,2.0,Demographic-group correlated House error SD at 180+ days out. Widened after pilot House backtest.
+house_uncertainty_district_sd_180,5.25,District-specific House error SD at 180+ days out. Widened after pilot House backtest.
+house_uncertainty_national_sd_90,3.5,National correlated House error SD at 90 days out.
+house_uncertainty_region_sd_90,1.75,Regional correlated House error SD at 90 days out.
+house_uncertainty_demographic_sd_90,1.25,Demographic-group correlated House error SD at 90 days out.
+house_uncertainty_district_sd_90,3.75,District-specific House error SD at 90 days out.
+house_uncertainty_national_sd_30,2.75,National correlated House error SD at 30 days out.
+house_uncertainty_region_sd_30,1.25,Regional correlated House error SD at 30 days out.
+house_uncertainty_demographic_sd_30,1.0,Demographic-group correlated House error SD at 30 days out.
+house_uncertainty_district_sd_30,3.25,District-specific House error SD at 30 days out.
+house_uncertainty_national_sd_floor,2.25,Minimum national correlated House error SD near Election Day.
+house_uncertainty_region_sd_floor,1.0,Minimum regional correlated House error SD near Election Day.
+house_uncertainty_demographic_sd_floor,0.75,Minimum demographic-group House error SD near Election Day.
+house_uncertainty_district_sd_floor,2.75,Minimum district-specific House error SD near Election Day.
+house_polling_district_error_multiplier_1_poll,0.9,District-error multiplier for one district poll.
+house_polling_district_error_multiplier_2_polls,0.8,District-error multiplier for two district polls.
+house_polling_district_error_multiplier_3plus_polls,0.7,District-error multiplier for three or more district polls.
+use_candidate_war_adjustments,1.0,1 = candidate WAR adjustments active. Both-candidate matches use full shrunk/capped value; one-sided matches use house_candidate_war_one_sided_multiplier.
+house_candidate_war_shrinkage,0.45,Shrinkage applied to recency-weighted candidate WAR net advantage.
+house_candidate_war_cap,3.0,Maximum absolute House margin adjustment from candidate WAR.
+house_candidate_war_incumbent_discount,0.5,Discount applied to incumbent candidate WAR to reduce double-counting with incumbency.
+house_candidate_war_min_name_score,0.9,Minimum normalized name-match score for candidate WAR. Raised after adding comma-aware and district-aware matching.
+house_candidate_war_one_sided_multiplier,0.5,Multiplier applied to candidate WAR adjustment when only one major-party candidate matches the WAR database.
+use_house_poll_spillover_adjustments,1.0,"1 = tiny poll-derived context/spillover signal is active. Effect is time-weighted, similarity-weighted, capped, and audit-visible."
+house_poll_spillover_base_weight,0.06,Base multiplier applied to poll residuals before similarity/time weighting.
+house_poll_spillover_max_adjustment_now,0.15,Conservative max absolute poll spillover adjustment far from Election Day.
+house_poll_spillover_max_adjustment_final,0.75,Approximate max absolute spillover adjustment close to Election Day.
+house_poll_spillover_same_state_bonus,0.35,Similarity bonus for same-state districts.
+house_poll_spillover_same_region_bonus,0.25,Similarity bonus for same-region districts.
+house_poll_spillover_same_district_type_bonus,0.15,Similarity bonus for same district type.
+house_poll_spillover_same_demo_group_bonus,0.25,Similarity bonus for same education/race error group.
+house_poll_spillover_baseline_similarity_bonus,0.2,Similarity bonus based on similar presidential/district partisan baseline.
+house_poll_spillover_min_similarity,0.25,Minimum similarity score needed before a poll contributes spillover to a target district.
+house_poll_spillover_polled_district_discount,0.35,Discount applied to spillover received by districts that already have their own polling.
+use_partisan_pollster_adjustments,1.0,"0/1 toggle. If 1, partisan/campaign-sponsored polls receive margin adjustment and weight discount."
+partisan_pollster_default_adjustment,2.0,Default points adjustment against sponsoring party.
+partisan_pollster_internal_adjustment,2.5,Points adjustment against sponsoring party for campaign/internal polls.
+partisan_pollster_max_adjustment,3.0,Hard cap on partisan pollster margin adjustment.
+partisan_pollster_weight_multiplier,0.5,Weight multiplier for partisan/campaign-sponsored polls.

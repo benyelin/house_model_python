@@ -1,0 +1,5 @@
+presidential_result_year,dem_share_two_party,gop_share_two_party,national_pres_margin_dem,source_status,notes
+2012,51.96,48.04,3.92,verified,National Democratic two-party presidential popular-vote margin used to normalize 2012 district presidential results.
+2016,51.05,48.95,2.1,verified,National Democratic two-party presidential popular-vote margin used to normalize 2016 district presidential results.
+2020,52.26,47.74,4.52,verified,National Democratic two-party presidential popular-vote margin used to normalize 2020 district presidential results.
+2024,49.25,50.75,-1.5,verified,National Democratic two-party presidential popular-vote margin from official 2024 results compiled by the Federal Election Commission; used to normalize 2024 district presidential results.

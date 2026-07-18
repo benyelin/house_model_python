@@ -1,0 +1,13 @@
+Input validation: PASSED
+Expected specification count: 69
+Summary specification count: 69
+Cycle-level row count: 276
+Race-level prediction count: 106605
+Scored input races: 1545
+Cycles: 2016, 2018, 2020, 2022
+Current production reference located: GB=0.85, approval=0.50, midterm=0.50
+Duplicate-key validation: PASSED
+Finite-value validation: PASSED
+Probability-range validation: PASSED
+Scoring-count validation: PASSED
+Validation: PASSED

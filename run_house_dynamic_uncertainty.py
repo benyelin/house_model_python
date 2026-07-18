@@ -424,6 +424,70 @@ def main():
     uncertainty_audit.to_csv(UNCERTAINTY_AUDIT_OUT, index=False)
 
     print()
+    # Preserve both the imported shared environment and the
+    # House-adjusted value in the final dynamic summary output.
+    from pathlib import Path as _EnvironmentPath
+    import pandas as _environment_pd
+
+    _environment_summary_path = _EnvironmentPath(
+        "outputs/house_forecast_summary.csv"
+    )
+    _environment_race_path = _EnvironmentPath(
+        "outputs/house_race_stats.csv"
+    )
+
+    if (
+        _environment_summary_path.exists()
+        and _environment_race_path.exists()
+    ):
+        _environment_summary = _environment_pd.read_csv(
+            _environment_summary_path
+        )
+        _environment_races = _environment_pd.read_csv(
+            _environment_race_path
+        )
+
+        def _first_environment_value(column):
+            if column not in _environment_races.columns:
+                return float("nan")
+            values = _environment_pd.to_numeric(
+                _environment_races[column],
+                errors="coerce",
+            ).dropna()
+            return (
+                float(values.iloc[0])
+                if not values.empty
+                else float("nan")
+            )
+
+        _environment_summary[
+            "imported_national_environment_margin"
+        ] = _first_environment_value(
+            "imported_national_environment_margin_dem"
+        )
+        _environment_summary[
+            "house_environment_multiplier"
+        ] = _first_environment_value(
+            "house_environment_multiplier"
+        )
+        _environment_summary[
+            "house_adjusted_national_environment"
+        ] = _first_environment_value(
+            "house_national_environment_used_dem"
+        )
+
+        # Retain the legacy field for downstream compatibility.
+        _environment_summary[
+            "national_environment_margin"
+        ] = _environment_summary[
+            "house_adjusted_national_environment"
+        ]
+
+        _environment_summary.to_csv(
+            _environment_summary_path,
+            index=False,
+        )
+
     print("Dynamic House uncertainty forecast complete")
     print("------------------------------------------")
     print(f"Days out:               {days_out}")

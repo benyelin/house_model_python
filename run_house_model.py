@@ -480,11 +480,82 @@ def run_simulation(race_table, days_out, config):
         "education_race_error_sd": config.education_race_error_sd,
         "district_specific_error_sd_floor": remaining_sd,
         "national_error_share": config.national_error_share,
-        "national_environment_margin": (
-            float(race_table["national_environment_margin_dem"].dropna().iloc[0])
-            if "national_environment_margin_dem" in race_table.columns
-            and race_table["national_environment_margin_dem"].notna().any()
+        "imported_national_environment_margin": (
+            float(
+                race_table[
+                    "imported_national_environment_margin_dem"
+                ].dropna().iloc[0]
+            )
+            if "imported_national_environment_margin_dem"
+            in race_table.columns
+            and race_table[
+                "imported_national_environment_margin_dem"
+            ].notna().any()
             else np.nan
+        ),
+        "house_environment_multiplier": (
+            float(
+                race_table[
+                    "house_environment_multiplier"
+                ].dropna().iloc[0]
+            )
+            if "house_environment_multiplier" in race_table.columns
+            and race_table[
+                "house_environment_multiplier"
+            ].notna().any()
+            else np.nan
+        ),
+        "house_adjusted_national_environment": (
+            float(
+                race_table[
+                    "house_national_environment_used_dem"
+                ].dropna().iloc[0]
+            )
+            if "house_national_environment_used_dem"
+            in race_table.columns
+            and race_table[
+                "house_national_environment_used_dem"
+            ].notna().any()
+            else (
+                float(
+                    race_table[
+                        "national_environment_margin_dem"
+                    ].dropna().iloc[0]
+                )
+                if "national_environment_margin_dem"
+                in race_table.columns
+                and race_table[
+                    "national_environment_margin_dem"
+                ].notna().any()
+                else np.nan
+            )
+        ),
+        # Legacy alias retained for compatibility. This is the
+        # House-adjusted value actually used in district forecasts.
+        "national_environment_margin": (
+            float(
+                race_table[
+                    "house_national_environment_used_dem"
+                ].dropna().iloc[0]
+            )
+            if "house_national_environment_used_dem"
+            in race_table.columns
+            and race_table[
+                "house_national_environment_used_dem"
+            ].notna().any()
+            else (
+                float(
+                    race_table[
+                        "national_environment_margin_dem"
+                    ].dropna().iloc[0]
+                )
+                if "national_environment_margin_dem"
+                in race_table.columns
+                and race_table[
+                    "national_environment_margin_dem"
+                ].notna().any()
+                else np.nan
+            )
         ),
         "average_polling_weight": float(race_table["bayesian_polling_weight"].mean()),
         "districts_with_polling": int((race_table["bayesian_polling_weight"] > 0).sum()),
@@ -595,7 +666,18 @@ def main():
     print(f"Median Dem seats:       {summary['median_dem_seats']:.0f}")
     print(f"Dem majority odds:      {summary['dem_majority_probability']:.1%}")
     print(f"Days out:               {summary['days_out']}")
-    print(f"National environment:   {summary['national_environment_margin']:+.2f}")
+    print(
+        "Imported national environment:       "
+        f"{summary['imported_national_environment_margin']:+.2f}"
+    )
+    print(
+        "House environment multiplier:        "
+        f"x{summary['house_environment_multiplier']:.2f}"
+    )
+    print(
+        "House-adjusted national environment: "
+        f"{summary['house_adjusted_national_environment']:+.2f}"
+    )
     print(f"Districts with polling: {summary['districts_with_polling']}")
     print(f"Education/race groups:  {summary['education_race_error_groups']}")
     print()

@@ -1147,16 +1147,96 @@ with tab_overview:
         ),
     )
     c3.metric("Dem Majority Odds", fmt_pct(dem_majority_probability))
+    imported_environment = (
+        df["imported_national_environment_margin_dem"]
+        .dropna()
+        .iloc[0]
+        if (
+            "imported_national_environment_margin_dem"
+            in df.columns
+            and df[
+                "imported_national_environment_margin_dem"
+            ].notna().any()
+        )
+        else np.nan
+    )
+    house_environment_multiplier = (
+        df["house_environment_multiplier"].dropna().iloc[0]
+        if (
+            "house_environment_multiplier" in df.columns
+            and df["house_environment_multiplier"].notna().any()
+        )
+        else np.nan
+    )
+    house_adjusted_environment = (
+        df["house_national_environment_used_dem"]
+        .dropna()
+        .iloc[0]
+        if (
+            "house_national_environment_used_dem" in df.columns
+            and df[
+                "house_national_environment_used_dem"
+            ].notna().any()
+        )
+        else (
+            df["national_environment_margin_dem"]
+            .dropna()
+            .iloc[0]
+            if (
+                "national_environment_margin_dem" in df.columns
+                and df[
+                    "national_environment_margin_dem"
+                ].notna().any()
+            )
+            else np.nan
+        )
+    )
+
     c4.metric(
-        "National Environment",
-        fmt_margin(df["national_environment_margin_dem"].dropna().iloc[0])
-        if df["national_environment_margin_dem"].notna().any()
-        else "—",
+        "House-Adjusted Environment",
+        fmt_margin(house_adjusted_environment),
     )
     c5.metric("Districts", fmt_num(len(df), 0))
 
+    st.markdown("#### National Environment Calculation")
+
+    env_c1, env_c2, env_c3 = st.columns(3)
+
+    env_c1.metric(
+        "Imported Environment",
+        fmt_margin(imported_environment),
+        help=(
+            "The shared national environment imported from the "
+            "Senate model."
+        ),
+    )
+
+    env_c2.metric(
+        "House Multiplier",
+        (
+            f"x{fmt_num(house_environment_multiplier, 2)}"
+            if pd.notna(house_environment_multiplier)
+            else "—"
+        ),
+        help=(
+            "The House-specific multiplier selected through "
+            "historical calibration."
+        ),
+    )
+
+    env_c3.metric(
+        "House-Adjusted Environment",
+        fmt_margin(house_adjusted_environment),
+        help=(
+            "The national environment actually applied to House "
+            "district forecasts before district elasticity."
+        ),
+    )
+
     st.caption(
-        "Seat totals now come from the House simulation engine when outputs are available."
+        "House-adjusted environment = imported environment × "
+        "House multiplier. Seat totals come from the House "
+        "simulation engine."
     )
 
 

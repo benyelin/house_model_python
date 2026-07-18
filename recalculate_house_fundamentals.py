@@ -627,17 +627,55 @@ def main():
     national_environment, env_metadata = read_national_environment()
 
     # District partisan baseline from presidential margins.
+    #
+    # Normalize each district result against its election year's
+    # national two-party presidential margin. This isolates district
+    # partisanship from the national political environment, which is
+    # imported separately from the Senate/shared environment model.
+    national_pres_2024_margin_dem = read_house_calibration_setting(
+        "national_pres_2024_margin_dem",
+        -1.50,
+    )
+    national_pres_2020_margin_dem = read_house_calibration_setting(
+        "national_pres_2020_margin_dem",
+        4.52,
+    )
+
     has_pres = (
         df["pres_2024_margin_dem"].notna()
         & df["pres_2020_margin_dem"].notna()
+    )
+
+    df["national_pres_2024_margin_dem"] = (
+        national_pres_2024_margin_dem
+    )
+    df["national_pres_2020_margin_dem"] = (
+        national_pres_2020_margin_dem
+    )
+
+    df["pres_2024_relative_to_national_dem"] = (
+        df["pres_2024_margin_dem"]
+        - df["national_pres_2024_margin_dem"]
+    )
+    df["pres_2020_relative_to_national_dem"] = (
+        df["pres_2020_margin_dem"]
+        - df["national_pres_2020_margin_dem"]
     )
 
     df.loc[
         has_pres,
         "district_partisan_baseline_dem"
     ] = (
-        WEIGHT_2024 * df.loc[has_pres, "pres_2024_margin_dem"]
-        + WEIGHT_2020 * df.loc[has_pres, "pres_2020_margin_dem"]
+        WEIGHT_2024
+        * df.loc[
+            has_pres,
+            "pres_2024_relative_to_national_dem"
+        ]
+        + WEIGHT_2020
+        * df.loc[
+            has_pres,
+            "pres_2020_relative_to_national_dem"
+        ]
     )
 
     # If somehow missing presidential margins, keep existing baseline if present.

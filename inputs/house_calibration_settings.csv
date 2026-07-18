@@ -1,5 +1,5 @@
 setting,value,notes
-house_environment_multiplier,0.95,Multiplier applied to imported Senate/shared national environment before House district elasticity. Set to 0.95 after pilot 2018/2022 House backtest grid; lower values underfit 2018 wave conditions.
+house_environment_multiplier,0.9,Multiplier applied to imported Senate/shared national environment before House district elasticity. Set to 0.90 after the full historical and 2026-similarity-weighted production calibration; 0.90 was the most robust value across plausible weighting scenarios.
 generic_house_incumbency_points,1.5,Generic House incumbency adjustment in points; positive for Dem incumbents and negative for GOP incumbents. Set to 1.50 after calibration comparison because modern House incumbency appears weaker than older defaults.
 house_uncertainty_national_sd_180,4.75,National correlated House error SD at 180+ days out. Widened after pilot House backtest.
 house_uncertainty_region_sd_180,2.5,Regional correlated House error SD at 180+ days out. Widened after pilot House backtest.
@@ -42,3 +42,5 @@ partisan_pollster_default_adjustment,2.0,Default points adjustment against spons
 partisan_pollster_internal_adjustment,2.5,Points adjustment against sponsoring party for campaign/internal polls.
 partisan_pollster_max_adjustment,3.0,Hard cap on partisan pollster margin adjustment.
 partisan_pollster_weight_multiplier,0.5,Weight multiplier for partisan/campaign-sponsored polls.
+national_pres_2024_margin_dem,-1.5,National Democratic two-party presidential margin in 2024. Subtracted from each district's 2024 presidential margin when constructing the normalized House partisan baseline.
+national_pres_2020_margin_dem,4.52,National Democratic two-party presidential margin in 2020. Subtracted from each district's 2020 presidential margin when constructing the normalized House partisan baseline.
