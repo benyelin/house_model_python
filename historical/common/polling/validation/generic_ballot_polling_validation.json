@@ -1,0 +1,44 @@
+{
+  "status": "PASSED",
+  "source_rows": 4832,
+  "warehouse_rows": 4815,
+  "excluded_rows": 17,
+  "source_reconciliation_valid": true,
+  "unique_poll_ids": 3809,
+  "unique_question_ids": 4815,
+  "duplicate_question_rows": 0,
+  "duplicate_poll_question_rows": 0,
+  "missing_poll_ids": 0,
+  "missing_question_ids": 0,
+  "missing_cycle": 0,
+  "missing_start_date": 0,
+  "missing_end_date": 0,
+  "missing_election_date": 0,
+  "date_order_valid": true,
+  "pre_election_valid": true,
+  "margin_identity_valid": true,
+  "two_party_margin_identity_valid": true,
+  "invalid_major_party_value_rows": 0,
+  "cycles": [
+    2018,
+    2020,
+    2022,
+    2024
+  ],
+  "cycle_election_date_counts": {
+    "2018": 1,
+    "2020": 1,
+    "2022": 1,
+    "2024": 1
+  },
+  "minimum_poll_end_date": "2016-11-04",
+  "maximum_poll_end_date": "2024-11-03",
+  "minimum_margin_dem": -13.200000000000003,
+  "maximum_margin_dem": 18.0,
+  "mean_margin_dem": 4.468230529595016,
+  "median_margin_dem": 5.0,
+  "exclusion_reason_counts": {
+    "post_election_poll": 17
+  },
+  "failed_checks": []
+}

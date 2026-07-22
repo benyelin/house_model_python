@@ -1,19 +1,19 @@
 district_id,state,district,polling_margin_dem,poll_count,latest_poll_end_date,avg_poll_age_days,total_poll_weight,polling_notes,effective_poll_count,largest_pollster_weight_share,only_partisan_or_internal_polls
-AL-2,AL,,-2.0,1,2026-06-25,24.0,0.45060263657111826,Manual House polling average from 1 poll(s): IMPACT Research,1.0,1.0,True
-AZ-6,AZ,,2.0,1,2026-06-11,38.0,0.5617839945380732,Manual House polling average from 1 poll(s): House Majority PAC,1.0,1.0,False
-FL-14,FL,,8.0,1,2026-07-15,4.0,0.9305204491668357,Manual House polling average from 1 poll(s): St. Pete Polls,1.0,1.0,False
-FL-7,FL,,1.0,2,2026-06-21,28.0,1.0270587227726116,"Manual House polling average from 2 poll(s): PPP, PPP",2.0,1.0,True
-KY-6,KY,,-4.5,1,2026-06-28,21.0,0.3996549717881015,Manual House polling average from 1 poll(s): GQR,1.0,1.0,True
-MI-4,MI,4.0,3.0,1,2026-06-01,48.0,0.3886900645047339,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
-MO-2,MO,2.0,-3.0,1,2026-05-31,49.0,0.4201491308740928,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
-MT-1,MT,,-1.5,1,2026-06-25,24.0,0.4093286137742966,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
-NJ-7,NJ,7.0,4.0,1,2026-06-26,23.0,0.503057342786602,Manual House polling average from 1 poll(s): Z to A Research,1.0,1.0,False
-NY-17,NY,,5.999999999999999,1,2026-07-01,18.0,0.7334680888522171,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
-OH-15,OH,15.0,-4.03006225047123,2,2026-06-25,26.0,1.0900352448181145,"Manual House polling average from 2 poll(s): Tulchin, Hart Research Associates",1.9981941542063077,0.5150311252356149,False
-OH-7,OH,,-2.5000000000000004,1,2026-06-20,29.0,0.4843721121424538,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,True
-PA-8,PA,,2.0,1,2026-06-26,23.0,0.4851915853979187,Manual House polling average from 1 poll(s): Lake Research,1.0,1.0,False
-TN-5,TN,,-7.5,1,2026-06-13,36.0,0.36848268475960744,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
-TX-15,TX,,2.0,1,2026-05-25,55.0,0.4484060565306732,Manual House polling average from 1 poll(s): WelcomePAC,1.0,1.0,False
-WA-3,WA,,-1.0,2,2026-07-10,9.0,1.3763946013899075,"Manual House polling average from 2 poll(s): Emerson, Emerson",2.0,1.0,False
-WI-3,WI,3.0,4.0,2,2026-06-25,36.5,0.937235602673942,"Manual House polling average from 2 poll(s): Impact Research, FM3",1.936185092367205,0.5907731989704943,False
-WI-6,WI,6.0,-4.0,1,2026-03-20,121.0,0.166148004140373,Manual House polling average from 1 poll(s): Unknown,1.0,1.0,False
+AL-2,AL,,-2.0,1,2026-06-25,25.0,0.44463447756048274,Manual House polling average from 1 poll(s): IMPACT Research,1.0,1.0,True
+AZ-6,AZ,,2.0,1,2026-06-11,39.0,0.5543432564311092,Manual House polling average from 1 poll(s): House Majority PAC,1.0,1.0,False
+FL-14,FL,,8.0,1,2026-07-15,5.0,0.9181958563825255,Manual House polling average from 1 poll(s): St. Pete Polls,1.0,1.0,False
+FL-7,FL,,1.0,2,2026-06-21,29.0,1.0134554961749802,"Manual House polling average from 2 poll(s): PPP, PPP",2.0,1.0,True
+KY-6,KY,,-4.5,1,2026-06-28,22.0,0.3943616063538184,Manual House polling average from 1 poll(s): GQR,1.0,1.0,True
+MI-4,MI,4.0,3.0,1,2026-06-01,49.0,0.38354192749321814,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
+MO-2,MO,2.0,-3.0,1,2026-05-31,50.0,0.41458432361881803,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
+MT-1,MT,,-1.4999999999999998,1,2026-06-25,25.0,0.4039071225171712,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
+NJ-7,NJ,7.0,4.0,1,2026-06-26,24.0,0.49639442967969133,Manual House polling average from 1 poll(s): Z to A Research,1.0,1.0,False
+NY-17,NY,,6.0,1,2026-07-01,19.0,0.723753422695784,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
+OH-15,OH,15.0,-4.03006225047123,2,2026-06-25,27.0,1.0755979043760446,"Manual House polling average from 2 poll(s): Tulchin, Hart Research Associates",1.998194154206307,0.5150311252356149,False
+OH-7,OH,,-2.5,1,2026-06-20,30.0,0.4779566818920202,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,True
+PA-8,PA,,2.0,1,2026-06-26,24.0,0.4787653013568131,Manual House polling average from 1 poll(s): Lake Research,1.0,1.0,False
+TN-5,TN,,-7.499999999999999,1,2026-06-13,37.0,0.3636021912231163,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
+TX-15,TX,,2.0,1,2026-05-25,56.0,0.44246699086725094,Manual House polling average from 1 poll(s): WelcomePAC,1.0,1.0,False
+WA-3,WA,,-1.0,2,2026-07-10,10.0,1.3581644776050492,"Manual House polling average from 2 poll(s): Emerson, Emerson",2.0,1.0,False
+WI-3,WI,3.0,4.0,2,2026-06-25,37.5,0.9248220687679902,"Manual House polling average from 2 poll(s): Impact Research, FM3",1.9361850923672055,0.5907731989704943,False
+WI-6,WI,6.0,-4.0,1,2026-03-20,122.0,0.1639474007094764,Manual House polling average from 1 poll(s): Unknown,1.0,1.0,False

@@ -714,9 +714,10 @@ def main():
 
     df["imported_national_environment_margin_dem"] = national_environment
     df["house_environment_multiplier"] = house_environment_multiplier
+    # The imported shared national environment is already calibrated
+    # from the raw generic ballot. Do not apply the House coefficient twice.
     df["house_national_environment_used_dem"] = (
         df["imported_national_environment_margin_dem"]
-        * df["house_environment_multiplier"]
     )
 
     df["national_environment_margin_dem"] = df["house_national_environment_used_dem"]

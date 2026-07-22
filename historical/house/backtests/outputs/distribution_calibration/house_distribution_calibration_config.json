@@ -1,0 +1,45 @@
+{
+  "base_seed": 20260720,
+  "calibration_version": "house_distribution_calibration_v2",
+  "candidate_quality_weight": 0.0,
+  "candidate_war_path": "/Users/benyelin/Desktop/Desktop - Ben\u2019s MacBook Air/house_model_python/historical/house/warehouse/house_historical_candidate_war_2016_2022.csv",
+  "common_random_numbers_across_shares": true,
+  "components_deferred": [
+    "region_error_groups",
+    "demographic_error_groups",
+    "historical_polling",
+    "polling_variance_reduction"
+  ],
+  "components_included": [
+    "national_error",
+    "district_error"
+  ],
+  "cycles": [
+    2016,
+    2018,
+    2020,
+    2022
+  ],
+  "forecast_sources": {
+    "2016": "calculated_from_components",
+    "2018": "calculated_from_components",
+    "2020": "calculated_from_components",
+    "2022": "calculated_from_components"
+  },
+  "master_path": "/Users/benyelin/Desktop/Desktop - Ben\u2019s MacBook Air/house_model_python/historical/house/warehouse/house_historical_backtest_inputs_2016_2022.csv",
+  "n_sims_per_cycle_share": 100000,
+  "recommendation_rule": "Lowest combined rank across pooled chamber Brier score, chamber log loss, and expected-seat RMSE; ties broken by log loss, Brier, seat RMSE, then lower national variance share.",
+  "validated_marginal_election_day_sd": 7.994627101997941,
+  "variance_shares": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ]
+}

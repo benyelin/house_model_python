@@ -604,6 +604,102 @@ def run_forecast(input_path, output_dir, config, today=None):
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Temporary live-output consistency diagnostics.
+    race_probability_sum = float(
+        pd.to_numeric(
+            race_stats["simulated_dem_win_probability"],
+            errors="coerce",
+        ).sum()
+    )
+    summary_expected_seats = float(summary["expected_dem_seats"])
+    draw_expected_seats = float(
+        pd.to_numeric(
+            simulation_draws["dem_seats"],
+            errors="coerce",
+        ).mean()
+    )
+    draw_majority_probability = float(
+        (
+            pd.to_numeric(
+                simulation_draws["dem_seats"],
+                errors="coerce",
+            )
+            >= config.majority_threshold
+        ).mean()
+    )
+    summary_majority_probability = float(
+        summary["dem_majority_probability"]
+    )
+
+    print()
+    print("IN-MEMORY HOUSE SIMULATION CONSISTENCY CHECK")
+    print("-" * 52)
+    print(
+        "Sum of district win probabilities: "
+        f"{race_probability_sum:.9f}"
+    )
+    print(
+        "Summary expected Democratic seats: "
+        f"{summary_expected_seats:.9f}"
+    )
+    print(
+        "Raw-draw expected Democratic seats: "
+        f"{draw_expected_seats:.9f}"
+    )
+    print(
+        "Summary Democratic majority probability: "
+        f"{summary_majority_probability:.9%}"
+    )
+    print(
+        "Raw-draw Democratic majority probability: "
+        f"{draw_majority_probability:.9%}"
+    )
+    print(
+        "District-sum minus summary expected seats: "
+        f"{race_probability_sum - summary_expected_seats:+.12f}"
+    )
+    print(
+        "Draw mean minus summary expected seats: "
+        f"{draw_expected_seats - summary_expected_seats:+.12f}"
+    )
+    print(
+        "Draw majority minus summary majority: "
+        f"{draw_majority_probability - summary_majority_probability:+.12f}"
+    )
+
+    if not np.isclose(
+        race_probability_sum,
+        summary_expected_seats,
+        atol=1e-9,
+        rtol=0.0,
+    ):
+        raise RuntimeError(
+            "In-memory inconsistency: district probability sum does not "
+            "equal summary expected seats."
+        )
+
+    if not np.isclose(
+        draw_expected_seats,
+        summary_expected_seats,
+        atol=1e-9,
+        rtol=0.0,
+    ):
+        raise RuntimeError(
+            "In-memory inconsistency: raw draw mean does not equal "
+            "summary expected seats."
+        )
+
+    if not np.isclose(
+        draw_majority_probability,
+        summary_majority_probability,
+        atol=1e-12,
+        rtol=0.0,
+    ):
+        raise RuntimeError(
+            "In-memory inconsistency: raw draw majority probability does "
+            "not equal summary majority probability."
+        )
+
     race_stats.to_csv(output_dir / "house_race_stats.csv", index=False)
     seat_distribution.to_csv(output_dir / "house_seat_distribution.csv", index=False)
     simulation_draws.to_csv(output_dir / "house_simulation_draws.csv", index=False)

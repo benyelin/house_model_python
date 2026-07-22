@@ -1,0 +1,69 @@
+cycle,logical_field,detected_column,found,candidate_names
+2016,district_id,district_id,True,district_id | district | race_id | canonical_district_id
+2016,state,state,True,state | state_abbreviation | state_po
+2016,district_number,,False,district_number | district_num | district_code
+2016,actual_margin_dem,actual_dem_margin,True,actual_margin_dem | actual_margin | dem_margin | general_margin_dem | two_party_margin_dem | actual_dem_margin
+2016,actual_dem_share,dem_vote_share,True,actual_dem_share | dem_two_party_share | dem_vote_share | general_dem_share
+2016,actual_gop_share,gop_vote_share,True,actual_gop_share | gop_two_party_share | gop_vote_share | general_gop_share | actual_rep_share
+2016,actual_winner,actual_winner,True,actual_winner | winner | winner_party
+2016,generic_ballot_margin_dem,generic_ballot_margin_dem,True,generic_ballot_margin_dem | generic_ballot_dem_margin | generic_ballot_margin | election_day_generic_ballot_margin_dem
+2016,national_environment_dem,national_environment_margin_dem,True,national_environment_dem | national_environment | environment_margin_dem | national_environment_margin_dem
+2016,presidential_baseline_dem,,False,district_partisan_baseline_dem | presidential_baseline_dem | district_presidential_baseline_dem | baseline_margin_dem | presidential_margin_dem
+2016,environment_adjustment_dem,,False,district_environment_adjustment_dem | environment_adjustment_dem | national_environment_adjustment_dem
+2016,state_adjustment_dem,,False,state_environment_adjustment_dem | state_adjustment_dem
+2016,elasticity_adjustment_dem,,False,district_elasticity_adjustment_dem | elasticity_adjustment_dem
+2016,incumbency_adjustment_dem,incumbency_adjustment_dem,True,incumbency_adjustment_dem | district_incumbency_adjustment_dem | incumbency_bonus_dem
+2016,candidate_quality_adjustment_dem,candidate_quality_adjustment_dem,True,candidate_quality_adjustment_dem | district_candidate_quality_adjustment_dem | candidate_war_adjustment_dem | candidate_quality_dem
+2016,polling_adjustment_dem,,False,polling_adjustment_dem | district_polling_adjustment_dem | poll_adjustment_dem
+2016,fundamentals_margin_dem,,False,fundamentals_margin_dem | district_fundamentals_margin_dem | forecast_fundamentals_margin_dem
+2018,district_id,district_id,True,district_id | district | race_id | canonical_district_id
+2018,state,state,True,state | state_abbreviation | state_po
+2018,district_number,,False,district_number | district_num | district_code
+2018,actual_margin_dem,actual_dem_margin,True,actual_margin_dem | actual_margin | dem_margin | general_margin_dem | two_party_margin_dem | actual_dem_margin
+2018,actual_dem_share,dem_vote_share,True,actual_dem_share | dem_two_party_share | dem_vote_share | general_dem_share
+2018,actual_gop_share,gop_vote_share,True,actual_gop_share | gop_two_party_share | gop_vote_share | general_gop_share | actual_rep_share
+2018,actual_winner,actual_winner,True,actual_winner | winner | winner_party
+2018,generic_ballot_margin_dem,generic_ballot_margin_dem,True,generic_ballot_margin_dem | generic_ballot_dem_margin | generic_ballot_margin | election_day_generic_ballot_margin_dem
+2018,national_environment_dem,national_environment_margin_dem,True,national_environment_dem | national_environment | environment_margin_dem | national_environment_margin_dem
+2018,presidential_baseline_dem,,False,district_partisan_baseline_dem | presidential_baseline_dem | district_presidential_baseline_dem | baseline_margin_dem | presidential_margin_dem
+2018,environment_adjustment_dem,,False,district_environment_adjustment_dem | environment_adjustment_dem | national_environment_adjustment_dem
+2018,state_adjustment_dem,,False,state_environment_adjustment_dem | state_adjustment_dem
+2018,elasticity_adjustment_dem,,False,district_elasticity_adjustment_dem | elasticity_adjustment_dem
+2018,incumbency_adjustment_dem,incumbency_adjustment_dem,True,incumbency_adjustment_dem | district_incumbency_adjustment_dem | incumbency_bonus_dem
+2018,candidate_quality_adjustment_dem,candidate_quality_adjustment_dem,True,candidate_quality_adjustment_dem | district_candidate_quality_adjustment_dem | candidate_war_adjustment_dem | candidate_quality_dem
+2018,polling_adjustment_dem,,False,polling_adjustment_dem | district_polling_adjustment_dem | poll_adjustment_dem
+2018,fundamentals_margin_dem,,False,fundamentals_margin_dem | district_fundamentals_margin_dem | forecast_fundamentals_margin_dem
+2020,district_id,district_id,True,district_id | district | race_id | canonical_district_id
+2020,state,state,True,state | state_abbreviation | state_po
+2020,district_number,,False,district_number | district_num | district_code
+2020,actual_margin_dem,actual_dem_margin,True,actual_margin_dem | actual_margin | dem_margin | general_margin_dem | two_party_margin_dem | actual_dem_margin
+2020,actual_dem_share,dem_vote_share,True,actual_dem_share | dem_two_party_share | dem_vote_share | general_dem_share
+2020,actual_gop_share,gop_vote_share,True,actual_gop_share | gop_two_party_share | gop_vote_share | general_gop_share | actual_rep_share
+2020,actual_winner,actual_winner,True,actual_winner | winner | winner_party
+2020,generic_ballot_margin_dem,generic_ballot_margin_dem,True,generic_ballot_margin_dem | generic_ballot_dem_margin | generic_ballot_margin | election_day_generic_ballot_margin_dem
+2020,national_environment_dem,national_environment_margin_dem,True,national_environment_dem | national_environment | environment_margin_dem | national_environment_margin_dem
+2020,presidential_baseline_dem,,False,district_partisan_baseline_dem | presidential_baseline_dem | district_presidential_baseline_dem | baseline_margin_dem | presidential_margin_dem
+2020,environment_adjustment_dem,,False,district_environment_adjustment_dem | environment_adjustment_dem | national_environment_adjustment_dem
+2020,state_adjustment_dem,,False,state_environment_adjustment_dem | state_adjustment_dem
+2020,elasticity_adjustment_dem,,False,district_elasticity_adjustment_dem | elasticity_adjustment_dem
+2020,incumbency_adjustment_dem,incumbency_adjustment_dem,True,incumbency_adjustment_dem | district_incumbency_adjustment_dem | incumbency_bonus_dem
+2020,candidate_quality_adjustment_dem,candidate_quality_adjustment_dem,True,candidate_quality_adjustment_dem | district_candidate_quality_adjustment_dem | candidate_war_adjustment_dem | candidate_quality_dem
+2020,polling_adjustment_dem,,False,polling_adjustment_dem | district_polling_adjustment_dem | poll_adjustment_dem
+2020,fundamentals_margin_dem,,False,fundamentals_margin_dem | district_fundamentals_margin_dem | forecast_fundamentals_margin_dem
+2022,district_id,district_id,True,district_id | district | race_id | canonical_district_id
+2022,state,state,True,state | state_abbreviation | state_po
+2022,district_number,,False,district_number | district_num | district_code
+2022,actual_margin_dem,actual_dem_margin,True,actual_margin_dem | actual_margin | dem_margin | general_margin_dem | two_party_margin_dem | actual_dem_margin
+2022,actual_dem_share,dem_vote_share,True,actual_dem_share | dem_two_party_share | dem_vote_share | general_dem_share
+2022,actual_gop_share,gop_vote_share,True,actual_gop_share | gop_two_party_share | gop_vote_share | general_gop_share | actual_rep_share
+2022,actual_winner,actual_winner,True,actual_winner | winner | winner_party
+2022,generic_ballot_margin_dem,generic_ballot_margin_dem,True,generic_ballot_margin_dem | generic_ballot_dem_margin | generic_ballot_margin | election_day_generic_ballot_margin_dem
+2022,national_environment_dem,national_environment_margin_dem,True,national_environment_dem | national_environment | environment_margin_dem | national_environment_margin_dem
+2022,presidential_baseline_dem,,False,district_partisan_baseline_dem | presidential_baseline_dem | district_presidential_baseline_dem | baseline_margin_dem | presidential_margin_dem
+2022,environment_adjustment_dem,,False,district_environment_adjustment_dem | environment_adjustment_dem | national_environment_adjustment_dem
+2022,state_adjustment_dem,,False,state_environment_adjustment_dem | state_adjustment_dem
+2022,elasticity_adjustment_dem,,False,district_elasticity_adjustment_dem | elasticity_adjustment_dem
+2022,incumbency_adjustment_dem,incumbency_adjustment_dem,True,incumbency_adjustment_dem | district_incumbency_adjustment_dem | incumbency_bonus_dem
+2022,candidate_quality_adjustment_dem,candidate_quality_adjustment_dem,True,candidate_quality_adjustment_dem | district_candidate_quality_adjustment_dem | candidate_war_adjustment_dem | candidate_quality_dem
+2022,polling_adjustment_dem,,False,polling_adjustment_dem | district_polling_adjustment_dem | poll_adjustment_dem
+2022,fundamentals_margin_dem,,False,fundamentals_margin_dem | district_fundamentals_margin_dem | forecast_fundamentals_margin_dem

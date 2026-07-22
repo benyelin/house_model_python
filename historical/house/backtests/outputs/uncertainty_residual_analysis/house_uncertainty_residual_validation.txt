@@ -1,0 +1,10 @@
+House Uncertainty Residual Analysis v1
+==============================================
+
+PASS: canonical scoring rows equal {2016: 345, 2018: 393, 2020: 407, 2022: 400}
+PASS: total scored rows equal 1545
+PASS: no missing forecast residuals
+PASS: residual arithmetic reproduced exactly
+PASS: residual orientation is actual_dem_margin - model_margin_dem
+
+VALIDATION PASSED

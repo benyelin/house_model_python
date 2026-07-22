@@ -87,10 +87,10 @@ def interpolate_by_days_out(days_out, floor, d30, d90, d180):
 def get_dynamic_sds(settings, days_out):
     national_sd = interpolate_by_days_out(
         days_out,
-        setting(settings, "house_uncertainty_national_sd_floor", 2.25),
-        setting(settings, "house_uncertainty_national_sd_30", 2.75),
-        setting(settings, "house_uncertainty_national_sd_90", 3.5),
-        setting(settings, "house_uncertainty_national_sd_180", 4.5),
+        setting(settings, "house_uncertainty_national_sd_floor", 5.0625),
+        setting(settings, "house_uncertainty_national_sd_30", 6.1875),
+        setting(settings, "house_uncertainty_national_sd_90", 7.875),
+        setting(settings, "house_uncertainty_national_sd_180", 10.125),
     )
 
     region_sd = interpolate_by_days_out(
@@ -111,10 +111,10 @@ def get_dynamic_sds(settings, days_out):
 
     district_sd = interpolate_by_days_out(
         days_out,
-        setting(settings, "house_uncertainty_district_sd_floor", 2.75),
-        setting(settings, "house_uncertainty_district_sd_30", 3.25),
-        setting(settings, "house_uncertainty_district_sd_90", 3.75),
-        setting(settings, "house_uncertainty_district_sd_180", 4.75),
+        setting(settings, "house_uncertainty_district_sd_floor", 6.1875),
+        setting(settings, "house_uncertainty_district_sd_30", 7.3125),
+        setting(settings, "house_uncertainty_district_sd_90", 8.4375),
+        setting(settings, "house_uncertainty_district_sd_180", 10.6875),
     )
 
     return national_sd, region_sd, demographic_sd, district_sd
@@ -227,7 +227,25 @@ def main():
     parser.add_argument("--today", default=None)
     parser.add_argument("--election-day", default=DEFAULT_ELECTION_DAY)
     parser.add_argument("--seed", type=int, default=20260603)
+    parser.add_argument(
+        "--allow-unvalidated-dynamic-uncertainty",
+        action="store_true",
+        help=(
+            "Explicitly enable the experimental dynamic uncertainty engine. "
+            "This engine is not approved for production use."
+        ),
+    )
     args = parser.parse_args()
+
+    if not args.allow_unvalidated_dynamic_uncertainty:
+        raise RuntimeError(
+            "The dynamic House uncertainty engine is experimental and "
+            "historically unvalidated. It must not overwrite production "
+            "House outputs. Use `python3 run_house_model.py` for the "
+            "production forecast. To run this script for isolated research, "
+            "pass --allow-unvalidated-dynamic-uncertainty and first redirect "
+            "its outputs away from the production outputs directory."
+        )
 
     if not RACE_INPUTS.exists():
         raise FileNotFoundError("inputs/house_race_inputs.csv not found.")
@@ -317,6 +335,11 @@ def main():
     margin_p50_dem = np.percentile(simulated_margins, 50, axis=0)
     margin_p75_dem = np.percentile(simulated_margins, 75, axis=0)
 
+    # Store the dynamic simulation probability under both the canonical
+    # production column name and the legacy abbreviated alias. This prevents
+    # downstream diagnostics from reading the stale probability inherited
+    # from the preceding base-model run.
+    df["simulated_dem_win_probability"] = dem_prob
     df["simulated_dem_win_prob"] = dem_prob
     df["dem_win_probability"] = dem_prob
     df["avg_simulated_margin_dem"] = avg_sim_margin
@@ -350,6 +373,20 @@ def main():
         }
     )
     seat_dist["probability"] = seat_dist["count"] / n_sims
+
+    # Persist the draws from this dynamic uncertainty run. Previously the
+    # pipeline left the base-model draw file in place even though it replaced
+    # the race statistics and forecast summary, producing a mixed set of
+    # outputs from two different simulation engines.
+    simulation_draws = pd.DataFrame(
+        {
+            "simulation": np.arange(1, n_sims + 1, dtype=int),
+            "dem_seats": dem_seats_by_sim.astype(int),
+            "gop_seats": (
+                len(df) - dem_seats_by_sim
+            ).astype(int),
+        }
+    )
 
     expected_dem_seats = float(np.mean(dem_seats_by_sim))
     median_dem_seats = float(np.median(dem_seats_by_sim))
@@ -420,6 +457,10 @@ def main():
     df.to_csv(RACE_STATS_OUT, index=False)
     seat_dist.to_csv(SEAT_DIST_OUT, index=False)
     seat_dist.to_csv(SEAT_DIST_ALIAS_OUT, index=False)
+    simulation_draws.to_csv(
+        OUTPUTS / "house_simulation_draws.csv",
+        index=False,
+    )
     summary.to_csv(SUMMARY_OUT, index=False)
     uncertainty_audit.to_csv(UNCERTAINTY_AUDIT_OUT, index=False)
 

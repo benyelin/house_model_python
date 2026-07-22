@@ -1,0 +1,10 @@
+House Production Replay v1 Validation
+============================================
+PASS: result rows = 3,480
+PASS: replay-spec/cycle/race keys are unique
+PASS: all probabilities are finite and within [0, 1]
+PASS: summary rows = 8
+PASS: fixed-control probabilities are exact
+PASS: canonical scorer and benchmark files were not modified
+
+VALIDATION PASSED

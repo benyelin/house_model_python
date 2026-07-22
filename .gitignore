@@ -1,0 +1,9 @@
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Local backup files created during model development
+*.before_*.py
+*.before_*.csv
+*.before_*.json

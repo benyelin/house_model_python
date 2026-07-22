@@ -1,22 +1,22 @@
 setting,value,notes
-house_environment_multiplier,0.9,Multiplier applied to imported Senate/shared national environment before House district elasticity. Set to 0.90 after the full historical and 2026-similarity-weighted production calibration; 0.90 was the most robust value across plausible weighting scenarios.
+house_environment_multiplier,1.0,Multiplier applied to imported Senate/shared national environment before House district elasticity. Set to 0.90 after the full historical and 2026-similarity-weighted production calibration; 0.90 was the most robust value across plausible weighting scenarios.
 generic_house_incumbency_points,1.5,Generic House incumbency adjustment in points; positive for Dem incumbents and negative for GOP incumbents. Set to 1.50 after calibration comparison because modern House incumbency appears weaker than older defaults.
-house_uncertainty_national_sd_180,4.75,National correlated House error SD at 180+ days out. Widened after pilot House backtest.
+house_uncertainty_national_sd_180,10.125,National correlated House error SD at 180+ days out. Widened after pilot House backtest.
 house_uncertainty_region_sd_180,2.5,Regional correlated House error SD at 180+ days out. Widened after pilot House backtest.
 house_uncertainty_demographic_sd_180,2.0,Demographic-group correlated House error SD at 180+ days out. Widened after pilot House backtest.
-house_uncertainty_district_sd_180,5.25,District-specific House error SD at 180+ days out. Widened after pilot House backtest.
-house_uncertainty_national_sd_90,3.5,National correlated House error SD at 90 days out.
+house_uncertainty_district_sd_180,10.6875,District-specific House error SD at 180+ days out. Widened after pilot House backtest.
+house_uncertainty_national_sd_90,7.875,National correlated House error SD at 90 days out.
 house_uncertainty_region_sd_90,1.75,Regional correlated House error SD at 90 days out.
 house_uncertainty_demographic_sd_90,1.25,Demographic-group correlated House error SD at 90 days out.
-house_uncertainty_district_sd_90,3.75,District-specific House error SD at 90 days out.
-house_uncertainty_national_sd_30,2.75,National correlated House error SD at 30 days out.
+house_uncertainty_district_sd_90,8.4375,District-specific House error SD at 90 days out.
+house_uncertainty_national_sd_30,6.1875,National correlated House error SD at 30 days out.
 house_uncertainty_region_sd_30,1.25,Regional correlated House error SD at 30 days out.
 house_uncertainty_demographic_sd_30,1.0,Demographic-group correlated House error SD at 30 days out.
-house_uncertainty_district_sd_30,3.25,District-specific House error SD at 30 days out.
-house_uncertainty_national_sd_floor,2.25,Minimum national correlated House error SD near Election Day.
+house_uncertainty_district_sd_30,7.3125,District-specific House error SD at 30 days out.
+house_uncertainty_national_sd_floor,5.0625,Minimum national correlated House error SD near Election Day.
 house_uncertainty_region_sd_floor,1.0,Minimum regional correlated House error SD near Election Day.
 house_uncertainty_demographic_sd_floor,0.75,Minimum demographic-group House error SD near Election Day.
-house_uncertainty_district_sd_floor,2.75,Minimum district-specific House error SD near Election Day.
+house_uncertainty_district_sd_floor,6.1875,Minimum district-specific House error SD near Election Day.
 house_polling_district_error_multiplier_1_poll,0.9,District-error multiplier for one district poll.
 house_polling_district_error_multiplier_2_polls,0.8,District-error multiplier for two district polls.
 house_polling_district_error_multiplier_3plus_polls,0.7,District-error multiplier for three or more district polls.

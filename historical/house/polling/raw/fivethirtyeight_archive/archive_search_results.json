@@ -1,0 +1,16 @@
+[
+  {
+    "dataset": "generic_ballot_polls_historical.csv",
+    "original_url": "https://projects.fivethirtyeight.com/polls-page/data/generic_ballot_polls_historical.csv",
+    "capture_count": 5,
+    "status": "captures_found",
+    "detail": ""
+  },
+  {
+    "dataset": "house_polls_historical.csv",
+    "original_url": "https://projects.fivethirtyeight.com/polls-page/data/house_polls_historical.csv",
+    "capture_count": 5,
+    "status": "captures_found",
+    "detail": ""
+  }
+]

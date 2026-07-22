@@ -1,0 +1,5 @@
+held_out_cycle,selected_national_variance_share,selected_district_variance_share,training_combined_rank_score,training_mean_chamber_brier_score,training_mean_chamber_log_loss,held_out_actual_dem_seats,held_out_expected_dem_seats,held_out_dem_control_probability,held_out_actual_dem_control,held_out_correct_control_call,held_out_chamber_brier_score,held_out_chamber_log_loss,held_out_absolute_expected_seat_error,held_out_simulation_dem_seat_sd,held_out_actual_in_50_interval,held_out_actual_in_80_interval,held_out_actual_in_90_interval
+2016,0.1,0.9,9,0.09316071513333334,0.2768835743348509,194,228.22496,0.75282,0,0,0.5667379524,1.3976384628205478,34.22496000000001,15.344919278506374,0,0,0
+2018,0.5,0.5,10,0.23534226553333334,0.6560396684761468,238,244.41049,0.82269,1,1,0.031438836099999985,0.19517581998019026,6.41049000000001,28.730701044209223,1,1,1
+2020,0.5,0.5,11,0.22344600153333335,0.6211395689520479,222,235.91411,0.74091,1,1,0.06712762810000002,0.29987611855248697,13.914109999999994,26.75319626218524,1,1,1
+2022,0.4,0.6,8,0.15541995716666665,0.4678956349514549,215,218.1361,0.51651,0,0,0.2667825801,0.7267246468259423,3.136099999999999,21.033648302983707,1,1,1

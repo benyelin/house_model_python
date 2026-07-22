@@ -1,0 +1,26 @@
+{
+  "analysis_version": "house_uncertainty_residual_analysis_v1",
+  "candidate_quality_weight": 0.0,
+  "candidate_war_path": "/Users/benyelin/Desktop/Desktop - Ben\u2019s MacBook Air/house_model_python/historical/house/warehouse/house_historical_candidate_war_2016_2022.csv",
+  "cycles": [
+    2016,
+    2018,
+    2020,
+    2022
+  ],
+  "forecast_sources": {
+    "2016": "calculated_from_components",
+    "2018": "calculated_from_components",
+    "2020": "calculated_from_components",
+    "2022": "calculated_from_components"
+  },
+  "master_path": "/Users/benyelin/Desktop/Desktop - Ben\u2019s MacBook Air/house_model_python/historical/house/warehouse/house_historical_backtest_inputs_2016_2022.csv",
+  "residual_definition": "actual_dem_margin - model_margin_dem",
+  "scored_rows_by_cycle": {
+    "2016": 345,
+    "2018": 393,
+    "2020": 407,
+    "2022": 400
+  },
+  "total_scored_rows": 1545
+}

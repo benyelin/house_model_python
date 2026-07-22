@@ -1,0 +1,246 @@
+{
+  "generic_ballot": {
+    "dataset": "FiveThirtyEight Generic Ballot Historical",
+    "path": "historical/house/polling/raw/fivethirtyeight_archive/generic_ballot_polls_historical.csv",
+    "rows": 4832,
+    "columns": [
+      "poll_id",
+      "pollster_id",
+      "pollster",
+      "sponsor_ids",
+      "sponsors",
+      "display_name",
+      "pollster_rating_id",
+      "pollster_rating_name",
+      "numeric_grade",
+      "pollscore",
+      "methodology",
+      "transparency_score",
+      "state",
+      "start_date",
+      "end_date",
+      "sponsor_candidate_id",
+      "sponsor_candidate",
+      "sponsor_candidate_party",
+      "question_id",
+      "sample_size",
+      "population",
+      "subpopulation",
+      "population_full",
+      "tracking",
+      "created_at",
+      "notes",
+      "url",
+      "url_article",
+      "url_topline",
+      "url_crosstab",
+      "source",
+      "internal",
+      "partisan",
+      "race_id",
+      "cycle",
+      "office_type",
+      "seat_number",
+      "seat_name",
+      "election_date",
+      "stage",
+      "nationwide_batch",
+      "dem",
+      "rep",
+      "ind"
+    ],
+    "column_count": 44,
+    "dates": {
+      "start_date": {
+        "column_present": true,
+        "nonnull": 4832,
+        "minimum": "2016-10-31",
+        "maximum": "2024-11-02"
+      },
+      "end_date": {
+        "column_present": true,
+        "nonnull": 4832,
+        "minimum": "2016-11-04",
+        "maximum": "2024-11-03"
+      },
+      "created_at": {
+        "column_present": true,
+        "nonnull": 4832,
+        "minimum": "2017-05-24",
+        "maximum": "2024-11-05"
+      },
+      "election_date": {
+        "column_present": true,
+        "nonnull": 4832,
+        "minimum": "2018-11-06",
+        "maximum": "2024-11-05"
+      }
+    },
+    "cycle_counts": {
+      "2018": 1790,
+      "2020": 943,
+      "2022": 1364,
+      "2024": 735
+    },
+    "key_cardinality": {
+      "poll_id": {
+        "unique": 3815,
+        "missing": 0
+      },
+      "question_id": {
+        "unique": 4832,
+        "missing": 0
+      },
+      "race_id": {
+        "unique": 4,
+        "missing": 0
+      }
+    },
+    "rows_per_poll_question": {
+      "count": 4832.0,
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 1.0,
+      "max": 1.0
+    }
+  },
+  "house_polls": {
+    "dataset": "FiveThirtyEight House Polls Historical",
+    "path": "historical/house/polling/raw/fivethirtyeight_archive/house_polls_historical.csv",
+    "rows": 4258,
+    "columns": [
+      "poll_id",
+      "pollster_id",
+      "pollster",
+      "sponsor_ids",
+      "sponsors",
+      "display_name",
+      "pollster_rating_id",
+      "pollster_rating_name",
+      "numeric_grade",
+      "pollscore",
+      "methodology",
+      "transparency_score",
+      "state",
+      "start_date",
+      "end_date",
+      "sponsor_candidate_id",
+      "sponsor_candidate",
+      "sponsor_candidate_party",
+      "endorsed_candidate_id",
+      "endorsed_candidate_name",
+      "endorsed_candidate_party",
+      "question_id",
+      "sample_size",
+      "population",
+      "subpopulation",
+      "population_full",
+      "tracking",
+      "created_at",
+      "notes",
+      "url",
+      "url_article",
+      "url_topline",
+      "url_crosstab",
+      "source",
+      "internal",
+      "partisan",
+      "race_id",
+      "cycle",
+      "office_type",
+      "seat_number",
+      "seat_name",
+      "election_date",
+      "stage",
+      "nationwide_batch",
+      "ranked_choice_reallocated",
+      "ranked_choice_round",
+      "hypothetical",
+      "party",
+      "answer",
+      "candidate_id",
+      "candidate_name",
+      "pct"
+    ],
+    "column_count": 52,
+    "dates": {
+      "start_date": {
+        "column_present": true,
+        "nonnull": 4258,
+        "minimum": "2017-06-22",
+        "maximum": "2024-11-01"
+      },
+      "end_date": {
+        "column_present": true,
+        "nonnull": 4258,
+        "minimum": "2017-06-25",
+        "maximum": "2024-11-04"
+      },
+      "created_at": {
+        "column_present": true,
+        "nonnull": 4258,
+        "minimum": "2018-03-16",
+        "maximum": "2024-11-05"
+      },
+      "election_date": {
+        "column_present": true,
+        "nonnull": 4256,
+        "minimum": "2018-03-13",
+        "maximum": "2024-11-05"
+      }
+    },
+    "cycle_counts": {
+      "2018": 1782,
+      "2019": 30,
+      "2020": 908,
+      "2021": 74,
+      "2022": 785,
+      "2023": 5,
+      "2024": 674
+    },
+    "key_cardinality": {
+      "poll_id": {
+        "unique": 1405,
+        "missing": 0
+      },
+      "question_id": {
+        "unique": 1860,
+        "missing": 0
+      },
+      "race_id": {
+        "unique": 495,
+        "missing": 0
+      },
+      "candidate_id": {
+        "unique": 1284,
+        "missing": 0
+      }
+    },
+    "rows_per_poll_question": {
+      "count": 1860.0,
+      "mean": 2.289247311827957,
+      "std": 0.8402159569717486,
+      "min": 2.0,
+      "25%": 2.0,
+      "50%": 2.0,
+      "75%": 2.0,
+      "max": 23.0
+    }
+  },
+  "generic_checks": {
+    "required_columns_present": false,
+    "missing_required_columns": [
+      "party",
+      "pct"
+    ]
+  },
+  "house_checks": {
+    "required_columns_present": false,
+    "missing_required_columns": [
+      "district"
+    ]
+  }
+}

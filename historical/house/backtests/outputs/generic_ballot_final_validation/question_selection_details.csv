@@ -1,0 +1,353 @@
+cycle,poll_id,question_id,pollster,sponsors,population,normalized_population,sample_size,margin_dem,poll_age_days,numeric_grade,selected_by_largest_sample,selection_reason,partisan_group
+2018,56274,90428,YouGov,Economist,rv,RV,1273.0,5.0,21,3.0,True,largest sample size,INDEPENDENT
+2018,56284,90447,Beacon/Shaw,FOX News,rv,RV,1007.0,7.0,21,2.8,True,largest sample size,INDEPENDENT
+2018,56284,90448,Beacon/Shaw,FOX News,lv,LV,841.0,7.0,21,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56408,90662,Ipsos,Reuters,lv,LV,1092.0,11.300000000000004,21,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56408,90663,Ipsos,Reuters,a,A,2052.0,8.8,21,2.8,True,largest sample size,INDEPENDENT
+2018,56408,90664,Ipsos,Reuters,rv,RV,1682.0,9.799999999999995,21,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56320,90527,CBS News,,rv,RV,975.0,9.0,20,,True,largest sample size,INDEPENDENT
+2018,56331,90550,Hart/POS,NBC News | Wall Street Journal,rv,RV,900.0,7.0,20,2.6,True,largest sample size,INDEPENDENT
+2018,56331,90551,Hart/POS,NBC News | Wall Street Journal,lv,LV,645.0,9.0,20,2.6,False,smaller sample than selected question,INDEPENDENT
+2018,56434,90760,Ipsos,Reuters,lv,LV,1170.0,9.299999999999995,20,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56434,90766,Ipsos,Reuters,a,A,2257.0,8.100000000000001,20,2.8,True,largest sample size,INDEPENDENT
+2018,56434,90772,Ipsos,Reuters,rv,RV,1831.0,9.1,20,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56420,90693,Rasmussen,,lv,LV,2500.0,3.0,19,2.1,True,largest sample size,INDEPENDENT
+2018,56433,90759,Ipsos,Reuters,lv,LV,1348.0,9.5,19,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56433,90765,Ipsos,Reuters,a,A,2564.0,8.3,19,2.8,True,largest sample size,INDEPENDENT
+2018,56433,90771,Ipsos,Reuters,rv,RV,2080.0,9.4,19,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56324,90539,HarrisX,ScottRasmussen.com,rv,RV,5000.0,8.0,18,1.5,True,largest sample size,INDEPENDENT
+2018,56324,90540,HarrisX,ScottRasmussen.com,lv,LV,2991.0,9.0,18,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56324,90541,HarrisX,ScottRasmussen.com,lv,LV,3729.0,8.0,18,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56412,90679,Morning Consult,Politico,rv,RV,1968.0,6.0,18,1.9,True,largest sample size,INDEPENDENT
+2018,56438,90758,Ipsos,Reuters,lv,LV,1432.0,9.0,18,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56438,90764,Ipsos,Reuters,a,A,2818.0,8.800000000000004,18,2.8,True,largest sample size,INDEPENDENT
+2018,56438,90770,Ipsos,Reuters,rv,RV,2220.0,10.199999999999996,18,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56471,90828,Ipsos,Cook Political Report,rv,RV,1301.0,7.0,18,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56471,90829,Ipsos,Cook Political Report,a,A,1486.0,9.0,18,2.8,True,largest sample size,INDEPENDENT
+2018,56343,90576,USC Dornsife,LA Times,lv,LV,2284.0,13.0,17,2.4,True,largest sample size,INDEPENDENT
+2018,56432,90715,HarrisX,The Hill,rv,RV,1000.0,6.0,17,1.5,True,largest sample size,INDEPENDENT
+2018,56437,90757,Ipsos,Reuters,lv,LV,1586.0,7.399999999999999,17,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56437,90763,Ipsos,Reuters,a,A,2990.0,8.000000000000004,17,2.8,True,largest sample size,INDEPENDENT
+2018,56437,90769,Ipsos,Reuters,rv,RV,2391.0,9.0,17,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56436,90756,Ipsos,Reuters,lv,LV,1878.0,5.0,16,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56436,90762,Ipsos,Reuters,a,A,3496.0,6.599999999999998,16,2.8,True,largest sample size,INDEPENDENT
+2018,56436,90768,Ipsos,Reuters,rv,RV,2813.0,6.899999999999999,16,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56517,90920,PRRI,Carnegie Corporation of New York | Unitarian Universalist Veatch Program at Shelter Rock | Cummings Foundation | New World Foundation,rv,RV,821.0,9.0,16,1.8,False,smaller sample than selected question,INDEPENDENT
+2018,56517,90921,PRRI,Carnegie Corporation of New York | Unitarian Universalist Veatch Program at Shelter Rock | Cummings Foundation | New World Foundation,a,A,1003.0,13.0,16,1.8,True,largest sample size,INDEPENDENT
+2018,56435,90755,Ipsos,Reuters,lv,LV,2112.0,5.0,15,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56435,90761,Ipsos,Reuters,a,A,3859.0,7.0000000000000036,15,2.8,True,largest sample size,INDEPENDENT
+2018,56435,90767,Ipsos,Reuters,rv,RV,3128.0,6.699999999999996,15,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56456,90805,Suffolk,USA Today,lv,LV,1000.0,8.600000000000001,15,2.9,True,largest sample size,INDEPENDENT
+2018,56469,90824,McLaughlin,,lv,LV,1000.0,2.0,15,0.5,True,largest sample size,INDEPENDENT
+2018,56447,90786,YouGov,Economist,rv,RV,1233.0,6.0,14,3.0,True,largest sample size,INDEPENDENT
+2018,56480,90845,Marist College,NPR | PBS NewsHour,rv,RV,738.0,10.0,14,2.9,True,largest sample size,INDEPENDENT
+2018,56484,90950,Ipsos,Reuters,lv,LV,2021.0,4.600000000000001,14,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56484,90951,Ipsos,Reuters,a,A,3686.0,6.599999999999998,14,2.8,True,largest sample size,INDEPENDENT
+2018,56484,90952,Ipsos,Reuters,rv,RV,2988.0,6.099999999999994,14,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56575,91051,Ipsos,Reuters,a,A,3840.0,6.899999999999999,13,2.8,True,largest sample size,INDEPENDENT
+2018,56575,91057,Ipsos,Reuters,lv,LV,2095.0,5.5,13,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56575,91063,Ipsos,Reuters,rv,RV,3105.0,6.699999999999996,13,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56574,91050,Ipsos,Reuters,a,A,3562.0,6.899999999999999,12,2.8,True,largest sample size,INDEPENDENT
+2018,56574,91056,Ipsos,Reuters,lv,LV,1943.0,5.5,12,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56574,91062,Ipsos,Reuters,rv,RV,2886.0,6.5,12,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56594,91104,Rasmussen,,lv,LV,2500.0,3.0,12,2.1,True,largest sample size,INDEPENDENT
+2018,56675,91282,Lucid,,lv,LV,826.0,6.0,12,,True,largest sample size,INDEPENDENT
+2018,56786,91506,YouGov,George Washington University,rv,RV,2321.0,8.0,12,3.0,True,largest sample size,INDEPENDENT
+2018,56494,90876,HarrisX,ScottRasmussen.com,rv,RV,5002.0,6.0,11,1.5,True,largest sample size,INDEPENDENT
+2018,56494,90877,HarrisX,ScottRasmussen.com,lv,LV,3099.0,7.0,11,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56494,90878,HarrisX,ScottRasmussen.com,lv,LV,3811.0,4.0,11,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56573,91049,Ipsos,Reuters,a,A,3323.0,7.100000000000001,11,2.8,True,largest sample size,INDEPENDENT
+2018,56573,91055,Ipsos,Reuters,lv,LV,1864.0,6.0,11,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56573,91061,Ipsos,Reuters,rv,RV,2761.0,6.199999999999996,11,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56505,90898,USC Dornsife,LA Times,lv,LV,2350.0,17.0,10,2.4,True,largest sample size,INDEPENDENT
+2018,56570,91048,Ipsos,Reuters,a,A,3153.0,7.200000000000003,10,2.8,True,largest sample size,INDEPENDENT
+2018,56570,91054,Ipsos,Reuters,lv,LV,1734.0,5.200000000000003,10,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56570,91060,Ipsos,Reuters,rv,RV,2605.0,6.0,10,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56572,91047,Ipsos,Reuters,a,A,2673.0,8.100000000000001,9,2.8,True,largest sample size,INDEPENDENT
+2018,56572,91053,Ipsos,Reuters,lv,LV,1481.0,6.200000000000003,9,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56572,91059,Ipsos,Reuters,rv,RV,2212.0,7.099999999999994,9,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56605,91136,Harris Poll,Harvard CAPS,rv,RV,1835.0,9.0,9,1.5,True,largest sample size,INDEPENDENT
+2018,56822,91577,Gallup,,lv,LV,675.0,11.0,9,2.5,True,largest sample size,INDEPENDENT
+2018,56571,91046,Ipsos,Reuters,a,A,2581.0,8.0,8,2.8,True,largest sample size,INDEPENDENT
+2018,56571,91052,Ipsos,Reuters,lv,LV,1375.0,7.200000000000003,8,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56571,91058,Ipsos,Reuters,rv,RV,2108.0,6.800000000000004,8,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56637,91207,Marist College,NPR | PBS NewsHour,rv,RV,822.0,6.0,8,2.9,True,largest sample size,INDEPENDENT
+2018,56637,91208,Marist College,NPR | PBS NewsHour,lv,LV,509.0,9.0,8,2.9,False,smaller sample than selected question,INDEPENDENT
+2018,56593,91101,YouGov,Economist,rv,RV,1296.0,5.0,7,3.0,True,largest sample size,INDEPENDENT
+2018,56614,91152,Morning Consult,Politico,rv,RV,2543.0,8.0,7,1.9,True,largest sample size,INDEPENDENT
+2018,56622,91565,Ipsos,Reuters,lv,LV,1296.0,8.799999999999997,7,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56622,91566,Ipsos,Reuters,a,A,2421.0,8.499999999999996,7,2.8,True,largest sample size,INDEPENDENT
+2018,56622,91567,Ipsos,Reuters,rv,RV,1976.0,7.399999999999999,7,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56728,91382,HarrisX,ScottRasmussen.com,rv,RV,3000.0,6.0,7,1.5,True,largest sample size,INDEPENDENT
+2018,56728,91383,HarrisX,ScottRasmussen.com,lv,LV,1864.0,7.0,7,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56728,91384,HarrisX,ScottRasmussen.com,lv,LV,2266.0,6.0,7,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56727,91379,HarrisX,ScottRasmussen.com,rv,RV,3000.0,8.0,6,1.5,True,largest sample size,INDEPENDENT
+2018,56727,91380,HarrisX,ScottRasmussen.com,lv,LV,1883.0,7.0,6,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56727,91381,HarrisX,ScottRasmussen.com,lv,LV,2294.0,6.0,6,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56841,91638,Ipsos,Reuters,lv,LV,1445.0,5.700000000000003,6,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56841,91644,Ipsos,Reuters,a,A,2589.0,6.699999999999996,6,2.8,True,largest sample size,INDEPENDENT
+2018,56841,91650,Ipsos,Reuters,rv,RV,2149.0,6.099999999999994,6,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56724,91370,HarrisX,ScottRasmussen.com,rv,RV,3000.0,6.0,5,1.5,True,largest sample size,INDEPENDENT
+2018,56724,91371,HarrisX,ScottRasmussen.com,lv,LV,1913.0,6.0,5,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56724,91372,HarrisX,ScottRasmussen.com,lv,LV,2321.0,5.0,5,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56729,91386,ABC/Washington Post,,rv,RV,1041.0,7.0,5,3.0,True,largest sample size,INDEPENDENT
+2018,56729,91387,ABC/Washington Post,,lv,LV,737.0,7.0,5,3.0,False,smaller sample than selected question,INDEPENDENT
+2018,56729,91388,ABC/Washington Post,,lv,LV,737.0,8.0,5,3.0,False,smaller sample than selected question,INDEPENDENT
+2018,56776,91484,Rasmussen,,lv,LV,2500.0,-1.0,5,2.1,True,largest sample size,INDEPENDENT
+2018,56840,91637,Ipsos,Reuters,lv,LV,1457.0,4.600000000000001,5,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56840,91643,Ipsos,Reuters,a,A,2571.0,5.399999999999999,5,2.8,True,largest sample size,INDEPENDENT
+2018,56840,91649,Ipsos,Reuters,rv,RV,2140.0,4.5,5,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56699,91326,HarrisX,ScottRasmussen.com,rv,RV,5000.0,7.0,4,1.5,True,largest sample size,INDEPENDENT
+2018,56699,91327,HarrisX,ScottRasmussen.com,lv,LV,3167.0,8.0,4,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56699,91328,HarrisX,ScottRasmussen.com,lv,LV,3861.0,6.0,4,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56726,91376,HarrisX,ScottRasmussen.com,rv,RV,3000.0,7.0,4,1.5,True,largest sample size,INDEPENDENT
+2018,56726,91377,HarrisX,ScottRasmussen.com,lv,LV,1932.0,10.0,4,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56726,91378,HarrisX,ScottRasmussen.com,lv,LV,2348.0,7.0,4,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56766,91462,Morning Consult,Politico,rv,RV,1961.0,3.0,4,1.9,True,largest sample size,INDEPENDENT
+2018,56839,91636,Ipsos,Reuters,lv,LV,1461.0,3.5,4,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56839,91642,Ipsos,Reuters,a,A,2552.0,4.699999999999996,4,2.8,True,largest sample size,INDEPENDENT
+2018,56839,91648,Ipsos,Reuters,rv,RV,2131.0,4.100000000000001,4,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56725,91373,HarrisX,ScottRasmussen.com,rv,RV,3000.0,7.0,3,1.5,True,largest sample size,INDEPENDENT
+2018,56725,91374,HarrisX,ScottRasmussen.com,lv,LV,1914.0,9.0,3,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56725,91375,HarrisX,ScottRasmussen.com,lv,LV,2315.0,8.0,3,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56734,91402,Hart/POS,NBC News | Wall Street Journal,rv,RV,1000.0,6.0,3,2.6,True,largest sample size,INDEPENDENT
+2018,56734,91403,Hart/POS,NBC News | Wall Street Journal,lv,LV,774.0,7.0,3,2.6,False,smaller sample than selected question,INDEPENDENT
+2018,56747,91427,TIPP,Investor's Business Daily,lv,LV,798.0,9.0,3,1.8,True,largest sample size,INDEPENDENT
+2018,56767,91465,CNN/SSRS,,rv,RV,1380.0,11.0,3,2.8,True,largest sample size,INDEPENDENT
+2018,56767,91466,CNN/SSRS,,lv,LV,1151.0,13.0,3,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56768,91467,USC Dornsife,LA Times,lv,LV,2521.0,15.0,3,2.4,True,largest sample size,INDEPENDENT
+2018,56794,91521,HarrisX,The Hill,rv,RV,1000.0,6.0,3,1.5,True,largest sample size,INDEPENDENT
+2018,56838,91635,Ipsos,Reuters,lv,LV,1462.0,5.699999999999996,3,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56838,91641,Ipsos,Reuters,a,A,2555.0,4.700000000000003,3,2.8,True,largest sample size,INDEPENDENT
+2018,56838,91647,Ipsos,Reuters,rv,RV,2143.0,4.199999999999996,3,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56744,91421,HarrisX,ScottRasmussen.com,rv,RV,3000.0,7.0,2,1.5,True,largest sample size,INDEPENDENT
+2018,56744,91422,HarrisX,ScottRasmussen.com,lv,LV,1890.0,12.0,2,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56744,91423,HarrisX,ScottRasmussen.com,lv,LV,2295.0,10.0,2,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56837,91634,Ipsos,Reuters,lv,LV,1441.0,7.300000000000004,2,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56837,91640,Ipsos,Reuters,a,A,2490.0,6.0,2,2.8,True,largest sample size,INDEPENDENT
+2018,56837,91646,Ipsos,Reuters,rv,RV,2108.0,6.0,2,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56844,91662,Morning Consult,Politico,rv,RV,1963.0,3.0,2,1.9,True,largest sample size,INDEPENDENT
+2018,56792,91516,HarrisX,ScottRasmussen.com,rv,RV,3005.0,7.0,1,1.5,True,largest sample size,INDEPENDENT
+2018,56792,91517,HarrisX,ScottRasmussen.com,lv,LV,1922.0,12.0,1,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56792,91518,HarrisX,ScottRasmussen.com,lv,LV,2305.0,9.0,1,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56836,91633,Ipsos,Reuters,lv,LV,1326.0,4.800000000000004,1,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56836,91639,Ipsos,Reuters,a,A,2216.0,5.300000000000004,1,2.8,True,largest sample size,INDEPENDENT
+2018,56836,91645,Ipsos,Reuters,rv,RV,1895.0,5.899999999999999,1,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56842,91663,YouGov,Economist,rv,RV,1290.0,6.0,0,3.0,True,largest sample size,INDEPENDENT
+2018,56846,91659,HarrisX,ScottRasmussen.com,rv,RV,3005.0,7.0,0,1.5,True,largest sample size,INDEPENDENT
+2018,56846,91660,HarrisX,ScottRasmussen.com,lv,LV,1944.0,13.0,0,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56846,91661,HarrisX,ScottRasmussen.com,lv,LV,2324.0,10.0,0,1.5,False,smaller sample than selected question,INDEPENDENT
+2018,56854,91680,Ipsos,Reuters,lv,LV,1201.0,5.0,0,2.8,False,smaller sample than selected question,INDEPENDENT
+2018,56854,91681,Ipsos,Reuters,a,A,2020.0,5.700000000000003,0,2.8,True,largest sample size,INDEPENDENT
+2018,56854,91682,Ipsos,Reuters,rv,RV,1722.0,5.800000000000004,0,2.8,False,smaller sample than selected question,INDEPENDENT
+2020,70980,132814,USC Dornsife,,lv,LV,5249.0,7.810000000000002,21,2.4,True,largest sample size,INDEPENDENT
+2020,70989,132841,YouGov,Economist,rv,RV,1500.0,6.0,21,3.0,True,largest sample size,INDEPENDENT
+2020,70989,132842,YouGov,Economist,lv,LV,1333.0,8.0,21,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,71093,133080,Morning Consult,,lv,LV,12000.0,6.0,21,1.9,True,largest sample size,INDEPENDENT
+2020,71066,133015,USC Dornsife,,lv,LV,5425.0,7.490000000000002,20,2.4,True,largest sample size,INDEPENDENT
+2020,71094,133081,Morning Consult,,lv,LV,15499.0,6.0,20,1.9,True,largest sample size,INDEPENDENT
+2020,71165,133231,USC Dornsife,,lv,LV,5534.0,7.590000000000003,19,2.4,True,largest sample size,INDEPENDENT
+2020,71374,133655,Morning Consult,,lv,LV,12000.0,6.0,19,1.9,True,largest sample size,INDEPENDENT
+2020,71236,133380,USC Dornsife,,lv,LV,5637.0,8.219999999999999,18,2.4,True,largest sample size,INDEPENDENT
+2020,71375,133656,Morning Consult,,lv,LV,12000.0,7.0,18,1.9,True,largest sample size,INDEPENDENT
+2020,71293,133494,USC Dornsife,,lv,LV,5665.0,8.129999999999995,17,2.4,True,largest sample size,INDEPENDENT
+2020,71376,133657,Morning Consult,,lv,LV,12000.0,8.0,17,1.9,True,largest sample size,INDEPENDENT
+2020,71354,133620,USC Dornsife,,lv,LV,5549.0,7.979999999999997,16,2.4,True,largest sample size,INDEPENDENT
+2020,71373,133820,YouGov,Yahoo News,lv,LV,1465.0,11.0,16,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,71373,133821,YouGov,Yahoo News,rv,RV,1583.0,11.0,16,3.0,True,largest sample size,INDEPENDENT
+2020,71377,133658,Morning Consult,,lv,LV,14994.0,8.0,16,1.9,True,largest sample size,INDEPENDENT
+2020,71440,133791,USC Dornsife,,lv,LV,5483.0,7.670000000000002,15,2.4,True,largest sample size,INDEPENDENT
+2020,71531,134401,Navigator,,rv,RV,1000.0,8.0,15,1.3,True,largest sample size,INDEPENDENT
+2020,71633,134203,Morning Consult,,lv,LV,12000.0,8.0,15,1.9,True,largest sample size,INDEPENDENT
+2020,72154,135306,GBAO,Omidyar Network,rv,RV,1150.0,12.0,15,1.2,True,largest sample size,INDEPENDENT
+2020,71532,133978,USC Dornsife,,lv,LV,5401.0,7.289999999999999,14,2.4,True,largest sample size,INDEPENDENT
+2020,71542,134010,YouGov,Economist,rv,RV,1500.0,7.0,14,3.0,True,largest sample size,INDEPENDENT
+2020,71542,134011,YouGov,Economist,lv,LV,1343.0,7.0,14,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,71634,134204,Morning Consult,,lv,LV,15821.0,8.0,14,1.9,True,largest sample size,INDEPENDENT
+2020,71817,134602,Echelon Insights,,lv,LV,1006.0,4.0,14,2.7,True,largest sample size,INDEPENDENT
+2020,72140,135270,Rethink Priorities,,lv,LV,4933.0,5.300000000000004,14,,True,largest sample size,INDEPENDENT
+2020,71635,134205,USC Dornsife,,lv,LV,5309.0,6.859999999999999,13,2.4,True,largest sample size,INDEPENDENT
+2020,71960,134889,Morning Consult,,lv,LV,12000.0,6.0,13,1.9,True,largest sample size,INDEPENDENT
+2020,71737,134402,USC Dornsife,,lv,LV,5273.0,6.770000000000003,12,2.4,True,largest sample size,INDEPENDENT
+2020,71961,134890,Morning Consult,,lv,LV,12000.0,6.0,12,1.9,True,largest sample size,INDEPENDENT
+2020,71820,134608,USC Dornsife,,lv,LV,5225.0,6.390000000000001,11,2.4,True,largest sample size,INDEPENDENT
+2020,71962,134891,Morning Consult,,lv,LV,12000.0,6.0,11,1.9,True,largest sample size,INDEPENDENT
+2020,71882,134735,USC Dornsife,,lv,LV,5333.0,6.419999999999995,10,2.4,True,largest sample size,INDEPENDENT
+2020,71963,134892,Morning Consult,,lv,LV,12000.0,6.0,10,1.9,True,largest sample size,INDEPENDENT
+2020,71945,134861,USC Dornsife,,lv,LV,5348.0,7.0,9,2.4,True,largest sample size,INDEPENDENT
+2020,71964,134893,Morning Consult,,lv,LV,15509.0,6.0,9,1.9,True,largest sample size,INDEPENDENT
+2020,71973,134922,YouGov,Yahoo News,rv,RV,1500.0,13.0,9,3.0,True,largest sample size,INDEPENDENT
+2020,71973,134923,YouGov,Yahoo News,lv,LV,1350.0,13.0,9,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,72035,135041,USC Dornsife,,lv,LV,5285.0,6.890000000000001,8,2.4,True,largest sample size,INDEPENDENT
+2020,72160,135329,CNN/SSRS,,rv,RV,917.0,12.0,8,2.8,True,largest sample size,INDEPENDENT
+2020,72160,135330,CNN/SSRS,,lv,LV,886.0,12.0,8,2.8,False,smaller sample than selected question,INDEPENDENT
+2020,72209,135457,Morning Consult,,lv,LV,12000.0,8.0,8,1.9,True,largest sample size,INDEPENDENT
+2020,72213,135468,Winston,Winning the Issues,rv,RV,1000.0,4.0,8,2.5,True,largest sample size,REP
+2020,72313,135668,YouGov,Hofstra University Kalikow Center for the Study of the American Presidency,lv,LV,2000.0,9.0,8,3.0,True,largest sample size,INDEPENDENT
+2020,72600,136243,YouGov,George Washington University,lv,LV,2500.0,11.0,8,3.0,True,largest sample size,INDEPENDENT
+2020,72079,135409,USC Dornsife,,lv,LV,5261.0,8.04,7,2.4,True,largest sample size,INDEPENDENT
+2020,72083,135150,YouGov,Economist,rv,RV,1500.0,10.0,7,3.0,True,largest sample size,INDEPENDENT
+2020,72083,135151,YouGov,Economist,lv,LV,1365.0,10.0,7,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,72176,135379,Suffolk,USA Today,lv,LV,1000.0,10.1,7,2.9,True,largest sample size,INDEPENDENT
+2020,72210,135458,Morning Consult,,lv,LV,12000.0,7.0,7,1.9,True,largest sample size,INDEPENDENT
+2020,72190,135410,USC Dornsife,,lv,LV,5271.0,7.939999999999998,6,2.4,True,largest sample size,INDEPENDENT
+2020,72211,135459,Morning Consult,,lv,LV,16374.0,6.0,6,1.9,True,largest sample size,INDEPENDENT
+2020,72227,136339,HarrisX,The Hill,rv,RV,2824.0,5.0,6,1.5,True,largest sample size,INDEPENDENT
+2020,72227,136340,HarrisX,The Hill,lv,LV,2359.0,5.0,6,1.5,False,smaller sample than selected question,INDEPENDENT
+2020,72312,135662,USC Dornsife,,lv,LV,5322.0,7.690000000000005,5,2.4,True,largest sample size,INDEPENDENT
+2020,72314,135672,Opinium,The Guardian,rv,RV,1451.0,8.0,5,1.2,True,largest sample size,INDEPENDENT
+2020,72596,136240,Morning Consult,,lv,LV,12000.0,7.0,5,1.9,True,largest sample size,INDEPENDENT
+2020,72398,135840,USC Dornsife,,lv,LV,5333.0,7.710000000000001,4,2.4,True,largest sample size,INDEPENDENT
+2020,72597,136241,Morning Consult,,lv,LV,12000.0,7.0,4,1.9,True,largest sample size,INDEPENDENT
+2020,72485,136027,USC Dornsife,,lv,LV,5354.0,7.940000000000005,3,2.4,True,largest sample size,INDEPENDENT
+2020,72486,136033,Hart/POS,NBC News | Wall Street Journal,rv,RV,1000.0,5.0,3,2.6,True,largest sample size,INDEPENDENT
+2020,72598,136242,Morning Consult,,lv,LV,14663.0,7.0,3,1.9,True,largest sample size,INDEPENDENT
+2020,72601,136282,USC Dornsife,,lv,LV,5372.0,7.57,2,2.4,True,largest sample size,INDEPENDENT
+2020,72619,136315,YouGov,Yahoo News,lv,LV,1360.0,9.0,2,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,72619,136316,YouGov,Yahoo News,rv,RV,1501.0,9.0,2,3.0,True,largest sample size,INDEPENDENT
+2020,72648,136356,John Zogby Strategies/EMI Research Solutions,,lv,LV,1008.0,2.3000000000000043,2,1.8,True,largest sample size,INDEPENDENT
+2020,72714,136472,YouGov,Economist,rv,RV,1500.0,9.0,1,3.0,True,largest sample size,INDEPENDENT
+2020,72714,136473,YouGov,Economist,lv,LV,1363.0,10.0,1,3.0,False,smaller sample than selected question,INDEPENDENT
+2020,72808,136615,USC Dornsife,,lv,LV,5413.0,8.0,1,2.4,True,largest sample size,INDEPENDENT
+2020,73340,137478,HarrisX,The Hill,rv,RV,2813.0,4.0,1,1.5,True,largest sample size,INDEPENDENT
+2020,73340,137479,HarrisX,The Hill,lv,LV,2297.0,5.0,1,1.5,False,smaller sample than selected question,INDEPENDENT
+2022,81113,163578,Ipsos,Reuters,a,A,1002.0,1.0,21,2.8,True,largest sample size,INDEPENDENT
+2022,81113,166073,Ipsos,Reuters,lv,LV,452.0,-2.8699999999999974,21,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81113,166082,Ipsos,Reuters,rv,RV,813.0,0.8599999999999994,21,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81127,163581,YouGov,Economist,rv,RV,1345.0,1.0,21,3.0,True,largest sample size,INDEPENDENT
+2022,81127,163582,YouGov,Economist,lv,LV,1110.0,-1.0,21,3.0,False,smaller sample than selected question,INDEPENDENT
+2022,81185,163823,SurveyMonkey/PORES,,lv,LV,108206.0,-2.0,21,2.0,True,largest sample size,INDEPENDENT
+2022,81186,163824,Data for Progress,,lv,LV,4576.0,-3.0,21,2.6,True,largest sample size,INDEPENDENT
+2022,81199,163865,Hart/POS,NBC News,rv,RV,1000.0,1.0,21,2.6,True,largest sample size,INDEPENDENT
+2022,81199,163866,Hart/POS,NBC News,lv,LV,797.0,-1.0,21,2.6,False,smaller sample than selected question,INDEPENDENT
+2022,81236,163963,Morning Consult,,lv,LV,7947.0,3.0,21,1.9,True,largest sample size,INDEPENDENT
+2022,81164,163755,Emerson,,rv,RV,1000.0,-4.899999999999999,20,2.9,True,largest sample size,INDEPENDENT
+2022,81180,163815,UMass Amherst/YouGov,,a,A,1000.0,3.0,20,,True,largest sample size,INDEPENDENT
+2022,81237,163964,Morning Consult,,lv,LV,7947.0,3.0,20,1.9,True,largest sample size,INDEPENDENT
+2022,81340,164359,Winston,Winning the Issues,rv,RV,1300.0,2.0,20,2.5,True,largest sample size,REP
+2022,81176,163811,Rasmussen,Miranda Devine's LAPTOP FROM HELL,lv,LV,2500.0,-4.0,19,2.1,True,largest sample size,INDEPENDENT
+2022,81238,163965,Morning Consult,,lv,LV,7947.0,2.0,19,1.9,True,largest sample size,INDEPENDENT
+2022,81239,163966,Morning Consult,,lv,LV,7947.0,2.0,18,1.9,True,largest sample size,INDEPENDENT
+2022,81390,164461,Cygnal,,lv,LV,5502.0,-1.7000000000000028,18,2.1,True,largest sample size,INDEPENDENT
+2022,81240,163967,Morning Consult,,lv,LV,7947.0,2.0,17,1.9,True,largest sample size,INDEPENDENT
+2022,81241,163968,Morning Consult,,lv,LV,7800.0,3.0,16,1.9,True,largest sample size,INDEPENDENT
+2022,81258,164034,GQR,Democracy Corps,rv,RV,1000.0,0.0,16,2.0,True,largest sample size,DEM
+2022,81260,164063,Morning Consult,Politico,rv,RV,2005.0,5.0,16,1.9,True,largest sample size,INDEPENDENT
+2022,81311,164278,Ipsos,FiveThirtyEight,a,A,1540.0,2.0,16,2.8,True,largest sample size,INDEPENDENT
+2022,81311,164317,Ipsos,FiveThirtyEight,lv,LV,937.0,1.0,16,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81296,164196,Suffolk,USA Today,lv,LV,1000.0,-4.5,15,2.9,True,largest sample size,INDEPENDENT
+2022,81297,164199,Navigator,,rv,RV,1000.0,3.0,15,1.3,True,largest sample size,INDEPENDENT
+2022,81392,164478,Morning Consult,,lv,LV,7947.0,2.0,15,1.9,True,largest sample size,INDEPENDENT
+2022,81414,164541,Ipsos,Reuters,a,A,4413.0,3.0,15,2.8,True,largest sample size,INDEPENDENT
+2022,81259,164166,Ipsos,Reuters,a,A,1005.0,2.0,14,2.8,True,largest sample size,INDEPENDENT
+2022,81259,166074,Ipsos,Reuters,lv,LV,452.0,1.2899999999999991,14,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81259,166083,Ipsos,Reuters,rv,RV,764.0,1.1700000000000017,14,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81267,164096,YouGov,Economist,rv,RV,1335.0,3.800000000000004,14,3.0,True,largest sample size,INDEPENDENT
+2022,81267,164132,YouGov,Economist,lv,LV,1114.0,4.0,14,3.0,False,smaller sample than selected question,INDEPENDENT
+2022,81310,164275,InsiderAdvantage,Center for American Greatness,lv,LV,750.0,-4.700000000000003,14,2.0,True,largest sample size,INDEPENDENT
+2022,81393,164479,Morning Consult,,lv,LV,7947.0,2.0,14,1.9,True,largest sample size,INDEPENDENT
+2022,81268,164135,Big Village,,a,A,1006.0,3.699999999999996,13,1.2,True,largest sample size,INDEPENDENT
+2022,81268,164136,Big Village,,lv,LV,713.0,4.299999999999997,13,1.2,False,smaller sample than selected question,INDEPENDENT
+2022,81309,164242,Echelon Insights,,lv,LV,1014.0,2.0,13,2.7,True,largest sample size,INDEPENDENT
+2022,81309,164244,Echelon Insights,,rv,RV,1014.0,3.0,13,2.7,False,smaller sample than selected question,INDEPENDENT
+2022,81394,164480,Morning Consult,,lv,LV,7947.0,1.0,13,1.9,True,largest sample size,INDEPENDENT
+2022,81406,164511,Fabrizio/Impact,Wall Street Journal,rv,RV,1500.0,-2.0,13,1.7,True,largest sample size,INDEPENDENT
+2022,81330,164335,Tufts,,lv,LV,642.0,1.0,12,1.8,True,largest sample size,INDEPENDENT
+2022,81331,164339,Rasmussen,,lv,LV,2500.0,-7.0,12,2.1,True,largest sample size,INDEPENDENT
+2022,81334,164344,Data for Progress,,lv,LV,1217.0,-4.0,12,2.6,True,largest sample size,INDEPENDENT
+2022,81341,164360,Trafalgar Group,,lv,LV,1089.0,-5.800000000000004,12,0.7,True,largest sample size,REP
+2022,81395,164481,Morning Consult,,lv,LV,7947.0,1.0,12,1.9,True,largest sample size,INDEPENDENT
+2022,81433,164614,Marist College,NPR | PBS NewsHour,rv,RV,1469.0,0.0,12,2.9,True,largest sample size,INDEPENDENT
+2022,82000,167245,Public Opinion Strategies,Conservative Energy Network,rv,RV,1000.0,6.0,12,1.6,True,largest sample size,REP
+2022,83374,178618,WPAi,Manhattan Institute,rv,RV,1434.0,-2.0,12,1.7,True,largest sample size,INDEPENDENT
+2022,81353,164378,YouGov,CBS News,lv,LV,1899.0,-2.0,11,3.0,True,largest sample size,INDEPENDENT
+2022,81396,164482,Morning Consult,,lv,LV,7947.0,0.0,11,1.9,True,largest sample size,INDEPENDENT
+2022,81575,165118,Impact Research,Third Way | The Welcome PAC,lv,LV,800.0,-2.0,11,1.5,True,largest sample size,DEM
+2022,81397,164483,Morning Consult,,lv,LV,7947.0,-1.0,10,1.9,True,largest sample size,INDEPENDENT
+2022,81398,164484,Morning Consult,,lv,LV,6974.0,0.0,9,1.9,True,largest sample size,INDEPENDENT
+2022,81410,164518,Cygnal,,lv,LV,2015.0,-3.1000000000000014,9,2.1,True,largest sample size,INDEPENDENT
+2022,81443,164674,Quinnipiac,,a,A,2203.0,-2.0,9,2.8,True,largest sample size,INDEPENDENT
+2022,81443,164677,Quinnipiac,,rv,RV,2010.0,-4.0,9,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81506,164918,Benenson,,v,V,1000.0,-2.0,9,1.5,True,largest sample size,INDEPENDENT
+2022,81434,164617,CNN/SSRS,,rv,RV,1290.0,-1.0,8,2.8,True,largest sample size,INDEPENDENT
+2022,81434,164618,CNN/SSRS,,lv,LV,992.0,-4.0,8,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81435,164652,Morning Consult,Politico,rv,RV,2005.0,5.0,8,1.9,True,largest sample size,INDEPENDENT
+2022,81440,164668,NewsNation/Decision Desk HQ,,rv,RV,1017.0,-1.230000000000004,8,1.6,True,largest sample size,INDEPENDENT
+2022,81482,164852,YouGov,Yahoo News,rv,RV,1172.0,2.0,8,3.0,True,largest sample size,INDEPENDENT
+2022,81498,164901,Data for Progress,,lv,LV,1276.0,-4.0,8,2.6,True,largest sample size,INDEPENDENT
+2022,81423,164743,Ipsos,Reuters,a,A,1004.0,1.0,7,2.8,True,largest sample size,INDEPENDENT
+2022,81423,165245,Ipsos,Reuters,rv,RV,801.0,3.0,7,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81423,165247,Ipsos,Reuters,lv,LV,452.0,2.530000000000001,7,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81444,164728,YouGov,Economist,rv,RV,1330.0,0.0,7,3.0,True,largest sample size,INDEPENDENT
+2022,81444,164729,YouGov,Economist,lv,LV,1101.0,0.0,7,3.0,False,smaller sample than selected question,INDEPENDENT
+2022,81461,164796,Big Village,,a,A,1006.0,6.300000000000004,6,1.2,True,largest sample size,INDEPENDENT
+2022,81461,164797,Big Village,,lv,LV,702.0,6.600000000000001,6,1.2,False,smaller sample than selected question,INDEPENDENT
+2022,81566,165092,ABC/Washington Post,,rv,RV,881.0,-1.0,6,3.0,True,largest sample size,INDEPENDENT
+2022,81566,165093,ABC/Washington Post,,lv,LV,688.0,-2.0,6,3.0,False,smaller sample than selected question,INDEPENDENT
+2022,81635,166087,Premise,,a,A,1540.0,5.0,6,1.9,True,largest sample size,INDEPENDENT
+2022,81635,166088,Premise,,rv,RV,1211.0,2.0,6,1.9,False,smaller sample than selected question,INDEPENDENT
+2022,81522,164968,Rasmussen,Miranda Devine's LAPTOP FROM HELL,lv,LV,2500.0,-5.0,5,2.1,True,largest sample size,INDEPENDENT
+2022,81526,164975,Big Village,,a,A,1009.0,2.0,4,1.2,True,largest sample size,INDEPENDENT
+2022,81526,164976,Big Village,,lv,LV,702.0,3.799999999999997,4,1.2,False,smaller sample than selected question,INDEPENDENT
+2022,81567,165096,Hart/POS,NBC News,rv,RV,1000.0,0.0,3,2.6,True,largest sample size,INDEPENDENT
+2022,81567,165097,Hart/POS,NBC News,lv,LV,786.0,1.0,3,2.6,False,smaller sample than selected question,INDEPENDENT
+2022,81597,165194,Morning Consult,Politico,rv,RV,2005.0,5.0,3,1.9,True,largest sample size,INDEPENDENT
+2022,81591,165155,YouGov,Economist,rv,RV,1315.0,1.0,2,3.0,True,largest sample size,INDEPENDENT
+2022,81591,165185,YouGov,Economist,lv,LV,1071.0,-1.0,2,3.0,False,smaller sample than selected question,INDEPENDENT
+2022,81598,165195,Data for Progress,,lv,LV,1130.0,-4.0,2,2.6,True,largest sample size,INDEPENDENT
+2022,81622,165286,Trafalgar Group,,lv,LV,1099.0,-5.699999999999996,2,0.7,True,largest sample size,REP
+2022,81616,165244,AtlasIntel,,lv,LV,863.0,-3.1000000000000014,1,2.7,False,smaller sample than selected question,INDEPENDENT
+2022,81616,165249,AtlasIntel,,a,A,1013.0,-3.5,1,2.7,True,largest sample size,INDEPENDENT
+2022,81621,166068,Ipsos,Reuters,a,A,1004.0,0.0,1,2.8,True,largest sample size,INDEPENDENT
+2022,81621,166075,Ipsos,Reuters,lv,LV,452.0,1.2100000000000009,1,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81621,166084,Ipsos,Reuters,rv,RV,789.0,-0.25,1,2.8,False,smaller sample than selected question,INDEPENDENT
+2022,81650,166091,African American Research Collaborative,Voter Participation Center | Service Employees International Union | Rural Organizing | Climate Power 2020 | The Immigration Hub | America's Voice | Indivisible | UnidosUS | First Nations Development Institute | Latino Community Foundation | Mi Familia Vota Education Fund | Planned Parenthood Action Fund,lv,LV,12208.0,0.0,1,0.8,True,largest sample size,DEM
+2022,81674,166094,GQR,Democracy Corps,rv,RV,1000.0,-2.0,0,2.0,True,largest sample size,DEM
+2022,82892,173758,Change Research,,lv,LV,3201.0,-1.0,0,1.4,True,largest sample size,INDEPENDENT
+2024,88710,212845,YouGov,Economist,rv,RV,1457.0,0.0,21,3.0,True,largest sample size,INDEPENDENT
+2024,88710,212846,YouGov,Economist,lv,LV,1317.0,1.0,21,3.0,False,smaller sample than selected question,INDEPENDENT
+2024,88765,213199,Emerson,,lv,LV,1000.0,2.3000000000000043,20,2.9,True,largest sample size,INDEPENDENT
+2024,88774,213275,OnMessage Inc.,Senate Opportunity Fund,lv,LV,800.0,-4.0,20,1.1,True,largest sample size,REP
+2024,88805,213473,Suffolk,USA Today,lv,LV,1000.0,1.3000000000000045,18,2.9,True,largest sample size,INDEPENDENT
+2024,88910,213998,Hart/POS,CNBC,rv,RV,1000.0,-4.0,17,2.6,True,largest sample size,INDEPENDENT
+2024,88867,213697,YouGov,The Times of London | SAY24,rv,RV,1266.0,3.0,15,3.0,True,largest sample size,INDEPENDENT
+2024,88867,213698,YouGov,The Times of London | SAY24,lv,LV,1186.0,3.0,15,3.0,False,smaller sample than selected question,INDEPENDENT
+2024,88888,213829,Monmouth,,rv,RV,802.0,2.0,15,2.9,True,largest sample size,INDEPENDENT
+2024,88872,213805,YouGov,Economist,rv,RV,1422.0,0.0,14,3.0,True,largest sample size,INDEPENDENT
+2024,88872,213806,YouGov,Economist,lv,LV,1290.0,0.0,14,3.0,False,smaller sample than selected question,INDEPENDENT
+2024,88889,213845,HarrisX,Forbes,rv,RV,1512.0,1.0,14,1.5,True,largest sample size,INDEPENDENT
+2024,88889,213846,HarrisX,Forbes,lv,LV,1244.0,-1.0,14,1.5,False,smaller sample than selected question,INDEPENDENT
+2024,88917,213999,Fabrizio/GBAO,Wall Street Journal,rv,RV,1500.0,-4.0,14,,True,largest sample size,INDEPENDENT
+2024,89105,214979,Paradigm,,lv,LV,1000.0,1.0,14,,True,largest sample size,INDEPENDENT
+2024,88930,214156,Siena/NYT,,rv,RV,2516.0,0.0,13,3.0,False,smaller sample than selected question,INDEPENDENT
+2024,88930,214157,Siena/NYT,,lv,LV,2516.0,0.0,13,3.0,True,largest sample size,INDEPENDENT
+2024,88934,214154,OnMessage Inc.,Senate Opportunity Fund,lv,LV,800.0,-5.0,13,1.1,True,largest sample size,REP
+2024,88951,214266,CNN/SSRS,,lv,LV,1704.0,-3.0,13,2.8,True,largest sample size,INDEPENDENT
+2024,88951,214267,CNN/SSRS,,rv,RV,1704.0,-2.0,13,2.8,False,smaller sample than selected question,INDEPENDENT
+2024,88991,214514,Clarity,,lv,LV,1314.0,3.0,13,1.6,True,largest sample size,INDEPENDENT
+2024,88956,214396,Emerson,,lv,LV,1000.0,0.7999999999999972,12,2.9,True,largest sample size,INDEPENDENT
+2024,89151,215240,Cygnal,,lv,LV,1507.0,-0.0999999999999943,10,2.1,True,largest sample size,INDEPENDENT
+2024,89037,214691,Florida Atlantic University/Mainstreet Research,,rv,RV,937.0,-1.0,9,,True,largest sample size,INDEPENDENT
+2024,89037,214692,Florida Atlantic University/Mainstreet Research,,lv,LV,911.0,0.0,9,,False,smaller sample than selected question,INDEPENDENT
+2024,89089,214873,Noble Predictive Insights,,lv,LV,707.0,-1.0,9,2.4,True,largest sample size,INDEPENDENT
+2024,89183,215434,HarrisX,Blockchain Association,rv,RV,1717.0,-2.0,8,1.5,True,largest sample size,INDEPENDENT
+2024,89183,215435,HarrisX,Blockchain Association,lv,LV,1475.0,-2.0,8,1.5,False,smaller sample than selected question,INDEPENDENT
+2024,89088,214871,YouGov,Economist,rv,RV,1446.0,0.0,7,3.0,True,largest sample size,INDEPENDENT
+2024,89088,214872,YouGov,Economist,lv,LV,1309.0,-1.0,7,3.0,False,smaller sample than selected question,INDEPENDENT
+2024,89134,215116,J.L. Partners,DailyMail.com,lv,LV,1000.0,-3.0,7,1.6,True,largest sample size,INDEPENDENT
+2024,89155,215303,HarrisX,Forbes,rv,RV,4523.0,-1.0,7,1.5,True,largest sample size,INDEPENDENT
+2024,89155,215304,HarrisX,Forbes,lv,LV,3718.0,-1.0,7,1.5,False,smaller sample than selected question,INDEPENDENT
+2024,89128,215069,American Pulse,,lv,LV,822.0,2.0,6,,True,largest sample size,INDEPENDENT
+2024,89181,215399,OnMessage Inc.,Senate Opportunity Fund,lv,LV,800.0,-1.0,6,1.1,True,largest sample size,REP
+2024,89195,215521,Echelon Insights,,lv,LV,1328.0,-1.0,5,2.7,True,largest sample size,INDEPENDENT
+2024,89238,215762,Kaplan Strategies,,rv,RV,671.0,-1.0,5,2.0,True,largest sample size,INDEPENDENT
+2024,89288,216040,YouGov,Yahoo News,rv,RV,1267.0,3.0,5,3.0,True,largest sample size,INDEPENDENT
+2024,89288,216041,YouGov,Yahoo News,lv,LV,1152.0,3.0,5,3.0,False,smaller sample than selected question,INDEPENDENT
+2024,89386,216547,Targoz Market Research,,rv,RV,1200.0,3.0,4,1.8,True,largest sample size,INDEPENDENT
+2024,89386,216548,Targoz Market Research,,lv,LV,1088.0,3.0,4,1.8,False,smaller sample than selected question,INDEPENDENT
+2024,89251,215928,Emerson,,lv,LV,1000.0,1.1000000000000014,3,2.9,True,largest sample size,INDEPENDENT
+2024,89252,215929,Hart/POS,NBC News,rv,RV,1000.0,1.0,3,2.6,True,largest sample size,INDEPENDENT
+2024,89350,216297,Marist College,NPR | PBS News,lv,LV,1297.0,2.0,3,2.9,True,largest sample size,INDEPENDENT
+2024,89366,216414,HarrisX,Forbes,rv,RV,4520.0,1.0,3,1.5,True,largest sample size,INDEPENDENT
+2024,89366,216415,HarrisX,Forbes,lv,LV,3759.0,0.0,3,1.5,False,smaller sample than selected question,INDEPENDENT
+2024,89371,216447,John Zogby Strategies,,lv,LV,1005.0,1.3999999999999986,2,1.8,True,largest sample size,INDEPENDENT

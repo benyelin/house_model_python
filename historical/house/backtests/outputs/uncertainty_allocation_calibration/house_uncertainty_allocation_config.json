@@ -1,0 +1,46 @@
+{
+  "candidate_quality_weight": 0.0,
+  "current_production_district_sd": 6.1875,
+  "current_production_national_sd": 5.0625,
+  "district_sd_grid": [
+    7.994627101997941,
+    7.978976281453655,
+    7.93183853214373,
+    7.852646846764472,
+    7.765569039033778,
+    7.740417462902114,
+    7.593685699316242,
+    7.410402317013564,
+    7.187771733993784,
+    6.921998446980467,
+    6.607878820014786,
+    6.238113697264582,
+    6.1875
+  ],
+  "empirical_residual_national_sd": 1.9,
+  "n_sims": 20000,
+  "national_sd_grid": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    1.9,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.0625
+  ],
+  "seed": 20260720,
+  "selection_method": "minimum sum of CRPS rank, realized-seat log-loss rank, and absolute median-seat-error rank",
+  "supported_cycles": [
+    2016,
+    2018,
+    2020,
+    2022
+  ],
+  "total_sd": 7.994627101997941
+}

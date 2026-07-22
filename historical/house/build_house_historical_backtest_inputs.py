@@ -40,6 +40,11 @@ import pandas as pd
 
 
 TARGET_CYCLES: tuple[int, ...] = (2016, 2018, 2020, 2022)
+
+# Selected by the validated House incumbency sensitivity sweep:
+# best combined rank, best RMSE, and near-best MAE.
+INCUMBENCY_BONUS = 2.25
+
 EXPECTED_ROWS_PER_CYCLE = 435
 EXPECTED_TOTAL_ROWS = EXPECTED_ROWS_PER_CYCLE * len(TARGET_CYCLES)
 
@@ -1148,6 +1153,25 @@ def aggregate_candidate_registries() -> pd.DataFrame:
         .astype(bool)
     )
 
+    # Orient the validated incumbency advantage toward the Democratic margin.
+    #
+    # Democratic incumbent only -> +INCUMBENCY_BONUS
+    # Republican incumbent only -> -INCUMBENCY_BONUS
+    # Open seat or double-incumbent race -> 0
+    race_level["incumbency_adjustment_dem"] = np.select(
+        [
+            race_level["dem_incumbent"]
+            & ~race_level["gop_incumbent"],
+            race_level["gop_incumbent"]
+            & ~race_level["dem_incumbent"],
+        ],
+        [
+            INCUMBENCY_BONUS,
+            -INCUMBENCY_BONUS,
+        ],
+        default=0.0,
+    ).astype(float)
+
     race_level["double_incumbent_race"] = (
         race_level["dem_incumbent"]
         & race_level["gop_incumbent"]
@@ -1778,6 +1802,7 @@ def order_columns(frame: pd.DataFrame) -> pd.DataFrame:
         "environment_formula_version",
         "incumbent_configuration",
         "incumbent_party",
+        "incumbency_adjustment_dem",
         "dem_incumbent",
         "gop_incumbent",
         "double_incumbent_race",

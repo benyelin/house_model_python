@@ -61,3 +61,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    print()
+    print("Validating synchronized House forecast outputs...")
+    subprocess.run(
+        [
+            sys.executable,
+            "validation/validate_house_live_outputs.py",
+        ],
+        check=True,
+    )

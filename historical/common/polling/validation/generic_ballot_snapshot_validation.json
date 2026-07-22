@@ -1,0 +1,44 @@
+{
+  "status": "PASSED",
+  "warehouse_rows": 4815,
+  "snapshot_rows": 67054,
+  "summary_rows": 64,
+  "cycles": [
+    2018,
+    2020,
+    2022,
+    2024
+  ],
+  "snapshot_days": [
+    180,
+    150,
+    120,
+    90,
+    75,
+    60,
+    45,
+    30,
+    21,
+    14,
+    10,
+    7,
+    5,
+    3,
+    1,
+    0
+  ],
+  "duplicate_snapshot_question_rows": 0,
+  "availability_valid": true,
+  "nonnegative_poll_age_valid": true,
+  "snapshot_date_identity_valid": true,
+  "unknown_question_ids": [],
+  "missing_snapshot_pairs": [],
+  "monotonic_accumulation_failures": [],
+  "zero_day_counts_match_warehouse": {
+    "2018": true,
+    "2020": true,
+    "2022": true,
+    "2024": true
+  },
+  "failed_checks": []
+}

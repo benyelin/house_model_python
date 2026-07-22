@@ -35,7 +35,7 @@ BASELINE_TYPES = [
     "normalized_partisan_baseline_dem",
 ]
 
-MULTIPLIERS = np.round(np.arange(0.50, 1.201, 0.05), 2)
+MULTIPLIERS = np.round(np.arange(0.50, 1.051, 0.01), 2)
 
 PROBABILITY_SCALE = 6.0
 
@@ -125,9 +125,17 @@ def load_composite_environments() -> pd.DataFrame:
         rows.append(
             {
                 "cycle": int(row["cycle"]),
+                # Reconstruct the current shared national-environment
+                # definition used by production:
+                #
+                #   raw generic ballot margin × 0.90
+                #
+                # Do not use the historical composite column here because
+                # those snapshots may still contain the retired approval
+                # and standalone midterm components.
                 "composite_environment_margin_dem": float(
-                    row["national_environment_margin_dem"]
-                ),
+                    row["generic_ballot_margin_dem"]
+                ) * 0.90,
                 "generic_ballot_margin_dem": float(
                     row.get("generic_ballot_margin_dem", np.nan)
                 ),

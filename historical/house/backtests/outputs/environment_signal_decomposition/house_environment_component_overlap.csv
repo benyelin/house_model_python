@@ -1,0 +1,7 @@
+component_a,component_b,correlation
+actual_margin,baseline_margin,0.9661096303670725
+actual_margin,actual_residual_from_baseline,0.30066178459298704
+actual_residual_from_baseline,baseline_margin,0.044283702285374336
+baseline_margin,district_elasticity,
+actual_margin,district_elasticity,
+actual_residual_from_baseline,district_elasticity,

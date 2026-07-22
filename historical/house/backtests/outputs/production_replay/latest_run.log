@@ -1,0 +1,64 @@
+
+========================================================================
+House production replay: 2016
+========================================================================
+               replay_spec  cycle  brier_score  log_loss  expected_dem_seats  actual_dem_seats  expected_seat_error
+       canonical_fixed_6_5   2016     0.061677  0.204170          230.104712               194            36.104712
+production_election_day_v1   2016     0.065426  0.311795          227.592987               194            33.592987
+
+========================================================================
+House production replay: 2018
+========================================================================
+               replay_spec  cycle  brier_score  log_loss  expected_dem_seats  actual_dem_seats  expected_seat_error
+       canonical_fixed_6_5   2018     0.049748  0.176591          246.743563               238             8.743563
+production_election_day_v1   2018     0.042334  0.226918          239.888875               238             1.888875
+
+========================================================================
+House production replay: 2020
+========================================================================
+               replay_spec  cycle  brier_score  log_loss  expected_dem_seats  actual_dem_seats  expected_seat_error
+       canonical_fixed_6_5   2020     0.048083  0.175404          238.688004               222            16.688004
+production_election_day_v1   2020     0.040197  0.302343          231.596859               222             9.596859
+
+========================================================================
+House production replay: 2022
+========================================================================
+               replay_spec  cycle  brier_score  log_loss  expected_dem_seats  actual_dem_seats  expected_seat_error
+       canonical_fixed_6_5   2022     0.040074  0.143246          219.011151               215             4.011151
+production_election_day_v1   2022     0.038943  0.162049          219.034526               215             4.034526
+
+========================================================================
+Overall replay comparison
+========================================================================
+               replay_spec  cycles  all_races  scored_races  winner_accuracy  mean_abs_margin_error  rmse_margin_error  mean_margin_error_dem_bias  brier_score  log_loss
+       canonical_fixed_6_5       4       1740          1545         0.942395               6.875004           9.049037                    4.212057     0.049468  0.173804
+production_election_day_v1       4       1740          1545         0.942395               6.875004           9.049037                    4.212057     0.046050  0.256671
+
+========================================================================
+Cycle-level production minus canonical
+========================================================================
+ cycle  production_minus_canonical_brier_score  production_minus_canonical_log_loss  production_minus_canonical_expected_seat_error
+  2016                                0.003748                             0.107625                                       -2.511725
+  2018                               -0.007413                             0.050327                                       -6.854688
+  2020                               -0.007885                             0.126939                                       -7.091145
+  2022                               -0.001131                             0.018803                                        0.023375
+
+House Production Replay v1 Validation
+============================================
+PASS: result rows = 3,480
+PASS: replay-spec/cycle/race keys are unique
+PASS: all probabilities are finite and within [0, 1]
+PASS: summary rows = 8
+PASS: fixed-control probabilities are exact
+PASS: canonical scorer and benchmark files were not modified
+
+VALIDATION PASSED
+
+Wrote:
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_predictions.csv
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_by_cycle.csv
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_comparison.csv
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_summary.csv
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_calibration.csv
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_config.json
+  /Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/house_model_python/historical/house/backtests/outputs/production_replay_v1/house_production_replay_validation.txt

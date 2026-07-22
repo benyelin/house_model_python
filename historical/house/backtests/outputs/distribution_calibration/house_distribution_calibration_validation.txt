@@ -1,0 +1,13 @@
+House Distribution Calibration Validation
+========================================
+PASS: cycle-result rows = 40
+PASS: cycle/share keys are unique
+PASS: marginal variance is fixed across shares
+PASS: chamber probabilities are finite and within [0, 1]
+PASS: summary rows = 10
+PASS: exactly one pooled recommendation
+PASS: full-distribution CRPS values are finite and nonnegative
+PASS: observed-seat percentiles are within [0, 1]
+PASS: exactly one CRPS-based distribution recommendation
+
+VALIDATION PASSED

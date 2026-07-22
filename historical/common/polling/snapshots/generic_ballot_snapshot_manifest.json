@@ -1,0 +1,29 @@
+{
+  "builder": "historical/common/polling/scripts/build_generic_ballot_snapshots.py",
+  "warehouse_file": "historical/common/polling/warehouse/generic_ballot_polling_warehouse.csv",
+  "warehouse_file_sha256": "a09b85ef14b97543fcd66a5a986e9457a72ddf0386c87f7491b8f6ebbaa85f5e",
+  "snapshot_file": "historical/common/polling/snapshots/generic_ballot_polling_snapshots.csv",
+  "snapshot_file_sha256": "0dfd6ba055c52075ec224f9b98f1ed4add64c748f2b0eee476ea459dec4cfa12",
+  "snapshot_days": [
+    180,
+    150,
+    120,
+    90,
+    75,
+    60,
+    45,
+    30,
+    21,
+    14,
+    10,
+    7,
+    5,
+    3,
+    1,
+    0
+  ],
+  "warehouse_rows": 4815,
+  "snapshot_rows": 67054,
+  "summary_rows": 64,
+  "validation_status": "PASSED"
+}
