@@ -7,3 +7,20 @@ __pycache__/
 *.before_*.py
 *.before_*.csv
 *.before_*.json
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Python caches
+**/__pycache__/
+
+# Local backup files
+*.before_*
+*.before-*
+*.bak
+
+# Generated diagnostic directories
+outputs/environment_passthrough_test/
+outputs/house_forecast_attribution/
+outputs/production_audit/
