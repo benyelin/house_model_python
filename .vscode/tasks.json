@@ -2,64 +2,30 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Import House Model Seed",
+      "label": "House: Import Seed and Run Full Pipeline",
       "type": "shell",
-      "command": "python3 import_house_model_seed.py",
+      "command": "python3 import_house_model_seed.py && python3 run_house_full_pipeline.py",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
-        "panel": "shared",
+        "panel": "dedicated",
         "clear": true
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
       }
     },
     {
-      "label": "Update House Elasticity",
+      "label": "House: Run Full Pipeline",
       "type": "shell",
-      "command": "python3 update_house_elasticity.py",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": true
-      }
-    },
-    {
-      "label": "Recalculate House Fundamentals",
-      "type": "shell",
-      "command": "python3 recalculate_house_fundamentals.py",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": true
-      }
-    },
-    {
-      "label": "Run House Full Pipeline",
-      "type": "shell",
-      "command": "python3 run_house_full_pipeline.py --sims ${input:houseSimulationCount}",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": true
-      }
-    },
-    {
-      "label": "Run House Full Pipeline with Seed Import",
-      "type": "shell",
-      "command": "python3 run_house_full_pipeline.py --import-seed --sims ${input:houseSimulationCount}",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": true
-      }
-    },
-    {
-      "label": "Launch House Dashboard",
-      "type": "shell",
-      "command": "streamlit run dashboard_house_app.py",
+      "command": "python3 run_house_full_pipeline.py",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
@@ -68,84 +34,32 @@
       }
     },
     {
-      "label": "Show House National Environment Audit",
+      "label": "House: Commit and Push",
       "type": "shell",
-      "command": "cat inputs/house_national_environment_audit.csv",
+      "command": "git status && git add . && git commit -m \"Update House model inputs and outputs\" && git push",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
-        "panel": "shared",
-        "clear": false
-      }
-    },
-    {
-      "label": "Check Competitive House Districts",
-      "type": "shell",
-      "command": "python3 check_competitive_house_districts.py",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": false
-      }
-    },
-    {
-      "label": "Commit and Push",
-      "type": "shell",
-      "command": "git status && git add . && git commit -m \"${input:commitMessage}\" && git push",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": false
-      }
-    },
-    {
-      "label": "Run House Health Check",
-      "type": "shell",
-      "command": "python3 model_health_check_house.py",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
+        "panel": "dedicated",
         "clear": true
       }
     },
     {
-      "label": "Ingest House Polls",
+      "label": "House: Git Status",
       "type": "shell",
-      "command": "python3 ingest_house_polls.py",
+      "command": "git status",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "always",
-        "panel": "shared",
+        "panel": "dedicated",
         "clear": true
       }
-    },
-    {
-      "label": "Build House Calibration Audit",
-      "type": "shell",
-      "command": "python3 build_house_calibration_audit.py",
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared",
-        "clear": true
-      }
-    }
-  ],
-  "inputs": [
-    {
-      "id": "houseSimulationCount",
-      "type": "promptString",
-      "description": "Number of House simulations",
-      "default": "20000"
-    },
-    {
-      "id": "commitMessage",
-      "type": "promptString",
-      "description": "Git commit message",
-      "default": "Update House model"
     }
   ]
 }
