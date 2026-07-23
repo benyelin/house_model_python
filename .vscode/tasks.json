@@ -60,6 +60,20 @@
         "panel": "dedicated",
         "clear": true
       }
+    },
+    {
+      "label": "House: Open Dashboard",
+      "type": "shell",
+      "command": "python3 -m streamlit run dashboard_house_app.py",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
     }
   ]
 }
