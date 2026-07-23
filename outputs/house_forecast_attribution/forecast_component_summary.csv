@@ -1,0 +1,24 @@
+component,display_name,districts_compared,signed_total_change,mean_change,median_change,mean_absolute_change,maximum_absolute_change,districts_changed_0_1_plus,districts_changed_0_5_plus,districts_changed_1_0_plus
+avg_simulated_margin_dem,Average simulated margin,435,39.79590661920972,0.09148484280278096,0.09313372104459994,0.10322223242960953,0.34731014474326294,207,0,0
+dem_win_probability,Democratic win probability,435,1.7963058455778589,0.004129438725466342,0.0002516729900500225,0.01955745664042231,0.2462567534524367,1,0,0
+polling_margin_dem,Polling margin,18,2.4424906541753444e-15,1.356939252319636e-16,0.0,1.356939252319636e-16,8.881784197001252e-16,0,0,0
+polling_blend_effect_dem,Polling Blend Effect Dem,435,4.440892098500626e-16,1.0208947352875003e-18,0.0,1.0208947352875003e-18,4.440892098500626e-16,0,0,0
+bayesian_model_margin_dem,Bayesian model margin,435,2.220446049250313e-16,5.104473676437501e-19,0.0,5.104473676437501e-19,2.220446049250313e-16,0,0,0
+model_margin_dem,Model margin,435,2.220446049250313e-16,5.104473676437501e-19,0.0,5.104473676437501e-19,2.220446049250313e-16,0,0,0
+bayesian_polling_weight,Polling weight,435,0.0,0.0,0.0,3.828355257328126e-19,8.326672684688674e-17,0,0,0
+district_partisan_baseline_dem,Partisan baseline,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+district_elasticity,District elasticity,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+house_national_environment_used_dem,National environment,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+district_environment_adjustment_dem,District environment adjustment,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+state_environment_adjustment_dem,State adjustment,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+incumbency_adjustment_dem,Incumbency,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+candidate_quality_adjustment_dem_before_war,Candidate quality before WAR,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+candidate_war_adjustment_dem,Candidate WAR,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+candidate_quality_adjustment_dem,Total candidate quality,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+special_adjustment_dem,Special adjustment,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+poll_spillover_adjustment_dem,Poll spillover,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+fundamentals_margin_dem_before_poll_spillover,Fundamentals before spillover,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+fundamentals_margin_dem,Fundamentals margin,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+pre_sim_dem_win_probability,Pre-simulation probability,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+simulated_dem_win_probability,Simulated probability,435,0.0,0.0,0.0,0.0,0.0,0,0,0
+district_posterior_sd,District posterior SD,435,0.0,0.0,0.0,0.0,0.0,0,0,0

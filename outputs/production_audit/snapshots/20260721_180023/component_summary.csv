@@ -1,0 +1,7 @@
+component,source_column,nonmissing_rows,nonzero_rows,mean,median,mean_absolute_value,standard_deviation,minimum,maximum,sum
+partisan_baseline,district_partisan_baseline_dem,435,435,0.9216643678160924,-4.636000000000002,24.81968735632184,29.63158525315853,-66.876,78.044,400.9240000000002
+national_environment,district_environment_adjustment_dem,435,435,4.200827586206897,4.050000000000001,4.200827586206897,1.0501339634412037,2.9700000000000006,6.75,1827.3600000000001
+state_environment,state_environment_adjustment_dem,435,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+incumbency,incumbency_adjustment_dem,435,200,0.006896551724137931,0.0,0.6896551724137931,1.0182429412622893,-1.5,1.5,3.0
+candidate_quality,candidate_quality_adjustment_dem,435,238,0.013878125620591196,0.0,0.14256391247332637,0.3591076016802254,-2.588181818181818,3.0,6.036984644957171
+special_adjustment,special_adjustment_dem,435,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

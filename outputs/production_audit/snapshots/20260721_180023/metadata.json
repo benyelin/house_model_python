@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-07-21T18:00:23",
+  "input_rows": 435,
+  "validation_passed": false,
+  "validation_failures": [
+    "input/race-stat merge coverage = {'both': 435, 'left_only': 0, 'right_only': 0}"
+  ]
+}

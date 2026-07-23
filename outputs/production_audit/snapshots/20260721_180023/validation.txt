@@ -1,0 +1,10 @@
+PASS: district rows = 435
+PASS: district_id values are unique
+PASS: Bayesian weights sum to 1; max residual = 1.110e-16
+PASS: stored model margin reconciles to Bayesian arithmetic; max residual = 1.776e-15
+PASS: all stored Democratic win probabilities are within [0, 1]
+PASS: all districts have fundamentals margins
+PASS: all districts have model margins
+FAIL: input/race-stat merge coverage = {'both': 435, 'left_only': 0, 'right_only': 0}
+
+VALIDATION FAILED

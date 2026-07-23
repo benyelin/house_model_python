@@ -1,0 +1,81 @@
+House Live Production Audit
+========================================================================
+
+Generated: 2026-07-21T18:00:23
+
+Chamber summary
+------------------------------------------------------------------------
+dem_control_probability: 0.6029
+expected_dem_seats: 229.5929
+median_dem_seats: 227.0
+audit_expected_dem_seats_from_race_probabilities: 229.5929
+audit_analytic_fundamentals_expected_dem_seats: 227.79659415442214
+audit_analytic_post_poll_expected_dem_seats: 227.97543347923397
+audit_analytic_polling_expected_seat_effect: 0.17883932481182582
+audit_active_polling_districts: 18
+audit_tossups_model_margin_within_2: 11
+audit_competitive_model_margin_within_5: 28
+n_sims: 20000
+days_out: 106
+dem_seats_p25: 204.0
+dem_seats_p50: 227.0
+dem_seats_p75: 254.0
+dem_control_threshold: 218
+national_error_sd: 8.275
+region_error_sd: 1.8833333333333333
+demographic_error_sd: 1.3833333333333333
+district_error_sd: 8.8375
+total_error_sd: 12.33035225796715
+implied_correlation: 0.4863019869561221
+districts_with_polling: 18
+region_groups: 13
+demographic_groups: 17
+uncertainty_engine: dynamic_correlated_house_v1
+imported_national_environment_margin: 5.4
+house_environment_multiplier: 1.0
+house_adjusted_national_environment: 5.4
+national_environment_margin: 5.4
+audit_district_count: 435
+
+Component summary
+------------------------------------------------------------------------
+partisan_baseline: mean=0.922, mean_abs=24.820, min=-66.876, max=78.044, nonzero=435
+national_environment: mean=4.201, mean_abs=4.201, min=2.970, max=6.750, nonzero=435
+state_environment: mean=0.000, mean_abs=0.000, min=0.000, max=0.000, nonzero=0
+incumbency: mean=0.007, mean_abs=0.690, min=-1.500, max=1.500, nonzero=200
+candidate_quality: mean=0.014, mean_abs=0.143, min=-2.588, max=3.000, nonzero=238
+special_adjustment: mean=0.000, mean_abs=0.000, min=0.000, max=0.000, nonzero=0
+
+Largest polling movers
+------------------------------------------------------------------------
+WI-3: fundamentals=-1.494, polling=4.000, weight=0.187, model=-0.467, margin_shift=1.027, analytic_seat_effect=0.0425
+TX-15: fundamentals=-10.501, polling=2.000, weight=0.073, model=-9.582, margin_shift=0.919, analytic_seat_effect=0.0204
+FL-14: fundamentals=-3.365, polling=8.000, weight=0.073, model=-2.530, margin_shift=0.835, analytic_seat_effect=0.0328
+FL-7: fundamentals=-5.505, polling=1.000, weight=0.109, model=-4.794, margin_shift=0.711, analytic_seat_effect=0.0248
+WI-6: fundamentals=-12.415, polling=-4.000, weight=0.073, model=-11.797, margin_shift=0.619, analytic_seat_effect=0.0107
+AL-2: fundamentals=-12.446, polling=-2.000, weight=0.055, model=-11.870, margin_shift=0.576, analytic_seat_effect=0.0099
+TN-5: fundamentals=-15.696, polling=-7.500, weight=0.055, model=-15.244, margin_shift=0.452, analytic_seat_effect=0.0049
+WA-3: fundamentals=2.069, polling=-1.000, weight=0.140, model=1.640, margin_shift=-0.430, analytic_seat_effect=-0.0175
+PA-8: fundamentals=-3.596, polling=2.000, weight=0.073, model=-3.185, margin_shift=0.411, analytic_seat_effect=0.0158
+KY-6: fundamentals=-10.049, polling=-4.500, weight=0.055, model=-9.743, margin_shift=0.306, analytic_seat_effect=0.0069
+MO-2: fundamentals=-6.953, polling=-3.000, weight=0.073, model=-6.662, margin_shift=0.291, analytic_seat_effect=0.0089
+MT-1: fundamentals=-6.195, polling=-1.500, weight=0.055, model=-5.937, margin_shift=0.259, analytic_seat_effect=0.0084
+OH-15: fundamentals=-5.344, polling=-4.030, weight=0.192, model=-5.091, margin_shift=0.253, analytic_seat_effect=0.0088
+OH-7: fundamentals=-6.986, polling=-2.500, weight=0.055, model=-6.739, margin_shift=0.247, analytic_seat_effect=0.0076
+NY-17: fundamentals=9.169, polling=6.000, weight=0.073, model=8.936, margin_shift=-0.233, analytic_seat_effect=-0.0058
+MI-4: fundamentals=-0.091, polling=3.000, weight=0.073, model=0.136, margin_shift=0.227, analytic_seat_effect=0.0095
+AZ-6: fundamentals=4.905, polling=2.000, weight=0.073, model=4.691, margin_shift=-0.213, analytic_seat_effect=-0.0076
+NJ-7: fundamentals=4.796, polling=4.000, weight=0.073, model=4.737, margin_shift=-0.058, analytic_seat_effect=-0.0021
+
+Validation
+------------------------------------------------------------------------
+PASS: district rows = 435
+PASS: district_id values are unique
+PASS: Bayesian weights sum to 1; max residual = 1.110e-16
+PASS: stored model margin reconciles to Bayesian arithmetic; max residual = 1.776e-15
+PASS: all stored Democratic win probabilities are within [0, 1]
+PASS: all districts have fundamentals margins
+PASS: all districts have model margins
+FAIL: input/race-stat merge coverage = {'both': 435, 'left_only': 0, 'right_only': 0}
+
+VALIDATION FAILED

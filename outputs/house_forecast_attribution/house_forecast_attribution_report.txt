@@ -1,0 +1,86 @@
+==============================================================================
+HOUSE FORECAST ATTRIBUTION REPORT
+==============================================================================
+
+Old race snapshot: diagnostics/production_replay_20260719/house_race_stats_before.csv
+New race snapshot: outputs/house_race_stats.csv
+Matched districts: 435
+Old-only districts: 0
+New-only districts: 0
+
+CHAMBER SUMMARY
+------------------------------------------------------------------------------
+Expected Democratic seats: 226.29 -> 229.59 (+3.31)
+Democratic majority probability: 67.9% -> N/A (N/A pp)
+
+DISTRICT MOVEMENT SUMMARY
+------------------------------------------------------------------------------
+Mean absolute margin change: 0.000
+Median absolute margin change: 0.000
+Maximum absolute margin change: 0.000
+Districts moving at least 2.0 points: 0
+
+LARGEST DEMOCRATIC DECLINES
+------------------------------------------------------------------------------
+MN-6      -14.24 ->  -14.24 ( +0.00)  No component change
+NY-7       52.82 ->   52.82 ( +0.00)  No component change
+NY-6       17.18 ->   17.18 ( +0.00)  No component change
+NY-5       50.71 ->   50.71 ( +0.00)  No component change
+NY-4       11.37 ->   11.37 ( +0.00)  No component change
+NY-3        7.22 ->    7.22 ( +0.00)  No component change
+NY-26      24.08 ->   24.08 ( +0.00)  No component change
+NY-25      22.96 ->   22.96 ( +0.00)  No component change
+NY-24     -18.98 ->  -18.98 ( +0.00)  No component change
+NY-23     -17.17 ->  -17.17 ( +0.00)  No component change
+NY-22      13.62 ->   13.62 ( +0.00)  No component change
+NY-21     -15.99 ->  -15.99 ( +0.00)  No component change
+NY-20      18.54 ->   18.54 ( +0.00)  No component change
+NY-2       -5.58 ->   -5.58 ( +0.00)  No component change
+NY-19       8.18 ->    8.18 ( +0.00)  No component change
+
+LARGEST DEMOCRATIC GAINS
+------------------------------------------------------------------------------
+WI-3       -0.47 ->   -0.47 ( +0.00)  No component change
+NY-21     -15.99 ->  -15.99 ( +0.00)  No component change
+NY-8       50.10 ->   50.10 ( +0.00)  No component change
+NY-7       52.82 ->   52.82 ( +0.00)  No component change
+NY-6       17.18 ->   17.18 ( +0.00)  No component change
+NY-5       50.71 ->   50.71 ( +0.00)  No component change
+NY-4       11.37 ->   11.37 ( +0.00)  No component change
+NY-3        7.22 ->    7.22 ( +0.00)  No component change
+NY-26      24.08 ->   24.08 ( +0.00)  No component change
+NY-25      22.96 ->   22.96 ( +0.00)  No component change
+NY-24     -18.98 ->  -18.98 ( +0.00)  No component change
+NY-23     -17.17 ->  -17.17 ( +0.00)  No component change
+NY-22      13.62 ->   13.62 ( +0.00)  No component change
+NY-20      18.54 ->   18.54 ( +0.00)  No component change
+PA-10       0.79 ->    0.79 ( +0.00)  No component change
+
+LARGEST COMPONENT MOVEMENT
+------------------------------------------------------------------------------
+Average simulated margin               mean abs=0.103  max abs=0.347  1+ point districts=0
+Democratic win probability             mean abs=0.020  max abs=0.246  1+ point districts=0
+Polling margin                         mean abs=0.000  max abs=0.000  1+ point districts=0
+Polling Blend Effect Dem               mean abs=0.000  max abs=0.000  1+ point districts=0
+Bayesian model margin                  mean abs=0.000  max abs=0.000  1+ point districts=0
+Model margin                           mean abs=0.000  max abs=0.000  1+ point districts=0
+Polling weight                         mean abs=0.000  max abs=0.000  1+ point districts=0
+Partisan baseline                      mean abs=0.000  max abs=0.000  1+ point districts=0
+District elasticity                    mean abs=0.000  max abs=0.000  1+ point districts=0
+National environment                   mean abs=0.000  max abs=0.000  1+ point districts=0
+District environment adjustment        mean abs=0.000  max abs=0.000  1+ point districts=0
+State adjustment                       mean abs=0.000  max abs=0.000  1+ point districts=0
+Incumbency                             mean abs=0.000  max abs=0.000  1+ point districts=0
+Candidate quality before WAR           mean abs=0.000  max abs=0.000  1+ point districts=0
+Candidate WAR                          mean abs=0.000  max abs=0.000  1+ point districts=0
+Total candidate quality                mean abs=0.000  max abs=0.000  1+ point districts=0
+Special adjustment                     mean abs=0.000  max abs=0.000  1+ point districts=0
+Poll spillover                         mean abs=0.000  max abs=0.000  1+ point districts=0
+Fundamentals before spillover          mean abs=0.000  max abs=0.000  1+ point districts=0
+Fundamentals margin                    mean abs=0.000  max abs=0.000  1+ point districts=0
+
+INTERPRETATION NOTE
+------------------------------------------------------------------------------
+The final margin change is exact. Individual stored model columns are diagnostic quantities and are not always mutually exclusive or additive. For example, the fundamentals margin contains several earlier adjustments. The primary-cause label therefore identifies the largest distinct stored input change; it is not a Shapley-value or causal decomposition.
+
+==============================================================================
