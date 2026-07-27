@@ -1,8 +1,0 @@
-House production environment bakeoff: PASSED
-Input observations: 1,545
-Cycles: [2016, 2018, 2020, 2022]
-Specifications: 30
-Recommended normalized multiplier: 0.70
-Recommended normalized MAE: 5.932243
-Recommended normalized RMSE: 8.014571
-Recommended normalized Brier: 0.045712

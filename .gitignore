@@ -24,3 +24,14 @@ __pycache__/
 outputs/environment_passthrough_test/
 outputs/house_forecast_attribution/
 outputs/production_audit/
+
+# Generated House model artifacts
+/outputs/
+/diagnostics/*/
+/historical/house/backtests/outputs/
+
+# Microsoft Office temporary lock files
+~$*
+**/~$*
+
+# Python-generated files

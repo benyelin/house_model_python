@@ -1,8 +1,0 @@
-House baseline LOOCV validation: PASSED
-Holdout cycles: (np.int64(2016), np.int64(2018), np.int64(2020), np.int64(2022))
-Baseline architectures: 2
-Training selections: 8
-Held-out fold results: 8
-Held-out prediction rows: 3,090
-No held-out observations were used during fold-specific specification selection.
-Production files modified: False

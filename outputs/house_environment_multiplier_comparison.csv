@@ -1,5 +1,0 @@
-house_environment_multiplier,dem_favored_seats,gop_favored_seats,tossup_probability_band_45_55,competitive_probability_band_35_65,likely_or_safer_dem,likely_or_safer_gop,median_dem_win_probability,mean_model_margin_dem,rating_safe_d,rating_likely_d,rating_lean_d,rating_tilt_d,rating_tossup,rating_tilt_r,rating_lean_r,rating_likely_r,rating_safe_r
-0.8,224,211,6,22,197,159,0.6183406615058178,5.7897501915708816,162,35,17,7,6,9,40,58,101
-0.85,224,211,7,21,199,157,0.6337565622370921,6.0755946360153255,162,37,16,6,7,8,42,58,99
-0.9,226,209,7,21,199,156,0.6464490238558374,6.361439080459771,163,36,17,6,7,8,42,59,97
-1.0,227,208,8,26,200,155,0.6712108522997662,6.93312796934866,163,37,18,6,8,12,36,60,95

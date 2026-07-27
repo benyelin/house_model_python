@@ -1,8 +1,0 @@
-House Uncertainty Allocation LOO Validation
-=================================================
-PASS: expected cycles = 2016, 2018, 2020, 2022
-PASS: ranking rows = 78
-PASS: one recommendation per subset
-PASS: stability rows = 13
-
-VALIDATION PASSED

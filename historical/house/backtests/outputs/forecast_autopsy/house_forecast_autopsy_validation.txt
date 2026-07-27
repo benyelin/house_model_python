@@ -1,8 +1,0 @@
-House Forecast Autopsy Validation
-==========================================
-PASS: cycles = 2016, 2018, 2020, 2022
-PASS: cycle summary rows = 4
-PASS: district rows = 1740
-PASS: 2016 scorable rows = 435
-
-VALIDATION PASSED

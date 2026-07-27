@@ -1,3 +1,0 @@
-baseline_type,baseline_label,fold_count,minimum_selected_coefficient,maximum_selected_coefficient,mean_selected_coefficient,median_selected_coefficient,coefficient_standard_deviation,unique_selected_coefficients
-normalized_partisan_baseline,Normalized partisan baseline,4,0.55,1.0,0.7375,0.7,0.18874586088176873,3
-raw_presidential_margin,Raw presidential margin,4,0.15,0.65,0.3875,0.375,0.2136000936329383,4
