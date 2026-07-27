@@ -18,11 +18,11 @@ ALIASES_PATH = INPUTS / "candidate_name_aliases.csv"
 # -----------------------------
 # Config defaults
 # -----------------------------
-DEFAULT_SHRINKAGE = 0.45
-DEFAULT_CAP = 3.0
-DEFAULT_INCUMBENT_DISCOUNT = 0.50
-DEFAULT_MIN_NAME_SCORE = 0.86
-DEFAULT_ONE_SIDED_MULTIPLIER = 0.50
+DEFAULT_SHRINKAGE = 0.70
+DEFAULT_CAP = 4.0
+DEFAULT_INCUMBENT_DISCOUNT = 1.00
+DEFAULT_MIN_NAME_SCORE = 0.90
+DEFAULT_ONE_SIDED_MULTIPLIER = 0.75
 
 # More recent cycles count most.
 # These are intentionally conservative and can be tuned.
@@ -205,6 +205,15 @@ def find_war_file():
 
     for path in INPUTS.glob("*.csv"):
         name = path.name.lower()
+
+        # Ignore backups and temporary files.
+        if (
+            ".before_" in name
+            or ".backup" in name
+            or name.endswith(".bak")
+        ):
+            continue
+
         if "war" in name or "wins" in name or "candidate_value" in name:
             candidates.append(path)
 

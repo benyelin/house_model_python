@@ -21,11 +21,11 @@ house_polling_district_error_multiplier_1_poll,0.9,District-error multiplier for
 house_polling_district_error_multiplier_2_polls,0.8,District-error multiplier for two district polls.
 house_polling_district_error_multiplier_3plus_polls,0.7,District-error multiplier for three or more district polls.
 use_candidate_war_adjustments,1.0,1 = candidate WAR adjustments active. Both-candidate matches use full shrunk/capped value; one-sided matches use house_candidate_war_one_sided_multiplier.
-house_candidate_war_shrinkage,0.45,Shrinkage applied to recency-weighted candidate WAR net advantage.
-house_candidate_war_cap,3.0,Maximum absolute House margin adjustment from candidate WAR.
-house_candidate_war_incumbent_discount,0.5,Discount applied to incumbent candidate WAR to reduce double-counting with incumbency.
+house_candidate_war_shrinkage,0.7,Shrinkage applied to recency-weighted candidate WAR net advantage.
+house_candidate_war_cap,4.0,Maximum absolute House margin adjustment from candidate WAR.
+house_candidate_war_incumbent_discount,1.0,Discount applied to incumbent candidate WAR to reduce double-counting with incumbency.
 house_candidate_war_min_name_score,0.9,Minimum normalized name-match score for candidate WAR. Raised after adding comma-aware and district-aware matching.
-house_candidate_war_one_sided_multiplier,0.5,Multiplier applied to candidate WAR adjustment when only one major-party candidate matches the WAR database.
+house_candidate_war_one_sided_multiplier,0.75,Multiplier applied to candidate WAR adjustment when only one major-party candidate matches the WAR database.
 use_house_poll_spillover_adjustments,1.0,"1 = tiny poll-derived context/spillover signal is active. Effect is time-weighted, similarity-weighted, capped, and audit-visible."
 house_poll_spillover_base_weight,0.06,Base multiplier applied to poll residuals before similarity/time weighting.
 house_poll_spillover_max_adjustment_now,0.15,Conservative max absolute poll spillover adjustment far from Election Day.

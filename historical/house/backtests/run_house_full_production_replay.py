@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Run the first leakage-safe House production replay.
+Run the leakage-safe full House production replay.
 
 This replay compares two probability specifications using identical
 historical model margins:
@@ -101,11 +101,20 @@ DEFAULT_OUTPUT_DIR = (
     / "house"
     / "backtests"
     / "outputs"
-    / "production_replay_v1"
+    / "full_production_replay"
 )
 
-CANONICAL_SPEC = "canonical_fixed_6_5"
+LEGACY_SPEC = "legacy_fixed_6_5"
+PRODUCTION_FUNDAMENTALS_SPEC = (
+    "production_fundamentals_fixed_6_5"
+)
 PRODUCTION_SPEC = "production_election_day_v1"
+
+REPLAY_SPECS = (
+    LEGACY_SPEC,
+    PRODUCTION_FUNDAMENTALS_SPEC,
+    PRODUCTION_SPEC,
+)
 
 HOUSE_CONTROL_THRESHOLD = 218
 
@@ -262,7 +271,14 @@ def prepare_cycle(
     cycle: int,
     candidate_quality_weight: float,
     candidate_war_path: Path,
-) -> tuple[pd.DataFrame, pd.Series, str]:
+) -> tuple[pd.DataFrame, float]:
+    """
+    Prepare leakage-safe historical inputs for one election cycle.
+
+    This function performs input selection, normalization, schema
+    adaptation, and historical candidate-quality preparation. It does
+    not calculate a forecast margin.
+    """
     forecast_cycle = pd.to_numeric(
         master["forecast_cycle"],
         errors="coerce",
@@ -287,9 +303,6 @@ def prepare_cycle(
         candidate_quality_weight
     )
 
-    # Candidate WAR is intentionally disabled in the initial
-    # uncertainty-only replay. Do not require the external WAR
-    # warehouse when its multiplier is exactly zero.
     if float(candidate_quality_weight) == 0.0:
         candidate_war = pd.Series(
             0.0,
@@ -357,11 +370,25 @@ def prepare_cycle(
         unique_environments[0]
     )
 
+    return df, national_environment
+
+
+def build_production_fundamentals(
+    df: pd.DataFrame,
+    cycle: int,
+    national_environment: float,
+) -> tuple[pd.DataFrame, pd.Series, str]:
+    """
+    Run the production fundamentals calculator on prepared historical
+    inputs and return its district-level Democratic margins.
+    """
+    production_df = df.copy()
+
     env_metadata = {
         "national_environment_source_path": (
             f"historical production replay cycle {cycle}"
         ),
-        "national_environment_margin_dem": (
+        "national_environment_margin_dem": float(
             national_environment
         ),
         "environment_formula_version": (
@@ -370,24 +397,24 @@ def prepare_cycle(
         "forecast_cycle": int(cycle),
     }
 
-    df = recalculate_house_fundamentals_dataframe(
-        df,
-        national_environment=national_environment,
+    production_df = recalculate_house_fundamentals_dataframe(
+        production_df,
+        national_environment=float(national_environment),
         env_metadata=env_metadata,
     )
 
-    if "model_margin_dem" not in df.columns:
+    if "model_margin_dem" not in production_df.columns:
         raise ReplayValidationError(
             "Production fundamentals did not return "
             "model_margin_dem."
         )
 
     model_margin = pd.to_numeric(
-        df["model_margin_dem"],
+        production_df["model_margin_dem"],
         errors="coerce",
     )
 
-    scoring_mask = build_scoring_mask(df)
+    scoring_mask = build_scoring_mask(production_df)
 
     missing_scored_margin = (
         scoring_mask
@@ -400,7 +427,7 @@ def prepare_cycle(
         )
 
         examples = (
-            df.loc[
+            production_df.loc[
                 missing_scored_margin,
                 "race_id",
             ]
@@ -419,13 +446,13 @@ def prepare_cycle(
         "recalculate_house_fundamentals_dataframe"
     )
 
-    return df, model_margin, forecast_source
+    return production_df, model_margin, forecast_source
 
-
-def run_canonical_spec(
+def run_fixed_probability_spec(
     df: pd.DataFrame,
     model_margin: pd.Series,
     fixed_error_sd: float,
+    replay_spec: str,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     canonical_df = df.copy()
 
@@ -445,9 +472,9 @@ def run_canonical_spec(
         default_error_sd=fixed_error_sd,
     )
 
-    results.insert(0, "replay_spec", CANONICAL_SPEC)
-    summary.insert(0, "replay_spec", CANONICAL_SPEC)
-    calibration.insert(0, "replay_spec", CANONICAL_SPEC)
+    results.insert(0, "replay_spec", replay_spec)
+    summary.insert(0, "replay_spec", replay_spec)
+    calibration.insert(0, "replay_spec", replay_spec)
 
     summary["uncertainty_days_out"] = np.nan
     summary["national_error_sd"] = 0.0
@@ -760,52 +787,92 @@ def make_comparison(
         "expected_seat_error",
     ]
 
-    canonical = (
-        summaries.loc[
-            summaries["replay_spec"].eq(
-                CANONICAL_SPEC
-            ),
-            ["cycle", *metrics],
-        ]
-        .set_index("cycle")
-        .sort_index()
-    )
+    def select_spec(spec: str) -> pd.DataFrame:
+        selected = (
+            summaries.loc[
+                summaries["replay_spec"].eq(spec),
+                ["cycle", *metrics],
+            ]
+            .set_index("cycle")
+            .sort_index()
+        )
 
-    production = (
-        summaries.loc[
-            summaries["replay_spec"].eq(
-                PRODUCTION_SPEC
-            ),
-            ["cycle", *metrics],
-        ]
-        .set_index("cycle")
-        .sort_index()
-    )
+        if selected.empty:
+            raise ReplayValidationError(
+                f"No summary rows found for replay specification: {spec}"
+            )
 
-    if not canonical.index.equals(production.index):
+        if not selected.index.is_unique:
+            raise ReplayValidationError(
+                f"Duplicate cycle rows found for replay specification: {spec}"
+            )
+
+        return selected
+
+    legacy = select_spec(LEGACY_SPEC)
+    production_fundamentals = select_spec(
+        PRODUCTION_FUNDAMENTALS_SPEC
+    )
+    production = select_spec(PRODUCTION_SPEC)
+
+    if not legacy.index.equals(
+        production_fundamentals.index
+    ):
         raise ReplayValidationError(
-            "Canonical and production cycle keys differ."
+            "Legacy and production-fundamentals cycle keys differ."
+        )
+
+    if not legacy.index.equals(production.index):
+        raise ReplayValidationError(
+            "Legacy and production cycle keys differ."
         )
 
     rows: list[dict[str, Any]] = []
 
-    for cycle in canonical.index:
+    for cycle in legacy.index:
         row: dict[str, Any] = {
             "cycle": int(cycle),
         }
 
         for metric in metrics:
-            canonical_value = float(
-                canonical.loc[cycle, metric]
+            legacy_value = float(
+                legacy.loc[cycle, metric]
+            )
+            production_fundamentals_value = float(
+                production_fundamentals.loc[
+                    cycle,
+                    metric,
+                ]
             )
             production_value = float(
                 production.loc[cycle, metric]
             )
 
-            row[f"canonical_{metric}"] = canonical_value
+            row[f"legacy_{metric}"] = legacy_value
+            row[
+                f"production_fundamentals_{metric}"
+            ] = production_fundamentals_value
             row[f"production_{metric}"] = production_value
-            row[f"production_minus_canonical_{metric}"] = (
-                production_value - canonical_value
+
+            row[
+                f"production_fundamentals_minus_legacy_{metric}"
+            ] = (
+                production_fundamentals_value
+                - legacy_value
+            )
+
+            row[
+                f"production_minus_production_fundamentals_{metric}"
+            ] = (
+                production_value
+                - production_fundamentals_value
+            )
+
+            row[
+                f"production_minus_legacy_{metric}"
+            ] = (
+                production_value
+                - legacy_value
             )
 
         rows.append(row)
@@ -888,7 +955,7 @@ def validate_outputs(
     expected_result_rows = (
         len(SUPPORTED_CYCLES)
         * 435
-        * 2
+        * len(REPLAY_SPECS)
     )
 
     if len(results) != expected_result_rows:
@@ -935,7 +1002,7 @@ def validate_outputs(
 
     expected_summary_rows = (
         len(SUPPORTED_CYCLES)
-        * 2
+        * len(REPLAY_SPECS)
     )
 
     if len(summaries) != expected_summary_rows:
@@ -946,6 +1013,25 @@ def validate_outputs(
 
     checks.append(
         f"PASS: summary rows = {expected_summary_rows}"
+    )
+
+    observed_specs = tuple(
+        sorted(results["replay_spec"].unique())
+    )
+
+    expected_specs = tuple(
+        sorted(REPLAY_SPECS)
+    )
+
+    if observed_specs != expected_specs:
+        raise ReplayValidationError(
+            "Replay specifications do not match. "
+            f"Expected {expected_specs}; "
+            f"found {observed_specs}."
+        )
+
+    checks.append(
+        "PASS: replay specification set is complete"
     )
 
     production = results.loc[
@@ -996,7 +1082,7 @@ def validate_outputs(
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
-            "Run leakage-safe House production replay v1."
+            "Run leakage-safe full House production replay."
         )
     )
 
@@ -1093,7 +1179,7 @@ def main() -> None:
         print(f"House production replay: {cycle}")
         print("=" * 72)
 
-        df, model_margin, forecast_source = prepare_cycle(
+        prepared_df, national_environment = prepare_cycle(
             master=master,
             cycle=cycle,
             candidate_quality_weight=(
@@ -1102,14 +1188,94 @@ def main() -> None:
             candidate_war_path=args.candidate_war_path,
         )
 
+        legacy_margin, legacy_forecast_source = build_model_margin(
+            prepared_df.copy()
+        )
+
+        df, model_margin, forecast_source = (
+            build_production_fundamentals(
+                df=prepared_df,
+                cycle=cycle,
+                national_environment=national_environment,
+            )
+        )
+
+        print()
+        print(f"Margin comparison ({cycle})")
+        print("-" * 40)
+        print(f"Legacy source:     {legacy_forecast_source}")
+        print(f"Production source: {forecast_source}")
+
+        if legacy_margin is None:
+            print("Legacy margin unavailable.")
+        else:
+            production_numeric = pd.to_numeric(
+                model_margin,
+                errors="coerce",
+            )
+            legacy_numeric = pd.to_numeric(
+                legacy_margin,
+                errors="coerce",
+            )
+
+            comparable_mask = (
+                production_numeric.notna()
+                & legacy_numeric.notna()
+            )
+
+            comparable_delta = (
+                production_numeric.loc[comparable_mask]
+                - legacy_numeric.loc[comparable_mask]
+            )
+
+            print(f"Rows compared:     {len(comparable_delta):,}")
+
+            if comparable_delta.empty:
+                print("No finite margin pairs were available.")
+            else:
+                print(
+                    f"Mean delta:        "
+                    f"{comparable_delta.mean():.6f}"
+                )
+                print(
+                    f"Median delta:      "
+                    f"{comparable_delta.median():.6f}"
+                )
+                print(
+                    f"Max |delta|:       "
+                    f"{comparable_delta.abs().max():.6f}"
+                )
+                print(
+                    f"95th pct |delta|:  "
+                    f"{comparable_delta.abs().quantile(0.95):.6f}"
+                )
+
         forecast_sources[str(cycle)] = forecast_source
 
-        canonical_results, canonical_summary, canonical_calibration = (
-            run_canonical_spec(
-                df=df,
-                model_margin=model_margin,
-                fixed_error_sd=args.fixed_error_sd,
+        if legacy_margin is None:
+            raise ReplayValidationError(
+                f"Cycle {cycle} legacy margin unavailable: "
+                f"{legacy_forecast_source}"
             )
+
+        legacy_results, legacy_summary, legacy_calibration = (
+            run_fixed_probability_spec(
+                df=prepared_df,
+                model_margin=legacy_margin,
+                fixed_error_sd=args.fixed_error_sd,
+                replay_spec=LEGACY_SPEC,
+            )
+        )
+
+        (
+            production_fundamentals_results,
+            production_fundamentals_summary,
+            production_fundamentals_calibration,
+        ) = run_fixed_probability_spec(
+            df=df,
+            model_margin=model_margin,
+            fixed_error_sd=args.fixed_error_sd,
+            replay_spec=PRODUCTION_FUNDAMENTALS_SPEC,
         )
 
         production_results, production_summary, production_calibration = (
@@ -1125,21 +1291,24 @@ def main() -> None:
 
         result_frames.extend(
             [
-                canonical_results,
+                legacy_results,
+                production_fundamentals_results,
                 production_results,
             ]
         )
 
         summary_frames.extend(
             [
-                canonical_summary,
+                legacy_summary,
+                production_fundamentals_summary,
                 production_summary,
             ]
         )
 
         calibration_frames.extend(
             [
-                canonical_calibration,
+                legacy_calibration,
+                production_fundamentals_calibration,
                 production_calibration,
             ]
         )
@@ -1147,7 +1316,8 @@ def main() -> None:
         print(
             pd.concat(
                 [
-                    canonical_summary,
+                    legacy_summary,
+                    production_fundamentals_summary,
                     production_summary,
                 ],
                 ignore_index=True,
@@ -1248,7 +1418,7 @@ def main() -> None:
     )
 
     config = {
-        "replay_version": "house_production_replay_v1",
+        "replay_version": "house_full_production_replay_v1",
         "master_path": str(args.master_path),
         "candidate_war_path": str(
             args.candidate_war_path
@@ -1263,7 +1433,8 @@ def main() -> None:
         "base_seed": int(args.seed),
         "cycles": list(SUPPORTED_CYCLES),
         "specifications": [
-            CANONICAL_SPEC,
+            LEGACY_SPEC,
+            PRODUCTION_FUNDAMENTALS_SPEC,
             PRODUCTION_SPEC,
         ],
         "production_days_out": 0,
@@ -1291,7 +1462,7 @@ def main() -> None:
 
     validation_text = "\n".join(
         [
-            "House Production Replay v1 Validation",
+            "House Full Production Replay Validation",
             "=" * 44,
             *validation_checks,
             "",
@@ -1312,14 +1483,23 @@ def main() -> None:
 
     print()
     print("=" * 72)
-    print("Cycle-level production minus canonical")
+    print("Cycle-level replay decomposition")
     print("=" * 72)
 
     display_columns = [
         "cycle",
-        "production_minus_canonical_brier_score",
-        "production_minus_canonical_log_loss",
-        "production_minus_canonical_expected_seat_error",
+
+        "production_fundamentals_minus_legacy_brier_score",
+        "production_minus_production_fundamentals_brier_score",
+        "production_minus_legacy_brier_score",
+
+        "production_fundamentals_minus_legacy_log_loss",
+        "production_minus_production_fundamentals_log_loss",
+        "production_minus_legacy_log_loss",
+
+        "production_fundamentals_minus_legacy_expected_seat_error",
+        "production_minus_production_fundamentals_expected_seat_error",
+        "production_minus_legacy_expected_seat_error",
     ]
 
     print(
