@@ -199,10 +199,80 @@ def add_validated_historical_partisan_baseline(
         ]
     ].drop_duplicates()
 
-    return add_normalized_partisan_baseline(
+    before = df.loc[
+        df["state"].astype(str).str.upper().eq("FL")
+        & pd.to_numeric(
+            df["forecast_cycle"],
+            errors="coerce",
+        ).eq(2016)
+    ].copy()
+
+    print()
+    print("FLORIDA BASELINE INPUT DIAGNOSTIC")
+    print("-" * 72)
+
+    diagnostic_columns = [
+        column
+        for column in [
+            "forecast_cycle",
+            "cycle",
+            "race_id",
+            "district_id",
+            "state",
+            "district",
+            "district_pres_margin_dem",
+            "presidential_result_year",
+            "national_pres_margin_dem",
+            "boundary_cycle",
+            "boundary_compatibility",
+            "baseline_selection_method",
+            "district_partisan_baseline_dem",
+        ]
+        if column in before.columns
+    ]
+
+    print(before[diagnostic_columns].to_string(index=False))
+
+    out = add_normalized_partisan_baseline(
         df,
         lookup,
     )
+
+    after = out.loc[
+        out["state"].astype(str).str.upper().eq("FL")
+        & pd.to_numeric(
+            out["forecast_cycle"],
+            errors="coerce",
+        ).eq(2016)
+    ].copy()
+
+    print()
+    print("FLORIDA BASELINE OUTPUT DIAGNOSTIC")
+    print("-" * 72)
+
+    diagnostic_columns = [
+        column
+        for column in [
+            "forecast_cycle",
+            "cycle",
+            "race_id",
+            "district_id",
+            "state",
+            "district",
+            "district_pres_margin_dem",
+            "presidential_result_year",
+            "national_pres_margin_dem",
+            "boundary_cycle",
+            "boundary_compatibility",
+            "baseline_selection_method",
+            "district_partisan_baseline_dem",
+        ]
+        if column in after.columns
+    ]
+
+    print(after[diagnostic_columns].to_string(index=False))
+
+    return out
 
 
 def adapt_replay_inputs_to_production(
@@ -1351,6 +1421,102 @@ def main() -> None:
 
     comparison = make_comparison(summaries)
     overall = make_overall_summary(results)
+
+    probability_columns = [
+        column
+        for column in results.columns
+        if "prob" in column.lower()
+    ]
+
+    print()
+    print("MISSING PROBABILITY DIAGNOSTIC")
+    print("-" * 72)
+    print(f"Probability columns: {probability_columns}")
+
+    for column in probability_columns:
+        missing_mask = results[column].isna()
+
+        if not missing_mask.any():
+            continue
+
+        print()
+        print(
+            f"{column}: {int(missing_mask.sum())} missing rows"
+        )
+
+        diagnostic_columns = [
+            candidate
+            for candidate in [
+                "cycle",
+                "replay_spec",
+                "district_id",
+                "state",
+                "district",
+                "model_margin_dem",
+                "district_partisan_baseline_dem",
+                "pres_2024_margin_dem",
+                "pres_2020_margin_dem",
+                column,
+            ]
+            if candidate in results.columns
+        ]
+
+        print(
+            results.loc[
+                missing_mask,
+                diagnostic_columns,
+            ]
+            .head(100)
+            .to_string(index=False)
+        )
+
+    probability_columns = [
+        column
+        for column in results.columns
+        if "prob" in column.lower()
+    ]
+
+    print()
+    print("MISSING PROBABILITY DIAGNOSTIC")
+    print("-" * 72)
+    print(f"Probability columns: {probability_columns}")
+
+    for column in probability_columns:
+        missing_mask = results[column].isna()
+
+        if not missing_mask.any():
+            continue
+
+        print()
+        print(
+            f"{column}: {int(missing_mask.sum())} missing rows"
+        )
+
+        diagnostic_columns = [
+            candidate
+            for candidate in [
+                "cycle",
+                "replay_spec",
+                "district_id",
+                "state",
+                "district",
+                "model_margin_dem",
+                "district_partisan_baseline_dem",
+                "pres_2024_margin_dem",
+                "pres_2020_margin_dem",
+                column,
+            ]
+            if candidate in results.columns
+        ]
+
+        print(
+            results.loc[
+                missing_mask,
+                diagnostic_columns,
+            ]
+            .head(100)
+            .to_string(index=False)
+        )
 
     validation_checks = validate_outputs(
         results=results,
