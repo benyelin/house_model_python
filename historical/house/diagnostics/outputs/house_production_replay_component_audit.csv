@@ -1,0 +1,16 @@
+component,status,production_detected,replay_detected,production_matches,replay_matches,declared_included,declared_deferred
+partisan_baseline,LIKELY_INCLUDED,True,True,district_partisan_baseline_dem; partisan_baseline,district_partisan_baseline_dem; build_production_fundamentals,False,False
+national_environment,LIKELY_INCLUDED,True,True,national_environment; environment_multiplier,national_environment; build_production_fundamentals,False,False
+incumbency,MISSING_FROM_REPLAY,True,False,incumbency,,False,False
+district_elasticity,MISSING_FROM_REPLAY,True,False,district_elasticity; elasticity,,False,False
+candidate_quality,LIKELY_INCLUDED,True,True,candidate_quality; candidate_war; war,candidate_quality_weight; candidate_war_path; candidate_war,False,False
+district_polling,DEFERRED,True,True,polling_margin; bayesian; polling_weight,historical_polling,False,True
+polling_variance_reduction,DEFERRED,True,True,posterior_sd,polling_variance_reduction,False,True
+national_correlated_error,INCLUDED_DECLARED,True,True,national_error; national_sd,national_error; national_sd,True,False
+region_correlated_error,DEFERRED,True,True,region_error,region_error; region_error_groups,False,True
+demographic_correlated_error,DEFERRED,True,True,demographic_error; education; grouped_variance,demographic_error; demographic_error_groups,False,True
+district_residual_error,INCLUDED_DECLARED,True,True,district_error; remaining_sd,district_error,True,False
+variance_preserving_uncertainty,MISSING_FROM_REPLAY,True,False,grouped_variance,,False,False
+fixed_party_control,LIKELY_INCLUDED,True,True,party_control_fixed,party_control_fixed; fixed_control,False,False
+simulation_seed_control,LIKELY_INCLUDED,True,True,seed; default_rng,seed; default_rng,False,False
+majority_probability,LIKELY_INCLUDED,True,True,majority,dem_control_probability; HOUSE_CONTROL_THRESHOLD,False,False

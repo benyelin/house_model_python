@@ -1,0 +1,39 @@
+HOUSE PRODUCTION REPLAY COMPONENT AUDIT
+==============================================================================
+
+Replay file: historical/house/backtests/run_house_full_production_replay.py
+
+Declared included:
+  - national_error
+  - district_error
+
+Declared deferred:
+  - region_error_groups
+  - demographic_error_groups
+  - historical_polling
+  - polling_variance_reduction
+
+                      component              status  production_detected  replay_detected
+              partisan_baseline     LIKELY_INCLUDED                 True             True
+           national_environment     LIKELY_INCLUDED                 True             True
+                     incumbency MISSING_FROM_REPLAY                 True            False
+            district_elasticity MISSING_FROM_REPLAY                 True            False
+              candidate_quality     LIKELY_INCLUDED                 True             True
+               district_polling            DEFERRED                 True             True
+     polling_variance_reduction            DEFERRED                 True             True
+      national_correlated_error   INCLUDED_DECLARED                 True             True
+        region_correlated_error            DEFERRED                 True             True
+   demographic_correlated_error            DEFERRED                 True             True
+        district_residual_error   INCLUDED_DECLARED                 True             True
+variance_preserving_uncertainty MISSING_FROM_REPLAY                 True            False
+            fixed_party_control     LIKELY_INCLUDED                 True             True
+        simulation_seed_control     LIKELY_INCLUDED                 True             True
+           majority_probability     LIKELY_INCLUDED                 True             True
+
+STATUS COUNTS
+------------------------------------------------------------------------------
+status
+DEFERRED               4
+INCLUDED_DECLARED      2
+LIKELY_INCLUDED        6
+MISSING_FROM_REPLAY    3

@@ -56,6 +56,11 @@ from recalculate_house_fundamentals import (
 )
 from scipy.special import ndtr
 
+from house_simulation import (
+    run_simulation as run_shared_house_simulation,
+)
+from run_house_model import HouseModelConfig
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
@@ -109,11 +114,15 @@ PRODUCTION_FUNDAMENTALS_SPEC = (
     "production_fundamentals_fixed_6_5"
 )
 PRODUCTION_SPEC = "production_election_day_v1"
+PRODUCTION_SHARED_SPEC = (
+    "production_shared_uncertainty_v2"
+)
 
 REPLAY_SPECS = (
     LEGACY_SPEC,
     PRODUCTION_FUNDAMENTALS_SPEC,
     PRODUCTION_SPEC,
+    PRODUCTION_SHARED_SPEC,
 )
 
 HOUSE_CONTROL_THRESHOLD = 218
@@ -842,6 +851,656 @@ def run_production_spec(
     return results, summary, calibration
 
 
+
+def prepare_shared_simulation_table(
+    df: pd.DataFrame,
+    model_margin: pd.Series,
+    fallback_margin: pd.Series,
+) -> pd.DataFrame:
+    """
+    Prepare leakage-safe historical rows for the shared production
+    House simulation engine.
+
+    This adapter does not calculate fundamentals. It supplies the
+    simulation-only columns that the live production race-table
+    preparation ordinarily creates after fundamentals are complete.
+
+    Historical group assignments must be present or reconstructable
+    from historical covariates. The adapter deliberately refuses to
+    create a single fabricated unknown group.
+    """
+    out = normalize_fixed_control(df.copy())
+
+    production_margin = pd.to_numeric(
+        model_margin,
+        errors="coerce",
+    )
+
+    legacy_fallback_margin = pd.to_numeric(
+        fallback_margin,
+        errors="coerce",
+    )
+
+    if len(production_margin) != len(out):
+        raise ReplayValidationError(
+            "Production-margin length does not match the "
+            "historical race table."
+        )
+
+    if len(legacy_fallback_margin) != len(out):
+        raise ReplayValidationError(
+            "Fallback-margin length does not match the "
+            "historical race table."
+        )
+
+    # Assign positionally because both margin series were constructed
+    # from this cycle's prepared race table. This avoids accidental
+    # index-alignment errors if a prior transformation retained a
+    # nonconsecutive index.
+    production_margin = pd.Series(
+        production_margin.to_numpy(),
+        index=out.index,
+        dtype=float,
+    )
+
+    legacy_fallback_margin = pd.Series(
+        legacy_fallback_margin.to_numpy(),
+        index=out.index,
+        dtype=float,
+    )
+
+    fallback_mask = production_margin.isna()
+
+    # Option B is intentionally narrow: only the known 2016 Florida
+    # baseline gap may use the legacy-margin fallback. Any new missing
+    # production margins elsewhere should still stop the replay.
+    if fallback_mask.any():
+        fallback_cycle = pd.to_numeric(
+            out.loc[
+                fallback_mask,
+                "forecast_cycle",
+            ],
+            errors="coerce",
+        )
+
+        fallback_state = (
+            out.loc[
+                fallback_mask,
+                "state",
+            ]
+            .fillna("")
+            .astype(str)
+            .str.upper()
+            .str.strip()
+        )
+
+        allowed_fallback = (
+            fallback_cycle.eq(2016)
+            & fallback_state.eq("FL")
+        )
+
+        if not allowed_fallback.all():
+            unexpected_rows = out.loc[
+                fallback_mask
+                & ~allowed_fallback.reindex(
+                    out.index,
+                    fill_value=False,
+                ),
+                "district_id",
+            ].astype(str).head(20).tolist()
+
+            raise ReplayValidationError(
+                "Missing production margins were found outside "
+                "the approved 2016 Florida fallback: "
+                + ", ".join(unexpected_rows)
+            )
+
+        missing_fallback = (
+            fallback_mask
+            & legacy_fallback_margin.isna()
+        )
+
+        if missing_fallback.any():
+            bad_rows = out.loc[
+                missing_fallback,
+                "district_id",
+            ].astype(str).head(20).tolist()
+
+            raise ReplayValidationError(
+                "Legacy fallback margins are also missing for: "
+                + ", ".join(bad_rows)
+            )
+
+    out["production_model_margin_dem"] = production_margin
+    out["legacy_fallback_margin_dem"] = (
+        legacy_fallback_margin
+    )
+    out["shared_margin_fallback_used"] = fallback_mask
+    out["shared_margin_source"] = np.where(
+        fallback_mask,
+        "legacy_margin_fallback",
+        "production_fundamentals",
+    )
+
+    out["model_margin_dem"] = production_margin.where(
+        ~fallback_mask,
+        legacy_fallback_margin,
+    )
+
+    if out["model_margin_dem"].isna().any():
+        bad_rows = out.loc[
+            out["model_margin_dem"].isna(),
+            "district_id",
+        ].astype(str).head(20).tolist()
+
+        raise ReplayValidationError(
+            "Shared simulation still has missing margins after "
+            "the approved fallback: "
+            + ", ".join(bad_rows)
+        )
+
+    fallback_count = int(fallback_mask.sum())
+
+    if fallback_count:
+        fallback_ids = out.loc[
+            fallback_mask,
+            "district_id",
+        ].astype(str).tolist()
+
+        print()
+        print("SHARED REPLAY MARGIN FALLBACK")
+        print("-" * 72)
+        print(
+            "Production margins replaced with leakage-safe "
+            f"legacy margins: {fallback_count}"
+        )
+        print(
+            "Fallback districts: "
+            + ", ".join(fallback_ids)
+        )
+
+    required_direct_groups = [
+        "state_error_group",
+        "region_error_group",
+        "district_type_error_group",
+    ]
+
+    missing_direct_groups = [
+        column
+        for column in required_direct_groups
+        if column not in out.columns
+    ]
+
+    if missing_direct_groups:
+        raise ReplayValidationError(
+            "Shared production replay is missing historical "
+            "simulation-group columns: "
+            + ", ".join(missing_direct_groups)
+        )
+
+    for column in required_direct_groups:
+        normalized = (
+            out[column]
+            .fillna("")
+            .astype(str)
+            .str.strip()
+        )
+
+        if normalized.eq("").any():
+            bad_rows = out.loc[
+                normalized.eq(""),
+                "district_id",
+            ].astype(str).head(20).tolist()
+
+            raise ReplayValidationError(
+                f"Historical group column {column} contains blank "
+                "assignments: "
+                + ", ".join(bad_rows)
+            )
+
+        out[column] = normalized
+
+    # Match the live production grouping definition whenever the
+    # explicit historical error-group column is unavailable.
+    if "education_race_error_group" in out.columns:
+        education_race_group = (
+            out["education_race_error_group"]
+            .fillna("")
+            .astype(str)
+            .str.strip()
+        )
+    else:
+        source_columns = [
+            "college_share_tier",
+            "white_share_tier",
+        ]
+
+        historical_tiers_available = all(
+            column in out.columns
+            for column in source_columns
+        )
+
+        if historical_tiers_available:
+            college = (
+                out["college_share_tier"]
+                .fillna("")
+                .astype(str)
+                .str.strip()
+            )
+            white = (
+                out["white_share_tier"]
+                .fillna("")
+                .astype(str)
+                .str.strip()
+            )
+
+            complete_tiers = (
+                college.ne("")
+                & white.ne("")
+            )
+
+            # Use genuine historical groups where available. Rows
+            # without historical demographic tiers receive unique
+            # inert labels. The shared historical replay config sets
+            # education_race_error_sd to zero, so these labels do not
+            # affect any simulation draw.
+            education_race_group = pd.Series(
+                "historical_demographics_unavailable__"
+                + out["district_id"].astype(str),
+                index=out.index,
+                dtype=str,
+            )
+
+            education_race_group.loc[
+                complete_tiers
+            ] = (
+                college.loc[complete_tiers]
+                + " College / "
+                + white.loc[complete_tiers]
+                + " White"
+            )
+        else:
+            education_race_group = (
+                "historical_demographics_unavailable__"
+                + out["district_id"].astype(str)
+            )
+
+    invalid_education_group = (
+        education_race_group.eq("")
+        | education_race_group.str.lower().isin(
+            {
+                "unknown",
+                "unknown education/race",
+                "nan",
+                "none",
+            }
+        )
+    )
+
+    if invalid_education_group.any():
+        bad_rows = out.loc[
+            invalid_education_group,
+            "district_id",
+        ].astype(str).head(20).tolist()
+
+        raise ReplayValidationError(
+            "Historical education/race groups are unavailable for: "
+            + ", ".join(bad_rows)
+        )
+
+    out["education_race_error_group"] = (
+        education_race_group
+    )
+
+    # The current shared production simulator does not draw the older
+    # aggregate demographic-error component. This column is retained
+    # only because the production summary contract reports its count.
+    if "demographic_error_group" not in out.columns:
+        out["demographic_error_group"] = (
+            out["education_race_error_group"]
+        )
+    else:
+        out["demographic_error_group"] = (
+            out["demographic_error_group"]
+            .fillna(out["education_race_error_group"])
+            .astype(str)
+            .str.strip()
+        )
+
+    # Historical v2 intentionally contains no district polling.
+    # Election-Day production begins with a 4.75-point posterior SD;
+    # the shared engine then applies the variance-preserving residual
+    # floor exactly as it does in the live model.
+    out["bayesian_polling_weight"] = 0.0
+    out["district_posterior_sd"] = 4.75
+
+    defaults = {
+        "general_election_party_structure": "D_vs_R",
+        "election_system": "standard",
+        "other_candidate": "",
+        "imported_national_environment_margin_dem": np.nan,
+        "house_environment_multiplier": np.nan,
+        "house_national_environment_used_dem": np.nan,
+    }
+
+    for column, default in defaults.items():
+        if column not in out.columns:
+            out[column] = default
+
+    out["general_election_party_structure"] = (
+        out["general_election_party_structure"]
+        .fillna("D_vs_R")
+        .astype(str)
+        .str.strip()
+    )
+
+    out["election_system"] = (
+        out["election_system"]
+        .fillna("standard")
+        .astype(str)
+        .str.strip()
+    )
+
+    out["other_candidate"] = (
+        out["other_candidate"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+    )
+
+    return out
+
+
+def run_production_shared_spec(
+    df: pd.DataFrame,
+    model_margin: pd.Series,
+    fallback_margin: pd.Series,
+    n_sims: int,
+    seed: int,
+    fixed_error_sd: float,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """
+    Run the current production House simulation engine against
+    leakage-safe historical fundamentals.
+    """
+    replay_table = prepare_shared_simulation_table(
+        df=df,
+        model_margin=model_margin,
+        fallback_margin=fallback_margin,
+    )
+
+    config = HouseModelConfig(
+        n_sims=int(n_sims),
+        seed=int(seed),
+        majority_threshold=HOUSE_CONTROL_THRESHOLD,
+
+        # Historical education/race group assignments have not yet
+        # been constructed on cycle-appropriate district boundaries.
+        # Setting this component to zero avoids current-boundary
+        # leakage while retaining every other shared production
+        # uncertainty component.
+        education_race_error_sd=0.0,
+    )
+
+    (
+        race_stats,
+        seat_distribution,
+        simulation_draws,
+        shared_summary,
+    ) = run_shared_house_simulation(
+        race_table=replay_table,
+        days_out=0,
+        config=config,
+    )
+
+    replay_df = race_stats.copy()
+
+    audit_columns = [
+        "district_id",
+        "production_model_margin_dem",
+        "legacy_fallback_margin_dem",
+        "shared_margin_fallback_used",
+        "shared_margin_source",
+    ]
+
+    missing_audit_columns = [
+        column
+        for column in audit_columns[1:]
+        if column not in replay_df.columns
+    ]
+
+    if missing_audit_columns:
+        audit = replay_table[
+            audit_columns
+        ].copy()
+
+        replay_df = replay_df.merge(
+            audit,
+            on="district_id",
+            how="left",
+            validate="one_to_one",
+        )
+
+    if "simulated_dem_win_probability" not in replay_df.columns:
+        raise ReplayValidationError(
+            "Shared production simulation did not return "
+            "simulated_dem_win_probability."
+        )
+
+    replay_df["dem_win_probability"] = pd.to_numeric(
+        replay_df["simulated_dem_win_probability"],
+        errors="coerce",
+    )
+
+    if replay_df["dem_win_probability"].isna().any():
+        raise ReplayValidationError(
+            "Shared production simulation returned missing "
+            "race probabilities."
+        )
+
+    # Supply a deterministic marginal-SD diagnostic for the canonical
+    # scorer. The scorer uses dem_win_probability when it is present.
+    replay_df["total_error_sd"] = float(
+        shared_summary["total_error_sd"]
+    )
+
+    results, summary, calibration = score_backtest(
+        df=replay_df,
+        model_margin=model_margin,
+        default_error_sd=fixed_error_sd,
+    )
+
+    results.insert(
+        0,
+        "replay_spec",
+        PRODUCTION_SHARED_SPEC,
+    )
+    summary.insert(
+        0,
+        "replay_spec",
+        PRODUCTION_SHARED_SPEC,
+    )
+    calibration.insert(
+        0,
+        "replay_spec",
+        PRODUCTION_SHARED_SPEC,
+    )
+
+    dem_seats = pd.to_numeric(
+        simulation_draws["dem_seats"],
+        errors="raise",
+    )
+
+    simulated_expected_seats = float(
+        dem_seats.mean()
+    )
+    simulated_seat_sd = float(
+        dem_seats.std(ddof=1)
+    )
+    simulation_standard_error = float(
+        simulated_seat_sd / np.sqrt(n_sims)
+    )
+
+    fallback_count = int(
+        replay_table[
+            "shared_margin_fallback_used"
+        ].sum()
+    )
+
+    fallback_districts = ",".join(
+        replay_table.loc[
+            replay_table[
+                "shared_margin_fallback_used"
+            ],
+            "district_id",
+        ].astype(str)
+    )
+
+    summary_values: dict[str, Any] = {
+        "uncertainty_days_out": 0,
+        "shared_margin_fallback_count": fallback_count,
+        "shared_margin_fallback_districts": (
+            fallback_districts
+        ),
+        "national_error_sd": float(
+            shared_summary["national_error_sd"]
+        ),
+        "state_error_sd": float(
+            shared_summary["state_error_sd"]
+        ),
+        "region_error_sd": float(
+            shared_summary["region_error_sd"]
+        ),
+        "district_type_error_sd": float(
+            shared_summary["district_type_error_sd"]
+        ),
+        "education_race_error_sd": float(
+            shared_summary["education_race_error_sd"]
+        ),
+        "historical_education_race_component_deferred": True,
+        # Compatibility alias used by older replay output readers.
+        "demographic_error_sd": float(
+            shared_summary["education_race_error_sd"]
+        ),
+        "district_error_sd": float(
+            shared_summary[
+                "district_specific_error_sd_floor"
+            ]
+        ),
+        "marginal_total_error_sd": float(
+            shared_summary["total_error_sd"]
+        ),
+        "n_sims": int(n_sims),
+        "expected_dem_seats_from_simulation": (
+            simulated_expected_seats
+        ),
+        "simulation_dem_seat_sd": simulated_seat_sd,
+        "simulation_expected_seat_standard_error": (
+            simulation_standard_error
+        ),
+        "median_dem_seats": float(
+            dem_seats.median()
+        ),
+        "dem_seats_p25": float(
+            dem_seats.quantile(0.25)
+        ),
+        "dem_seats_p50": float(
+            dem_seats.quantile(0.50)
+        ),
+        "dem_seats_p75": float(
+            dem_seats.quantile(0.75)
+        ),
+        "dem_control_probability": float(
+            shared_summary["dem_majority_probability"]
+        ),
+        "shared_state_error_groups": int(
+            shared_summary["state_error_groups"]
+        ),
+        "shared_region_error_groups": int(
+            shared_summary["region_error_groups"]
+        ),
+        "shared_district_type_error_groups": int(
+            shared_summary["district_type_error_groups"]
+        ),
+        "shared_education_race_error_groups": int(
+            shared_summary[
+                "education_race_error_groups"
+            ]
+        ),
+        "shared_grouped_variance": float(
+            config.total_error_sd ** 2
+            - shared_summary[
+                "district_specific_error_sd_floor"
+            ] ** 2
+        ),
+    }
+
+    for key, value in summary_values.items():
+        summary[key] = value
+
+    analytic_expected_seats = float(
+        summary.loc[0, "expected_dem_seats"]
+    )
+
+    difference = abs(
+        analytic_expected_seats
+        - simulated_expected_seats
+    )
+
+    tolerance = max(
+        0.10,
+        5.0 * simulation_standard_error,
+    )
+
+    summary[
+        "analytic_minus_simulated_expected_seats"
+    ] = (
+        analytic_expected_seats
+        - simulated_expected_seats
+    )
+    summary[
+        "simulation_validation_tolerance"
+    ] = tolerance
+
+    if difference > tolerance:
+        raise ReplayValidationError(
+            "Shared production expected seats differ from the "
+            "direct simulation mean by more than the Monte Carlo "
+            "tolerance. "
+            f"Difference: {difference:.6f}; "
+            f"standard error: "
+            f"{simulation_standard_error:.6f}; "
+            f"tolerance: {tolerance:.6f}"
+        )
+
+    fixed = (
+        replay_df["party_control_fixed"]
+        .fillna("")
+        .astype(str)
+        .str.upper()
+    )
+
+    if not replay_df.loc[
+        fixed.eq("D"),
+        "dem_win_probability",
+    ].eq(1.0).all():
+        raise ReplayValidationError(
+            "Shared simulation fixed Democratic seats are not "
+            "all probability 1.0."
+        )
+
+    if not replay_df.loc[
+        fixed.eq("R"),
+        "dem_win_probability",
+    ].eq(0.0).all():
+        raise ReplayValidationError(
+            "Shared simulation fixed Republican seats are not "
+            "all probability 0.0."
+        )
+
+    return results, summary, calibration
+
+
 def make_comparison(
     summaries: pd.DataFrame,
 ) -> pd.DataFrame:
@@ -1328,6 +1987,49 @@ def main() -> None:
                 f"{legacy_forecast_source}"
             )
 
+        # Resolve the historically valid production margin once before
+        # running the production replay specifications. This reuses the
+        # shared replay's audited, leakage-safe fallback logic, including
+        # the narrow 2016 Florida exception.
+        effective_production_table = prepare_shared_simulation_table(
+            df=df,
+            model_margin=model_margin,
+            fallback_margin=legacy_margin,
+        )
+
+        effective_production_margin = pd.to_numeric(
+            effective_production_table["model_margin_dem"],
+            errors="coerce",
+        )
+
+        if effective_production_margin.isna().any():
+            bad_rows = effective_production_table.loc[
+                effective_production_margin.isna(),
+                "district_id",
+            ].astype(str).head(20).tolist()
+
+            raise ReplayValidationError(
+                "Effective production margin remains missing after "
+                "the approved historical fallback: "
+                + ", ".join(bad_rows)
+            )
+
+        # Preserve the fallback audit columns on the common production
+        # dataframe so downstream replay outputs can identify which
+        # central estimates required the historical exception.
+        fallback_audit_columns = [
+            "production_model_margin_dem",
+            "legacy_fallback_margin_dem",
+            "shared_margin_fallback_used",
+            "shared_margin_source",
+        ]
+
+        for column in fallback_audit_columns:
+            if column in effective_production_table.columns:
+                df[column] = effective_production_table[
+                    column
+                ].to_numpy()
+
         legacy_results, legacy_summary, legacy_calibration = (
             run_fixed_probability_spec(
                 df=prepared_df,
@@ -1343,7 +2045,7 @@ def main() -> None:
             production_fundamentals_calibration,
         ) = run_fixed_probability_spec(
             df=df,
-            model_margin=model_margin,
+            model_margin=effective_production_margin,
             fixed_error_sd=args.fixed_error_sd,
             replay_spec=PRODUCTION_FUNDAMENTALS_SPEC,
         )
@@ -1351,7 +2053,7 @@ def main() -> None:
         production_results, production_summary, production_calibration = (
             run_production_spec(
                 df=df,
-                model_margin=model_margin,
+                model_margin=effective_production_margin,
                 settings=settings,
                 n_sims=args.sims,
                 seed=args.seed + cycle,
@@ -1359,11 +2061,25 @@ def main() -> None:
             )
         )
 
+        (
+            production_shared_results,
+            production_shared_summary,
+            production_shared_calibration,
+        ) = run_production_shared_spec(
+            df=df,
+            model_margin=model_margin,
+            fallback_margin=legacy_margin,
+            n_sims=args.sims,
+            seed=args.seed + cycle,
+            fixed_error_sd=args.fixed_error_sd,
+        )
+
         result_frames.extend(
             [
                 legacy_results,
                 production_fundamentals_results,
                 production_results,
+                production_shared_results,
             ]
         )
 
@@ -1372,6 +2088,7 @@ def main() -> None:
                 legacy_summary,
                 production_fundamentals_summary,
                 production_summary,
+                production_shared_summary,
             ]
         )
 
@@ -1380,6 +2097,7 @@ def main() -> None:
                 legacy_calibration,
                 production_fundamentals_calibration,
                 production_calibration,
+                production_shared_calibration,
             ]
         )
 
@@ -1389,6 +2107,7 @@ def main() -> None:
                     legacy_summary,
                     production_fundamentals_summary,
                     production_summary,
+                    production_shared_summary,
                 ],
                 ignore_index=True,
             )[
@@ -1584,7 +2303,7 @@ def main() -> None:
     )
 
     config = {
-        "replay_version": "house_full_production_replay_v1",
+        "replay_version": "house_full_production_replay_v2",
         "master_path": str(args.master_path),
         "candidate_war_path": str(
             args.candidate_war_path
@@ -1598,11 +2317,7 @@ def main() -> None:
         "n_sims": int(args.sims),
         "base_seed": int(args.seed),
         "cycles": list(SUPPORTED_CYCLES),
-        "specifications": [
-            LEGACY_SPEC,
-            PRODUCTION_FUNDAMENTALS_SPEC,
-            PRODUCTION_SPEC,
-        ],
+        "specifications": list(REPLAY_SPECS),
         "production_days_out": 0,
         "production_components_included": [
             "national_error",
@@ -1614,6 +2329,47 @@ def main() -> None:
             "historical_polling",
             "polling_variance_reduction",
         ],
+        "shared_v2_components_included": [
+            "national_error",
+            "state_error_groups",
+            "region_error_groups",
+            "district_type_error_groups",
+            "variance_preserving_district_error",
+            "fixed_party_control",
+        ],
+        "shared_v2_components_deferred": [
+            "historical_education_race_error_groups",
+            "historical_polling",
+            "polling_variance_reduction",
+        ],
+        "shared_v2_margin_fallback_policy": {
+            "allowed_cycle": 2016,
+            "allowed_state": "FL",
+            "fallback_source": (
+                "legacy_leakage_safe_model_margin"
+            ),
+            "reason": (
+                "Missing 2012 presidential district baselines "
+                "on the 2016 Florida House boundaries"
+            ),
+            "fallback_is_applied_before_shared_simulation": True,
+        },
+        "shared_v2_production_config": {
+            "total_error_sd": HouseModelConfig.total_error_sd,
+            "national_error_share": (
+                HouseModelConfig.national_error_share
+            ),
+            "state_error_sd": HouseModelConfig.state_error_sd,
+            "region_error_sd": HouseModelConfig.region_error_sd,
+            "district_type_error_sd": (
+                HouseModelConfig.district_type_error_sd
+            ),
+            "production_education_race_error_sd": (
+                HouseModelConfig.education_race_error_sd
+            ),
+            "historical_replay_education_race_error_sd": 0.0,
+            "majority_threshold": HOUSE_CONTROL_THRESHOLD,
+        },
         "forecast_sources": forecast_sources,
     }
 

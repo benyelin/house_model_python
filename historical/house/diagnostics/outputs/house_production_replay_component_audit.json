@@ -1,0 +1,176 @@
+{
+  "components": [
+    {
+      "component": "partisan_baseline",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "district_partisan_baseline_dem; partisan_baseline",
+      "replay_detected": true,
+      "replay_matches": "district_partisan_baseline_dem; build_production_fundamentals",
+      "status": "LIKELY_INCLUDED"
+    },
+    {
+      "component": "national_environment",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "national_environment; environment_multiplier",
+      "replay_detected": true,
+      "replay_matches": "national_environment; build_production_fundamentals",
+      "status": "LIKELY_INCLUDED"
+    },
+    {
+      "component": "incumbency",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "incumbency",
+      "replay_detected": false,
+      "replay_matches": "",
+      "status": "MISSING_FROM_REPLAY"
+    },
+    {
+      "component": "district_elasticity",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "district_elasticity; elasticity",
+      "replay_detected": false,
+      "replay_matches": "",
+      "status": "MISSING_FROM_REPLAY"
+    },
+    {
+      "component": "candidate_quality",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "candidate_quality; candidate_war; war",
+      "replay_detected": true,
+      "replay_matches": "candidate_quality_weight; candidate_war_path; candidate_war",
+      "status": "LIKELY_INCLUDED"
+    },
+    {
+      "component": "district_polling",
+      "declared_deferred": true,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "polling_margin; bayesian; polling_weight",
+      "replay_detected": true,
+      "replay_matches": "historical_polling",
+      "status": "DEFERRED"
+    },
+    {
+      "component": "polling_variance_reduction",
+      "declared_deferred": true,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "posterior_sd",
+      "replay_detected": true,
+      "replay_matches": "polling_variance_reduction",
+      "status": "DEFERRED"
+    },
+    {
+      "component": "national_correlated_error",
+      "declared_deferred": false,
+      "declared_included": true,
+      "production_detected": true,
+      "production_matches": "national_error; national_sd",
+      "replay_detected": true,
+      "replay_matches": "national_error; national_sd",
+      "status": "INCLUDED_DECLARED"
+    },
+    {
+      "component": "region_correlated_error",
+      "declared_deferred": true,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "region_error",
+      "replay_detected": true,
+      "replay_matches": "region_error; region_error_groups",
+      "status": "DEFERRED"
+    },
+    {
+      "component": "demographic_correlated_error",
+      "declared_deferred": true,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "demographic_error; education; grouped_variance",
+      "replay_detected": true,
+      "replay_matches": "demographic_error; demographic_error_groups",
+      "status": "DEFERRED"
+    },
+    {
+      "component": "district_residual_error",
+      "declared_deferred": false,
+      "declared_included": true,
+      "production_detected": true,
+      "production_matches": "district_error; remaining_sd",
+      "replay_detected": true,
+      "replay_matches": "district_error",
+      "status": "INCLUDED_DECLARED"
+    },
+    {
+      "component": "variance_preserving_uncertainty",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "grouped_variance",
+      "replay_detected": false,
+      "replay_matches": "",
+      "status": "MISSING_FROM_REPLAY"
+    },
+    {
+      "component": "fixed_party_control",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "party_control_fixed",
+      "replay_detected": true,
+      "replay_matches": "party_control_fixed; fixed_control",
+      "status": "LIKELY_INCLUDED"
+    },
+    {
+      "component": "simulation_seed_control",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "seed; default_rng",
+      "replay_detected": true,
+      "replay_matches": "seed; default_rng",
+      "status": "LIKELY_INCLUDED"
+    },
+    {
+      "component": "majority_probability",
+      "declared_deferred": false,
+      "declared_included": false,
+      "production_detected": true,
+      "production_matches": "majority",
+      "replay_detected": true,
+      "replay_matches": "dem_control_probability; HOUSE_CONTROL_THRESHOLD",
+      "status": "LIKELY_INCLUDED"
+    }
+  ],
+  "declared_deferred_raw": [
+    "region_error_groups",
+    "demographic_error_groups",
+    "historical_polling",
+    "polling_variance_reduction"
+  ],
+  "declared_included_raw": [
+    "national_error",
+    "district_error"
+  ],
+  "production_files": [
+    "run_house_model.py",
+    "run_house_full_pipeline.py",
+    "run_house_full_pipeline_core.py"
+  ],
+  "replay_path": "historical/house/backtests/run_house_full_production_replay.py",
+  "status_counts": {
+    "DEFERRED": 4,
+    "INCLUDED_DECLARED": 2,
+    "LIKELY_INCLUDED": 6,
+    "MISSING_FROM_REPLAY": 3
+  }
+}
