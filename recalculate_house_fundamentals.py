@@ -7,11 +7,13 @@ OUTPUTS = Path("outputs") if "OUTPUTS" not in globals() else OUTPUTS
 HOUSE_CANDIDATE_WAR_AUDIT = OUTPUTS / "house_candidate_war_audit.csv"
 HOUSE_INPUT_PATH = INPUTS / "house_race_inputs.csv"
 
-# Prefer local file if one exists, but default to the Senate model's shared national environment.
-NATIONAL_ENVIRONMENT_CANDIDATES = [
-    Path("inputs/national_environment.csv"),
-    Path("../senate_model_python_Q1_auto_calendar_candidate_refresh/inputs/national_environment.csv"),
-]
+# The Senate model's shared national-environment file is the single
+# production source of truth for both Senate and House forecasts.
+NATIONAL_ENVIRONMENT_PATH = Path(
+    "/Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/"
+    "senate_model_python_Q1_auto_calendar_candidate_refresh/"
+    "inputs/national_environment.csv"
+)
 
 # House district baseline weights.
 # Because of redistricting, use 2024 and 2020 only.
@@ -61,16 +63,13 @@ def read_house_calibration_setting(setting_name, default):
 
 
 def find_national_environment_path():
-    for path in NATIONAL_ENVIRONMENT_CANDIDATES:
-        if path.exists():
-            return path
+    if not NATIONAL_ENVIRONMENT_PATH.exists():
+        raise FileNotFoundError(
+            "Shared Senate national-environment file not found:\n"
+            f"  {NATIONAL_ENVIRONMENT_PATH}"
+        )
 
-    raise FileNotFoundError(
-        "Could not find national_environment.csv. Expected either:\n"
-        "  inputs/national_environment.csv\n"
-        "or\n"
-        "  ../senate_model_python_Q1_auto_calendar_candidate_refresh/inputs/national_environment.csv"
-    )
+    return NATIONAL_ENVIRONMENT_PATH
 
 
 def read_national_environment():
