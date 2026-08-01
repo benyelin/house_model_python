@@ -137,7 +137,12 @@ def run_simulation(race_table, days_out, config):
     seat_distribution.columns = ["dem_seats", "probability"]
 
     race_stats = race_table.copy()
+    # The simulation probability is the authoritative party-control
+    # probability. This is especially important for same-party and
+    # unopposed general elections, where the unconstrained probability
+    # implied by model_margin_dem is not a valid seat-control probability.
     race_stats["simulated_dem_win_probability"] = district_win_probs
+    race_stats["dem_win_probability"] = district_win_probs
     race_stats["avg_simulated_margin_dem"] = avg_simulated_margin
     race_stats["margin_p25_dem"] = np.percentile(simulated_margins, 25, axis=0)
     race_stats["margin_p50_dem"] = np.percentile(simulated_margins, 50, axis=0)
