@@ -97,6 +97,14 @@ OUTPUT_PATH = (
     / "house_historical_backtest_inputs_2016_2022.csv"
 )
 
+HISTORICAL_ELASTICITY_PATH = (
+    PROJECT_ROOT
+    / "historical"
+    / "house"
+    / "elasticity"
+    / "house_historical_district_elasticity_2016_2022.csv"
+)
+
 
 class ValidationError(RuntimeError):
     """Raised when a warehouse or canonical merge violates its contract."""
@@ -1506,16 +1514,132 @@ def load_district_elasticity() -> pd.DataFrame:
     )
 
 
+def merge_historical_district_elasticity(
+    frame: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Merge leakage-safe, expanding-window district elasticities by
+    forecast_cycle and race_id.
+
+    The source table guarantees that every training_end_cycle precedes
+    its forecast_cycle. Missing historical estimates use the explicit
+    neutral elasticity fallback of 1.0.
+    """
+    require_file(
+        HISTORICAL_ELASTICITY_PATH,
+        "historical district elasticity warehouse",
+    )
+
+    elasticity = read_csv(
+        HISTORICAL_ELASTICITY_PATH,
+        "historical district elasticity warehouse",
+    )
+
+    required = {
+        "forecast_cycle",
+        "race_id",
+        "district_elasticity",
+        "training_end_cycle",
+        "historical_elasticity_estimate_available",
+        "historical_elasticity_used_neutral_fallback",
+    }
+
+    require_columns(
+        elasticity,
+        required,
+        "historical district elasticity warehouse",
+    )
+
+    elasticity["forecast_cycle"] = pd.to_numeric(
+        elasticity["forecast_cycle"],
+        errors="coerce",
+    )
+
+    elasticity["training_end_cycle"] = pd.to_numeric(
+        elasticity["training_end_cycle"],
+        errors="coerce",
+    )
+
+    elasticity["district_elasticity"] = pd.to_numeric(
+        elasticity["district_elasticity"],
+        errors="coerce",
+    )
+
+    if elasticity[
+        ["forecast_cycle", "race_id"]
+    ].duplicated().any():
+        raise ValidationError(
+            "Historical district elasticity contains duplicate "
+            "forecast_cycle/race_id keys."
+        )
+
+    if elasticity["training_end_cycle"].ge(
+        elasticity["forecast_cycle"]
+    ).any():
+        raise ValidationError(
+            "Historical district elasticity contains future "
+            "training information."
+        )
+
+    if not elasticity["district_elasticity"].between(
+        0.55,
+        1.25,
+        inclusive="both",
+    ).all():
+        raise ValidationError(
+            "Historical district elasticity falls outside "
+            "the production bounds of 0.55 to 1.25."
+        )
+
+    merge_columns = [
+        column
+        for column in elasticity.columns
+        if column not in {"state", "district"}
+    ]
+
+    before_rows = len(frame)
+
+    out = frame.merge(
+        elasticity[merge_columns],
+        on=["forecast_cycle", "race_id"],
+        how="left",
+        validate="one_to_one",
+    )
+
+    if len(out) != before_rows:
+        raise ValidationError(
+            "Historical elasticity merge changed the canonical row count."
+        )
+
+    if out["district_elasticity"].isna().any():
+        missing = (
+            out.loc[
+                out["district_elasticity"].isna(),
+                ["forecast_cycle", "race_id"],
+            ]
+            .head(20)
+            .to_dict("records")
+        )
+
+        raise ValidationError(
+            "Historical elasticity merge left missing district values. "
+            f"Examples: {missing}"
+        )
+
+    out["district_elasticity_joined_in_canonical_inputs"] = True
+
+    return out
+
+
 def add_feature_availability_flags(
     frame: pd.DataFrame,
 ) -> pd.DataFrame:
     """
     Add canonical input-availability and eligibility flags.
 
-    District DNA and elasticity are intentionally not merged here because
-    the available 435-row warehouses are not indexed by historical forecast
-    cycle. Those learned features must be generated inside leakage-safe,
-    out-of-fold backtests.
+    District DNA remains excluded unless generated out of fold.
+    District elasticity is supplied by the dedicated leakage-safe,
+    cycle-aware historical elasticity warehouse.
     """
     out = frame.copy()
 
@@ -1539,9 +1663,19 @@ def add_feature_availability_flags(
     )
 
     out["district_dna_joined_in_canonical_inputs"] = False
-    out["district_elasticity_joined_in_canonical_inputs"] = False
 
-    out["learned_district_features_required_oof"] = True
+    if "district_elasticity_joined_in_canonical_inputs" not in out.columns:
+        out["district_elasticity_joined_in_canonical_inputs"] = False
+
+    out["district_elasticity_joined_in_canonical_inputs"] = (
+        out["district_elasticity_joined_in_canonical_inputs"]
+        .fillna(False)
+        .astype(bool)
+    )
+
+    out["learned_district_features_required_oof"] = (
+        ~out["district_elasticity_joined_in_canonical_inputs"]
+    )
 
     out["canonical_feature_set_complete"] = (
         out["results_available"]
@@ -1908,10 +2042,18 @@ def print_summary(frame: pd.DataFrame, output_path: Path) -> None:
         f"{len(frame):,} "
         "(intentionally deferred to leakage-safe OOF backtests)"
     )
+    elasticity_joined = int(
+        frame[
+            "district_elasticity_joined_in_canonical_inputs"
+        ]
+        .fillna(False)
+        .astype(bool)
+        .sum()
+    )
     log(
-        "District elasticity in canonical inputs: 0 / "
-        f"{len(frame):,} "
-        "(intentionally deferred to leakage-safe OOF backtests)"
+        "District elasticity in canonical inputs: "
+        f"{elasticity_joined:,} / {len(frame):,} "
+        "(merged from leakage-safe cycle-aware historical estimates)"
     )
     log(
         "Candidate registry coverage: "
@@ -1981,11 +2123,14 @@ def build(output_path: Path) -> pd.DataFrame:
     log()
 
     log(
-        "Deferring District DNA and district elasticity to "
-        "leakage-safe out-of-fold backtests."
+        "Deferring District DNA to leakage-safe out-of-fold backtests."
+    )
+    log(
+        "Merging leakage-safe cycle-aware historical district elasticity."
     )
     log()
 
+    canonical = merge_historical_district_elasticity(canonical)
     canonical = add_feature_availability_flags(canonical)
     canonical = canonical.sort_values(
         ["forecast_cycle", "state", "district", "race_id"],

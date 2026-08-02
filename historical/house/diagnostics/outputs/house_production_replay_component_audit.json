@@ -57,7 +57,7 @@
       "production_detected": true,
       "production_matches": "polling_margin; bayesian; polling_weight",
       "replay_detected": true,
-      "replay_matches": "historical_polling",
+      "replay_matches": "historical_polling; bayesian",
       "status": "DEFERRED"
     },
     {
@@ -67,7 +67,7 @@
       "production_detected": true,
       "production_matches": "posterior_sd",
       "replay_detected": true,
-      "replay_matches": "polling_variance_reduction",
+      "replay_matches": "polling_variance_reduction; posterior_sd",
       "status": "DEFERRED"
     },
     {
@@ -75,7 +75,7 @@
       "declared_deferred": false,
       "declared_included": true,
       "production_detected": true,
-      "production_matches": "national_error; national_sd",
+      "production_matches": "national_error",
       "replay_detected": true,
       "replay_matches": "national_error; national_sd",
       "status": "INCLUDED_DECLARED"
@@ -95,17 +95,17 @@
       "declared_deferred": true,
       "declared_included": false,
       "production_detected": true,
-      "production_matches": "demographic_error; education; grouped_variance",
+      "production_matches": "demographic_error; education",
       "replay_detected": true,
-      "replay_matches": "demographic_error; demographic_error_groups",
+      "replay_matches": "demographic_error; demographic_error_groups; education; race_group",
       "status": "DEFERRED"
     },
     {
       "component": "district_residual_error",
       "declared_deferred": false,
       "declared_included": true,
-      "production_detected": true,
-      "production_matches": "district_error; remaining_sd",
+      "production_detected": false,
+      "production_matches": "",
       "replay_detected": true,
       "replay_matches": "district_error",
       "status": "INCLUDED_DECLARED"
@@ -114,11 +114,11 @@
       "component": "variance_preserving_uncertainty",
       "declared_deferred": false,
       "declared_included": false,
-      "production_detected": true,
-      "production_matches": "grouped_variance",
-      "replay_detected": false,
-      "replay_matches": "",
-      "status": "MISSING_FROM_REPLAY"
+      "production_detected": false,
+      "production_matches": "",
+      "replay_detected": true,
+      "replay_matches": "variance_preserving; grouped_variance",
+      "status": "REPLAY_ONLY_OR_ALIAS"
     },
     {
       "component": "fixed_party_control",
@@ -135,7 +135,7 @@
       "declared_deferred": false,
       "declared_included": false,
       "production_detected": true,
-      "production_matches": "seed; default_rng",
+      "production_matches": "seed",
       "replay_detected": true,
       "replay_matches": "seed; default_rng",
       "status": "LIKELY_INCLUDED"
@@ -171,6 +171,7 @@
     "DEFERRED": 4,
     "INCLUDED_DECLARED": 2,
     "LIKELY_INCLUDED": 6,
-    "MISSING_FROM_REPLAY": 3
+    "MISSING_FROM_REPLAY": 2,
+    "REPLAY_ONLY_OR_ALIAS": 1
   }
 }

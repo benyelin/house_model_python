@@ -1866,6 +1866,17 @@ def main() -> None:
         action="store_true",
     )
 
+    parser.add_argument(
+        "--neutralize-district-elasticity",
+        action="store_true",
+        help=(
+            "Set every prepared historical district elasticity to "
+            "1.0 before production fundamentals are calculated. "
+            "This creates a controlled replay comparison without "
+            "changing any other model component."
+        ),
+    )
+
     args = parser.parse_args()
 
     if args.sims <= 0:
@@ -1916,6 +1927,38 @@ def main() -> None:
             ),
             candidate_war_path=args.candidate_war_path,
         )
+
+        if args.neutralize_district_elasticity:
+            if "district_elasticity" not in prepared_df.columns:
+                raise ReplayValidationError(
+                    f"Cycle {cycle} cannot neutralize district "
+                    "elasticity because the prepared input does not "
+                    "contain district_elasticity."
+                )
+
+            original_elasticity = pd.to_numeric(
+                prepared_df["district_elasticity"],
+                errors="coerce",
+            )
+
+            if original_elasticity.isna().any():
+                raise ReplayValidationError(
+                    f"Cycle {cycle} contains missing district "
+                    "elasticity values before neutralization."
+                )
+
+            changed_count = int(
+                original_elasticity.ne(1.0).sum()
+            )
+
+            prepared_df = prepared_df.copy()
+            prepared_df["district_elasticity"] = 1.0
+
+            print(
+                "District elasticity control enabled: "
+                f"set {changed_count} non-neutral district values "
+                "to 1.0."
+            )
 
         legacy_margin, legacy_forecast_source = build_model_margin(
             prepared_df.copy()
@@ -2310,6 +2353,14 @@ def main() -> None:
         ),
         "candidate_quality_weight": float(
             args.candidate_quality_weight
+        ),
+        "district_elasticity_mode": (
+            "neutral_1_0"
+            if args.neutralize_district_elasticity
+            else "cycle_aware_historical"
+        ),
+        "neutralize_district_elasticity": bool(
+            args.neutralize_district_elasticity
         ),
         "fixed_error_sd": float(
             args.fixed_error_sd

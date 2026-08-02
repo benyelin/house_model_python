@@ -1,0 +1,5 @@
+forecast_cycle,training_end_cycle,district_rows,training_observations,districts_with_estimate,districts_using_neutral_fallback,districts_clipped_to_floor,districts_clipped_to_ceiling,mean_bounded_elasticity,median_bounded_elasticity,min_bounded_elasticity,max_bounded_elasticity,latest_transition_used
+2016,2014,435,328,328,107,70,91,0.9381922898368754,1.0,0.55,1.25,2014
+2018,2016,435,647,349,86,75,105,0.947044750474185,1.0,0.55,1.25,2016
+2020,2018,435,989,384,51,57,92,0.949767785633216,1.0,0.55,1.25,2018
+2022,2020,435,1363,398,37,44,81,0.9467128040585866,0.9799343021685789,0.55,1.25,2020

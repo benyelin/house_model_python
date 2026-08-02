@@ -651,7 +651,16 @@ def recalculate_house_fundamentals_dataframe(
     ]:
         df[col] = df[col].fillna(0.0)
 
-    df["district_elasticity"] = df["district_elasticity"].fillna(DEFAULT_DISTRICT_ELASTICITY)
+    # Preserve the supplied district-specific elasticity for auditing,
+    # but use a neutral elasticity in production. Leakage-safe historical
+    # replay found that district-specific values worsened margin MAE,
+    # RMSE, Brier score, and log loss relative to uniform elasticity 1.0.
+    df["district_elasticity_input"] = (
+        df["district_elasticity"].fillna(
+            DEFAULT_DISTRICT_ELASTICITY
+        )
+    )
+    df["district_elasticity"] = 1.0
 
     # District partisan baseline from presidential margins.
     #

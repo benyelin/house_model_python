@@ -465,6 +465,17 @@ def main() -> None:
         default=DEFAULT_INPUT_PATH,
     )
     parser.add_argument(
+        "--max-cycle-to",
+        type=int,
+        default=None,
+        help=(
+            "Optional leakage-safe training cutoff. When supplied, "
+            "use only swing transitions whose cycle_to is less than "
+            "or equal to this value. Omitting the option preserves "
+            "the current all-transition production behavior."
+        ),
+    )
+    parser.add_argument(
         "--output-path",
         type=Path,
         default=DEFAULT_OUTPUT_PATH,
@@ -494,6 +505,51 @@ def main() -> None:
         args.input_path,
         dtype={"race_id": str},
     )
+
+    if args.max_cycle_to is not None:
+        cycle_to = pd.to_numeric(
+            observations["cycle_to"],
+            errors="coerce",
+        )
+
+        if cycle_to.isna().any():
+            raise ValueError(
+                "Swing observations contain missing or nonnumeric "
+                "cycle_to values."
+            )
+
+        observations = observations.loc[
+            cycle_to.le(args.max_cycle_to)
+        ].copy()
+
+        if observations.empty:
+            raise ValueError(
+                "No swing observations remain after applying "
+                f"--max-cycle-to {args.max_cycle_to}."
+            )
+
+        retained_cycle_to = pd.to_numeric(
+            observations["cycle_to"],
+            errors="coerce",
+        )
+
+        if retained_cycle_to.gt(
+            args.max_cycle_to
+        ).any():
+            raise RuntimeError(
+                "Training cutoff failed: observations after the "
+                "requested maximum cycle remain."
+            )
+
+        print(
+            "Applied elasticity training cutoff: "
+            f"cycle_to <= {args.max_cycle_to}"
+        )
+        print(
+            "Retained swing observations: "
+            f"{len(observations)}"
+        )
+        print()
 
     table, report = build_elasticity_table(
         observations=observations,
