@@ -1,45 +1,45 @@
 district_id,state,district,polling_margin_dem,poll_count,latest_poll_end_date,avg_poll_age_days,total_poll_weight,polling_notes,effective_poll_count,largest_pollster_weight_share,only_partisan_or_internal_polls
-AK-AL,AK,,-19.0,1,2026-07-17,15.0,1.0102458546483248,Manual House polling average from 1 poll(s): Alaska Survey Research,1.0,1.0,False
-AL-2,AL,,-2.0,1,2026-06-25,37.0,0.37889250841340166,Manual House polling average from 1 poll(s): IMPACT Research,1.0,1.0,True
-AZ-2,AZ,,-4.0,1,2026-07-15,17.0,0.6995888482516107,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,True
-AZ-6,AZ,,2.1075731051734623,3,2026-06-11,80.66666666666667,0.9477857255378459,"Manual House polling average from 3 poll(s): House Majority PAC, PPP, Ragnar",2.408289016547269,0.4984039643085031,False
-CA-22,CA,,4.0,1,2026-07-22,10.0,0.8160297054092935,Manual House polling average from 1 poll(s): Tulchin,1.0,1.0,False
-CA-48,CA,,0.5,1,2026-07-14,18.0,0.4434203937310135,Manual House polling average from 1 poll(s): Lake Research,1.0,1.0,True
-CO-3,CO,,-2.5,1,2026-07-23,9.0,0.49995509785780473,Manual House polling average from 1 poll(s): Keating Research Inc.,1.0,1.0,True
-CO-5,CO,,-0.5,1,2026-07-21,11.0,0.6157576360004785,Manual House polling average from 1 poll(s): Global Strategy Group,1.0,1.0,True
-FL-14,FL,,8.0,1,2026-07-15,17.0,0.7824348960708803,Manual House polling average from 1 poll(s): St. Pete Polls,1.0,1.0,False
-FL-7,FL,,1.0,2,2026-06-21,41.0,0.8636098064591794,"Manual House polling average from 2 poll(s): PPP, PPP",2.0,1.0,True
-IA-1,IA,,5.0,1,2026-07-16,16.0,0.707150698731746,Manual House polling average from 1 poll(s): The Bullfinch Group,1.0,1.0,False
-IA-2,IA,,3.0,1,2026-04-14,109.0,0.19994004747350616,Manual House polling average from 1 poll(s): PPP,1.0,1.0,False
-IA-3,IA,,-6.0,1,2026-03-14,140.0,0.10195625353518896,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
-ID-1,ID,,-5.0,2,2026-07-14,18.0,1.315697121014375,"Manual House polling average from 2 poll(s): SurveyUSA, SurveyUSA",2.0,1.0,False
-KY-6,KY,,-2.8349608858093585,3,2026-06-28,55.333333333333336,1.1604798999035797,"Manual House polling average from 3 poll(s): GQR, GQR, PPP",2.600733915537378,0.8001965207193901,False
-ME-2,ME,,-3.0138748890453995,2,2026-07-16,55.5,0.9338060484151944,"Manual House polling average from 2 poll(s): Tulchin Research, co/Efficient",1.7274323854593139,0.6986125110954601,False
-MI-4,MI,4.0,3.0,1,2026-06-01,61.0,0.3268328713214747,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
-MO-2,MO,2.0,-3.0,1,2026-05-31,62.0,0.35328545637453357,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
-MT-1,MT,,-1.539642582527483,3,2026-06-25,54.0,0.9984828155984665,"Manual House polling average from 3 poll(s): Impact Research, Impact Research, Upswing Research",2.748391217045525,0.7954844637867855,False
-NC-1,NC,,4.0,2,2026-06-28,107.0,0.5353312973273741,"Manual House polling average from 2 poll(s): GQR, GQR",1.2797967156168948,1.0,False
-NC-10,NC,,-15.0,1,2026-03-12,142.0,0.0992733511246497,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
-NC-14,NC,,-8.0,1,2026-03-12,142.0,0.0992733511246497,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
-NE-1,NE,,-6.999999999999999,1,2026-05-11,82.0,0.22121290477752165,Manual House polling average from 1 poll(s): Zenith Research,1.0,1.0,False
-NJ-7,NJ,7.0,4.0,2,2026-06-26,51.5,0.7027889199941133,"Manual House polling average from 2 poll(s): Z to A Research, Z to A Research",1.9202634693583418,1.0,False
-NM-2,NM,,2.0,1,2026-04-28,95.0,0.2753943332544286,Manual House polling average from 1 poll(s): co/Efficient,1.0,1.0,False
-NV-2,NV,,2.0,1,2026-07-12,20.0,0.601404147975318,Manual House polling average from 1 poll(s): Wedgewood,1.0,1.0,False
-NY-17,NY,,0.6836711102046915,3,2026-07-22,24.0,2.145720134977292,"Manual House polling average from 3 poll(s): FM3 Research, FM3, Co/Efficient",2.711784729851635,0.483302626345028,False
-NY-21,NY,,-2.5000000000000004,1,2026-05-31,62.0,0.24662072333655993,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
-OH-10,OH,,-6.688208516433002,3,2026-07-23,12.666666666666666,1.8972771244783497,"Manual House polling average from 3 poll(s): FM3 Research, Global Strategy Group, Global Strategy Group",2.975148810346515,0.623582967133993,False
-OH-15,OH,15.0,-4.03006225047123,2,2026-06-25,39.0,0.9165640736391193,"Manual House polling average from 2 poll(s): Tulchin, Hart Research Associates",1.9981941542063075,0.5150311252356148,False
-OH-7,OH,,-2.5,2,2026-06-20,42.0,0.7292771097957964,"Manual House polling average from 2 poll(s): GBAO, GBAO",1.9730085108210398,1.0,True
-OH-9,OHIO,,-3.0,1,2026-04-20,103.0,0.13234369503498847,Manual House polling average from 1 poll(s): McLaughlin,1.0,1.0,True
-PA-1,PA,,-7.5,1,2026-03-22,132.0,0.0867427216004779,Manual House polling average from 1 poll(s): Global Strategy Group,1.0,1.0,True
-PA-10,PA,,4.5,1,2026-04-23,100.0,0.11296683178700612,"Manual House polling average from 1 poll(s): Normington, Petts & Associates",1.0,1.0,True
-PA-7,PA,,4.0,1,2026-07-02,30.0,0.6250202763203341,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
-PA-8,PA,,1.7054416962443337,3,2026-06-26,42.0,1.1339799701521265,"Manual House polling average from 3 poll(s): Lake Research, Lake Research Partners, Impact Research",2.9789558446814812,0.3597743246461518,False
-TN-5,TN,,-7.500000000000001,1,2026-06-13,49.0,0.3098413489052833,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
-TX-15,TX,,2.0,2,2026-05-25,68.0,0.7540909961801946,"Manual House polling average from 2 poll(s): WelcomePAC, Applecart",2.0,0.5,False
-TX-23,TX,,-2.0,1,2026-03-11,143.0,0.095027626273163,Manual House polling average from 1 poll(s): PPP,1.0,1.0,False
-TX-34,TX,,-0.7876082061594691,2,2026-06-16,70.0,0.5200020751795629,"Manual House polling average from 2 poll(s): Ragnar Research, Co/Efficient",1.9949837165789959,0.5250721374396462,True
-VA-2,VA,,0.0,1,2026-07-13,19.0,0.723753422695784,Manual House polling average from 1 poll(s): Tulchin Research,1.0,1.0,False
-WA-3,WA,,-1.0,2,2026-07-10,22.0,1.1573514239856817,"Manual House polling average from 2 poll(s): Emerson, Emerson",2.0,1.0,False
-WI-3,WI,3.0,4.0,2,2026-06-25,49.5,0.7880813817995251,"Manual House polling average from 2 poll(s): Impact Research, FM3",1.936185092367205,0.5907731989704944,False
-WI-6,WI,6.0,-4.0,1,2026-03-20,134.0,0.13970675923173495,Manual House polling average from 1 poll(s): Unknown,1.0,1.0,False
+AK-AL,AK,,-19.0,1,2026-07-17,16.0,0.9968653117685564,Manual House polling average from 1 poll(s): Alaska Survey Research,1.0,1.0,False
+AL-2,AL,,-2.0,1,2026-06-25,38.0,0.3738741384470004,Manual House polling average from 1 poll(s): IMPACT Research,1.0,1.0,True
+AZ-2,AZ,,-4.0,1,2026-07-15,18.0,0.690322907155028,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,True
+AZ-6,AZ,,2.1075731051734623,3,2026-06-11,81.66666666666667,0.9352324569616475,"Manual House polling average from 3 poll(s): House Majority PAC, PPP, Ragnar",2.408289016547269,0.4984039643085032,False
+CA-22,CA,,4.0,1,2026-07-22,11.0,0.8052215240006257,Manual House polling average from 1 poll(s): Tulchin,1.0,1.0,False
+CA-48,CA,,0.5,1,2026-07-14,19.0,0.43754736236465647,Manual House polling average from 1 poll(s): Lake Research,1.0,1.0,True
+CO-3,CO,,-2.5,1,2026-07-23,10.0,0.49333327348301054,Manual House polling average from 1 poll(s): Keating Research Inc.,1.0,1.0,True
+CO-5,CO,,-0.5,1,2026-07-21,12.0,0.6076020257456685,Manual House polling average from 1 poll(s): Global Strategy Group,1.0,1.0,True
+FL-14,FL,,8.0,1,2026-07-15,18.0,0.772071672476018,Manual House polling average from 1 poll(s): St. Pete Polls,1.0,1.0,False
+FL-7,FL,,1.0,2,2026-06-21,42.0,0.8521714343109084,"Manual House polling average from 2 poll(s): PPP, PPP",2.0,1.0,True
+IA-1,IA,,5.0,1,2026-07-16,17.0,0.6977846021491155,Manual House polling average from 1 poll(s): The Bullfinch Group,1.0,1.0,False
+IA-2,IA,,3.0,1,2026-04-14,110.0,0.197291873896458,Manual House polling average from 1 poll(s): PPP,1.0,1.0,False
+IA-3,IA,,-6.000000000000001,1,2026-03-14,141.0,0.10060585945437087,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
+ID-1,ID,,-5.0,2,2026-07-14,19.0,1.2982709255358011,"Manual House polling average from 2 poll(s): SurveyUSA, SurveyUSA",2.0,1.0,False
+KY-6,KY,,-2.834960885809358,3,2026-06-28,56.333333333333336,1.145109531403355,"Manual House polling average from 3 poll(s): GQR, GQR, PPP",2.600733915537378,0.80019652071939,False
+ME-2,ME,,-3.013874889045399,2,2026-07-16,56.5,0.9214379384004732,"Manual House polling average from 2 poll(s): Tulchin Research, co/Efficient",1.7274323854593137,0.6986125110954602,False
+MI-4,MI,4.0,3.0,1,2026-06-01,62.0,0.3225040228247322,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
+MO-2,MO,2.0,-2.9999999999999996,1,2026-05-31,63.0,0.34860624766898185,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
+MT-1,MT,,-1.539642582527483,3,2026-06-25,55.0,0.985258072267569,"Manual House polling average from 3 poll(s): Impact Research, Impact Research, Upswing Research",2.748391217045525,0.7954844637867855,False
+NC-1,NC,,4.0,2,2026-06-28,108.0,0.528240920914729,"Manual House polling average from 2 poll(s): GQR, GQR",1.279796715616895,1.0,False
+NC-10,NC,,-15.0,1,2026-03-12,143.0,0.09795849165214626,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
+NC-14,NC,,-8.0,1,2026-03-12,143.0,0.09795849165214626,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
+NE-1,NE,,-7.000000000000001,1,2026-05-11,83.0,0.21828297564758314,Manual House polling average from 1 poll(s): Zenith Research,1.0,1.0,False
+NJ-7,NJ,7.0,4.0,2,2026-06-26,52.5,0.6934805944650955,"Manual House polling average from 2 poll(s): Z to A Research, Z to A Research",1.9202634693583414,1.0,False
+NM-2,NM,,2.0,1,2026-04-28,96.0,0.27174677987125845,Manual House polling average from 1 poll(s): co/Efficient,1.0,1.0,False
+NV-2,NV,,2.0,1,2026-07-12,21.0,0.5934386473469035,Manual House polling average from 1 poll(s): Wedgewood,1.0,1.0,False
+NY-17,NY,,0.6836711102046915,3,2026-07-22,25.0,2.117300418982475,"Manual House polling average from 3 poll(s): FM3 Research, FM3, Co/Efficient",2.7117847298516344,0.4833026263450281,False
+NY-21,NY,,-2.5,1,2026-05-31,63.0,0.24335427176097482,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
+OH-10,OH,,-6.688208516433003,3,2026-07-23,13.666666666666666,1.872147995957725,"Manual House polling average from 3 poll(s): FM3 Research, Global Strategy Group, Global Strategy Group",2.9751488103465147,0.6235829671339931,False
+OH-15,OH,15.0,-4.0300622504712305,2,2026-06-25,40.0,0.9044243307904316,"Manual House polling average from 2 poll(s): Tulchin, Hart Research Associates",1.9981941542063073,0.5150311252356149,False
+OH-7,OH,,-2.4999999999999996,2,2026-06-20,43.0,0.7196179524788353,"Manual House polling average from 2 poll(s): GBAO, GBAO",1.9730085108210405,1.0,True
+OH-9,OHIO,,-3.0,1,2026-04-20,104.0,0.13059082420841223,Manual House polling average from 1 poll(s): McLaughlin,1.0,1.0,True
+PA-1,PA,,-7.5,1,2026-03-22,133.0,0.08559382828847607,Manual House polling average from 1 poll(s): Global Strategy Group,1.0,1.0,True
+PA-10,PA,,4.499999999999999,1,2026-04-23,101.0,0.1114706043788335,"Manual House polling average from 1 poll(s): Normington, Petts & Associates",1.0,1.0,True
+PA-7,PA,,4.0,1,2026-07-02,31.0,0.6167419838932494,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
+PA-8,PA,,1.705441696244334,3,2026-06-26,43.0,1.1189605889335805,"Manual House polling average from 3 poll(s): Lake Research, Lake Research Partners, Impact Research",2.9789558446814812,0.35977432464615183,False
+TN-5,TN,,-7.5,1,2026-06-13,50.0,0.30573755037359257,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
+TX-15,TX,,2.0,2,2026-05-25,69.0,0.7441031829531372,"Manual House polling average from 2 poll(s): WelcomePAC, Applecart",2.0,0.5,False
+TX-23,TX,,-2.0,1,2026-03-11,144.0,0.0937690007393287,Manual House polling average from 1 poll(s): PPP,1.0,1.0,False
+TX-34,TX,,-0.7876082061594692,2,2026-06-16,71.0,0.5131147318338871,"Manual House polling average from 2 poll(s): Ragnar Research, Co/Efficient",1.9949837165789956,0.5250721374396462,True
+VA-2,VA,,0.0,1,2026-07-13,20.0,0.71416742572069,Manual House polling average from 1 poll(s): Tulchin Research,1.0,1.0,False
+WA-3,WA,,-1.0,2,2026-07-10,23.0,1.1420224916427797,"Manual House polling average from 2 poll(s): Emerson, Emerson",2.0,1.0,False
+WI-3,WI,3.0,4.0,2,2026-06-25,50.5,0.777643371414829,"Manual House polling average from 2 poll(s): Impact Research, FM3",1.9361850923672053,0.5907731989704943,False
+WI-6,WI,6.0,-4.0,1,2026-03-20,135.0,0.13785636581126953,Manual House polling average from 1 poll(s): Unknown,1.0,1.0,False

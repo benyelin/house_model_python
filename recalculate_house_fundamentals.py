@@ -1,11 +1,44 @@
+from datetime import date
 from pathlib import Path
+import sys
+
 import pandas as pd
 import numpy as np
+
+
+SHARED_MODEL_ROOT = Path(
+    "/Users/benyelin/Developer/election_model_shared"
+)
+
+if str(SHARED_MODEL_ROOT) not in sys.path:
+    sys.path.insert(
+        0,
+        str(SHARED_MODEL_ROOT),
+    )
+
+from candidate_event_registry import (
+    active_candidate_events,
+    summarize_candidate_events,
+)
+
 
 INPUTS = Path("inputs")
 OUTPUTS = Path("outputs") if "OUTPUTS" not in globals() else OUTPUTS
 HOUSE_CANDIDATE_WAR_AUDIT = OUTPUTS / "house_candidate_war_audit.csv"
 HOUSE_INPUT_PATH = INPUTS / "house_race_inputs.csv"
+
+CANDIDATE_EVENT_REGISTRY_PATH = (
+    SHARED_MODEL_ROOT
+    / "inputs"
+    / "candidate_event_registry.csv"
+)
+
+HOUSE_CANDIDATE_EVENT_AUDIT = (
+    OUTPUTS
+    / "house_candidate_event_audit.csv"
+)
+
+FORECAST_CYCLE = 2026
 
 # The Senate model's shared national-environment file is the single
 # production source of truth for both Senate and House forecasts.
@@ -28,6 +61,163 @@ DEM_INCUMBENCY_ADJUSTMENT = 2.0
 GOP_INCUMBENCY_ADJUSTMENT = -2.0
 OPEN_SEAT_INCUMBENCY_ADJUSTMENT = 0.0
 
+
+
+def apply_house_candidate_events(
+    frame: pd.DataFrame,
+    *,
+    as_of: date | None = None,
+) -> pd.DataFrame:
+    """
+    Merge active, documented House candidate events by district_id.
+
+    The registry adjustment is expressed in Democratic-margin points:
+      positive -> helps Democrats
+      negative -> helps Republicans
+    """
+    out = frame.copy()
+
+    if "district_id" not in out.columns:
+        raise ValueError(
+            "House race inputs must contain district_id before "
+            "candidate events can be applied."
+        )
+
+    event_date = as_of or date.today()
+
+    events = active_candidate_events(
+        "house",
+        cycle=FORECAST_CYCLE,
+        as_of=event_date,
+        registry_path=CANDIDATE_EVENT_REGISTRY_PATH,
+    )
+
+    summary = summarize_candidate_events(
+        events
+    )
+
+    if summary.empty:
+        out["candidate_event_adjustment_dem"] = 0.0
+        out["candidate_event_count"] = 0
+        out["candidate_event_ids"] = ""
+        out["candidate_event_summary"] = ""
+
+        pd.DataFrame(
+            columns=[
+                "chamber",
+                "cycle",
+                "race_id",
+                "candidate_event_adjustment_dem",
+                "candidate_event_count",
+                "candidate_event_ids",
+                "candidate_event_summary",
+            ]
+        ).to_csv(
+            HOUSE_CANDIDATE_EVENT_AUDIT,
+            index=False,
+        )
+
+        return out
+
+    house_summary = summary.loc[
+        summary["chamber"].eq("house")
+    ].copy()
+
+    duplicate_races = house_summary.loc[
+        house_summary["race_id"].duplicated(
+            keep=False
+        ),
+        ["race_id"],
+    ]
+
+    if not duplicate_races.empty:
+        raise ValueError(
+            "Candidate-event summary unexpectedly contains "
+            "duplicate House race rows."
+        )
+
+    merge_table = house_summary.rename(
+        columns={
+            "race_id": "district_id",
+        }
+    )[
+        [
+            "district_id",
+            "candidate_event_adjustment_dem",
+            "candidate_event_count",
+            "candidate_event_ids",
+            "candidate_event_summary",
+        ]
+    ]
+
+    rows_before = len(out)
+
+    out = out.merge(
+        merge_table,
+        on="district_id",
+        how="left",
+        validate="one_to_one",
+    )
+
+    if len(out) != rows_before:
+        raise RuntimeError(
+            "Candidate-event merge changed the House race row count."
+        )
+
+    out["candidate_event_adjustment_dem"] = (
+        pd.to_numeric(
+            out["candidate_event_adjustment_dem"],
+            errors="coerce",
+        ).fillna(0.0)
+    )
+
+    out["candidate_event_count"] = (
+        pd.to_numeric(
+            out["candidate_event_count"],
+            errors="coerce",
+        ).fillna(0).astype(int)
+    )
+
+    for column in [
+        "candidate_event_ids",
+        "candidate_event_summary",
+    ]:
+        out[column] = (
+            out[column]
+            .fillna("")
+            .astype(str)
+        )
+
+    audit_columns = [
+        column
+        for column in [
+            "district_id",
+            "state",
+            "district",
+            "dem_candidate",
+            "gop_candidate",
+            "candidate_event_adjustment_dem",
+            "candidate_event_count",
+            "candidate_event_ids",
+            "candidate_event_summary",
+        ]
+        if column in out.columns
+    ]
+
+    HOUSE_CANDIDATE_EVENT_AUDIT.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    out.loc[
+        out["candidate_event_count"].gt(0),
+        audit_columns,
+    ].to_csv(
+        HOUSE_CANDIDATE_EVENT_AUDIT,
+        index=False,
+    )
+
+    return out
 
 
 def read_house_calibration_setting(setting_name, default):
@@ -783,12 +973,18 @@ def recalculate_house_fundamentals_dataframe(
 
     df = apply_candidate_war_to_house_fundamentals(df)
 
+    df = apply_house_candidate_events(
+        df,
+        as_of=date.today(),
+    )
+
     df["fundamentals_margin_dem"] = (
         df["district_partisan_baseline_dem"]
         + df["district_environment_adjustment_dem"]
         + df["state_environment_adjustment_dem"]
         + df["incumbency_adjustment_dem"]
         + df["candidate_quality_adjustment_dem"]
+        + df["candidate_event_adjustment_dem"]
         + df["special_adjustment_dem"]
     )
 
@@ -808,7 +1004,7 @@ def recalculate_house_fundamentals_dataframe(
         "House fundamentals calculated as "
         f"{WEIGHT_2024:.0%}*2024 presidential margin + "
         f"{WEIGHT_2020:.0%}*2020 presidential margin + "
-        "national environment * district elasticity + state environment adjustment + incumbency + candidate quality + special adjustment."
+        "national environment * district elasticity + state environment adjustment + incumbency + candidate quality + candidate event adjustment + special adjustment."
     )
 
     df["national_environment_source_path"] = env_metadata["national_environment_source_path"]
@@ -869,6 +1065,7 @@ def main():
         "district_environment_adjustment_dem",
         "state_environment_adjustment_dem",
         "incumbency_adjustment_dem",
+        "candidate_event_adjustment_dem",
         "fundamentals_margin_dem",
         "dem_win_probability",
     ]

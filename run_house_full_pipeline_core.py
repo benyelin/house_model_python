@@ -24,6 +24,7 @@ def main():
 
     run([py, "update_house_elasticity.py"])
     run([py, "recalculate_house_fundamentals.py"])
+    run([py, "sync_house_pollster_registry.py"])
     run([py, "ingest_house_polls.py"])
     run([py, "run_house_model.py", "--sims", str(args.sims)])
     run([py, "build_house_calibration_audit.py"])

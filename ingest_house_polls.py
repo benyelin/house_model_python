@@ -1,6 +1,8 @@
 from pathlib import Path
 from datetime import date
 import pandas as pd
+
+from pollster_registry import apply_pollster_registry
 import numpy as np
 
 INPUTS = Path("inputs")
@@ -223,7 +225,7 @@ def ensure_poll_columns(polls):
         "district_id",
         "pollster",
         "pollster_grade",
-        "house_effect_dem",
+        "manual_house_effect_adjustment_dem",
         "sponsor",
         "poll_sponsor_type",
         "partisan_sponsor_party",
@@ -326,6 +328,45 @@ def main():
 
     polls = ensure_poll_columns(polls)
 
+    polls = apply_pollster_registry(
+        polls,
+        registry_path=INPUTS / "pollster_registry.csv",
+    )
+
+    poll_level_override = pd.to_numeric(
+        polls["manual_house_effect_adjustment_dem"],
+        errors="coerce",
+    )
+
+    registry_house_effect = pd.to_numeric(
+        polls["pollster_house_effect_dem"],
+        errors="coerce",
+    ).fillna(0.0)
+
+    polls["manual_house_effect_override_dem"] = (
+        poll_level_override
+    )
+
+    polls["effective_house_effect_dem"] = (
+        poll_level_override.where(
+            poll_level_override.notna(),
+            registry_house_effect,
+        )
+    )
+
+    polls["house_effect_source"] = "pollster_registry"
+    polls.loc[
+        poll_level_override.notna(),
+        "house_effect_source",
+    ] = "poll_level_override"
+
+    # Preserve the existing House polling alias so downstream
+    # calculations do not need to change.
+    polls["house_effect_dem"] = pd.to_numeric(
+        polls["effective_house_effect_dem"],
+        errors="coerce",
+    ).fillna(0.0)
+
     polls["state"] = polls["state"].apply(normalize_state)
     polls["district"] = polls.apply(
         lambda row: normalize_district_value(row.get("state", ""), row.get("district", "")),
@@ -345,7 +386,6 @@ def main():
     polls["ind_pct"] = safe_numeric(polls["ind_pct"], default=0.0)
     polls["other_pct"] = safe_numeric(polls["other_pct"], default=0.0)
     polls["undecided_pct"] = safe_numeric(polls["undecided_pct"], default=0.0)
-    polls["house_effect_dem"] = safe_numeric(polls["house_effect_dem"], default=0.0)
     polls["sample_size"] = safe_numeric(polls["sample_size"], default=np.nan)
 
     polls["start_date"] = pd.to_datetime(polls["start_date"], errors="coerce")
@@ -463,6 +503,16 @@ def main():
         "district_id",
         "pollster",
         "pollster_grade",
+        "pollster_raw",
+        "pollster_normalized_key",
+        "canonical_pollster",
+        "pollster_match_method",
+        "pollster_house_effect_dem",
+        "manual_house_effect_override_dem",
+        "effective_house_effect_dem",
+        "house_effect_source",
+        "house_effect_confidence",
+        "house_effect_notes",
         "house_effect_dem",
         "start_date",
         "end_date",

@@ -1,8 +1,25 @@
 from pathlib import Path
+import sys
+
 import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.express as px
+
+
+SHARED_MODEL_ROOT = Path(
+    "/Users/benyelin/Developer/election_model_shared"
+)
+
+if str(SHARED_MODEL_ROOT) not in sys.path:
+    sys.path.insert(
+        0,
+        str(SHARED_MODEL_ROOT),
+    )
+
+from candidate_event_dashboard import (
+    render_candidate_event_registry_editor,
+)
 
 DEM_COLOR = "#1f77b4"
 GOP_COLOR = "#d62728"
@@ -2687,6 +2704,31 @@ def render_calibration_audit():
 
 st.divider()
 render_calibration_audit()
+
+render_candidate_event_registry_editor(
+    default_chamber="house",
+    registry_path=(
+        SHARED_MODEL_ROOT
+        / "inputs"
+        / "candidate_event_registry.csv"
+    ),
+    house_race_path=HOUSE_INPUTS,
+    senate_race_path=Path(
+        "/Users/benyelin/Desktop/"
+        "Desktop - Ben’s MacBook Air/"
+        "senate_model_python_Q1_auto_calendar_candidate_refresh/"
+        "inputs/race_inputs.csv"
+    ),
+    house_root=Path.cwd(),
+    senate_root=Path(
+        "/Users/benyelin/Desktop/"
+        "Desktop - Ben’s MacBook Air/"
+        "senate_model_python_Q1_auto_calendar_candidate_refresh"
+    ),
+    key_prefix="house",
+)
+
+st.divider()
 
 # --- Unified House manual poll editor with partisan metadata ---
 import pandas as _house_poll_pd

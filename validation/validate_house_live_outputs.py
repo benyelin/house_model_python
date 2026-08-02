@@ -83,9 +83,15 @@ def validate_outputs(
             f"found {len(summary)}."
         )
 
+    probability_column = (
+        "raw_simulated_dem_win_probability"
+        if "raw_simulated_dem_win_probability" in race.columns
+        else "simulated_dem_win_probability"
+    )
+
     require_columns(
         race,
-        ["simulated_dem_win_probability"],
+        [probability_column],
         paths["race stats"],
     )
     require_columns(
@@ -108,6 +114,12 @@ def validate_outputs(
     )
 
     race_probabilities = numeric_column(
+        race,
+        probability_column,
+        paths["race stats"],
+    )
+
+    displayed_probabilities = numeric_column(
         race,
         "simulated_dem_win_probability",
         paths["race stats"],
@@ -135,6 +147,7 @@ def validate_outputs(
     )
 
     district_expected = float(race_probabilities.sum())
+    displayed_expected = float(displayed_probabilities.sum())
     draw_expected = float(draw_seats.mean())
     distribution_expected = float(
         (
@@ -157,7 +170,7 @@ def validate_outputs(
     )
 
     expected_values = {
-        "district probability sum": district_expected,
+        "raw district probability sum": district_expected,
         "forecast summary": summary_expected,
         "simulation draw mean": draw_expected,
         "seat-distribution mean": distribution_expected,
@@ -239,6 +252,10 @@ def validate_outputs(
     print("-" * 64)
     for label, value in expected_values.items():
         print(f"{label:<28} {value:.9f}")
+    print(
+        f"{'displayed probability sum':<28} "
+        f"{displayed_expected:.9f}"
+    )
 
     print()
     print("Democratic control probability")
