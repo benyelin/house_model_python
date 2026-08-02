@@ -394,7 +394,25 @@ def run_forecast(input_path, output_dir, config, today=None):
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Temporary live-output consistency diagnostics.
+    #
+    # Expected seats must reconstruct from the raw Monte Carlo
+    # frequencies. The displayed district probabilities use
+    # Jeffreys smoothing and therefore need not sum exactly to
+    # the raw simulation-draw mean.
+    raw_probability_column = (
+        "raw_simulated_dem_win_probability"
+        if "raw_simulated_dem_win_probability" in race_stats.columns
+        else "simulated_dem_win_probability"
+    )
+
     race_probability_sum = float(
+        pd.to_numeric(
+            race_stats[raw_probability_column],
+            errors="coerce",
+        ).sum()
+    )
+
+    displayed_probability_sum = float(
         pd.to_numeric(
             race_stats["simulated_dem_win_probability"],
             errors="coerce",
@@ -424,8 +442,12 @@ def run_forecast(input_path, output_dir, config, today=None):
     print("IN-MEMORY HOUSE SIMULATION CONSISTENCY CHECK")
     print("-" * 52)
     print(
-        "Sum of district win probabilities: "
+        "Sum of raw district win probabilities: "
         f"{race_probability_sum:.9f}"
+    )
+    print(
+        "Sum of displayed smoothed probabilities: "
+        f"{displayed_probability_sum:.9f}"
     )
     print(
         "Summary expected Democratic seats: "
@@ -444,8 +466,12 @@ def run_forecast(input_path, output_dir, config, today=None):
         f"{draw_majority_probability:.9%}"
     )
     print(
-        "District-sum minus summary expected seats: "
+        "Raw district-sum minus summary expected seats: "
         f"{race_probability_sum - summary_expected_seats:+.12f}"
+    )
+    print(
+        "Displayed smoothed-sum minus raw expected seats: "
+        f"{displayed_probability_sum - summary_expected_seats:+.12f}"
     )
     print(
         "Draw mean minus summary expected seats: "
@@ -463,8 +489,8 @@ def run_forecast(input_path, output_dir, config, today=None):
         rtol=0.0,
     ):
         raise RuntimeError(
-            "In-memory inconsistency: district probability sum does not "
-            "equal summary expected seats."
+            "In-memory inconsistency: raw district probability sum does "
+            "not equal summary expected seats."
         )
 
     if not np.isclose(

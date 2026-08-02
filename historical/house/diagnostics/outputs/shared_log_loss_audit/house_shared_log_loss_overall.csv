@@ -1,0 +1,2 @@
+cycles,scored_races,shared_log_loss,comparison_log_loss,shared_minus_comparison_log_loss,shared_brier,comparison_brier,shared_minus_comparison_brier,shared_confident_wrong_90_count,comparison_confident_wrong_90_count,shared_catastrophic_miss_95_count
+4,1545,0.18801665976582105,0.13556973679324533,0.05244692297257573,0.037062706634304214,0.037878752141745235,-0.0008160455074410264,18,12,12

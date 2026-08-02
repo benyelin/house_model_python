@@ -125,7 +125,32 @@ def run_simulation(race_table, days_out, config):
 
     dem_seats = dem_wins.sum(axis=1)
 
-    district_win_probs = dem_wins.mean(axis=0)
+    # NOTE:
+    #
+    # The simulator reports Jeffreys-smoothed district probabilities
+    # rather than raw Monte Carlo frequencies. This prevents finite
+    # simulation runs from producing artificial 0% and 100%
+    # probabilities that distort log-loss evaluation.
+    #
+    # The underlying simulation draws, expected seats, seat
+    # distribution, and majority probability remain unchanged.
+    dem_win_counts = dem_wins.sum(axis=0)
+
+    raw_district_win_probs = (
+        dem_win_counts / float(config.n_sims)
+    )
+
+    district_win_probs = (
+        dem_win_counts + 0.5
+    ) / (
+        float(config.n_sims) + 1.0
+    )
+
+    # Fixed-party races are structural certainties rather than
+    # Monte Carlo estimates, so retain exact 0% or 100% values.
+    district_win_probs[fixed_dem] = 1.0
+    district_win_probs[fixed_gop] = 0.0
+
     avg_simulated_margin = simulated_margins.mean(axis=0)
 
     seat_distribution = (
@@ -141,8 +166,15 @@ def run_simulation(race_table, days_out, config):
     # probability. This is especially important for same-party and
     # unopposed general elections, where the unconstrained probability
     # implied by model_margin_dem is not a valid seat-control probability.
-    race_stats["simulated_dem_win_probability"] = district_win_probs
-    race_stats["dem_win_probability"] = district_win_probs
+    race_stats["raw_simulated_dem_win_probability"] = (
+        raw_district_win_probs
+    )
+    race_stats["simulated_dem_win_probability"] = (
+        district_win_probs
+    )
+    race_stats["dem_win_probability"] = (
+        district_win_probs
+    )
     race_stats["avg_simulated_margin_dem"] = avg_simulated_margin
     race_stats["margin_p25_dem"] = np.percentile(simulated_margins, 25, axis=0)
     race_stats["margin_p50_dem"] = np.percentile(simulated_margins, 50, axis=0)
