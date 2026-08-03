@@ -360,6 +360,8 @@ for col in [
     "district_environment_adjustment_dem",
     "incumbency_adjustment_dem",
     "candidate_quality_adjustment_dem",
+    "candidate_event_adjustment_dem",
+    "candidate_event_count",
     "special_adjustment_dem",
     "fundamentals_margin_dem",
     "model_margin_dem",
@@ -707,6 +709,7 @@ def build_district_component_breakdown(selected):
         ("State adjustment", "state_environment_adjustment_dem"),
         ("Incumbency", "incumbency_adjustment_dem"),
         ("Candidate quality", "candidate_quality_adjustment_dem"),
+        ("Candidate event", "candidate_event_adjustment_dem"),
         ("Candidate WAR", "candidate_war_adjustment_dem"),
         ("Special adjustment", "special_adjustment_dem"),
     ]
@@ -738,7 +741,154 @@ def render_district_detail_card(selected):
     margin_p75 = safe_float_for_display(get_selected_value(selected, "margin_p75_dem", None))
     middle_50_margin = fmt_margin_range(margin_p25, margin_p75)
     dem_prob = safe_float_for_display(get_selected_value(selected, "dem_win_probability", None))
-    war_adj = safe_float_for_display(get_selected_value(selected, "candidate_war_adjustment_dem", None), 0.0)
+    war_adj = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "candidate_war_adjustment_dem",
+            None,
+        ),
+        0.0,
+    )
+
+    fundamentals_margin = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "fundamentals_margin_dem",
+            None,
+        )
+    )
+
+    candidate_event_adjustment = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "candidate_event_adjustment_dem",
+            None,
+        ),
+        0.0,
+    )
+
+    candidate_event_count = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "candidate_event_count",
+            None,
+        ),
+        0.0,
+    )
+
+    candidate_event_ids = str(
+        get_selected_value(
+            selected,
+            "candidate_event_ids",
+            "",
+        )
+    ).strip()
+
+    candidate_event_summary = str(
+        get_selected_value(
+            selected,
+            "candidate_event_summary",
+            "",
+        )
+    ).strip()
+
+    fundamentals_without_event = (
+        fundamentals_margin
+        - candidate_event_adjustment
+        if fundamentals_margin is not None
+        else None
+    )
+
+    # The House fundamentals builder uses a six-point logistic scale
+    # before correlated simulation. This diagnostic therefore shows
+    # the event-on/event-off pre-simulation probability comparison.
+    probability_scale = 6.0
+
+    if fundamentals_margin is not None:
+        pre_sim_probability_with_event = float(
+            1.0
+            / (
+                1.0
+                + np.exp(
+                    -fundamentals_margin
+                    / probability_scale
+                )
+            )
+        )
+    else:
+        pre_sim_probability_with_event = None
+
+    if fundamentals_without_event is not None:
+        pre_sim_probability_without_event = float(
+            1.0
+            / (
+                1.0
+                + np.exp(
+                    -fundamentals_without_event
+                    / probability_scale
+                )
+            )
+        )
+    else:
+        pre_sim_probability_without_event = None
+
+    if (
+        pre_sim_probability_with_event is not None
+        and pre_sim_probability_without_event is not None
+    ):
+        candidate_event_probability_change = (
+            pre_sim_probability_with_event
+            - pre_sim_probability_without_event
+        )
+    else:
+        candidate_event_probability_change = None
+
+    polling_weight = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "bayesian_polling_weight",
+            None,
+        ),
+        0.0,
+    )
+
+    fundamentals_weight = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "bayesian_fundamentals_weight",
+            None,
+        ),
+        1.0 - polling_weight,
+    )
+
+    polling_margin = safe_float_for_display(
+        get_selected_value(
+            selected,
+            "polling_margin_dem",
+            None,
+        )
+    )
+
+    polling_margin_contribution = (
+        polling_margin * polling_weight
+        if polling_margin is not None
+        else None
+    )
+
+    fundamentals_margin_contribution = (
+        fundamentals_margin * fundamentals_weight
+        if fundamentals_margin is not None
+        else None
+    )
+
+    polling_margin_impact = (
+        model_margin - fundamentals_margin
+        if (
+            model_margin is not None
+            and fundamentals_margin is not None
+        )
+        else None
+    )
 
     st.markdown(f"### {district_id} Detail Card")
 
@@ -753,13 +903,122 @@ def render_district_detail_card(selected):
     if subtitle_parts:
         st.markdown(" &nbsp; | &nbsp; ".join(subtitle_parts))
 
-    c1, c2, c3, c4 = st.columns(4)
+    c1, c2, c3, c4, c5, c6 = st.columns(6)
 
-    c1.metric("Model margin", signed_points_label(model_margin))
-    c1.caption(f"Middle 50%: {middle_50_margin}")
-    c2.metric("Dem win probability", probability_label(dem_prob))
-    c3.metric("Rating", str(rating))
-    c4.metric("Candidate WAR", signed_points_label(war_adj))
+    c1.metric(
+        "Model margin",
+        signed_points_label(model_margin),
+    )
+    c1.caption(
+        f"Middle 50%: {middle_50_margin}"
+    )
+
+    c2.metric(
+        "Dem win probability",
+        probability_label(dem_prob),
+    )
+
+    c3.metric(
+        "Rating",
+        str(rating),
+    )
+
+    c4.metric(
+        "Candidate WAR",
+        signed_points_label(war_adj),
+    )
+
+    c5.metric(
+        "Candidate event",
+        signed_points_label(
+            candidate_event_adjustment
+        ),
+    )
+    c5.caption(
+        f"{int(candidate_event_count or 0)} active event(s)"
+    )
+
+    c6.metric(
+        "Polling share",
+        f"{polling_weight:.1%}",
+        delta=(
+            signed_points_label(
+                polling_margin_impact
+            )
+            if polling_margin_impact is not None
+            else None
+        ),
+        help=(
+            "Percentage of the modeled margin blend assigned "
+            "to polling. The delta is how far polling moves "
+            "the model margin away from fundamentals."
+        ),
+    )
+    c6.caption(
+        f"Fundamentals share: {fundamentals_weight:.1%}"
+    )
+
+    st.markdown("#### Polling Integration")
+
+    polling_rows = [
+        {
+            "Measure": "Fundamentals margin",
+            "Value": signed_points_label(
+                fundamentals_margin
+            ),
+        },
+        {
+            "Measure": "Polling margin",
+            "Value": signed_points_label(
+                polling_margin
+            ),
+        },
+        {
+            "Measure": "Fundamentals weight",
+            "Value": f"{fundamentals_weight:.1%}",
+        },
+        {
+            "Measure": "Polling weight",
+            "Value": f"{polling_weight:.1%}",
+        },
+        {
+            "Measure": "Weighted fundamentals contribution",
+            "Value": signed_points_label(
+                fundamentals_margin_contribution
+            ),
+        },
+        {
+            "Measure": "Weighted polling contribution",
+            "Value": signed_points_label(
+                polling_margin_contribution
+            ),
+        },
+        {
+            "Measure": "Polling impact on model margin",
+            "Value": signed_points_label(
+                polling_margin_impact
+            ),
+        },
+        {
+            "Measure": "Final model margin",
+            "Value": signed_points_label(
+                model_margin
+            ),
+        },
+    ]
+
+    st.dataframe(
+        pd.DataFrame(polling_rows),
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.caption(
+        "Polling share is the Bayesian blend weight—not the "
+        "polling contribution divided by the final margin. "
+        "That ratio can be misleading when polling and "
+        "fundamentals point in opposite directions."
+    )
 
     st.markdown("#### Margin Components")
 
@@ -816,10 +1075,129 @@ def render_district_detail_card(selected):
         pass
 
     st.dataframe(
-        components_display[["Component", "Display", "Dem margin contribution"]],
+        components_display[
+            [
+                "Component",
+                "Display",
+                "Dem margin contribution",
+            ]
+        ],
         use_container_width=True,
         hide_index=True,
     )
+
+    st.markdown(
+        "#### Candidate Event Impact"
+    )
+
+    if (
+        candidate_event_count
+        and candidate_event_count > 0
+    ):
+        event_left, event_middle, event_right = (
+            st.columns(3)
+        )
+
+        event_left.metric(
+            "Fundamentals with event",
+            signed_points_label(
+                fundamentals_margin
+            ),
+        )
+
+        event_middle.metric(
+            "Fundamentals without event",
+            signed_points_label(
+                fundamentals_without_event
+            ),
+        )
+
+        event_right.metric(
+            "Margin impact",
+            signed_points_label(
+                candidate_event_adjustment
+            ),
+        )
+
+        probability_left, probability_middle, probability_right = (
+            st.columns(3)
+        )
+
+        probability_left.metric(
+            "Pre-simulation Dem probability",
+            probability_label(
+                pre_sim_probability_with_event
+            ),
+        )
+
+        probability_middle.metric(
+            "Without candidate event",
+            probability_label(
+                pre_sim_probability_without_event
+            ),
+        )
+
+        probability_right.metric(
+            "Probability impact",
+            (
+                "—"
+                if candidate_event_probability_change
+                is None
+                else (
+                    f"{candidate_event_probability_change:+.1%}"
+                )
+            ),
+        )
+
+        st.caption(
+            "Probability impact is a fundamentals-only "
+            "counterfactual using the House model's six-point "
+            "pre-simulation logistic scale. The displayed final "
+            "forecast probability may differ because polling and "
+            "correlated simulation are applied later."
+        )
+
+        event_detail_rows = [
+            {
+                "Field": "Event count",
+                "Value": int(
+                    candidate_event_count
+                ),
+            },
+            {
+                "Field": "Event ID(s)",
+                "Value": (
+                    candidate_event_ids
+                    or "—"
+                ),
+            },
+            {
+                "Field": "Event summary",
+                "Value": (
+                    candidate_event_summary
+                    or "—"
+                ),
+            },
+            {
+                "Field": "Adjustment",
+                "Value": signed_points_label(
+                    candidate_event_adjustment
+                ),
+            },
+        ]
+
+        st.dataframe(
+            pd.DataFrame(
+                event_detail_rows
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+    else:
+        st.info(
+            "No active candidate-event adjustment is "
+            "applied to this district."
+        )
 
     st.markdown("#### Polling / Context")
 
@@ -904,6 +1282,8 @@ def render_district_margin_explorer():
         "fundamentals_margin_dem",
         "dem_win_probability",
         "candidate_war_adjustment_dem",
+        "candidate_event_adjustment_dem",
+        "candidate_event_count",
         "poll_count",
     ]:
         if col in race.columns:
@@ -1105,6 +1485,9 @@ def render_district_margin_explorer():
         "dem_win_probability",
         "rating",
         "candidate_war_adjustment_dem",
+        "candidate_event_adjustment_dem",
+        "candidate_event_count",
+        "candidate_event_ids",
         "candidate_war_match_status",
         "poll_count",
     ]
@@ -1672,6 +2055,9 @@ with tab_drivers:
                 "State env.": fmt_margin(row.get("state_environment_adjustment_dem")),
                 "Incumbency": fmt_margin(row.get("incumbency_adjustment_dem")),
                 "Candidate quality": fmt_margin(row.get("candidate_quality_adjustment_dem")),
+                "Candidate event": fmt_margin(row.get("candidate_event_adjustment_dem")),
+                "Event count": fmt_num(row.get("candidate_event_count"), 0),
+                "Event summary": row.get("candidate_event_summary", ""),
                 "Special adj.": fmt_margin(row.get("special_adjustment_dem")),
                 "Fundamentals": fmt_margin(row.get("fundamentals_margin_dem")),
                 "Model margin": fmt_margin(row.get("model_margin_dem")),
@@ -1690,7 +2076,7 @@ with tab_drivers:
 
             `district_partisan_baseline_dem = 0.70 × 2024 presidential margin + 0.30 × 2020 presidential margin`
 
-            `fundamentals_margin_dem = district baseline + national environment × district elasticity + state environment adjustment + incumbency + candidate quality + special adjustment`
+            `fundamentals_margin_dem = district baseline + national environment × district elasticity + state environment adjustment + incumbency + candidate quality + candidate event + special adjustment`
 
             The current win probability is a simple logistic conversion of model margin. A full correlated House simulation has not been added yet.
             """

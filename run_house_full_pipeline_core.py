@@ -27,6 +27,11 @@ def main():
     run([py, "sync_house_pollster_registry.py"])
     run([py, "ingest_house_polls.py"])
     run([py, "run_house_model.py", "--sims", str(args.sims)])
+    run([
+        py,
+        "/Users/benyelin/Developer/election_model_shared/"
+        "build_candidate_event_audits.py",
+    ])
     run([py, "build_house_calibration_audit.py"])
     run([py, "build_house_local_context_audit.py"])
     run([py, "append_house_forecast_history.py"])

@@ -150,6 +150,25 @@ def apply_house_candidate_events(
         ]
     ]
 
+    # Candidate-event fields are generated from the shared registry.
+    # Remove any values written by an earlier run so the fresh merge
+    # cannot create _x/_y suffixes or retain stale adjustments.
+    generated_event_columns = [
+        "candidate_event_adjustment_dem",
+        "candidate_event_count",
+        "candidate_event_ids",
+        "candidate_event_summary",
+    ]
+
+    out = out.drop(
+        columns=[
+            column
+            for column in generated_event_columns
+            if column in out.columns
+        ],
+        errors="ignore",
+    )
+
     rows_before = len(out)
 
     out = out.merge(
