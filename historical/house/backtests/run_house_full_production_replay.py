@@ -59,7 +59,11 @@ from scipy.special import ndtr
 from house_simulation import (
     run_simulation as run_shared_house_simulation,
 )
-from run_house_model import HouseModelConfig
+from run_house_model import (
+    HouseModelConfig,
+    cycle_polling_cap,
+    prepare_house_table,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
@@ -1211,6 +1215,341 @@ def prepare_shared_simulation_table(
     return out
 
 
+def polling_recency_multiplier(
+    average_poll_age_days: pd.Series,
+    *,
+    scheme: str,
+) -> pd.Series:
+    """
+    Return a replay-only multiplier representing how much trust
+    remains in polling of a given average age.
+
+    The production control is scheme="none", which returns exactly
+    1.0 and therefore preserves current behavior.
+    """
+    age = pd.to_numeric(
+        average_poll_age_days,
+        errors="coerce",
+    ).fillna(0.0).clip(lower=0.0)
+
+    scheme = str(
+        scheme
+    ).strip().lower()
+
+    if scheme == "none":
+        return pd.Series(
+            1.0,
+            index=age.index,
+            dtype=float,
+        )
+
+    if scheme == "gentle":
+        return pd.Series(
+            np.select(
+                [
+                    age <= 14,
+                    age <= 30,
+                    age <= 60,
+                    age <= 90,
+                    age <= 150,
+                ],
+                [
+                    1.00,
+                    0.95,
+                    0.90,
+                    0.82,
+                    0.70,
+                ],
+                default=0.55,
+            ),
+            index=age.index,
+            dtype=float,
+        )
+
+    if scheme == "moderate":
+        return pd.Series(
+            np.select(
+                [
+                    age <= 14,
+                    age <= 30,
+                    age <= 60,
+                    age <= 90,
+                    age <= 150,
+                ],
+                [
+                    1.00,
+                    0.90,
+                    0.80,
+                    0.65,
+                    0.50,
+                ],
+                default=0.35,
+            ),
+            index=age.index,
+            dtype=float,
+        )
+
+    if scheme == "half_life_180":
+        return (
+            2.0 ** (
+                -age / 180.0
+            )
+        ).clip(
+            lower=0.35,
+            upper=1.0,
+        )
+
+    if scheme == "half_life_90":
+        return (
+            2.0 ** (
+                -age / 90.0
+            )
+        ).clip(
+            lower=0.25,
+            upper=1.0,
+        )
+
+    raise ValueError(
+        "Unknown polling recency scheme: "
+        f"{scheme!r}. Expected one of "
+        "'none', 'gentle', 'moderate', "
+        "'half_life_180', or 'half_life_90'."
+    )
+
+
+def prepare_shared_replay_table(
+    replay_table: pd.DataFrame,
+    *,
+    days_out: int,
+    config: HouseModelConfig,
+    enable_polling: bool,
+    polling_weight_multiplier: float = 1.0,
+    polling_recency_scheme: str = "none",
+) -> pd.DataFrame:
+    """
+    Finish preparation of a historical shared-simulation table.
+
+    With polling disabled, preserve the established shared-v2
+    election-day behavior exactly.
+
+    With polling enabled, delegate to the live production
+    prepare_house_table() implementation so historical replay and
+    production use the same Bayesian polling architecture.
+    """
+    out = replay_table.copy()
+
+    if not enable_polling:
+        out["bayesian_polling_weight"] = 0.0
+        out["bayesian_fundamentals_weight"] = 1.0
+        out["bayesian_model_margin_dem"] = pd.to_numeric(
+            out["model_margin_dem"],
+            errors="coerce",
+        )
+
+        # Preserve the historical shared-v2 election-day assumption
+        # exactly. This branch must remain behaviorally identical to
+        # the pre-refactor replay.
+        out["district_posterior_sd"] = 4.75
+
+        return out
+
+    if "fundamentals_margin_dem" not in out.columns:
+        out["fundamentals_margin_dem"] = pd.to_numeric(
+            out["model_margin_dem"],
+            errors="coerce",
+        )
+
+    prepared = prepare_house_table(
+        out,
+        days_out=int(days_out),
+        config=config,
+    )
+
+    multiplier = float(
+        polling_weight_multiplier
+    )
+
+    if (
+        not np.isfinite(multiplier)
+        or multiplier < 0.0
+    ):
+        raise ValueError(
+            "polling_weight_multiplier must be "
+            "finite and nonnegative."
+        )
+
+    recency_scheme = str(
+        polling_recency_scheme
+    ).strip().lower()
+
+    original_weight = pd.to_numeric(
+        prepared[
+            "bayesian_polling_weight"
+        ],
+        errors="coerce",
+    ).fillna(0.0)
+
+    if "avg_poll_age_days" in prepared.columns:
+        recency_multiplier = (
+            polling_recency_multiplier(
+                prepared[
+                    "avg_poll_age_days"
+                ],
+                scheme=recency_scheme,
+            )
+        )
+    else:
+        if recency_scheme != "none":
+            raise ValueError(
+                "Polling recency adjustment requested, "
+                "but avg_poll_age_days is unavailable."
+            )
+
+        recency_multiplier = pd.Series(
+            1.0,
+            index=prepared.index,
+            dtype=float,
+        )
+
+    cap = float(
+        cycle_polling_cap(
+            int(days_out)
+        )
+    )
+
+    adjusted_weight = (
+        original_weight
+        * multiplier
+        * recency_multiplier
+    ).clip(
+        lower=0.0,
+        upper=cap,
+    )
+
+    # Recover the pre-polling uncertainty before changing the weight.
+    original_posterior_sd = pd.to_numeric(
+        prepared[
+            "district_posterior_sd"
+        ],
+        errors="coerce",
+    )
+
+    original_sd_factor = (
+        1.0
+        - 0.25
+        * original_weight
+    )
+
+    if original_sd_factor.le(
+        0.0
+    ).any():
+        raise RuntimeError(
+            "Invalid original posterior-SD factor."
+        )
+
+    base_sd = (
+        original_posterior_sd
+        / original_sd_factor
+    )
+
+    fundamentals_margin = pd.to_numeric(
+        prepared[
+            "fundamentals_margin_dem"
+        ],
+        errors="coerce",
+    )
+
+    polling_margin = pd.to_numeric(
+        prepared[
+            "polling_margin_dem"
+        ],
+        errors="coerce",
+    ).fillna(0.0)
+
+    prepared[
+        "polling_recency_multiplier"
+    ] = recency_multiplier
+
+    prepared[
+        "bayesian_polling_weight"
+    ] = adjusted_weight
+
+    prepared[
+        "bayesian_fundamentals_weight"
+    ] = (
+        1.0
+        - adjusted_weight
+    )
+
+    prepared[
+        "bayesian_model_margin_dem"
+    ] = (
+        fundamentals_margin
+        * prepared[
+            "bayesian_fundamentals_weight"
+        ]
+        + polling_margin
+        * adjusted_weight
+    )
+
+    prepared[
+        "model_margin_dem"
+    ] = prepared[
+        "bayesian_model_margin_dem"
+    ]
+
+    prepared[
+        "district_posterior_sd"
+    ] = (
+        base_sd
+        * (
+            1.0
+            - 0.25
+            * adjusted_weight
+        )
+    )
+
+    prepared[
+        "pre_sim_dem_win_probability"
+    ] = (
+        1.0
+        / (
+            1.0
+            + np.exp(
+                -prepared[
+                    "model_margin_dem"
+                ]
+                / config.probability_scale
+            )
+        )
+    )
+
+    if "party_control_fixed" in prepared.columns:
+        prepared.loc[
+            prepared[
+                "party_control_fixed"
+            ].eq("D"),
+            "pre_sim_dem_win_probability",
+        ] = 1.0
+
+        prepared.loc[
+            prepared[
+                "party_control_fixed"
+            ].eq("R"),
+            "pre_sim_dem_win_probability",
+        ] = 0.0
+
+    prepared[
+        "polling_weight_multiplier"
+    ] = multiplier
+
+    prepared[
+        "polling_recency_scheme"
+    ] = recency_scheme
+
+    return prepared
+
+
 def run_production_shared_spec(
     df: pd.DataFrame,
     model_margin: pd.Series,
@@ -1218,6 +1557,12 @@ def run_production_shared_spec(
     n_sims: int,
     seed: int,
     fixed_error_sd: float,
+    *,
+    days_out: int = 0,
+    enable_polling: bool = False,
+    polling_weight_multiplier: float = 1.0,
+    polling_recency_scheme: str = "none",
+    replay_spec: str = PRODUCTION_SHARED_SPEC,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Run the current production House simulation engine against
@@ -1242,6 +1587,19 @@ def run_production_shared_spec(
         education_race_error_sd=0.0,
     )
 
+    replay_table = prepare_shared_replay_table(
+        replay_table,
+        days_out=int(days_out),
+        config=config,
+        enable_polling=bool(enable_polling),
+        polling_weight_multiplier=float(
+            polling_weight_multiplier
+        ),
+        polling_recency_scheme=str(
+            polling_recency_scheme
+        ),
+    )
+
     (
         race_stats,
         seat_distribution,
@@ -1249,7 +1607,7 @@ def run_production_shared_spec(
         shared_summary,
     ) = run_shared_house_simulation(
         race_table=replay_table,
-        days_out=0,
+        days_out=int(days_out),
         config=config,
     )
 
@@ -1313,17 +1671,17 @@ def run_production_shared_spec(
     results.insert(
         0,
         "replay_spec",
-        PRODUCTION_SHARED_SPEC,
+        replay_spec,
     )
     summary.insert(
         0,
         "replay_spec",
-        PRODUCTION_SHARED_SPEC,
+        replay_spec,
     )
     calibration.insert(
         0,
         "replay_spec",
-        PRODUCTION_SHARED_SPEC,
+        replay_spec,
     )
 
     dem_seats = pd.to_numeric(
@@ -1357,7 +1715,26 @@ def run_production_shared_spec(
     )
 
     summary_values: dict[str, Any] = {
-        "uncertainty_days_out": 0,
+        "uncertainty_days_out": int(days_out),
+        "historical_polling_enabled": bool(enable_polling),
+        "polling_weight_multiplier": float(
+            polling_weight_multiplier
+        ),
+        "polling_recency_scheme": str(
+            polling_recency_scheme
+        ),
+        "average_polling_weight": float(
+            pd.to_numeric(
+                replay_table["bayesian_polling_weight"],
+                errors="coerce",
+            ).fillna(0.0).mean()
+        ),
+        "districts_with_polling": int(
+            pd.to_numeric(
+                replay_table["bayesian_polling_weight"],
+                errors="coerce",
+            ).fillna(0.0).gt(0.0).sum()
+        ),
         "shared_margin_fallback_count": fallback_count,
         "shared_margin_fallback_districts": (
             fallback_districts
