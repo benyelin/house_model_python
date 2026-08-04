@@ -1,0 +1,54 @@
+HOUSE HISTORICAL POLLING SNAPSHOT VALIDATION
+============================================================================================
+
+Raw archive answer rows:        4,258
+Usable D-vs-R questions before poll-level deduplication: 1,399
+Selected independent poll/race questions:    1,209
+Snapshot warehouse rows:       9,135
+Snapshot summary rows:         21
+
+SELECTED QUESTIONS BY CYCLE
+--------------------------------------------------------------------------------------------
+cycle
+2018    619
+2020    335
+2022    255
+
+SNAPSHOT COVERAGE
+--------------------------------------------------------------------------------------------
+ forecast_cycle snapshot_date  days_out  eligible_poll_questions  prepared_poll_questions  districts_with_polling  unmatched_poll_districts  dropped_poll_questions  excluded_off_calendar_questions canonical_election_date  mean_poll_count_polled  mean_effective_poll_count_polled
+           2018    2018-07-09       120                       57                       57                      38                         0                       0                               23              2018-11-06                1.500000                          1.339109
+           2018    2018-08-08        90                       80                       80                      54                         0                       0                               23              2018-11-06                1.481481                          1.276908
+           2018    2018-09-07        60                      152                      152                      87                         0                       0                               23              2018-11-06                1.747126                          1.421944
+           2018    2018-10-07        30                      324                      324                     124                         0                       0                               23              2018-11-06                2.612903                          1.948818
+           2018    2018-10-23        14                      449                      449                     141                         0                       0                               23              2018-11-06                3.184397                          2.402988
+           2018    2018-10-30         7                      527                      527                     153                         0                       0                               23              2018-11-06                3.444444                          2.571003
+           2018    2018-11-05         1                      591                      591                     155                         0                       0                               23              2018-11-06                3.812903                          2.855577
+           2020    2020-07-06       120                       41                       41                      31                         0                       0                                1              2020-11-03                1.322581                          1.235242
+           2020    2020-08-05        90                       79                       79                      53                         0                       0                                1              2020-11-03                1.490566                          1.330211
+           2020    2020-09-04        60                      133                      133                      70                         0                       0                                1              2020-11-03                1.900000                          1.644408
+           2020    2020-10-04        30                      196                      196                      86                         0                       0                                1              2020-11-03                2.279070                          1.933230
+           2020    2020-10-20        14                      271                      271                      98                         0                       0                                1              2020-11-03                2.765306                          2.252501
+           2020    2020-10-27         7                      302                      302                     101                         0                       0                                1              2020-11-03                2.990099                          2.400642
+           2020    2020-11-02         1                      329                      329                     102                         0                       0                                1              2020-11-03                3.225490                          2.525745
+           2022    2022-07-11       120                       38                       38                      30                         0                       0                                7              2022-11-08                1.266667                          1.232496
+           2022    2022-08-10        90                       62                       62                      47                         0                       0                                7              2022-11-08                1.319149                          1.243628
+           2022    2022-09-09        60                      114                      114                      72                         0                       0                                7              2022-11-08                1.583333                          1.424279
+           2022    2022-10-09        30                      165                      165                      87                         0                       0                                7              2022-11-08                1.896552                          1.627637
+           2022    2022-10-25        14                      198                      198                      95                         0                       0                                7              2022-11-08                2.084211                          1.762381
+           2022    2022-11-01         7                      233                      233                     102                         0                       0                                7              2022-11-08                2.284314                          1.872188
+           2022    2022-11-07         1                      248                      248                     105                         0                       0                                7              2022-11-08                2.361905                          1.900033
+
+VALIDATION CHECKS
+--------------------------------------------------------------------------------------------
+PASS: snapshot warehouse contains 9,135 rows
+PASS: cycle/snapshot/district keys are unique
+PASS: every historical snapshot contains 435 races
+PASS: all poll counts are nonnegative
+PASS: polling-active flags agree with poll counts
+PASS: one selected question per cycle/race/poll
+PASS: every prepared poll maps to a canonical historical district
+PASS: snapshot summary is complete
+PASS: every supported cycle has polling coverage at the final snapshot
+
+VALIDATION STATUS: PASSED

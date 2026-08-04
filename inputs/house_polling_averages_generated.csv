@@ -31,12 +31,13 @@ OH-10,OH,,-6.688208516433004,3,2026-07-23,14.666666666666666,1.847351698678282,"
 OH-15,OH,15.0,-4.03006225047123,2,2026-06-25,41.0,0.8924453768714772,"Manual House polling average from 2 poll(s): Tulchin, Hart Research Associates",1.9981941542063075,0.5150311252356149,False
 OH-7,OH,,1.659109576070888,3,2026-07-30,30.666666666666668,1.5940811558461099,"Manual House polling average from 3 poll(s): GBAO, GBAO, Unknown",2.4504130126685073,0.5545479434761184,False
 OH-9,OHIO,,-3.0,1,2026-04-20,105.0,0.12886116987230686,Manual House polling average from 1 poll(s): McLaughlin,1.0,1.0,True
+OK-5,OK,,-1.5,1,2026-07-10,24.0,0.5390097874531663,Manual House polling average from 1 poll(s): Unknown,1.0,1.0,True
 PA-1,PA,,-7.5,1,2026-03-22,134.0,0.08446015188249255,Manual House polling average from 1 poll(s): Global Strategy Group,1.0,1.0,True
 PA-10,PA,,4.5,1,2026-04-23,102.0,0.10999419426058173,"Manual House polling average from 1 poll(s): Normington, Petts & Associates",1.0,1.0,True
 PA-7,PA,,4.0,1,2026-07-02,32.0,0.6085733361098741,Manual House polling average from 1 poll(s): GBAO,1.0,1.0,False
 PA-8,PA,,1.7054416962443337,3,2026-06-26,44.0,1.1041401369890305,"Manual House polling average from 3 poll(s): Lake Research, Lake Research Partners, Impact Research",2.978955844681482,0.3597743246461518,False
 TN-5,TN,,-7.5,1,2026-06-13,51.0,0.30168810598942997,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
-TX-15,TX,,2.0,2,2026-05-25,70.0,0.7342476566961722,"Manual House polling average from 2 poll(s): WelcomePAC, Applecart",2.0,0.5,False
+TX-15,TX,,4.237807394690367,3,2026-08-03,46.666666666666664,1.6666683414374175,"Manual House polling average from 3 poll(s): WelcomePAC, Applecart, Unknown",2.438859572101059,0.5594518486725917,False
 TX-23,TX,,-2.0,1,2026-03-11,145.0,0.09252704549703533,Manual House polling average from 1 poll(s): PPP,1.0,1.0,False
 TX-34,TX,,-0.7876082061594691,2,2026-06-16,72.0,0.5063186102364032,"Manual House polling average from 2 poll(s): Ragnar Research, Co/Efficient",1.9949837165789963,0.5250721374396461,True
 VA-2,VA,,0.0,1,2026-07-13,21.0,0.704708393724448,Manual House polling average from 1 poll(s): Tulchin Research,1.0,1.0,False

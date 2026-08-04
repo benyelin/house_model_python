@@ -3,6 +3,11 @@ from datetime import date
 import pandas as pd
 
 from pollster_registry import apply_pollster_registry
+from house_polling_components import (
+    aggregate_house_poll_questions,
+    clean_poll_output,
+    prepare_house_poll_questions,
+)
 import numpy as np
 
 INPUTS = Path("inputs")
@@ -326,374 +331,63 @@ def main():
         print(f"Wrote {OUTPUT_AVERAGES}")
         return
 
-    polls = ensure_poll_columns(polls)
-
-    polls = apply_pollster_registry(
-        polls,
-        registry_path=INPUTS / "pollster_registry.csv",
-    )
-
-    poll_level_override = pd.to_numeric(
-        polls["manual_house_effect_adjustment_dem"],
-        errors="coerce",
-    )
-
-    registry_house_effect = pd.to_numeric(
-        polls["pollster_house_effect_dem"],
-        errors="coerce",
-    ).fillna(0.0)
-
-    polls["manual_house_effect_override_dem"] = (
-        poll_level_override
-    )
-
-    polls["effective_house_effect_dem"] = (
-        poll_level_override.where(
-            poll_level_override.notna(),
-            registry_house_effect,
+    polls, unmatched, dropped = (
+        prepare_house_poll_questions(
+            polls,
+            races,
+            as_of=as_of,
+            registry_path=(
+                INPUTS
+                / "pollster_registry.csv"
+            ),
         )
     )
 
-    polls["house_effect_source"] = "pollster_registry"
-    polls.loc[
-        poll_level_override.notna(),
-        "house_effect_source",
-    ] = "poll_level_override"
-
-    # Preserve the existing House polling alias so downstream
-    # calculations do not need to change.
-    polls["house_effect_dem"] = pd.to_numeric(
-        polls["effective_house_effect_dem"],
-        errors="coerce",
-    ).fillna(0.0)
-
-    polls["state"] = polls["state"].apply(normalize_state)
-    polls["district"] = polls.apply(
-        lambda row: normalize_district_value(row.get("state", ""), row.get("district", "")),
-        axis=1,
-    )
-    polls["district_id"] = polls.apply(
-        lambda row: normalize_existing_district_id(
-            row.get("district_id", ""),
-            row.get("state", ""),
-            row.get("district", ""),
-        ),
-        axis=1,
-    )
-
-    polls["dem_pct"] = safe_numeric(polls["dem_pct"])
-    polls["gop_pct"] = safe_numeric(polls["gop_pct"])
-    polls["ind_pct"] = safe_numeric(polls["ind_pct"], default=0.0)
-    polls["other_pct"] = safe_numeric(polls["other_pct"], default=0.0)
-    polls["undecided_pct"] = safe_numeric(polls["undecided_pct"], default=0.0)
-    polls["sample_size"] = safe_numeric(polls["sample_size"], default=np.nan)
-
-    polls["start_date"] = pd.to_datetime(polls["start_date"], errors="coerce")
-    polls["end_date"] = pd.to_datetime(polls["end_date"], errors="coerce")
-
-    # Validate matching districts.
-    valid_districts = set(races["district_id"].dropna().astype(str))
-    unmatched = sorted(set(polls["district_id"].dropna().astype(str)) - valid_districts - {""})
-
     if unmatched:
-        print("WARNING: Some polls do not match any district_id in house_race_inputs.csv:")
-        for d in unmatched[:30]:
-            print(f"  - {d}")
-
-    polls = polls[polls["district_id"].isin(valid_districts)].copy()
-
-    # Drop rows that do not have usable Dem/GOP percentages.
-    usable = (
-        polls["dem_pct"].notna()
-        & polls["gop_pct"].notna()
-        & polls["district_id"].fillna("").astype(str).str.strip().ne("")
-    )
-
-    dropped = len(polls) - usable.sum()
+        print(
+            "WARNING: Some polls do not match any "
+            "district_id in house_race_inputs.csv:"
+        )
+        for district_id in unmatched[:30]:
+            print(f"  - {district_id}")
 
     if dropped:
-        print(f"WARNING: Dropping {dropped} polls with missing/invalid district_id or Dem/GOP percentages.")
-
-    polls = polls[usable].copy()
+        print(
+            "WARNING: Dropping "
+            f"{dropped} polls with missing/invalid "
+            "district_id or Dem/GOP percentages."
+        )
 
     if polls.empty:
-        print("No usable polls after validation. Clearing polling fields.")
+        print(
+            "No usable polls after validation. "
+            "Clearing polling fields."
+        )
         empty_poll_outputs(races)
         return
 
-    polls["raw_margin_dem"] = polls["dem_pct"] - polls["gop_pct"]
-
-
-
-    polls["sponsor_classification"] = polls.apply(normalize_sponsor_type, axis=1)
-
-
-    polls["sponsor_weight"] = polls["sponsor_classification"].apply(sponsor_weight)
-
-
-    polls["partisan_sponsor_adjustment_dem"] = polls.apply(
-
-
-        partisan_sponsor_adjustment,
-
-
-        axis=1,
-
-
+    clean_polls = clean_poll_output(
+        polls
     )
 
-
-
-    # Positive house effect means pollster is Dem-leaning, so subtract from margin.
-
-
-    # Sponsor adjustments are applied against the sponsor party.
-
-
-    polls["polling_margin_dem"] = (
-
-
-        polls["raw_margin_dem"]
-
-
-        - polls["house_effect_dem"]
-
-
-        + polls["partisan_sponsor_adjustment_dem"]
-
-
+    averages = (
+        aggregate_house_poll_questions(
+            polls,
+            notes_prefix=(
+                "Manual House polling average"
+            ),
+        )
     )
 
-    polls["poll_age_days"] = polls["end_date"].apply(
-        lambda d: max(0, (as_of - d.date()).days) if pd.notna(d) else np.nan
+    clean_polls.to_csv(
+        OUTPUT_CLEAN_POLLS,
+        index=False,
     )
 
-    polls["recency_weight"] = polls["end_date"].apply(lambda d: recency_weight(d, as_of))
-    polls["sample_size_weight"] = polls["sample_size"].apply(sample_size_weight)
-    polls["pollster_grade_weight"] = polls["pollster_grade"].apply(grade_weight)
-    polls["sample_type_weight"] = polls["sample_type"].apply(sample_type_weight)
-
-    polls["poll_weight"] = (
-
-
-        polls["recency_weight"]
-
-
-        * polls["sample_size_weight"]
-
-
-        * polls["pollster_grade_weight"]
-
-
-        * polls["sample_type_weight"]
-
-
-        * polls["sponsor_weight"]
-
-
+    averages.to_csv(
+        OUTPUT_AVERAGES,
+        index=False,
     )
-
-    # Avoid zero weights.
-    polls["poll_weight"] = polls["poll_weight"].clip(lower=0.05)
-
-    clean_cols = [
-        "race",
-        "state",
-        "district",
-        "district_id",
-        "pollster",
-        "pollster_grade",
-        "pollster_raw",
-        "pollster_normalized_key",
-        "canonical_pollster",
-        "pollster_match_method",
-        "pollster_house_effect_dem",
-        "manual_house_effect_override_dem",
-        "effective_house_effect_dem",
-        "house_effect_source",
-        "house_effect_confidence",
-        "house_effect_notes",
-        "house_effect_dem",
-        "start_date",
-        "end_date",
-        "sample_size",
-        "sample_type",
-        "dem_candidate",
-        "gop_candidate",
-        "dem_pct",
-        "gop_pct",
-        "raw_margin_dem",
-        "polling_margin_dem",
-        "poll_age_days",
-        "recency_weight",
-        "sample_size_weight",
-        "pollster_grade_weight",
-        "sample_type_weight",
-        "poll_weight",
-        "notes",
-    ]
-
-    polls[clean_cols].to_csv(OUTPUT_CLEAN_POLLS, index=False)
-
-    rows = []
-
-    for district_id, group in polls.groupby("district_id"):
-        total_weight = group["poll_weight"].sum()
-
-        if total_weight <= 0:
-            polling_margin = group["polling_margin_dem"].mean()
-        else:
-            polling_margin = (
-                group["polling_margin_dem"] * group["poll_weight"]
-            ).sum() / total_weight
-
-        latest_end = group["end_date"].max()
-
-        avg_age = group["poll_age_days"].mean()
-
-        state = group["state"].iloc[0]
-        district = group["district"].iloc[0]
-
-        pollsters = ", ".join(
-            group["pollster"].fillna("").astype(str).replace("", "Unknown").tolist()
-        )
-
-        effective_poll_count = kish_effective_count(group["poll_weight"])
-
-
-        largest_share = largest_pollster_share(group)
-
-
-        only_partisan_or_internal = bool(
-
-
-            group["sponsor_classification"]
-
-
-            .fillna("unknown")
-
-
-            .astype(str)
-
-
-            .str.lower()
-
-
-            .isin(["partisan", "internal"])
-
-
-            .all()
-
-
-        )
-
-
-
-        rows.append(
-
-
-            {
-
-
-                "district_id": district_id,
-                "state": state,
-                "district": district,
-                "polling_margin_dem": polling_margin,
-                "poll_count": len(group),
-                "latest_poll_end_date": latest_end.date().isoformat() if pd.notna(latest_end) else "",
-                "avg_poll_age_days": avg_age,
-                "total_poll_weight": total_weight,
-                "polling_notes": f"Manual House polling average from {len(group)} poll(s): {pollsters}",
-            }
-        )
-
-    averages = pd.DataFrame(rows)
-
-
-
-    # Add effective-count and concentration diagnostics after the ordinary
-
-
-    # average rows are built.
-
-
-    diagnostic_rows = []
-
-
-
-    for district_id, group in polls.groupby("district_id"):
-
-
-        diagnostic_rows.append(
-
-
-            {
-
-
-                "district_id": district_id,
-
-
-                "effective_poll_count": kish_effective_count(group["poll_weight"]),
-
-
-                "largest_pollster_weight_share": largest_pollster_share(group),
-
-
-                "only_partisan_or_internal_polls": bool(
-
-
-                    group["sponsor_classification"]
-
-
-                    .fillna("unknown")
-
-
-                    .astype(str)
-
-
-                    .str.lower()
-
-
-                    .isin(["partisan", "internal"])
-
-
-                    .all()
-
-
-                ),
-
-
-            }
-
-
-        )
-
-
-
-    diagnostics = pd.DataFrame(diagnostic_rows)
-
-
-
-    if not diagnostics.empty:
-
-
-        averages = averages.merge(
-
-
-            diagnostics,
-
-
-            on="district_id",
-
-
-            how="left",
-
-
-        )
-
-
-
-    averages.to_csv(OUTPUT_AVERAGES, index=False)
 
     # Clear existing poll fields first.
     for col, default in [
