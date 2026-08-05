@@ -35,3 +35,9 @@ outputs/production_audit/
 **/~$*
 
 # Python-generated files
+
+# Preserve files required by the public House dashboard
+!outputs/house_forecast_summary.csv
+!outputs/house_race_stats.csv
+!outputs/house_seat_distribution.csv
+!outputs/house_simulation_draws.csv
