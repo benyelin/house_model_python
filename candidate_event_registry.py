@@ -552,26 +552,15 @@ def validate_candidate_event_registry(
     today = as_of or date.today()
     today_timestamp = pd.Timestamp(today)
 
-    overdue_review = (
-        nonzero_active
-        & out["review_date"].lt(today_timestamp)
-    )
-
-    if overdue_review.any():
-        bad = out.loc[
-            overdue_review,
-            [
-                "event_id",
-                "review_date",
-                "candidate_event_adjustment_dem",
-            ],
-        ]
-
-        raise ValueError(
-            "Active candidate events are past their mandatory "
-            "review date:\n"
-            + bad.to_string(index=False)
-        )
+    # Review dates are informational only.
+    #
+    # Once an analyst has reviewed and accepted an active
+    # candidate event, the passage of time alone must not
+    # invalidate the event or remove its model adjustment.
+    #
+    # A new review should occur only when the underlying
+    # event materially changes or the analyst explicitly
+    # edits/reopens the event.
 
     structural_with_numeric_penalty = (
         out["event_type"].isin(
