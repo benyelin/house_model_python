@@ -32,6 +32,7 @@ NV-2,NV,,2.0,1,2026-07-12,45.0,0.43092490233326763,Manual House polling average 
 NY-17,NY,,0.6836711102046917,3,2026-07-22,49.0,1.537475660439847,"Manual House polling average from 3 poll(s): FM3 Research, FM3, Co/Efficient",2.7117847298516353,0.48330262634502796,False
 NY-18,NY,,13.999999999999998,1,2026-08-14,12.0,0.7945564952058741,Manual House polling average from 1 poll(s): GSG,1.0,1.0,False
 NY-21,NY,,-3.266558848891066,3,2026-08-17,38.0,1.5389046496932286,"Manual House polling average from 3 poll(s): Impact Research, WNYT/Survey USA, JL Partners",2.449982081348112,0.48269112001763387,False
+OH-1,OH,,3.2999999999999967,1,2026-08-24,2.0,0.7241768055242278,Manual House polling average from 1 poll(s): Quantus,1.0,1.0,False
 OH-10,OH,,-6.688208516433003,3,2026-07-23,37.666666666666664,1.359458464524142,"Manual House polling average from 3 poll(s): FM3 Research, Global Strategy Group, Global Strategy Group",2.9751488103465147,0.6235829671339931,False
 OH-15,OH,15.0,-4.03006225047123,2,2026-06-25,64.0,0.6567468569094893,"Manual House polling average from 2 poll(s): Tulchin, Hart Research Associates",1.9981941542063077,0.5150311252356149,False
 OH-7,OH,,6.488480499196905,5,2026-08-06,40.2,2.4355188923676963,"Manual House polling average from 5 poll(s): GBAO, GBAO, Unknown, Co/Efficient, Tavern Research",4.366355719437836,0.2671003044655075,False
