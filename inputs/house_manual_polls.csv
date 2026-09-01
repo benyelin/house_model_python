@@ -89,3 +89,6 @@ TX-34,,,TX,Texas Southern,B,,,,False,,,2026-08-18,2026-08-22,600,LV,LV,,Gonzalez
 OH-01,,,OH,Quantus,B,,,,False,,,2026-08-21,2026-08-24,509,LV,LV,,Landsman,Conroy,Conroy,47.9,44.6,,0.0,0.0,0.0,,,
 AZ-02,,,AZ,Peak Insights,B,Crane,campaign,R,False,R,,2026-08-17,2026-08-20,400,LV,LV,,Nez,Crane,Crane,42.0,53.0,,0.0,0.0,5.0,,,
 NC-07,,,NC,PPP,B,Hardy,campaign,D,True,D,,2026-08-19,2026-08-20,517,LV,LV,,Hardy,Rouzer,Rouzer,45.0,45.0,,0.0,0.0,10.0,,,
+PA-01,,,PA,GQR,B,House Majority PAC,super PAC,D,False,D,,2026-08-19,2026-08-23,800,LV,LV,,Harvie,Fitzpatrick,Fitzpatrick,48.0,49.0,,0.0,0.0,3.0,,,
+TN-05,,,TN,Impact Research,B,,,D,False,D,,2026-08-19,2026-08-24,800,LV,LV,,Molder,Hatcher,Hatcher,40.0,48.0,,0.0,0.0,12.0,,,
+MI-10,,,MI,GSG,B-,,,,False,,,2026-08-10,2026-08-13,600,LV,LV,,Hines,Bouchard,Bouchard,45.0,45.0,,0.0,0.0,10.0,,,
