@@ -5,7 +5,6 @@ import re
 
 POSSIBLE_PATHS = [
     Path("inputs/House Model Data.xlsx"),
-    Path("House Model Data.xlsx"),
 ]
 
 OUTPUT_PATH = Path("inputs/house_race_inputs.csv")
@@ -46,8 +45,8 @@ def find_workbook_path():
             return path
 
     raise FileNotFoundError(
-        "Could not find House Model Data.xlsx. Put it in either "
-        "inputs/House Model Data.xlsx or the project root."
+        "Could not find authoritative House workbook: "
+        "inputs/House Model Data.xlsx"
     )
 
 

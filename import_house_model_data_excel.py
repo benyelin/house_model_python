@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-EXCEL_PATH = Path("House Model Data.xlsx")
+EXCEL_PATH = Path("inputs/House Model Data.xlsx")
 CSV_PATH = Path("inputs/house_race_inputs.csv")
 BACKUP_PATH = Path("inputs/house_race_inputs.before_excel_import.csv")
 AUDIT_PATH = Path("outputs/house_excel_import_audit.csv")
