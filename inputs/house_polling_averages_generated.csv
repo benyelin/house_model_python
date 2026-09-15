@@ -11,6 +11,7 @@ FL-13,FL,,1.0,1,2026-08-27,18.0,0.5798574379559407,Manual House polling average 
 FL-14,FL,,8.0,1,2026-07-15,61.0,0.4351731737215099,Manual House polling average from 1 poll(s): St. Pete Polls,1.0,1.0,False
 FL-16,FL,,1.0039999999999978,1,2026-08-29,16.0,0.7532903602003899,Manual House polling average from 1 poll(s): Sea Polling,1.0,1.0,False
 FL-22,FL,,1.2164093042917847,2,2026-08-31,23.5,1.272019761289761,"Manual House polling average from 2 poll(s): Tavern Research, Impact Research",1.9105244340475342,0.6082046521458924,False
+FL-27,FL,,0.0,1,2026-08-30,15.0,0.7634014894036873,Manual House polling average from 1 poll(s): Bendixen & Anandi ,1.0,1.0,False
 FL-7,FL,,1.0,2,2026-06-21,85.0,0.48032088320842825,"Manual House polling average from 2 poll(s): PPP, PPP",2.0,1.0,True
 FL-9,FL,,1.0,1,2026-08-29,16.0,0.5326567219001526,Manual House polling average from 1 poll(s): Sea Polling,1.0,1.0,False
 GA-7,GA,,-3.0,1,2026-08-26,19.0,0.5117709530951626,Manual House polling average from 1 poll(s): Insight,1.0,1.0,False
@@ -27,11 +28,12 @@ MI-4,MI,4.0,2.9999999999999996,1,2026-06-01,105.0,0.18177729368118006,Manual Hou
 MI-7,MI,,2.0,1,2026-08-13,32.0,0.45579738916288365,Manual House polling average from 1 poll(s): GSG,1.0,1.0,False
 MO-2,MO,2.0,-3.0,1,2026-05-31,106.0,0.1964896428472057,Manual House polling average from 1 poll(s): FM3 Research,1.0,1.0,False
 MT-1,MT,,-1.5396425825274829,3,2026-06-25,98.0,0.5553343005946548,"Manual House polling average from 3 poll(s): Impact Research, Impact Research, Upswing Research",2.7483912170455245,0.7954844637867855,False
-NC-1,NC,,4.0,2,2026-06-28,151.0,0.31054674193240883,"Manual House polling average from 2 poll(s): GQR, GQR",1.370175754948096,1.0,False
+NC-1,NC,,6.250470924817057,3,2026-09-14,100.66666666666667,1.2429674266736543,"Manual House polling average from 3 poll(s): GQR, GQR, Unknown",1.6439451300335173,0.750156974939019,False
 NC-10,NC,,-15.000000000000002,1,2026-03-12,186.0,0.05521366632779895,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
 NC-14,NC,,-8.0,1,2026-03-12,186.0,0.05521366632779895,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
 NC-7,NC,,-1.5,1,2026-08-20,25.0,0.4107161506237423,Manual House polling average from 1 poll(s): PPP,1.0,1.0,True
 NE-1,NE,,-7.0,1,2026-05-11,126.0,0.12303377868702263,Manual House polling average from 1 poll(s): Zenith Research,1.0,1.0,False
+NE-2,NE,,4.0,1,2026-09-13,1.0,1.0653452800091014,Manual House polling average from 1 poll(s): SurveyUSA,1.0,1.0,False
 NJ-7,NJ,7.0,4.640849934866307,3,2026-09-10,65.0,1.0883356624431963,"Manual House polling average from 3 poll(s): Z to A Research, Z to A Research, Insider NJ/Stimsight Poll",2.0926584283685266,0.6408499348663071,False
 NM-2,NM,,2.8332901051857444,2,2026-09-02,75.5,0.9187715232973124,"Manual House polling average from 2 poll(s): co/Efficient, Unknown",1.384725886622027,0.8332901051857442,False
 NV-2,NV,,-0.15494141743690962,3,2026-09-03,31.333333333333332,1.4828422939148624,"Manual House polling average from 3 poll(s): Wedgewood, Strategies 360, GBAO",2.8225110131515403,0.4292995363167247,False

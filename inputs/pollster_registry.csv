@@ -3,6 +3,7 @@ canonical_pollster,normalized_pollster_key,aliases,pollster_house_effect_dem,hou
 Alaska Survey Research,alaska survey research,Alaska Survey Research,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Applecart,applecart,Applecart,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Beacon/Shaw,beacon shaw,Beacon/Shaw|Beacon Shaw,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+Bendixen & Anandi,bendixen and anandi,Bendixen & Anandi,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Change Research,change research,Change Research,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 co/Efficient,co efficient,co/Efficient,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Cygnal,cygnal,Cygnal,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
