@@ -43,7 +43,7 @@ FORECAST_CYCLE = 2026
 # The Senate model's shared national-environment file is the single
 # production source of truth for both Senate and House forecasts.
 NATIONAL_ENVIRONMENT_PATH = Path(
-    "/Users/benyelin/Desktop/Desktop - Ben’s MacBook Air/"
+    "/Users/benyelin/Developer/"
     "senate_model_python_Q1_auto_calendar_candidate_refresh/"
     "inputs/national_environment.csv"
 )

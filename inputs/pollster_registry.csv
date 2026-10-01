@@ -1,6 +1,7 @@
 canonical_pollster,normalized_pollster_key,aliases,pollster_house_effect_dem,house_effect_confidence,house_effect_notes,active
 2Way/Wick,2way wick,2Way/Wick,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Alaska Survey Research,alaska survey research,Alaska Survey Research,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+American Pulse Research & Polling,american pulse research and polling,American Pulse Research & Polling,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Applecart,applecart,Applecart,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Beacon/Shaw,beacon shaw,Beacon/Shaw|Beacon Shaw,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Bendixen & Anandi,bendixen and anandi,Bendixen & Anandi,0.0,low,Automatically added from House manual polls; house effect pending review.,True
@@ -9,6 +10,7 @@ co/Efficient,co efficient,co/Efficient,0.0,low,Automatically added from House ma
 Cygnal,cygnal,Cygnal,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 DCCC,dccc,DCCC,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 DCCC Targeting Team,dccc targeting team,DCCC Targeting Team,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+DHM Research,dhm research,DHM Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Emerson,emerson,Emerson,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 F&M,f and m,F&M,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Fabrizio Lee,fabrizio lee,Fabrizio Lee,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
@@ -33,6 +35,7 @@ JL Partners,jl partners,JL Partners,0.0,low,Automatically added from House manua
 Keating Research Inc.,keating research inc,Keating Research Inc.,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Lake Research,lake research,Lake Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Lake Research Partners,lake research partners,Lake Research Partners,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+Lighthouse Research,lighthouse research,Lighthouse Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 McLaughlin,mclaughlin,McLaughlin,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Miller Consulting Services,miller consulting services,Miller Consulting Services,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 MPRC,mprc,MPRC,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
@@ -44,11 +47,13 @@ PPP,ppp,PPP,0.0,low,House registry initialized from proven Senate aliases; House
 Public Opinion Research,public opinion research,Public Opinion Research,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Public Opinion Strategies,public opinion strategies,Public Opinion Strategies,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Public Opinion Strategies (D),public opinion strategies d,Public Opinion Strategies (D),0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+Public Policy Polling,public policy polling,Public Policy Polling,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Quantus,quantus,Quantus,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Quantus Insights,quantus insights,Quantus Insights,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Ragnar,ragnar,Ragnar,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Ragnar Research,ragnar research,Ragnar Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 ReconMR,reconmr,ReconMR,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+Remington,remington,Remington,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Sea Polling,sea polling,Sea Polling,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Siena,siena,Siena,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 St. Pete Polls,st pete polls,St. Pete Polls,0.0,low,Automatically added from House manual polls; house effect pending review.,True
@@ -67,6 +72,8 @@ UMASS Lowell,umass lowell,UMASS Lowell,0.0,low,House registry initialized from p
 UNH,unh,UNH,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Unknown,unknown,Unknown,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Upswing Research,upswing research,Upswing Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+Washington Post/George Mason,washington post george mason,Washington Post/George Mason,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+Washington Post/GMU,washington post gmu,Washington Post/GMU,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Wedgewood,wedgewood,Wedgewood,0.0,low,Automatically added from manual polls; house effect pending review.,True
 WelcomePAC,welcomepac,WelcomePAC,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 WNYT/Survey USA,wnyt survey usa,WNYT/Survey USA,0.0,low,Automatically added from House manual polls; house effect pending review.,True
