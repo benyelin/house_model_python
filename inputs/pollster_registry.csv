@@ -1,4 +1,5 @@
 canonical_pollster,normalized_pollster_key,aliases,pollster_house_effect_dem,house_effect_confidence,house_effect_notes,active
+20/20 Insight,20 20 insight,20/20 Insight,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 2Way/Wick,2way wick,2Way/Wick,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Alaska Survey Research,alaska survey research,Alaska Survey Research,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 American Pulse Research & Polling,american pulse research and polling,American Pulse Research & Polling,0.0,low,Automatically added from House manual polls; house effect pending review.,True
@@ -6,16 +7,19 @@ Applecart,applecart,Applecart,0.0,low,Automatically added from House manual poll
 Beacon/Shaw,beacon shaw,Beacon/Shaw|Beacon Shaw,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Bendixen & Anandi,bendixen and anandi,Bendixen & Anandi,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Change Research,change research,Change Research,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+Christopher Newport University,christopher newport university,Christopher Newport University,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 co/Efficient,co efficient,co/Efficient,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Cygnal,cygnal,Cygnal,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 DCCC,dccc,DCCC,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 DCCC Targeting Team,dccc targeting team,DCCC Targeting Team,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 DHM Research,dhm research,DHM Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Emerson,emerson,Emerson,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+Expedition Strategies,expedition strategies,Expedition Strategies,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 F&M,f and m,F&M,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Fabrizio Lee,fabrizio lee,Fabrizio Lee,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Fabrizio Ward,fabrizio ward,Fabrizio Ward|Fabrizio/Ward,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Fabrizio/Impact Research,fabrizio impact research,Fabrizio/Impact Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+FirstStrategic Communications and Public Affairs,firststrategic communications and public affairs,FirstStrategic Communications and Public Affairs,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 FM3,fm3,FM3,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 FM3 Research,fm3 research,FM3 Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Fox News,fox news,Fox News,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
@@ -39,7 +43,9 @@ Lighthouse Research,lighthouse research,Lighthouse Research,0.0,low,Automaticall
 McLaughlin,mclaughlin,McLaughlin,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Miller Consulting Services,miller consulting services,Miller Consulting Services,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 MPRC,mprc,MPRC,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+Neighborhood Research Corporation,neighborhood research corporation,Neighborhood Research Corporation,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 "Normington, Petts & Associates",normington petts and associates,"Normington, Petts & Associates",0.0,low,Automatically added from House manual polls; house effect pending review.,True
+NY Times/Siena,ny times siena,NY Times/Siena,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Pan Atlantic,pan atlantic,Pan Atlantic,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Peak Insights,peak insights,Peak Insights,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 POS,pos,POS,0.0,low,Automatically added from House manual polls; house effect pending review.,True
@@ -65,13 +71,16 @@ Tavern Research,tavern research,Tavern Research,0.0,low,House registry initializ
 Texas Southern,texas southern,Texas Southern,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 The Bulfinch Group,the bulfinch group,The Bulfinch Group,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 The Bullfinch Group,the bullfinch group,The Bullfinch Group,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+Torchlight Strategies,torchlight strategies,Torchlight Strategies,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 TPSI,tpsi,TPSI,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Tulchin,tulchin,Tulchin,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 Tulchin Research,tulchin research,Tulchin Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 UMASS Lowell,umass lowell,UMASS Lowell,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
 UNH,unh,UNH,0.0,low,House registry initialized from proven Senate aliases; House house effect pending review.,True
+University of Houston Hobby School of Public Affairs,university of houston hobby school of public affairs,University of Houston Hobby School of Public Affairs,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Unknown,unknown,Unknown,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Upswing Research,upswing research,Upswing Research,0.0,low,Automatically added from House manual polls; house effect pending review.,True
+VoteNexus,votenexus,VoteNexus,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Washington Post/George Mason,washington post george mason,Washington Post/George Mason,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Washington Post/GMU,washington post gmu,Washington Post/GMU,0.0,low,Automatically added from House manual polls; house effect pending review.,True
 Wedgewood,wedgewood,Wedgewood,0.0,low,Automatically added from manual polls; house effect pending review.,True
