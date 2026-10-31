@@ -9,6 +9,7 @@ from house_polling_components import (
     prepare_house_poll_questions,
 )
 import numpy as np
+from alaska_house_polling_override import apply_alaska_house_polling_override
 
 INPUTS = Path("inputs")
 
@@ -325,11 +326,45 @@ def main():
 
     polls = pd.read_csv(HOUSE_MANUAL_POLLS)
 
+    # Excluded pollsters must never enter production polling.
+    # Historical snapshots and quarantine archives remain untouched.
+    if "pollster" not in polls.columns:
+        raise ValueError(
+            "House manual polling input lacks pollster column."
+        )
+
+    excluded_pollsters = {"wedgewood", "wedgewood polls"}
+    excluded_mask = (
+        polls["pollster"]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+        .str.lower()
+        .isin(excluded_pollsters)
+    )
+
+    if excluded_mask.any():
+        excluded_names = sorted(
+            polls.loc[excluded_mask, "pollster"]
+            .astype(str)
+            .unique()
+            .tolist()
+        )
+        raise RuntimeError(
+            "Excluded Wedgewood pollster detected in House "
+            "production polling input: "
+            + ", ".join(excluded_names)
+            + ". Quarantine these records before ingestion."
+        )
+
     if polls.empty:
         print("house_manual_polls.csv is empty. Clearing polling fields.")
         empty_poll_outputs(races)
         print(f"Wrote {OUTPUT_AVERAGES}")
         return
+
+    # Alaska 2026: use verified R-vs-I final-round polling.
+    polls = apply_alaska_house_polling_override(polls)
 
     polls, unmatched, dropped = (
         prepare_house_poll_questions(
