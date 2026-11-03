@@ -43,8 +43,8 @@ MI-4,MI,4.0,0.40918643904500823,2,2026-09-16,100.5,0.3640957979665823,"Manual Ho
 MI-7,MI,,6.072730978220556,2,2026-10-14,50.0,0.7383149820134723,"Manual House polling average from 2 poll(s): GSG, Emerson",1.7732676791255806,0.6787884963700925,False
 MN-1,MN,1,0.8009610706922221,3,2026-10-14,27.333333333333332,1.4546112055775793,"Manual House polling average from 3 poll(s): GBAO, SurveyUSA, PPP",2.735308524870942,0.4499947425008217,False
 MN-2,MN,2,10.5,1,2026-09-13,50.0,0.25894766828444127,Manual House polling average from 1 poll(s): Impact Research,1.0,1.0,True
-MO-2,MO,2.0,1.933390983811173,4,2026-10-20,58.75,1.5928604498061198,"Manual House polling average from 4 poll(s): FM3 Research, Remington, PPP, Emerson",3.271955820507371,0.35555417954184454,False
-MT-1,MT,,3.8115467801461125,9,2026-10-29,67.66666666666667,2.729244444148725,"Manual House polling average from 9 poll(s): Impact Research, Impact Research, Upswing Research, PPP, American Pulse Research & Polling, Impact Research, PPP, Emerson, Montana State",7.021021732772352,0.32903996756925097,False
+MO-2,MO,2.0,1.6398737538816157,5,2026-11-01,47.2,2.323523309558201,"Manual House polling average from 5 poll(s): FM3 Research, Remington, PPP, Emerson, Emerson",4.123369716313332,0.5582087533927799,False
+MT-1,MT,,3.0929937722949714,10,2026-11-01,61.0,3.3632925376400222,"Manual House polling average from 10 poll(s): Impact Research, Impact Research, Upswing Research, PPP, American Pulse Research & Polling, Impact Research, PPP, Emerson, Montana State, Emerson",7.732185749145771,0.3410463199925,False
 MT-2,MT,2,11.0,1,2026-10-21,12.0,0.3291600891839388,Manual House polling average from 1 poll(s): Montana State,1.0,1.0,False
 NC-1,NC,,5.405945013530982,6,2026-10-08,88.33333333333333,2.0272094297908083,"Manual House polling average from 6 poll(s): GQR, GQR, Unknown, GQR, Neighborhood Research Corporation, Co/Efficient",4.6464273237851765,0.32376039318433836,False
 NC-10,NC,,-15.0,1,2026-03-12,235.0,0.05,Manual House polling average from 1 poll(s): Ragnar Research,1.0,1.0,False
