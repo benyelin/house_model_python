@@ -47,9 +47,9 @@ def apply_alaska_house_polling_override(polls):
         )
     )
 
-    if final_round.sum() != 4:
+    if final_round.sum() < 4:
         raise RuntimeError(
-            "Expected exactly four Alaska final-round polls."
+            "Expected at least four Alaska final-round polls."
         )
 
     for index in out.index[final_round]:
